@@ -57,7 +57,7 @@ $checkbox-outline-width: 2px;
 
 .checked {
   .tick-box {
-    border-color: $default-input-active-outline-color;
+    border-color: transparent;
     background: $default-input-active-outline-color;
     color: get-color('white');
   }

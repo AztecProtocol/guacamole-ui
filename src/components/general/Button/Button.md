@@ -71,6 +71,10 @@ import DemoItems from '../../demo/DemoItems';
 import DemoItems from '../../demo/DemoItems';
 <DemoItems>
   <Button
+    text={'size="xxs"'}
+    size="xxs"
+  />
+  <Button
     text={'size="xs"'}
     size="xs"
   />
@@ -85,6 +89,14 @@ import DemoItems from '../../demo/DemoItems';
   <Button
     text={'size="l"'}
     size="l"
+  />
+  <Button
+    text={'size="xl"'}
+    size="xl"
+  />
+  <Button
+    text={'size="xxl"'}
+    size="xxl"
   />
 </DemoItems>
 ```

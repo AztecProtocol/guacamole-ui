@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
-  inputSizeKeys,
   defaultInputSizeKey,
 } from 'src/config/inputs';
+import {
+  buttonSizeKeys,
+} from 'src/config/buttons';
 import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
 import generateResponsiveShape from 'src/helpers/generateResponsiveShape';
 import styles from './button.scss';
@@ -89,7 +91,7 @@ export const Button = ({
 Button.propTypes = {
   className: PropTypes.string,
   theme: PropTypes.oneOf(['primary', 'secondary', 'white']),
-  size: generateResponsiveShape(inputSizeKeys),
+  size: generateResponsiveShape(buttonSizeKeys),
   text: PropTypes.string,
   icon: PropTypes.element,
   alignIcon: PropTypes.oneOf(['left', 'right']),

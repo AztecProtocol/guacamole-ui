@@ -2,7 +2,7 @@ import {
   colorMap,
 } from './colors';
 
-export const defaultInputSizeKey = 's';
+export const defaultInputSizeKey = 'm';
 
 export const inputSizeMap = {
   xs: '24px',

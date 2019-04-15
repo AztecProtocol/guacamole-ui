@@ -6,18 +6,19 @@
 @import '../../../styles/shapes';
 
 @mixin responsive-button($suffix) {
-  @each $key, $text-size-key in $button-text-size-map {
+  @each $key, $height in $button-size-map {
+    $text-size-key: map-get($button-text-size-map, $key);
+    $line-height: get-line-height($text-size-key);
+    $padding-v: ($height - $line-height) / 2;
+    $padding-h: get-spacing(map-get($button-spacing-h-size-map, $key));
     .size-#{$suffix}-#{$key} {
-      height: map-get($button-size-map, $key);
-      font-size: get-font-size($text-size-key);
-      border-radius: get-line-height($text-size-key) * 0.15;
-
-      $padding-v: get-spacing(map-get($button-spacing-v-size-map, $key));
-      $padding-h: get-spacing(map-get($button-spacing-h-size-map, $key));
       padding: $padding-v $padding-h;
+      height: $height;
+      font-size: get-font-size($text-size-key);
+      line-height: $text-size-key;
 
       &.outlined {
-          padding: ($padding-v - $button-border-width * 2) $padding-h;
+        padding: ($padding-v - $button-border-width * 2) $padding-h;
       }
 
       &.rounded {
@@ -42,6 +43,7 @@
 }
 
 .button {
+  @include rounded-corner();
   position: relative;
   display: inline-block;
   margin: 0;

@@ -5,7 +5,6 @@
 
 $slide-handle-spacing: get-spacing('xs');
 $slide-handle-border-width: 1px;
-
 $slide-bg-color: get-color('secondary-lightest');
 
 .wrapper {
@@ -35,7 +34,6 @@ $slide-bg-color: get-color('secondary-lightest');
   position: absolute;
   left: 0;
   display: flex;
-  margin-top: -($slide-handle-border-width);
   border-radius: 100%;
   align-items: center;
   justify-content: center;
