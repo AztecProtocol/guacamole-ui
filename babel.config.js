@@ -42,7 +42,7 @@ module.exports = {
             extensions: ['.scss'],
             preprocessCss: path.resolve(__dirname, 'scripts/tasks/preprocessCss'),
             append: ['postcss-cssnext'],
-            extractCss: path.resolve(__dirname, 'dist/guacamole-ui.css'),
+            extractCss: path.resolve(__dirname, 'dist/styles/guacamole-ui.css'),
           },
         ],
       ],

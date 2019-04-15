@@ -29,5 +29,5 @@ render(
 And remember to import the stylesheet:
 
 ```
-import '@aztec/guacamole-ui/dist/guacamole-ui.css';
+import '@aztec/guacamole-ui/dist/styles/guacamole-ui.css';
 ```
