@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import isObjectEmpty from 'utils/isObjectEmpty';
 import fieldShape from 'src/shapes/fieldShape';
+import {
+  inputSizeKeys,
+  defaultInputSizeKey,
+} from 'src/config/inputs';
 import Row from '../../layout/Row';
 import Col from '../../layout/Col';
 import Offset from '../../layout/Offset';
@@ -169,6 +173,7 @@ class Form extends PureComponent {
     }
 
     const {
+      size,
       formData,
     } = this.props;
     const {
@@ -224,10 +229,10 @@ class Form extends PureComponent {
                 <Row>
                   <Col column={hasErrorCol ? column : 12}>
                     <FieldInput
+                      inputSize={size}
                       {...fieldConfig}
                       key={fieldName}
                       fieldName={fieldName}
-                      inputSize="l"
                       inputStatus={error ? 'error' : ''}
                       value={value}
                       data={data}
@@ -288,6 +293,7 @@ class Form extends PureComponent {
       extraContent: formExtraContent,
     } = formConfig;
     const {
+      size,
       isLoading,
       renderForm,
       renderFooter,
@@ -353,6 +359,7 @@ class Form extends PureComponent {
             align={buttonAlign}
           >
             <Button
+              size={size}
               text={buttonText}
               onSubmit={() => this.handleSubmit(formIndex)}
               isLoading={isLoading}
@@ -392,6 +399,7 @@ class Form extends PureComponent {
 
 Form.propTypes = {
   className: PropTypes.string,
+  size: PropTypes.oneOf(inputSizeKeys),
   initialData: PropTypes.object,
   data: PropTypes.object,
   formData: PropTypes.object,
@@ -416,6 +424,7 @@ Form.propTypes = {
 
 Form.defaultProps = {
   className: '',
+  size: defaultInputSizeKey,
   initialData: {},
   data: undefined,
   formData: null,
