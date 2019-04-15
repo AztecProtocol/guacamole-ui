@@ -15,6 +15,8 @@ var _isObjectEmpty = _interopRequireDefault(require("../../../utils/isObjectEmpt
 
 var _fieldShape = _interopRequireDefault(require("../../../shapes/fieldShape"));
 
+var _inputs = require("../../../config/inputs");
+
 var _Row = _interopRequireDefault(require("../../layout/Row"));
 
 var _Col = _interopRequireDefault(require("../../layout/Col"));
@@ -216,7 +218,9 @@ function (_PureComponent) {
         return null;
       }
 
-      var formData = this.props.formData;
+      var _this$props2 = this.props,
+          size = _this$props2.size,
+          formData = _this$props2.formData;
       var _this$state3 = this.state,
           data = _this$state3.data,
           errors = _this$state3.errors;
@@ -260,10 +264,11 @@ function (_PureComponent) {
           padding: "xs 0"
         }, _react.default.createElement(_Row.default, null, _react.default.createElement(_Col.default, {
           column: hasErrorCol ? column : 12
-        }, _react.default.createElement(_FieldInput.default, _extends({}, fieldConfig, {
+        }, _react.default.createElement(_FieldInput.default, _extends({
+          inputSize: size
+        }, fieldConfig, {
           key: fieldName,
           fieldName: fieldName,
-          inputSize: "l",
           inputStatus: error ? 'error' : '',
           value: value,
           data: data,
@@ -309,10 +314,11 @@ function (_PureComponent) {
           buttonAlign = formConfig.buttonAlign,
           fields = formConfig.fields,
           formExtraContent = formConfig.extraContent;
-      var _this$props2 = this.props,
-          isLoading = _this$props2.isLoading,
-          renderForm = _this$props2.renderForm,
-          renderFooter = _this$props2.renderFooter;
+      var _this$props3 = this.props,
+          size = _this$props3.size,
+          isLoading = _this$props3.isLoading,
+          renderForm = _this$props3.renderForm,
+          renderFooter = _this$props3.renderFooter;
       var fieldNodes = this.renderFields(fields, formConfig);
 
       if (renderForm) {
@@ -354,6 +360,7 @@ function (_PureComponent) {
         padding: "l 0",
         align: buttonAlign
       }, _react.default.createElement(_Button.default, {
+        size: size,
         text: buttonText,
         onSubmit: function onSubmit() {
           return _this3.handleSubmit(formIndex);
@@ -366,11 +373,11 @@ function (_PureComponent) {
     value: function render() {
       var _this4 = this;
 
-      var _this$props3 = this.props,
-          className = _this$props3.className,
-          fieldsConfig = _this$props3.fieldsConfig,
-          expand = _this$props3.expand,
-          extraContent = _this$props3.extraContent;
+      var _this$props4 = this.props,
+          className = _this$props4.className,
+          fieldsConfig = _this$props4.fieldsConfig,
+          expand = _this$props4.expand,
+          extraContent = _this$props4.extraContent;
       var totalForms = fieldsConfig.length;
       return _react.default.createElement(_Offset.default, {
         className: className,
@@ -387,6 +394,7 @@ function (_PureComponent) {
 
 Form.propTypes = {
   className: _propTypes.default.string,
+  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
   initialData: _propTypes.default.object,
   data: _propTypes.default.object,
   formData: _propTypes.default.object,
@@ -410,6 +418,7 @@ Form.propTypes = {
 };
 Form.defaultProps = {
   className: '',
+  size: _inputs.defaultInputSizeKey,
   initialData: {},
   data: undefined,
   formData: null,

@@ -7,7 +7,7 @@ exports.darkThemeInputValueColor = exports.darkThemeInputActiveOutlineColor = ex
 
 var _colors = require("./colors");
 
-var defaultInputSizeKey = 's';
+var defaultInputSizeKey = 'm';
 exports.defaultInputSizeKey = defaultInputSizeKey;
 var inputSizeMap = {
   xs: '24px',

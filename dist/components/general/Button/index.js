@@ -15,6 +15,8 @@ var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _inputs = require("../../../config/inputs");
 
+var _buttons = require("../../../config/buttons");
+
 var _generateResponsiveStyleNames = _interopRequireDefault(require("../../../helpers/generateResponsiveStyleNames"));
 
 var _generateResponsiveShape = _interopRequireDefault(require("../../../helpers/generateResponsiveShape"));
@@ -35,23 +37,32 @@ var styles = {
   "button-spinner-spin": "button__button-spinner-spin___2Odrt",
   "icon-left": "button__icon-left___3auCj",
   "icon-right": "button__icon-right___2nBrB",
-  "size-m-xs": "button__size-m-xs___GKZFB",
+  "size-m-xxs": "button__size-m-xxs___3z3GD",
   "rounded": "button__rounded___2Upg1",
+  "size-m-xs": "button__size-m-xs___GKZFB",
   "size-m-s": "button__size-m-s___1alZ4",
   "size-m-m": "button__size-m-m___DYmXB",
   "size-m-l": "button__size-m-l___3lzxp",
+  "size-m-xl": "button__size-m-xl___2E9nU",
+  "size-m-xxl": "button__size-m-xxl___PBvA4",
   "expand-m-false": "button__expand-m-false___3mlwW",
   "expand-m-true": "button__expand-m-true___3MxWc",
+  "size-s-xxs": "button__size-s-xxs___sHXwj",
   "size-s-xs": "button__size-s-xs___1Zozk",
   "size-s-s": "button__size-s-s___3bYIG",
   "size-s-m": "button__size-s-m___g9xQd",
   "size-s-l": "button__size-s-l___1hEsV",
+  "size-s-xl": "button__size-s-xl___39nXC",
+  "size-s-xxl": "button__size-s-xxl___UYsNO",
   "expand-s-false": "button__expand-s-false___yDTE6",
   "expand-s-true": "button__expand-s-true___JtZQ7",
+  "size-xs-xxs": "button__size-xs-xxs___1x0SW",
   "size-xs-xs": "button__size-xs-xs___2CbVm",
   "size-xs-s": "button__size-xs-s___3C6H2",
   "size-xs-m": "button__size-xs-m___3AFaC",
   "size-xs-l": "button__size-xs-l___1ehV_",
+  "size-xs-xl": "button__size-xs-xl___2r9Wv",
+  "size-xs-xxl": "button__size-xs-xxl___8N7MI",
   "expand-xs-false": "button__expand-xs-false___2vEUy",
   "expand-xs-true": "button__expand-xs-true___6ino7",
   "group": "button__group___4zRQb",
@@ -116,7 +127,7 @@ exports.Button = Button;
 Button.propTypes = {
   className: _propTypes.default.string,
   theme: _propTypes.default.oneOf(['primary', 'secondary', 'white']),
-  size: (0, _generateResponsiveShape.default)(_inputs.inputSizeKeys),
+  size: (0, _generateResponsiveShape.default)(_buttons.buttonSizeKeys),
   text: _propTypes.default.string,
   icon: _propTypes.default.element,
   alignIcon: _propTypes.default.oneOf(['left', 'right']),
