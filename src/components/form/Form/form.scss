@@ -1,0 +1,25 @@
+@import '../../../styles/layout';
+@import '../../../styles/typography';
+
+.wrapper {
+  max-width: 600px;
+}
+
+.form {
+  & + .form {
+    border-top: 1px solid $default-border-color;
+  }
+}
+
+.label-required {
+  position: relative;
+
+  &:after {
+    content: '*';
+    position: absolute;
+    right: -(get-spacing('xxs'));
+    top: -(get-spacing('xxs'));
+    transform: translateX(100%);
+    font-size: get-font-size('xxs');
+  }
+}

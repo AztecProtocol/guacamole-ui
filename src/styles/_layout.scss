@@ -1,0 +1,3 @@
+@function get-spacing($size) {
+  @return map-get($spacing-map, $size);
+}

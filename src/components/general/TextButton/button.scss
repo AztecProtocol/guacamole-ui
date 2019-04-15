@@ -1,0 +1,78 @@
+@import '../../../styles/typography';
+@import '../../../styles/colors';
+
+@mixin hovered-link($color, $amount: 20%) {
+    color: get-darken-color($color, $amount);
+}
+
+@each $name, $color in $color-map {
+    .color-#{$name} {
+        color: $color;
+    }
+}
+@each $name, $color in $default-text-color-map {
+    .color-#{$name} {
+        color: $color;
+    }
+}
+
+a {
+    &.button {
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+.button {
+    display: inline;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover:not(.disabled) {
+        text-decoration: underline;
+    }
+
+    &:hover:not(.disabled),
+    &:active {
+        @each $color-name, $color in $color-map {
+            &.color-#{$color-name} {
+                @include hovered-link($color);
+            }
+        }
+        @each $color-name, $color in $default-text-color-map {
+            &.color-#{$color-name} {
+                @include hovered-link($color);
+            }
+        }
+    }
+}
+
+.theme-default {
+    text-transform: uppercase;
+
+    &:hover:not(.disabled) {
+        text-decoration: none;
+    }
+}
+
+.theme-underline {
+    text-decoration: underline;
+
+    // Overwrite rules from ant design
+    &.button:not(.disabled) {
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+
+  * {
+    opacity: 0.4;
+  }
+}

@@ -1,0 +1,91 @@
+@keyframes button-spinner-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  8%, 41% {
+    transform: translateX(-8px);
+  }
+  25%, 58% {
+    transform: translateX(8px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  92% {
+    transform: translateX(4px);
+  }
+  0%, 100% {
+    transform: translateX(0);
+  }
+}
+
+@mixin spinner($spinner-size: 0, $color: inherit, $background-color: get-color('white-lighter')) {
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -($spinner-size / 2);
+    margin-left: -($spinner-size / 2);
+    width: $spinner-size;
+    height: $spinner-size;
+    border-radius: 100%;
+    border: {
+      width: $spinner-size / 10;
+      style: solid;
+    };
+  }
+
+  &:before {
+    border-color: $background-color;
+  }
+
+  &:after {
+    border-color: transparent;
+    border-top-color: $color;
+    animation: button-spinner-spin 0.6s linear;
+    animation-iteration-count: infinite;
+  }
+}
+
+@mixin spinner-shape($spinner-size) {
+  &:before,
+  &:after {
+    margin-top: -($spinner-size / 2);
+    margin-left: -($spinner-size / 2);
+    width: $spinner-size;
+    height: $spinner-size;
+    border-width: $spinner-size / 10;
+  }
+}
+
+@mixin spinner-style($color) {
+  &:before {
+    border-color: $color;
+    opacity: 0.5;
+  }
+  &:after {
+    border-top-color: $color;
+  }
+}
+
+@mixin blurry-background($blur-size) {
+  $offset-size: $blur-size * 2;
+  position: absolute;
+  top: -$offset-size;
+  right: -$offset-size;
+  bottom: -$offset-size;
+  left: -$offset-size;
+  width: 100%;
+  height: 100%;
+  width: calc(100% + #{$offset-size * 2});
+  height: calc(100% + #{$offset-size * 2});
+  filter: blur($blur-size);
+}

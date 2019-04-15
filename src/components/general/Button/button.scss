@@ -1,0 +1,206 @@
+@import '../../../styles/mixins';
+@import '../../../styles/layout';
+@import '../../../styles/typography';
+@import '../../../styles/colors';
+@import '../../../styles/backgrounds';
+@import '../../../styles/shapes';
+
+@mixin responsive-button($suffix) {
+  @each $key, $text-size-key in $button-text-size-map {
+    .size-#{$suffix}-#{$key} {
+      height: map-get($button-size-map, $key);
+      font-size: get-font-size($text-size-key);
+      border-radius: get-line-height($text-size-key) * 0.15;
+
+      $padding-v: get-spacing(map-get($button-spacing-v-size-map, $key));
+      $padding-h: get-spacing(map-get($button-spacing-h-size-map, $key));
+      padding: $padding-v $padding-h;
+
+      &.outlined {
+          padding: ($padding-v - $button-border-width * 2) $padding-h;
+      }
+
+      &.rounded {
+        border-radius: map-get($button-size-map, $key) / 2;
+      }
+
+      &.isLoading {
+        $spinner-size: get-line-height($text-size-key);
+        @include spinner-shape($spinner-size);
+      }
+    }
+  }
+
+  .expand-#{$suffix}-false {
+    display: inline-block;
+  }
+
+  .expand-#{$suffix}-true {
+    display: block;
+    width: 100%;
+  }
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  border: none;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  box-shadow: none;
+
+  &:focus {
+      outline: none;
+  }
+}
+
+@each $theme, $color-name in $button-theme-map {
+  $button-color: get-color($color-name);
+  $button-content-color: get-text-color-on-background($color-name);
+  $button-hovered-color: get-darken-color(get-color($color-name), 5%);
+  .theme-#{$theme} {
+    @include background($color-name, 1);
+    color: $button-content-color;
+
+    @if $theme == 'white' {
+      font-weight: map-get($font-weight-map, 'book');
+    }
+
+    &:not(.disabled-hover):hover {
+      background: $button-hovered-color;
+      color: $button-content-color;
+    }
+
+    &.outlined {
+      background: transparent;
+      color: $button-color;
+      border: $button-border-width solid $button-color;
+
+      &:not(.disabled-hover):hover {
+        @include background($color-name, 1);
+        color: $button-content-color;
+        border-color: transparent;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    &.isLoading {
+      color: transparent;
+      cursor: default;
+
+      & > * {
+        opacity: 0;
+      }
+
+      &:before {
+        border-color: $button-content-color;
+        opacity: 0.5;
+      }
+
+      &:after {
+        border-top-color: $button-content-color;
+      }
+
+      &.outlined {
+        color: transparent;
+
+        &:before {
+          border-color: $button-color;
+          opacity: 0.5;
+        }
+
+        &:after {
+          border-top-color: $button-color;
+        }
+      }
+    }
+  }
+}
+
+.isLoading {
+  $spinner-size: get-line-height(map-get($button-text-size-map, 's'));
+  @include spinner();
+}
+
+%button-icon {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.icon-left {
+  @extend %button-icon;
+  margin-right: get-spacing(m);
+}
+
+.icon-right {
+  @extend %button-icon;
+  margin-left: get-spacing(m);
+}
+
+@include responsive-button('m');
+
+@media all and (max-width: $max-device-width-s) {
+  @include responsive-button('s');
+}
+
+@media all and (max-width: $max-device-width-xs) {
+  @include responsive-button('xs');
+}
+
+.group {
+  .button {
+    & + .button {
+      margin-left: -($button-border-width);
+    }
+
+    & + .button:not(:last-child) {
+      border-radius: 0;
+    }
+
+    &.outlined {
+      @include background('white');
+
+      &.theme-white {
+        background: transparent;
+
+        &:hover {
+          @include background('white');
+        }
+      }
+    }
+
+    &:first-child:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-right-color: transparent;
+    }
+  }
+
+  @each $theme, $color-name in $button-theme-map {
+    $button-border-color: get-text-color-on-background($color-name);
+    .theme-#{$theme}:not(.outlined) {
+      & + .theme-#{$theme} {
+        border-left: $button-border-width solid $button-border-color;
+      }
+    }
+  }
+}

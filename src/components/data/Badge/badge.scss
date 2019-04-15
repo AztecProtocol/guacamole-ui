@@ -1,0 +1,65 @@
+@import '../../../styles/layout';
+@import '../../../styles/typography';
+@import '../../../styles/backgrounds';
+
+$badge-theme-background-map: (
+  'default': 'red',
+  'label': $default-label-color-key,
+);
+
+.badge {
+  display: inline-block;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+$badge-size-map: (
+  xxs: 12px,
+  xs: 16px,
+  s: 20px,
+  m: 24px,
+  l: 28px,
+  xl: 32px,
+  xxl: 36px,
+);
+
+@each $key, $size in $badge-size-map {
+  .size-#{$key} {
+    $spacing: get-spacing('xxs');
+    @if $spacing * 10 <= $size {
+      $spacing: get-spacing('xs');
+    }
+    @if $spacing * 10 <= $size {
+      $spacing: get-spacing('s');
+    }
+    $font-size: $size - $spacing * 2;
+    padding: $spacing;
+    min-width: $size;
+    height: $size;
+    line-height: 1;
+    font-size: $font-size;
+    border-radius: $size / 2;
+    text-align: center;
+  }
+
+  .dot-#{$key} {
+    $dot-size: get-spacing($key) / 2;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    min-width: 0;
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: 100%;
+  }
+}
+
+@each $theme, $bg-color-name in $badge-theme-background-map {
+  .theme-#{$theme} {
+    @include background($bg-color-name);
+    color: get-text-color-on-background($bg-color-name);
+  }
+}

@@ -1,0 +1,188 @@
+@import '../../../styles/layout';
+@import '../../../styles/inputs';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+@import '../../../styles/shapes';
+
+$step-font-size-key-map: (
+  'xs': 'xxs',
+  's': 'xs',
+  'm': 'xs',
+  'l': 's',
+);
+
+$step-size-map: (
+  'xs': 30px,
+  's': 36px,
+  'm': 40px,
+  'l': 48px,
+);
+
+$step-border-radius: map-get($rounded-corner-map, 'small');
+
+.progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.step {
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: auto;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  user-select: none;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border: {
+      style: solid;
+      color: transparent;
+    }
+    transition: border-color 0.2s ease;
+    z-index: 1;
+  }
+
+  &:first-child {
+    border-radius: $step-border-radius 0 0 $step-border-radius;
+  }
+
+  &:last-child {
+    border-radius: 0 $step-border-radius $step-border-radius 0;
+
+    &:after {
+      border: none;
+    }
+  }
+}
+
+.step-tail {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+
+  &:after,
+  &:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: {
+      style: solid;
+      color: transparent;
+    }
+    transition: border-color 0.2s ease;
+  }
+}
+
+.step-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin themed-step($bg-color) {
+  background-color: $bg-color;
+
+  &:after {
+    border-left-color: $bg-color;
+  }
+
+  .step-tail {
+    &:before {
+      border-top-color: $bg-color;
+    }
+    &:after {
+      border-bottom-color: $bg-color;
+    }
+  }
+}
+
+@each $key, $bg-color-name in $svg-progress-theme-bg-map {
+  $bg-color: get-color($bg-color-name);
+  $active-bg-color: get-darken-color(rgba-to-rgb($bg-color), 8%);
+  $focus-bg-color: get-darken-color(rgba-to-rgb($active-bg-color), 4%);
+
+  .theme-#{$key} {
+    .step {
+      color: get-text-color-on-background($bg-color-name);
+      @include themed-step($bg-color);
+
+      &.finished {
+        @include themed-step($active-bg-color);
+      }
+
+      &.clickable {
+        &:hover {
+          &.finished {
+            @include themed-step($focus-bg-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $key, $step-size in $step-size-map {
+  .size-#{$key} {
+    $font-size-key: map-get($step-font-size-key-map, $key);
+    $arrow-size: $step-size / 2;
+    $step-spacing: get-spacing('xs');
+    @include font-size($font-size-key);
+
+    .step {
+      height: $step-size;
+
+      & + .step {
+        margin-left: $arrow-size + $step-spacing;
+      }
+
+      &:after {
+        right: -($arrow-size);
+        border-width: $arrow-size;
+        border-right-width: 0;
+      }
+
+      .step-tail {
+        left: -($arrow-size + $step-spacing);
+        width: $arrow-size + $step-spacing;
+
+        &:before,
+        &:after {
+          left: $step-spacing;
+          border-width: $arrow-size;
+        }
+
+        &:before {
+          border-bottom-width: 0;
+        }
+
+        &:after {
+          top: $arrow-size;
+          border-top-width: 0;
+        }
+      }
+    }
+
+    .step-content {
+      padding-left: get-spacing($key);
+      padding-right: get-spacing($key);
+    }
+  }
+}
+
+.icon {
+  & + .title {
+    margin-left: get-spacing('s');
+  }
+}

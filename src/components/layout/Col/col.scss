@@ -1,0 +1,80 @@
+@import '../../../styles/layout';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+$aligns: (
+    left,
+    center,
+    right,
+);
+
+@mixin column($column) {
+    @if $column == 0 {
+        display: none;
+        width: 0;
+        overflow: hidden;
+    } @else {
+        display: block;
+        flex-basis: percentage($column / $max-grid-columns);
+        max-width: percentage($column / $max-grid-columns);
+    }
+}
+
+@mixin shift($column) {
+    margin-left: percentage($column / $max-grid-columns);
+}
+
+@mixin col-margin($suffix, $spacing) {
+    .margin#{$suffix} {
+        padding-left: $spacing;
+        padding-right: $spacing;
+    }
+}
+
+@mixin responsive-col($suffix) {
+    .col-#{$suffix}-auto {
+        flex: 1 1 auto;
+    }
+
+    @for $i from 0 through $max-grid-columns {
+        .col-#{$suffix}-#{$i} {
+            @include column($i);
+        }
+
+        @if $i {
+            .shift-#{$suffix}-#{$i} {
+                @include shift($i);
+            }
+        }
+    }
+
+    @each $key, $size in $spacing-map {
+        $_suffix: '-' + $suffix + '-' + $key;
+        @include col-margin($_suffix, $size);
+    }
+
+    @include col-margin('-' + $suffix + '-none', 0);
+
+    @each $value in $aligns {
+        .align-#{$suffix}-#{$value} {
+            text-align: $value;
+        }
+    }
+}
+
+@each $name, $color in $color-map {
+    .bg-#{$name} {
+        background: $color;
+        color: get-text-color-on-background($name);
+    }
+}
+
+@include responsive-col('m');
+
+@media (max-width: $max-device-width-s) {
+    @include responsive-col('s');
+}
+
+@media (max-width: $max-device-width-xs) {
+    @include responsive-col('xs');
+}

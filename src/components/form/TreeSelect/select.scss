@@ -1,0 +1,20 @@
+.wrapper {
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-height: 80vh;
+}
+
+.filter-input {
+  flex-shrink: 0;
+}
+
+.tree-data {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+}

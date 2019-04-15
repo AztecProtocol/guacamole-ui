@@ -1,0 +1,103 @@
+@import './colors';
+@import './shapes';
+@import './backgrounds';
+@import './typography';
+@import './layout';
+
+@mixin input() {
+  @include rounded-corner();
+  @include background('white');
+  position: relative;
+  appearance: none;
+  padding: 0;
+  width: 100%;
+  outline-width: 0;
+  outline-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  box-shadow: none;
+  border: 1px solid $default-input-outline-color;
+  color: $default-input-value-color;
+  transition: border-color 0.2s ease-out;
+  text-align: inherit;
+
+  &:focus, &:hover {
+    border-color: $default-input-active-outline-color;
+    box-shadow: none;
+  }
+
+  &::placeholder {
+    color: get-color($default-label-color-key, 0.5);
+  }
+}
+
+@function get-input-vertical-padding($size-key) {
+  $size: map-get($input-size-map, $size-key);
+  $line-height: get-line-height(map-get($input-font-size-key-map, $size-key));
+  @return ($size - $line-height) / 2;
+}
+
+@function get-input-horizontal-padding($size-key) {
+  @return get-spacing('s');
+}
+
+@mixin input-shape($size-key: $default-input-size-key) {
+  $size: map-get($input-size-map, $size-key);
+  $font-size-key: map-get($input-font-size-key-map, $size-key);
+  @include font-size($font-size-key);
+  padding: get-input-vertical-padding($size-key) get-input-horizontal-padding($size-key);
+  height: $size;
+}
+
+@mixin input-theme($theme: 'default') {
+  @if $theme == 'inline' {
+    @include background('grey-lightest', 0.5);
+    border-color: transparent;
+
+    &:focus, &:hover {
+      @include background('grey-lightest');
+    }
+  }
+}
+
+@mixin input-focus($theme: 'default') {
+  @if $theme == 'inline' {
+    @include background('grey-lightest');
+    border-color: transparent;
+  } @else {
+    border-color: $default-input-active-outline-color;
+    box-shadow: none;
+  }
+}
+
+@mixin input-disabled($theme: 'default') {
+  @if $theme == 'inline' {
+    @include background('grey-lightest', 0.5);
+    opacity: 0.7;
+
+    &:focus, &:hover {
+      border-color: transparent;
+    }
+  } @else {
+    opacity: 0.3;
+
+    &:focus, &:hover {
+      border-color: $default-input-outline-color;
+    }
+  }
+}
+
+@mixin input-status($status, $theme: 'default') {
+  @if $status == 'focus' {
+    @include input-focus($theme);
+  } @else {
+    $color-name: map-get($input-status-color-map, $status);
+    $color: get-color($color-name);
+    border-color: $color;
+
+    &:focus, &:hover {
+      border-color: $color;
+    }
+  }
+}

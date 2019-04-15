@@ -1,0 +1,25 @@
+@import '../../../styles/layout';
+
+@mixin responsive-row($size) {
+    @each $key, $spacing in $spacing-map {
+        .margin-#{$size}-#{$key} {
+            margin-left: -$spacing;
+            margin-right: -$spacing;
+        }
+    }
+
+    .margin-#{$size}-none {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@include responsive-row('m');
+
+@media (max-width: $max-device-width-s) {
+    @include responsive-row('s');
+}
+
+@media (max-width: $max-device-width-xs) {
+    @include responsive-row('xs');
+}

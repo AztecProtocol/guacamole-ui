@@ -1,0 +1,19 @@
+@import '../../../styles/layout';
+
+$list-item-spacing-map: (
+  's': 'xs',
+  'm': 'xs',
+  'l': 's',
+);
+
+@each $key, $spacing-key in $list-item-spacing-map {
+  .size-#{$key} {
+    padding: get-spacing($spacing-key) 0;
+  }
+}
+
+.with-description {
+  & + .item {
+    margin-top: get-spacing('xs');
+  }
+}

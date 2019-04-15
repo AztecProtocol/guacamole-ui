@@ -1,0 +1,76 @@
+@import '../../../styles/layout';
+@import '../../../styles/shapes';
+@import '../../../styles/backgrounds';
+@import '../../../styles/colors';
+
+.avatar {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.inactive {
+  filter: grayscale(80%);
+
+  .img {
+    opacity: 0.3;
+  }
+}
+
+@each $key, $size in $avatar-sizes-map {
+  .size-#{$key} {
+    width: $size;
+    height: $size;
+    font-size: map-get($font-size-map, map-get($avatar-text-size-map, $key));
+
+    @if $key != 'l' {
+      font-weight: map-get($font-weight-map, 'book');
+    }
+  }
+}
+
+@each $key, $color in $color-map {
+  .bg-#{$key} {
+    $rgb: rgb(red($color), green($color), blue($color));
+    $opacity: 1;
+    @if $rgb == white {
+      $opacity: null;
+    }
+    @include background($key, $opacity);
+  }
+}
+
+.shape-circular {
+  border-radius: 100%;
+}
+
+.shape-square {
+  @include rounded-corner();
+}
+
+%status {
+  position: absolute;
+  right: get-spacing('xxs');
+  bottom: get-spacing('xxs');
+  width: get-spacing('s');
+  height: get-spacing('s');
+  border-radius: 100%;
+  border: 1px solid get-color('white');
+}
+
+.status-online {
+  @extend %status;
+  @include background('green', 1);
+}
+
+.status-offline {
+  @extend %status;
+  @include background('grey', 1);
+}

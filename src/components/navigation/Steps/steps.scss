@@ -1,0 +1,88 @@
+@import '../../../styles/inputs';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+$step-color: get-color('secondary');
+
+$step-font-size-key-map: (
+  'xs': 'xxs',
+  's': 'xs',
+  'm': 'xs',
+  'l': 'm',
+);
+
+.steps {
+  position: relative;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100%;
+  border-style: solid;
+  text-align: center;
+  border-color: $step-color;
+  color: $step-color;
+  background: get-color('white');
+
+  &.static {
+    cursor: default;
+  }
+}
+
+.line {
+  flex: 1;
+  width: 100%;
+  background: $step-color;
+}
+
+@each $key, $size in $input-size-map {
+  .size-#{$key} {
+    $font-size-key: map-get($step-font-size-key-map, $key);
+    font-size: get-font-size($font-size-key);
+
+    $outline-size: 2px;
+    @if $key == 'xs' or $key == 's' {
+      $outline-size: 1px;
+    }
+
+    .dot {
+      width: $size;
+      height: $size;
+      line-height: $size;
+      border-width: $outline-size;
+
+      @if $key == 'm' {
+        font-weight: map-get($font-weight-map, 'semibold');
+      }
+    }
+
+    .line {
+      height: $outline-size;
+    }
+  }
+}
+
+.finished,
+.current {
+  opacity: 1;
+}
+
+.current {
+  .line {
+    opacity: 0.3;
+  }
+}
+
+.waiting {
+  opacity: 0.3;
+}

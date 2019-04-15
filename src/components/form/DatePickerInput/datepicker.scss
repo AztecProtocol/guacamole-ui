@@ -1,0 +1,40 @@
+@import '../../../styles/layout';
+
+.wrapper {
+  position: relative;
+}
+
+@media all and (max-width: $max-device-width-s) {
+  .calendar-container {
+    height: 100%;
+    overflow: auto;
+    margin-left: - get-spacing($default-spacing-key-s);
+    margin-right: - get-spacing($default-spacing-key-s);
+  }
+}
+
+.input-button {
+  position: relative;
+  z-index: 1;
+
+  &.focused {
+    z-index: 2;
+  }
+
+  &:not(.editable) {
+    cursor: pointer;
+
+    input {
+      cursor: pointer;
+    }
+  }
+}
+
+.input-button-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}

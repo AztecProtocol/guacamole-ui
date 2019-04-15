@@ -1,0 +1,52 @@
+@import '../../../styles/mixins';
+@import '../../../styles/typography';
+@import '../../../styles/colors';
+
+$loader-theme-color-map: (
+  'primary': 'primary-lightest',
+  'secondary': 'secondary-lightest',
+  'white': 'white',
+);
+
+$loader-theme-inverted-color-map: (
+  'primary': 'white',
+  'secondary': 'white',
+  'white': 'grey-lighter',
+);
+
+.loader {
+  @include spinner();
+
+  &.icon-only {
+    position: relative;
+    display: inline-block;
+  }
+
+  @each $theme, $color-name in $loader-theme-color-map {
+    &.theme-#{$theme} {
+      $inverted-color-name: map-get($loader-theme-inverted-color-map, $theme);
+      $inverted-color: get-color($inverted-color-name);
+      @include spinner-style($inverted-color);
+
+      &.icon-only {
+        $color: get-color($color-name);
+        @include spinner-style($color);
+      }
+    }
+  }
+}
+
+@each $size-key in $font-size-keys {
+  .size-#{$size-key} {
+    $spinner-size: get-line-height($size-key);
+    @if $size-key == 'xxs' {
+      $spinner-size: $spinner-size - 2;
+    }
+    @include spinner-shape($spinner-size);
+
+    &.icon-only {
+      width: $spinner-size;
+      height: $spinner-size;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@function rgba-to-rgb($rgba, $background: 'white') {
+  $rgb-color: rgb(red($rgba), green($rgba), blue($rgba));
+  $background-color: map-get($color-map, $background);
+  @return mix($rgb-color, $background-color, alpha($rgba) * 100%);
+}
+
+@function get-color($name, $opacity: null) {
+  $color: map-get($color-map, $name);
+
+  @if $opacity == null {
+    @return $color;
+  }
+
+  $original-opacity: alpha($color);
+  @if $original-opacity != 1 {
+    @if $opacity == 1 {
+      @return rgba-to-rgb($color);
+    }
+
+    $color: rgb(red($color), green($color), blue($color));
+    @if $opacity != 1 {
+      $opacity: $opacity * $original-opacity;
+    }
+  }
+
+  @return rgba($color, $opacity);
+}
+
+@function get-darken-color($color, $amount) {
+  @if map-has-key($color-map, $color) {
+    $color: get-color($color);
+  }
+
+  @if $color == white {
+    @return $color;
+  }
+
+  $opacity: alpha($color);
+  @if $opacity != 1 {
+    $rgb-color: rgb(red($color), green($color), blue($color));
+    @if $rgb-color == white {
+      @return rgba($rgb-color, $opacity * (100% + $amount) / 100%);
+    }
+
+    $color: mix($rgb-color, #ffffff, $opacity * 100%);
+  }
+
+  @return darken($color, $amount);
+}

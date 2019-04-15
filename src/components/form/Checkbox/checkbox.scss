@@ -1,0 +1,172 @@
+@import '../../../styles/inputs';
+@import '../../../styles/layout';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+$checkbox-outline-width: 2px;
+
+.wrapper {
+  display: block;
+  padding: get-spacing('xxs') 0;
+  line-height: 0;
+
+  &.inline {
+    display: inline-block;
+  }
+}
+
+.checkbox {
+  display: inline-block;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(.disabled) {
+    .tick-box {
+      border-color: get-darken-color($default-input-outline-color, 3%);
+    }
+  }
+}
+
+.tick-box {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: $checkbox-outline-width solid $default-input-outline-color;
+  border-radius: map-get($rounded-corner-map, 'xxs');
+  line-height: 0;
+  user-select: none;
+}
+
+.align-right {
+  .tick-box {
+    left: auto;
+    right: 0;
+  }
+}
+
+.type-radio {
+  .tick-box {
+    border-radius: map-get($rounded-corner-map, 'circular');
+  }
+}
+
+.checked {
+  .tick-box {
+    border-color: $default-input-active-outline-color;
+    background: $default-input-active-outline-color;
+    color: get-color('white');
+  }
+
+  .checkbox {
+    &:hover:not(.disabled) {
+      .tick-box {
+        border-color: get-darken-color($default-input-active-outline-color, 3%);
+        background: get-darken-color($default-input-active-outline-color, 3%);
+      }
+    }
+  }
+
+  &.type-radio {
+    .tick-box {
+      border-color: $default-input-active-outline-color;
+      background: transparent;
+      color: $default-input-active-outline-color;
+    }
+
+    .checkbox {
+      &:hover:not(.disabled) {
+        .tick-box {
+          border-color: get-darken-color($default-input-active-outline-color, 3%);
+          background: transparent;
+          color: get-darken-color($default-input-active-outline-color, 3%);
+        }
+      }
+    }
+  }
+}
+
+.theme-dark {
+  .tick-box {
+    border-color: $dark-theme-input-outline-color;
+  }
+
+  .checkbox {
+    &:hover:not(.disabled) {
+      .tick-box {
+        border-color: get-darken-color($dark-theme-input-outline-color, 3%);
+      }
+    }
+  }
+
+  &.checked {
+    .tick-box {
+      border-color: $dark-theme-input-active-outline-color;
+      background: transparent;
+      color: $dark-theme-input-active-outline-color;
+    }
+
+    .checkbox {
+      &:hover:not(.disabled) {
+        .tick-box {
+          border-color: get-darken-color($dark-theme-input-active-outline-color, 3%);
+          background: transparent;
+          color: get-darken-color($dark-theme-input-active-outline-color, 3%);
+        }
+      }
+    }
+  }
+}
+
+@each $key, $size in $input-size-map {
+  .size-#{$key} {
+    $offset-size-from-input: get-input-vertical-padding($key);
+    @if $key == 'xs' {
+      $offset-size-from-input: get-input-vertical-padding($key) + 1;
+    }
+    $icon-size: $size - ($offset-size-from-input + $checkbox-outline-width) * 2;
+    $font-size-key: map-get($input-font-size-key-map, $key);
+    $offset-top: $checkbox-outline-width + ($icon-size - get-line-height($font-size-key)) / 2;
+
+    .checkbox {
+      $min-size: $icon-size + $checkbox-outline-width * 2;
+      position: relative;
+      min-width: $min-size;
+      min-height: $min-size;
+
+      @if $offset-top < 0 {
+        .tick-box {
+          top: -($offset-top);
+        }
+      }
+    }
+
+    i.check-icon {
+      width: $icon-size;
+      height: $icon-size;
+      font-size: $icon-size;
+      line-height: $icon-size;
+    }
+
+    $label-offset: $icon-size + ($checkbox-outline-width * 2) + get-spacing('s');
+
+    .label {
+      @include font-size($font-size-key);
+      margin-left: $label-offset;
+      @if $offset-top > 0 {
+        padding-top: $offset-top;
+      }
+    }
+
+    &.align-right {
+      .label {
+        margin-left: 0;
+        padding-right: $label-offset;
+      }
+    }
+  }
+}

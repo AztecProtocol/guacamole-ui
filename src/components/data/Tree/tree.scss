@@ -1,0 +1,61 @@
+@import '../../../styles/layout';
+@import '../../../styles/shapes';
+@import '../../../styles/backgrounds';
+
+$arrow-item-spacing: get-spacing('xs');
+$expand-arrow-padding: get-spacing('xs');
+$expand-arrow-icon-size: map-get($icon-size-map, 'xs');
+$expand-arrow-size: $expand-arrow-icon-size + $expand-arrow-padding * 2;
+
+.node {
+  position: relative;
+  cursor: default;
+
+  &.selectable {
+    cursor: pointer;
+  }
+
+  &.highlight {
+    font-weight: map-get($font-weight-map, 'semibold');
+  }
+
+  &.selected {
+    .node-item {
+      @include background('secondary-lightest');
+    }
+
+    &:hover {
+      .node-item {
+        @include background('secondary-lightest');
+      }
+    }
+  }
+}
+
+.node-item {
+  @include rounded-corner('xxs');
+  padding: get-spacing('xs') $arrow-item-spacing;
+
+  &:hover {
+    background: $default-hover-background-color;
+  }
+}
+
+.expand-arrow {
+  @include rounded-corner();
+  display: inline-block;
+  position: absolute;
+  top: get-spacing('xs');
+  left: -($expand-arrow-size + $arrow-item-spacing);
+  padding: $expand-arrow-padding;
+  line-height: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: $default-hover-background-color;
+  }
+}
+
+.subset {
+  padding-left: $expand-arrow-size + $arrow-item-spacing;
+}

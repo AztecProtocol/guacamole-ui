@@ -1,0 +1,67 @@
+@import '../../../styles/shapes';
+@import '../../../styles/backgrounds';
+
+@each $name in $image-ratio-names {
+  .ratio-#{$name} {
+    @include named-ratio($name);
+  }
+}
+
+.wrapper {
+  position: relative;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.mocked-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.preload-img {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.img {
+  &.free {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.placeholder {
+  @include background('grey-lightest');
+  width: 100%;
+  height: 100%;
+
+  &.isLoading {
+    @include background('loading-light');
+
+    .placeholder-icon {
+      display: none;
+    }
+  }
+}
+
+.placeholder-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20%;
+  height: 30%;
+  transform: translateX(-50%) translateY(-50%);
+}

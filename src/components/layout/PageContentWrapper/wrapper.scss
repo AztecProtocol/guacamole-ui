@@ -1,0 +1,63 @@
+@import '../../../styles/layout';
+
+.wrapper {
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  max-width: $max-device-width-m;
+}
+
+.stretch {
+  height: 100%;
+}
+
+.scrollable {
+  overflow: auto;
+
+  .stretch {
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+@mixin responsive-layout($size) {
+  .content {
+    padding: 0 get-spacing(map-get($default-page-spacings, $size));
+  }
+
+  .align-center-#{$size}-true {
+    margin: 0 auto;
+  }
+
+  .align-center-#{$size}-false {
+    margin: 0;
+  }
+
+  .expand-#{$size}-true {
+    max-width: 100%;
+  }
+
+  .expand-#{$size}-false {
+    max-width: $max-device-width-m;
+  }
+}
+
+@include responsive-layout('xl');
+
+@media all and (max-width: $max-device-width-l) {
+  @include responsive-layout('l');
+}
+
+@media all and (max-width: $max-device-width-m) {
+  @include responsive-layout('m');
+}
+
+@media all and (max-width: $max-device-width-s) {
+  @include responsive-layout('s');
+}
+
+@media all and (max-width: $max-device-width-xs) {
+  @include responsive-layout('xs');
+}

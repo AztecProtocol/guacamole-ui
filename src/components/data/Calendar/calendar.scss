@@ -1,0 +1,280 @@
+@import '../../../styles/layout';
+@import '../../../styles/colors';
+@import '../../../styles/backgrounds';
+@import '../../../styles/typography';
+
+$highlight-dot-size: get-spacing('xs');
+
+%calendar {
+  position: relative;
+  -webkit-user-select: none;
+
+  @if variable-exists('calendar-bg') {
+    background: $calendar-bg;
+  }
+}
+
+.month {
+  padding: get-spacing($calendar-month-padding-size);
+  width: $calendar-month-width;
+}
+
+.calendar-h {
+  @extend %calendar;
+  display: inline-block;
+  white-space: nowrap;
+
+  .month {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+  }
+}
+
+.calendar-v {
+  @extend %calendar;
+  display: block;
+  width: $calendar-month-width;
+}
+
+.calendar-flex {
+  @extend %calendar;
+  display: block;
+  width: 100%;
+
+  .month {
+    padding: get-spacing($calendar-month-padding-size) 0;
+    width: 100%;
+  }
+}
+
+.month-name {
+  @if variable-exists('calendar-month-font-size') {
+    font-size: get-font-size($calendar-month-font-size);
+  }
+  @if variable-exists('calendar-month-font-weight') {
+    font-weight: get-font-weight($calendar-month-font-weight);
+  }
+  @if variable-exists('calendar-month-color') {
+    color: $calendar-month-color;
+  }
+  @if variable-exists('calendar-month-bg') {
+    background: $calendar-month-bg;
+  }
+}
+
+%calendar-grid {
+  display: inline-block;
+  vertical-align: top;
+  width: $calendar-day-width;
+  border: {
+    width: 0px 1px 1px 0px;
+    color: white;
+    style: solid;
+  }
+  text-align: center;
+}
+
+%calendar-grid-flex {
+  width: percentage(1 / 7);
+}
+
+.calendar-flex {
+  .weekday {
+    @extend %calendar-grid-flex;
+  }
+
+  .day {
+    @extend %calendar-grid-flex;
+  }
+}
+
+.weekday {
+  @extend %calendar-grid;
+  @if variable-exists('calendar-week-font-size') {
+    font-size: get-font-size($calendar-week-font-size);
+  }
+  @if variable-exists('calendar-week-font-weight') {
+    font-weight: get-font-weight($calendar-week-font-weight);
+  }
+  @if variable-exists('calendar-week-color') {
+    color: $calendar-week-color;
+  }
+  @if variable-exists('calendar-week-bg') {
+    background: $calendar-week-bg;
+  }
+}
+
+.day {
+  @extend %calendar-grid;
+  position: relative;
+  height: $calendar-day-height;
+  line-height: $calendar-day-height;
+  cursor: default;
+
+  @if variable-exists('calendar-day-font-size') {
+    font-size: get-font-size($calendar-day-font-size);
+  }
+  @if variable-exists('calendar-day-font-weight') {
+    font-weight: get-font-weight($calendar-day-font-weight);
+  }
+  @if variable-exists('calendar-day-color') {
+    color: $calendar-day-color;
+  }
+
+  &.hovered,
+  &.trailing,
+  &.hovered.ranged {
+    @if variable-exists('calendar-hovered-font-weight') {
+      font-weight: get-font-weight($calendar-hovered-font-weight);
+    }
+    @if variable-exists('calendar-hovered-color') {
+      color: $calendar-hovered-color;
+    }
+    @if variable-exists('calendar-hovered-bg') {
+      background: $calendar-hovered-bg;
+    }
+  }
+
+  &.ranged {
+    @if variable-exists('calendar-in-range-font-weight') {
+      font-weight: get-font-weight($calendar-in-range-font-weight);
+    }
+    @if variable-exists('calendar-in-range-color') {
+      color: $calendar-in-range-color;
+    }
+    @if variable-exists('calendar-in-range-bg') {
+      background: $calendar-in-range-bg;
+    }
+  }
+
+  &.selected {
+    @if variable-exists('calendar-selected-font-weight') {
+      font-weight: get-font-weight($calendar-selected-font-weight);
+    }
+    @if variable-exists('calendar-selected-color') {
+      color: $calendar-selected-color;
+    }
+    @if variable-exists('calendar-selected-bg') {
+      background: $calendar-selected-bg;
+    }
+  }
+
+  &.highlighted {
+    &:after {
+      @include background('red');
+      content: "";
+      position: absolute;
+      bottom: get-spacing('xs');
+      left: 50%;
+      transform: translateX(-50%);
+      width: $highlight-dot-size;
+      height: $highlight-dot-size;
+      border-radius: 100%;
+    }
+  }
+
+  &.outside {
+    @if variable-exists('calendar-outside-font-weight') {
+      font-weight: get-font-weight($calendar-outside-font-weight);
+    }
+    @if variable-exists('calendar-outside-color') {
+      color: $calendar-outside-color;
+    }
+    @if variable-exists('calendar-outside-bg') {
+      background: $calendar-outside-bg;
+    }
+  }
+
+  &.empty {
+    opacity: 0;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+
+    &.selected,
+    &.ranged,
+    &.trailing {
+      opacity: 1;
+    }
+  }
+}
+
+.interactive {
+  .day {
+    cursor: pointer;
+
+    &.disabled,
+    &.empty {
+      cursor: default;
+    }
+  }
+}
+
+.nav-holder {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+
+  &.flex {
+    display: block;
+    width: 100%;
+  }
+
+  &.vertical {
+    height: 100%;
+  }
+}
+
+.calendar-in-nav-v {
+  height: 100%;
+  padding-bottom: map-get($icon-size-map, 'xl');
+  overflow: hidden;
+}
+
+.nav-h {
+  position: absolute;
+  width: 100%;
+
+  %calendar-nav-h-button {
+    position: relative;
+    margin: get-spacing($calendar-month-padding-size);
+    z-index: 1;
+  }
+
+  .nav-prev {
+    @extend %calendar-nav-h-button;
+    float: left;
+  }
+
+  .nav-next {
+    @extend %calendar-nav-h-button;
+    float: right;
+  }
+}
+
+.nav-v {
+  @include background('white');
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid $default-border-color;
+  text-align: center;
+  line-height: 0;
+  z-index: 1;
+  overflow: hidden;
+
+  %calendar-nav-v-button {
+    width: 50%;
+  }
+
+  .nav-prev {
+    @extend %calendar-nav-v-button;
+  }
+
+  .nav-next {
+    @extend %calendar-nav-v-button;
+    border-left: 1px solid $default-border-color;
+  }
+}

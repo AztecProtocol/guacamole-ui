@@ -1,0 +1,12 @@
+@import '../../../styles/backgrounds';
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+@each $name in $background-names {
+  .bg-#{$name} {
+    @include background($name);
+  }
+}

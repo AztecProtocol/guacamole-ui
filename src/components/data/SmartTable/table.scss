@@ -1,0 +1,38 @@
+@import '../../../styles/layout';
+
+.shift {
+  // define a nested rule to make sure it overwrite the style in TableCell
+  &.left {
+    padding-left: 0;
+  }
+  &.right {
+    padding-right: 0;
+  }
+}
+
+.delete-button {
+  position: absolute;
+  padding: get-spacing('xxs');
+  right: 0;
+  line-height: 0;
+}
+
+.row {
+  position: relative;
+
+  .delete-hint {
+    display: inline-block;
+  }
+  .delete-active {
+    display: none;
+  }
+
+  &:hover {
+    .delete-hint {
+      display: none;
+    }
+    .delete-active {
+      display: inline-block;
+    }
+  }
+}

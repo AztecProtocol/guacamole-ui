@@ -1,0 +1,83 @@
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+.pie-wrapper {
+  position: relative;
+  line-height: 0;
+
+  &.has-own-size {
+    display: inline-block;
+  }
+}
+
+.pie-svg {
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+.pie {
+  transition: stroke-dashoffset 0.3s cubic-bezier(0.12, 0.6, 0.72, 0.96),
+    stroke-dasharray 0.3s cubic-bezier(0.12, 0.6, 0.72, 0.96);
+  fill: none;
+
+  &.track {
+    position: absolute;
+    opacity: 0.3;
+  }
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.arc-value {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  text-align: center;
+
+  .value {
+    display: inline-block;
+    transform: translateX(-50%) translateY(-50%);
+    line-height: 1;
+    font-weight: map-get($font-weight-map, 'semibold');
+    text-align: center;
+  }
+}
+
+@each $key, $color in $color-map {
+  .stroke-#{$key} {
+    .pie {
+      stroke: $color;
+
+      @if index($dark-background-colors, $key) {
+        &.track {
+          opacity: 0.1;
+        }
+      }
+    }
+
+    .value {
+      &.inset {
+        color: get-text-color-on-background($key);
+      }
+    }
+  }
+
+  .track-#{$key} {
+    stroke: $color !important;
+    opacity: 1 !important;
+  }
+
+  .fill-#{$key} {
+    .pie {
+      fill: $color;
+    }
+
+    .value {
+      color: get-text-color-on-background($key);
+    }
+  }
+}

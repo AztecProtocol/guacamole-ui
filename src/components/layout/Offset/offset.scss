@@ -1,0 +1,50 @@
+@import '../../../styles/layout';
+
+@mixin block-offset($suffix, $spacing) {
+  .all#{$suffix} {
+    margin: -$spacing;
+  }
+
+  .top#{$suffix} {
+    margin-top: -$spacing;
+  }
+
+  .right#{$suffix} {
+    margin-right: -$spacing;
+  }
+
+  .bottom#{$suffix} {
+    margin-bottom: -$spacing;
+  }
+
+  .left#{$suffix} {
+    margin-left: -$spacing;
+  }
+}
+
+@mixin responsive-offset($suffix) {
+    @each $key, $size in $spacing-map {
+        $_suffix: '-' + $suffix + '-' + $key;
+        @include block-offset($_suffix, $size);
+    }
+
+    @include block-offset('-' + $suffix + '-0', 0);
+}
+
+@include responsive-offset('xl');
+
+@media (max-width: $max-device-width-l) {
+    @include responsive-offset('l');
+}
+
+@media (max-width: $max-device-width-m) {
+    @include responsive-offset('m');
+}
+
+@media (max-width: $max-device-width-s) {
+    @include responsive-offset('s');
+}
+
+@media (max-width: $max-device-width-xs) {
+    @include responsive-offset('xs');
+}

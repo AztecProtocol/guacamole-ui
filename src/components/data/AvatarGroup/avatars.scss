@@ -1,0 +1,66 @@
+@import '../../../styles/layout';
+@import '../../../styles/backgrounds';
+@import '../../../styles/typography';
+
+$avatar-highlight-color-name: 'primary-lighter';
+
+@each $key, $size in $avatar-sizes-map {
+  .group-#{$key} {
+    .avatar {
+      & + .avatar {
+        margin-left: -($size / 3);
+      }
+    }
+  }
+}
+
+.avatar {
+  position: relative;
+  display: inline-block;
+  border-width: get-spacing('xxs');
+  border-style: solid;
+  border-radius: 100%;
+  line-height: 0;
+}
+
+.tooltip {
+  @include background($avatar-highlight-color-name, 1);
+  display: none;
+  position: absolute;
+  padding: get-spacing('xs') get-spacing('s');
+  top: -(get-spacing('s'));
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  border-radius: map-get($rounded-corner-map, 'default');
+  white-space: nowrap;
+  color: get-text-color-on-background($avatar-highlight-color-name);
+}
+
+.interactive {
+  &:hover {
+    z-index: 1;
+
+    .tooltip {
+      display: inline-block;
+    }
+  }
+}
+
+@each $key, $color in $color-map {
+  .bg-#{$key} {
+    .avatar {
+      border-color: $color;
+    }
+
+    .interactive {
+      &:hover {
+        border-color: $color;
+      }
+    }
+  }
+
+  .tooltip-#{$key} {
+    @include background($key, 1);
+    color: get-text-color-on-background($key);
+  }
+}

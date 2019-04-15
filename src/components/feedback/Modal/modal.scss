@@ -1,0 +1,56 @@
+@import '../../../styles/layout';
+@import '../../../styles/backgrounds';
+
+.modal {
+  height: 100%;
+  opacity: 1;
+  max-height: 100vh;
+  transition: opacity 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s, max-height 0s ease-in 0s;
+
+  &.hide {
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s, max-height 0s ease-in 0.2s;
+    overflow: hidden;
+  }
+}
+
+.wrapper {
+  padding-top: get-spacing($default-page-spacing-key-m);
+  padding-bottom: get-spacing($default-page-spacing-key-m);
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  cursor: default !important;
+}
+
+.auto-width {
+  .container {
+    width: auto;
+  }
+}
+
+.header {
+  flex-shrink: 0;
+}
+
+.content {
+  position: relative;
+  flex: 1;
+  overflow: auto;
+}
+
+.close-button {
+  margin-right: -(get-spacing('s'));
+  padding: get-spacing('s');
+  cursor: pointer;
+  line-height: 0;
+}

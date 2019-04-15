@@ -1,0 +1,41 @@
+@import '../../../styles/layout';
+@import '../../../styles/typography';
+
+@each $key, $size in $font-size-map {
+  .size-#{$key} {
+    $padding-v: get-spacing('xxs');
+    $padding-h: get-spacing('m');
+    @if $size >= $padding-v * 5 {
+      $padding-v: get-spacing('xs');
+      $padding-h: get-spacing('l');
+    }
+    $line-height: get-line-height($key);
+    $tag-height: $line-height + $padding-v * 2;
+    padding: $padding-v $padding-h;
+    height: $tag-height;
+    font-size: $size;
+    line-height: $line-height;
+    border-radius: map-get($rounded-corner-map, 'default');
+
+    &.rounded {
+      border-radius: $tag-height / 2;
+    }
+  }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+
+  &.align-reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.text {
+  padding: get-spacing('xs');
+}
+
+.icon {
+  padding: get-spacing('xs');
+}

@@ -1,0 +1,31 @@
+@import '../../../styles/backgrounds';
+
+$overlay-theme-bg-map: (
+  'primary': 'primary-lightest',
+  'secondary': 'secondary-lightest',
+  'white': 'white-lighter',
+);
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  max-height: 100vh;
+  transition: opacity 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s, max-height 0s ease-in 0s;
+  backdrop-filter: blur(1px);
+
+  &.hide {
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s, max-height 0s ease-in 1s;
+  }
+
+  @each $theme, $bg-name in $overlay-theme-bg-map {
+    &.theme-#{$theme} {
+      @include background($bg-name);
+    }
+  }
+}

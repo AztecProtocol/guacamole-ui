@@ -1,0 +1,25 @@
+@import '../../../styles/backgrounds';
+@import '../../../styles/inputs';
+
+.value-holder {
+  height: 100%;
+
+  &.input-mask {
+    $input-padding-v: get-input-vertical-padding('m');
+    $input-padding-h: get-input-horizontal-padding('m');
+    cursor: text;
+    margin: (0 - $input-padding-v) (0 - $input-padding-h);
+    padding: $input-padding-v $input-padding-h;
+
+    &:hover {
+      @include background('grey-lightest');
+    }
+  }
+
+  &.icon-mask {
+    display: inline-block;
+    padding: get-spacing('xs');
+    line-height: 0;
+    cursor: pointer;
+  }
+}

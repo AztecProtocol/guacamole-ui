@@ -1,0 +1,101 @@
+@import '../../../styles/layout';
+@import '../../../styles/backgrounds';
+@import '../../../styles/typography';
+
+$menu-item-spacing-map: (
+    'xxs': 'xs',
+    'xs': 's',
+    's': 's',
+    'm': 'm',
+    'l': 'm',
+    'xl': 'l',
+    'xxl': 'l',
+);
+
+.item {
+  display: block;
+  line-height: 0;
+  cursor: pointer;
+}
+
+a.item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hovered {
+  background: $default-hover-background-color;
+}
+
+.selected {
+  @include background('secondary-light');
+  color: get-text-color-on-background('secondary-light');
+}
+
+.has-divider {
+  .item {
+    & + .item {
+      border-top: 1px solid $default-border-color;
+    }
+  }
+}
+
+@each $key, $spacing-key in $menu-item-spacing-map {
+  .size-#{$key} {
+    padding-top: get-spacing($spacing-key);
+    padding-bottom: get-spacing($spacing-key);
+  }
+
+  .group-#{$key} {
+    padding-top: get-spacing($spacing-key) / 2;
+    padding-bottom: get-spacing($spacing-key) / 2;
+  }
+}
+
+.disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.caption {
+  position: relative;
+  color: $default-label-color;
+
+  &.toggleable {
+    cursor: pointer;
+
+    &:hover {
+      color: $default-link-color;
+    }
+  }
+}
+
+@each $key, $size in $spacing-map {
+  .pad-#{$key} {
+    .caption,
+    .item {
+      padding-left: $size;
+      padding-right: $size;
+    }
+  }
+}
+
+.expand-button {
+  position: absolute;
+  top: 50%;
+  right: get-spacing('m');
+  transform: translateY(-50%);
+}
+
+.items {
+  transition: max-height 0.5s ease-out;
+  max-height: 1000px;
+  overflow: hidden;
+
+  &.hide {
+    position: absolute;
+    left: -100%;
+    transition: max-height 0.3s ease-in;
+    max-height: 0;
+  }
+}

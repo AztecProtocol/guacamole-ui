@@ -1,0 +1,58 @@
+@import '../../../styles/layout';
+@import '../../../styles/backgrounds';
+
+$progress-bar-height-map: (
+  'xxs': 2px,
+  'xs': 4px,
+  's': 6px,
+  'm': 8px,
+  'l': 12px,
+);
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.bar-base {
+  position: relative;
+  width: 100%;
+}
+
+.bar-progress {
+  height: 100%;
+}
+
+.label {
+  flex-shrink: 0;
+  padding-left: get-spacing('s');
+}
+
+@each $size-key, $height in $progress-bar-height-map {
+  .size-#{$size-key} {
+    .bar-base {
+      height: $height;
+    }
+
+    &.rounded {
+      .bar-base {
+        border-radius: $height / 2;
+      }
+
+      .bar-progress {
+        border-radius: $height / 2;
+      }
+    }
+  }
+}
+
+@each $bg-name in $background-names {
+  .base-#{$bg-name} {
+    @include background($bg-name);
+  }
+
+  .active-#{$bg-name} {
+    @include background($bg-name);
+  }
+}

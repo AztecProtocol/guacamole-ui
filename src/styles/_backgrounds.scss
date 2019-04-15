@@ -1,0 +1,58 @@
+@import './colors';
+
+@mixin background-shimmer($duration: 1s) {
+  animation-duration: $duration;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@mixin background($name, $opacity: null) {
+  @if $name == 'loading' {
+    @include background-shimmer();
+    $mask: get-color('white', 0.6);
+    $light: get-color('white', 0.4);
+    background-color: get-color('primary', 0.1);
+    background-image: linear-gradient(
+      120deg,
+      $mask 0%,
+      $light 10%,
+      $light 20%,
+      $mask 30%,
+      $mask 50%,
+      $light 60%,
+      $light 70%,
+      $mask 80%
+    );
+    background-size: 200%;
+  } @else if $name == 'loading-light' {
+    @include background-shimmer();
+    $mask: get-color('white', 0.6);
+    $light: get-color('white', 0.4);
+    background-color: get-darken-color(get-color('grey-lightest'), 3%);
+    background-image: linear-gradient(
+      120deg,
+      $mask 0%,
+      $light 10%,
+      $light 20%,
+      $mask 30%,
+      $mask 50%,
+      $light 60%,
+      $light 70%,
+      $mask 80%
+    );
+    background-size: 200%;
+  } @else {
+    background: get-color($name, $opacity);
+  }
+}

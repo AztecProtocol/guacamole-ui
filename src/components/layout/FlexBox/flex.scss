@@ -1,0 +1,80 @@
+@import '../../../styles/layout';
+
+$flex-directions: (
+    row,
+    row-reverse,
+    column,
+    column-reverse,
+);
+
+$aligns: (
+    flex-start,
+    flex-end,
+    center,
+    space-between,
+    space-around,
+    space-evenly,
+);
+
+$valigns: (
+    flex-start,
+    flex-end,
+    center,
+    stretch,
+    baseline,
+);
+
+@mixin responsive-row($size) {
+    @each $align in $aligns {
+        .align-#{$size}-#{$align} {
+            justify-content: $align;
+        }
+    }
+
+    @each $valign in $valigns {
+        .valign-#{$size}-#{$valign} {
+            align-items: $valign;
+        }
+    }
+
+    .nowrap-#{$size}-true {
+      flex-wrap: nowrap;
+    }
+    .nowrap-#{$size}-false {
+      flex-wrap: wrap;
+    }
+}
+
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fixedWidth {
+  flex-shrink: 0;
+}
+
+.expand {
+  flex: 1;
+  width: 100%;
+}
+
+.stretch {
+  height: 100%;
+}
+
+@each $direction in $flex-directions {
+    .dir-#{$direction} {
+        flex-direction: $direction;
+    }
+}
+
+@include responsive-row('m');
+
+@media (max-width: $max-device-width-s) {
+    @include responsive-row('s');
+}
+
+@media (max-width: $max-device-width-xs) {
+    @include responsive-row('xs');
+}

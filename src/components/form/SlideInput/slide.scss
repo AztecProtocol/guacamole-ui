@@ -1,0 +1,151 @@
+@import '../../../styles/mixins';
+@import '../../../styles/layout';
+@import '../../../styles/backgrounds';
+@import '../../../styles/colors';
+
+$slide-handle-spacing: get-spacing('xs');
+$slide-handle-border-width: 1px;
+
+$slide-bg-color: get-color('secondary-lightest');
+
+.wrapper {
+  padding: $slide-handle-spacing;
+  width: 100%;
+  border: 1px solid get-darken-color($slide-bg-color, 5%);
+  background: $slide-bg-color;
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder {
+  color: get-color('secondary-light');
+  line-height: 1;
+}
+
+.handle {
+  @include background('secondary');
+  position: absolute;
+  left: 0;
+  display: flex;
+  margin-top: -($slide-handle-border-width);
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.2s cubic-bezier(0.12, 0.6, 0.72, 0.96);
+}
+
+.handle-icon {
+  color: get-color('white');
+  line-height: 1;
+}
+
+.spinner {
+  @include spinner();
+  @include spinner-style(get-color('white'));
+}
+
+.target-position {
+  $target-color: get-darken-color($slide-bg-color, 5%);
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  border: 2px dashed $target-color;
+
+  .handle-icon {
+    color: $target-color;
+  }
+}
+
+@each $key, $size in $input-size-map {
+  $handle-radius: ($size - 8) / 2;
+  $wrapper-radius: $handle-radius + $slide-handle-spacing;
+  .size-#{$key} {
+    height: $wrapper-radius * 2;
+    padding-left: $wrapper-radius;
+    padding-right: $wrapper-radius;
+    border-radius: $wrapper-radius;
+
+    .handle {
+      margin-left: -($handle-radius);
+      width: $handle-radius * 2;
+      height: $handle-radius * 2;
+    }
+
+    .target-position {
+      right: -($handle-radius);
+      width: $handle-radius * 2;
+      height: $handle-radius * 2;
+    }
+
+    .handle-icon {
+      font-size: $handle-radius;
+    }
+
+    .spinner {
+      @include spinner-shape($handle-radius * 2);
+    }
+
+    @if $handle-radius < 8 {
+      .placeholder {
+        display: none;
+      }
+    }
+  }
+}
+
+.dragging {
+  border-color: $slide-bg-color;
+
+  .placeholder {
+    zoom: 0.9;
+    opacity: 0.5;
+  }
+
+  .handle {
+    transition: none;
+  }
+}
+
+.active {
+  .handle {
+    @include background('green');
+    transition-duration: 0.1s;
+  }
+
+  .placeholder {
+    zoom: 0;
+  }
+}
+
+.should-drop {
+  .target-position {
+    $target-color: get-darken-color($slide-bg-color, 15%);
+    border-color: $target-color;
+
+    .handle-icon {
+      color: $target-color;
+    }
+  }
+}
+
+.loading {
+  .handle {
+    @include background('secondary');
+  }
+}
+
+.outlined {
+  background: none;
+  border-color: $default-input-active-outline-color;
+}

@@ -1,0 +1,26 @@
+@import './colors';
+
+@function get-font-size($size) {
+  @return map-get($font-size-map, $size);
+}
+
+@function get-line-height($size) {
+  @return map-get($line-height-map, $size);
+}
+
+@mixin font-size($size) {
+  font-size: get-font-size($size);
+  line-height: get-line-height($size);
+}
+
+@function get-text-color-on-background($background) {
+  @if index($dark-background-colors, $background) != null {
+    @return get-color('white');
+  } @else {
+    @return $default-text-color;
+  }
+}
+
+@function get-font-weight($key) {
+  @return map-get($font-weight-map, $key);
+}

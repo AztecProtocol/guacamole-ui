@@ -1,0 +1,122 @@
+@import '../../../styles/layout';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+@import '../../../styles/shapes';
+
+$aligns: (
+  left,
+  center,
+  right,
+);
+
+@mixin block-padding($suffix, $spacing) {
+  .all#{$suffix} {
+    padding: $spacing;
+  }
+
+  .top#{$suffix} {
+    padding-top: $spacing;
+  }
+
+  .right#{$suffix} {
+    padding-right: $spacing;
+  }
+
+  .bottom#{$suffix} {
+    padding-bottom: $spacing;
+  }
+
+  .left#{$suffix} {
+    padding-left: $spacing;
+  }
+}
+
+@mixin responsive-block($suffix) {
+  @each $key, $size in $spacing-map {
+    $_suffix: '-' + $suffix + '-' + $key;
+    @include block-padding($_suffix, $size);
+  }
+
+  @include block-padding('-' + $suffix + '-0', 0);
+
+  @each $value in $aligns {
+    .align-#{$suffix}-#{$value} {
+      text-align: $value;
+    }
+  }
+}
+
+@each $key, $radius in $rounded-corner-map {
+  .rounded-#{$key} {
+    border-radius: $radius;
+  }
+}
+
+@for $i from 1 through $max-shadow-layer {
+  .layer-#{$i} {
+    @include shadow-layer($i);
+  }
+}
+
+@include responsive-block('m');
+
+@media (max-width: $max-device-width-s) {
+  @include responsive-block('s');
+}
+
+@media (max-width: $max-device-width-xs) {
+  @include responsive-block('xs');
+}
+
+.stretch {
+  height: 100%;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.with-border {
+  border-style: solid;
+  border-width: 0px;
+  border-color: $default-border-color;
+}
+
+.full-border {
+  border-width: 1px;
+}
+
+.border-top {
+  border-top-width: 1px
+}
+
+.border-right {
+  border-right-width: 1px;
+}
+
+.border-bottom {
+  border-bottom-width: 1px;
+}
+
+.border-left {
+  border-left-width: 1px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+@each $name, $color in $color-map {
+  .bg-#{$name} {
+    background: $color;
+    color: get-text-color-on-background($name);
+  }
+
+  .border-#{$name} {
+    border-color: $color;
+  }
+}

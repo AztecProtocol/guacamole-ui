@@ -1,0 +1,94 @@
+@import '../../../styles/mixins';
+@import '../../../styles/backgrounds';
+
+$switch-button-spacing: 0px;
+$switch-width-ratio: 5;
+$switch-velocity: map-get($input-size-map, 'm') / 0.2;
+
+$switch-active-color: $default-input-active-outline-color;
+$switch-loading-color: rgba($default-input-active-outline-color, 0.3);
+
+.wrapper {
+  @include background('white');
+  position: relative;
+  display: inline-block;
+  border: 1px solid $switch-active-color;
+  cursor: pointer;
+
+  &.loading {
+    border-color: $switch-loading-color;
+  }
+
+  &.outlined {
+    background: none;
+    border-color: $switch-active-color;
+  }
+}
+
+.switch-button {
+  @include background('grey-lightest');
+  position: absolute;
+  display: inline-block;
+  transition: all 0.2s cubic-bezier(0.12, 0.6, 0.72, 0.96);
+  border: 1px solid $switch-active-color;
+  border-radius: 100%;
+}
+
+.spinner {
+  @include spinner();
+  @include spinner-style($default-input-active-outline-color);
+}
+
+@each $key, $size in $input-size-map {
+  $radius: ($size - 8) / 2;
+  .size-#{$key} {
+    width: ($radius * $switch-width-ratio) + ($switch-button-spacing * 2);;
+    height: ($radius + $switch-button-spacing) * 2;
+    border-radius: $radius + $switch-button-spacing;
+
+    .switch-button {
+      top: $switch-button-spacing - 1;
+      left: $switch-button-spacing - 1;
+      width: $radius * 2;
+      height: $radius * 2;
+      transition-duration: ($radius * $switch-width-ratio) / $switch-velocity;
+    }
+
+    .spinner {
+      @include spinner-shape($radius * 2);
+    }
+  }
+}
+
+.checked {
+  background: $switch-active-color;
+
+  .switch-button {
+    @include background('white');
+    margin-left: -($switch-button-spacing - 1);
+    left: 100%;
+    transform: translateX(-100%);
+  }
+
+  &.loading {
+    background: $switch-loading-color;
+    border-color: transparent;
+  }
+  &.outlined {
+    background: none;
+    border-color: $switch-loading-color;
+  }
+}
+
+.loading {
+  cursor: default;
+
+  .switch-button {
+    border-color: $switch-loading-color;
+  }
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

@@ -1,0 +1,76 @@
+@import '../../../styles/typography';
+@import '../../../styles/colors';
+@import '../../../styles/layout';
+
+@mixin responsive-text($suffix) {
+  @each $key, $size in $font-size-map {
+    .size-#{$suffix}-#{$key} {
+      font-size: $size;
+      line-height: get-line-height($key);
+    }
+  }
+}
+
+.text {
+  display: inline;
+}
+
+.show-ellipsis {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@include responsive-text('m');
+
+@media all and (max-width: $max-device-width-s) {
+  @include responsive-text('s');
+}
+
+@media all and (max-width: $max-device-width-xs) {
+  @include responsive-text('xs');
+}
+
+
+%highlight-text {
+  padding: 0 get-spacing('xs');
+  background-repeat: no-repeat;
+  background-size: 100%; background-position: 0 center;
+}
+
+@each $name, $color in $color-map {
+  .highlight-#{$name} {
+    @extend %highlight-text;
+    background-image: linear-gradient(to bottom, transparent 0, $color 0);
+    color: get-text-color-on-background($name);
+  }
+
+  .color-#{$name} {
+    color: $color;
+  }
+}
+@each $name, $color in $default-text-color-map {
+  .color-#{$name} {
+    color: $color;
+  }
+}
+
+@each $key, $weight in $font-weight-map {
+  .weight-#{$key} {
+    font-weight: $weight;
+  }
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-left {
+  text-align: left;
+}

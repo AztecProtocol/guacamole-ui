@@ -1,0 +1,76 @@
+@import '../../../styles/layout';
+@import '../../../styles/backgrounds';
+@import '../../../styles/typography';
+
+.row-wrapper {
+  padding: get-spacing('s') get-spacing('xl');
+
+  & + .row-wrapper {
+    border-top: 1px solid $default-border-color;
+  }
+}
+
+.row-no-divider {
+  & + .row-no-divider {
+    border-top: 0px;
+  }
+}
+
+@each $key, $size in $spacing-map {
+  .v-#{$key} {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+}
+
+@mixin responsive-table($suffix) {
+  .collapse-#{$suffix}-true {
+    .row {
+      flex-wrap: wrap;
+    }
+  }
+
+  .collapse-#{$suffix}-false {
+    .row {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+@include responsive-table('m');
+
+@media (max-width: $max-device-width-s) {
+  @include responsive-table('s');
+}
+
+@media (max-width: $max-device-width-xs) {
+  @include responsive-table('xs');
+}
+
+.table-head-cell {
+  height: get-line-height('xxs');
+  line-height: 0;
+}
+
+.sort-button {
+  white-space: nowrap;
+
+  * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.placeholder-cell {
+  @include background('loading-light');
+  margin: get-spacing('xxs') 0;
+  width: 60%;
+  min-width: get-line-height($default-text-size-key);
+  height: get-line-height($default-text-size-key);
+}
+
+.highlight {
+  .placeholder-cell {
+    @include background('loading');
+  }
+}
