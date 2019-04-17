@@ -3,35 +3,37 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.defaultSpacingKeyXs = exports.defaultSpacingKeyS = exports.defaultSpacingKeyM = exports.defaultSpacingKeyL = exports.defaultSpacingKeyXl = exports.defaultPageSpacingKeyXs = exports.defaultPageSpacingKeyS = exports.defaultPageSpacingKeyM = exports.defaultPageSpacingKeyL = exports.defaultPageSpacingKeyXl = exports.defaultPageSpacings = exports.sizeKeys = exports.spacingMap = exports.maxGridColumns = exports.maxDeviceWidthXs = exports.maxDeviceWidthS = exports.maxDeviceWidthM = exports.maxDeviceWidthL = exports.deviceBreakpoints = exports.deviceBreakpointMap = exports.defaultSize = void 0;
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
+exports.defaultSpacingKeyXxs = exports.defaultSpacingKeyXs = exports.defaultSpacingKeyS = exports.defaultSpacingKeyM = exports.defaultSpacingKeyL = exports.defaultSpacingKeyXl = exports.defaultSpacingKeyXxl = exports.defaultSpacingMap = exports.defaultPageSpacingKeyXxs = exports.defaultPageSpacingKeyXs = exports.defaultPageSpacingKeyS = exports.defaultPageSpacingKeyM = exports.defaultPageSpacingKeyL = exports.defaultPageSpacingKeyXl = exports.defaultPageSpacingKeyXxl = exports.defaultPageSpacingMap = exports.sizeKeys = exports.spacingMap = exports.maxGridColumns = exports.minDeviceWidthXxs = exports.minDeviceWidthXs = exports.minDeviceWidthS = exports.minDeviceWidthM = exports.minDeviceWidthL = exports.minDeviceWidthXl = exports.minDeviceWidthXxl = exports.defaultDeviceBreakpoint = exports.deviceBreakpoints = exports.deviceBreakpointMap = exports.defaultSize = void 0;
 var defaultSize = '8px';
 exports.defaultSize = defaultSize;
 var deviceBreakpointMap = {
-  l: '2000px',
-  m: '1248px',
-  s: '960px',
-  xs: '767px'
+  xxl: '2000px',
+  xl: '1690px',
+  l: '1248px',
+  m: '960px',
+  s: '767px',
+  xs: '480px',
+  xxs: '0'
 };
 exports.deviceBreakpointMap = deviceBreakpointMap;
 var deviceBreakpoints = Object.keys(deviceBreakpointMap);
 exports.deviceBreakpoints = deviceBreakpoints;
-var maxDeviceWidthL = deviceBreakpointMap.l;
-exports.maxDeviceWidthL = maxDeviceWidthL;
-var maxDeviceWidthM = deviceBreakpointMap.m;
-exports.maxDeviceWidthM = maxDeviceWidthM;
-var maxDeviceWidthS = deviceBreakpointMap.s;
-exports.maxDeviceWidthS = maxDeviceWidthS;
-var maxDeviceWidthXs = deviceBreakpointMap.xs;
-exports.maxDeviceWidthXs = maxDeviceWidthXs;
+var defaultDeviceBreakpoint = 'xxs';
+exports.defaultDeviceBreakpoint = defaultDeviceBreakpoint;
+var minDeviceWidthXxl = deviceBreakpointMap.xxl;
+exports.minDeviceWidthXxl = minDeviceWidthXxl;
+var minDeviceWidthXl = deviceBreakpointMap.xl;
+exports.minDeviceWidthXl = minDeviceWidthXl;
+var minDeviceWidthL = deviceBreakpointMap.l;
+exports.minDeviceWidthL = minDeviceWidthL;
+var minDeviceWidthM = deviceBreakpointMap.m;
+exports.minDeviceWidthM = minDeviceWidthM;
+var minDeviceWidthS = deviceBreakpointMap.s;
+exports.minDeviceWidthS = minDeviceWidthS;
+var minDeviceWidthXs = deviceBreakpointMap.xs;
+exports.minDeviceWidthXs = minDeviceWidthXs;
+var minDeviceWidthXxs = deviceBreakpointMap.xxs;
+exports.minDeviceWidthXxs = minDeviceWidthXxs;
 var maxGridColumns = 12;
 exports.maxGridColumns = maxGridColumns;
 var spacingMap = {
@@ -44,33 +46,53 @@ var spacingMap = {
   xxl: '36px'
 };
 exports.spacingMap = spacingMap;
-var sizeKeys = ['0'].concat(_toConsumableArray(Object.keys(spacingMap)));
+var sizeKeys = Object.keys(spacingMap);
 exports.sizeKeys = sizeKeys;
-var defaultPageSpacings = {
+var defaultPageSpacingMap = {
+  xxl: 'xxl',
   xl: 'xl',
   l: 'l',
   m: 'l',
   s: 'l',
-  xs: 'l'
+  xs: 'l',
+  xxs: 'm'
 };
-exports.defaultPageSpacings = defaultPageSpacings;
-var defaultPageSpacingKeyXl = defaultPageSpacings.xl;
+exports.defaultPageSpacingMap = defaultPageSpacingMap;
+var defaultPageSpacingKeyXxl = defaultPageSpacingMap.xxl;
+exports.defaultPageSpacingKeyXxl = defaultPageSpacingKeyXxl;
+var defaultPageSpacingKeyXl = defaultPageSpacingMap.xl;
 exports.defaultPageSpacingKeyXl = defaultPageSpacingKeyXl;
-var defaultPageSpacingKeyL = defaultPageSpacings.l;
+var defaultPageSpacingKeyL = defaultPageSpacingMap.l;
 exports.defaultPageSpacingKeyL = defaultPageSpacingKeyL;
-var defaultPageSpacingKeyM = defaultPageSpacings.m;
+var defaultPageSpacingKeyM = defaultPageSpacingMap.m;
 exports.defaultPageSpacingKeyM = defaultPageSpacingKeyM;
-var defaultPageSpacingKeyS = defaultPageSpacings.s;
+var defaultPageSpacingKeyS = defaultPageSpacingMap.s;
 exports.defaultPageSpacingKeyS = defaultPageSpacingKeyS;
-var defaultPageSpacingKeyXs = defaultPageSpacings.xs;
+var defaultPageSpacingKeyXs = defaultPageSpacingMap.xs;
 exports.defaultPageSpacingKeyXs = defaultPageSpacingKeyXs;
-var defaultSpacingKeyXl = 'xl';
+var defaultPageSpacingKeyXxs = defaultPageSpacingMap.xxs;
+exports.defaultPageSpacingKeyXxs = defaultPageSpacingKeyXxs;
+var defaultSpacingMap = {
+  xxl: 'xl',
+  xl: 'xl',
+  l: 'l',
+  m: 'l',
+  s: 'l',
+  xs: 'm',
+  xxs: 'm'
+};
+exports.defaultSpacingMap = defaultSpacingMap;
+var defaultSpacingKeyXxl = defaultSpacingMap.xxl;
+exports.defaultSpacingKeyXxl = defaultSpacingKeyXxl;
+var defaultSpacingKeyXl = defaultSpacingMap.xl;
 exports.defaultSpacingKeyXl = defaultSpacingKeyXl;
-var defaultSpacingKeyL = 'xl';
+var defaultSpacingKeyL = defaultSpacingMap.l;
 exports.defaultSpacingKeyL = defaultSpacingKeyL;
-var defaultSpacingKeyM = 'l';
+var defaultSpacingKeyM = defaultSpacingMap.m;
 exports.defaultSpacingKeyM = defaultSpacingKeyM;
-var defaultSpacingKeyS = 'l';
+var defaultSpacingKeyS = defaultSpacingMap.s;
 exports.defaultSpacingKeyS = defaultSpacingKeyS;
-var defaultSpacingKeyXs = 'm';
+var defaultSpacingKeyXs = defaultSpacingMap.xs;
 exports.defaultSpacingKeyXs = defaultSpacingKeyXs;
+var defaultSpacingKeyXxs = defaultSpacingMap.xxs;
+exports.defaultSpacingKeyXxs = defaultSpacingKeyXxs;

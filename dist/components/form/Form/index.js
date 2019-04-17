@@ -17,6 +17,8 @@ var _fieldShape = _interopRequireDefault(require("../../../shapes/fieldShape"));
 
 var _inputs = require("../../../config/inputs");
 
+var _shapes = require("../../../config/shapes");
+
 var _Row = _interopRequireDefault(require("../../layout/Row"));
 
 var _Col = _interopRequireDefault(require("../../layout/Col"));
@@ -360,7 +362,7 @@ function (_PureComponent) {
         padding: "l 0",
         align: buttonAlign
       }, _react.default.createElement(_Button.default, {
-        size: size,
+        size: (0, _shapes.shiftSize)(size, 1),
         text: buttonText,
         onSubmit: function onSubmit() {
           return _this3.handleSubmit(formIndex);

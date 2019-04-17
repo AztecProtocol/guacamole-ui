@@ -65,7 +65,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var styles = {
   "wrapper": "datepicker__wrapper___1Lbo1",
-  "calendar-container": "datepicker__calendar-container___1HlJ0",
   "input-button": "datepicker__input-button___275s3",
   "focused": "datepicker__focused___3AS7z",
   "editable": "datepicker__editable___2U2Sz",
