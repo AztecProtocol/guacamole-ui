@@ -1,6 +1,6 @@
 @import '../../../styles/layout';
 
-@mixin responsive-row($size) {
+@mixin responsive-row($size: '') {
     @each $key, $spacing in $spacing-map {
         .margin-#{$size}-#{$key} {
             margin-left: -$spacing;
@@ -14,12 +14,28 @@
     }
 }
 
-@include responsive-row('m');
+@include responsive-row();
 
-@media (max-width: $max-device-width-s) {
-    @include responsive-row('s');
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-row('xs');
 }
 
-@media (max-width: $max-device-width-xs) {
-    @include responsive-row('xs');
+@media (min-width: $min-device-width-s + 1) {
+  @include responsive-row('s');
+}
+
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-row('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-row('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-row('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-row('xxl');
 }

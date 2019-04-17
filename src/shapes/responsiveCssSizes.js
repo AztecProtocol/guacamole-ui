@@ -4,8 +4,10 @@ import {
   sizeKeys,
 } from '../config/layout';
 
+const cssSizes = ['0', ...sizeKeys];
+
 function isCssValue(value) {
-  return value === '' || value.split(' ').every(val => sizeKeys.indexOf(val) >= 0);
+  return value === '' || value.split(' ').every(val => cssSizes.indexOf(val) >= 0);
 }
 
 export function cssSizeValue(props, propName, componentName, location, propFullName) {
@@ -18,8 +20,12 @@ export function cssSizeValue(props, propName, componentName, location, propFullN
 export default PropTypes.oneOfType([
   cssSizeValue,
   PropTypes.shape({
+    xxl: cssSizeValue,
+    xl: cssSizeValue,
+    l: cssSizeValue,
     m: cssSizeValue,
     s: cssSizeValue,
     xs: cssSizeValue,
+    xxs: cssSizeValue,
   }),
 ]);

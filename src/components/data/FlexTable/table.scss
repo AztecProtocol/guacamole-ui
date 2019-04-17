@@ -23,7 +23,7 @@
   }
 }
 
-@mixin responsive-table($suffix) {
+@mixin responsive-table($suffix: '') {
   .collapse-#{$suffix}-true {
     .row {
       flex-wrap: wrap;
@@ -37,14 +37,30 @@
   }
 }
 
-@include responsive-table('m');
+@include responsive-table();
 
-@media (max-width: $max-device-width-s) {
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-table('xs');
+}
+
+@media (min-width: $min-device-width-s + 1) {
   @include responsive-table('s');
 }
 
-@media (max-width: $max-device-width-xs) {
-  @include responsive-table('xs');
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-table('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-table('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-table('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-table('xxl');
 }
 
 .table-head-cell {

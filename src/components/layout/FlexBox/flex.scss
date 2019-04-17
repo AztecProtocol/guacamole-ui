@@ -1,48 +1,74 @@
 @import '../../../styles/layout';
 
 $flex-directions: (
-    row,
-    row-reverse,
-    column,
-    column-reverse,
+  row,
+  row-reverse,
+  column,
+  column-reverse,
 );
 
 $aligns: (
-    flex-start,
-    flex-end,
-    center,
-    space-between,
-    space-around,
-    space-evenly,
+  flex-start,
+  flex-end,
+  center,
+  space-between,
+  space-around,
+  space-evenly,
 );
 
 $valigns: (
-    flex-start,
-    flex-end,
-    center,
-    stretch,
-    baseline,
+  flex-start,
+  flex-end,
+  center,
+  stretch,
+  baseline,
 );
 
-@mixin responsive-row($size) {
-    @each $align in $aligns {
-        .align-#{$size}-#{$align} {
-            justify-content: $align;
-        }
+@mixin responsive-row($size: '') {
+  @each $align in $aligns {
+    .align-#{$size}-#{$align} {
+      justify-content: $align;
     }
+  }
 
-    @each $valign in $valigns {
-        .valign-#{$size}-#{$valign} {
-            align-items: $valign;
-        }
+  @each $valign in $valigns {
+    .valign-#{$size}-#{$valign} {
+      align-items: $valign;
     }
+  }
 
-    .nowrap-#{$size}-true {
-      flex-wrap: nowrap;
-    }
-    .nowrap-#{$size}-false {
-      flex-wrap: wrap;
-    }
+  .nowrap-#{$size}-true {
+    flex-wrap: nowrap;
+  }
+  .nowrap-#{$size}-false {
+    flex-wrap: wrap;
+  }
+}
+
+@include responsive-row();
+
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-row('xs');
+}
+
+@media (min-width: $min-device-width-s + 1) {
+  @include responsive-row('s');
+}
+
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-row('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-row('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-row('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-row('xxl');
 }
 
 .flex-box {
@@ -64,17 +90,7 @@ $valigns: (
 }
 
 @each $direction in $flex-directions {
-    .dir-#{$direction} {
-        flex-direction: $direction;
-    }
-}
-
-@include responsive-row('m');
-
-@media (max-width: $max-device-width-s) {
-    @include responsive-row('s');
-}
-
-@media (max-width: $max-device-width-xs) {
-    @include responsive-row('xs');
+  .dir-#{$direction} {
+    flex-direction: $direction;
+  }
 }

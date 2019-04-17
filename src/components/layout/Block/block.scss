@@ -31,7 +31,7 @@ $aligns: (
   }
 }
 
-@mixin responsive-block($suffix) {
+@mixin responsive-block($suffix: '') {
   @each $key, $size in $spacing-map {
     $_suffix: '-' + $suffix + '-' + $key;
     @include block-padding($_suffix, $size);
@@ -46,6 +46,32 @@ $aligns: (
   }
 }
 
+@include responsive-block();
+
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-block('xs');
+}
+
+@media (min-width: $min-device-width-s + 1) {
+  @include responsive-block('s');
+}
+
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-block('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-block('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-block('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-block('xxl');
+}
+
 @each $key, $radius in $rounded-corner-map {
   .rounded-#{$key} {
     border-radius: $radius;
@@ -56,16 +82,6 @@ $aligns: (
   .layer-#{$i} {
     @include shadow-layer($i);
   }
-}
-
-@include responsive-block('m');
-
-@media (max-width: $max-device-width-s) {
-  @include responsive-block('s');
-}
-
-@media (max-width: $max-device-width-xs) {
-  @include responsive-block('xs');
 }
 
 .stretch {

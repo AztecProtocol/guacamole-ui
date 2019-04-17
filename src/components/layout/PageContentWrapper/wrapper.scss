@@ -1,4 +1,5 @@
 @import '../../../styles/layout';
+@import '../../../styles/shapes';
 
 .wrapper {
   width: 100%;
@@ -6,7 +7,7 @@
 
 .content {
   width: 100%;
-  max-width: $max-device-width-m;
+  max-width: map-get($device-breakpoint-map, 'l');
 }
 
 .stretch {
@@ -22,9 +23,9 @@
   }
 }
 
-@mixin responsive-layout($size) {
+@mixin responsive-layout($size: '') {
   .content {
-    padding: 0 get-spacing(map-get($default-page-spacings, $size));
+    padding: 0 get-spacing(map-get($default-page-spacing-map, $size));
   }
 
   .align-center-#{$size}-true {
@@ -40,24 +41,34 @@
   }
 
   .expand-#{$size}-false {
-    max-width: $max-device-width-m;
+    @if $size != '' {
+      max-width: map-get($device-breakpoint-map, shift-size($size, -1));
+    }
   }
 }
 
-@include responsive-layout('xl');
+@include responsive-layout();
 
-@media all and (max-width: $max-device-width-l) {
-  @include responsive-layout('l');
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-layout('xs');
 }
 
-@media all and (max-width: $max-device-width-m) {
-  @include responsive-layout('m');
-}
-
-@media all and (max-width: $max-device-width-s) {
+@media (min-width: $min-device-width-s + 1) {
   @include responsive-layout('s');
 }
 
-@media all and (max-width: $max-device-width-xs) {
-  @include responsive-layout('xs');
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-layout('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-layout('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-layout('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-layout('xxl');
 }

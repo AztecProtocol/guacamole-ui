@@ -35,14 +35,30 @@
   }
 }
 
-@include responsive-icon('m');
+@include responsive-icon();
 
-@media all and (max-width: $max-device-width-s) {
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-icon('xs');
+}
+
+@media (min-width: $min-device-width-s + 1) {
   @include responsive-icon('s');
 }
 
-@media all and (max-width: $max-device-width-xs) {
-  @include responsive-icon('xs');
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-icon('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-icon('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-icon('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-icon('xxl');
 }
 
 @each $deg in $icon-rotate-degrees {

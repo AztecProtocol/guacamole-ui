@@ -5,7 +5,7 @@
 @import '../../../styles/backgrounds';
 @import '../../../styles/shapes';
 
-@mixin responsive-button($suffix) {
+@mixin responsive-button($suffix: '') {
   @each $key, $height in $button-size-map {
     $text-size-key: map-get($button-text-size-map, $key);
     $line-height: get-line-height($text-size-key);
@@ -150,14 +150,30 @@
   margin-left: get-spacing(m);
 }
 
-@include responsive-button('m');
+@include responsive-button();
 
-@media all and (max-width: $max-device-width-s) {
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-button('xs');
+}
+
+@media (min-width: $min-device-width-s + 1) {
   @include responsive-button('s');
 }
 
-@media all and (max-width: $max-device-width-xs) {
-  @include responsive-button('xs');
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-button('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-button('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-button('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-button('xxl');
 }
 
 .group {

@@ -42,7 +42,7 @@ List.propTypes = {
 };
 
 List.defaultProps = {
-  size: 'm',
+  size: 's',
   items: [],
 };
 

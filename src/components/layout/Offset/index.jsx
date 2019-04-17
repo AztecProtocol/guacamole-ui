@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
-import generateResponsiveStyleNames, {
-  responsiveStyleConfigAdaptor,
-} from 'src/helpers/generateResponsiveStyleNames';
+import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
 import parseCssSizeValues from 'src/helpers/parseCssSizeValues';
 import responsiveCssSizes from 'src/shapes/responsiveCssSizes';
 import styles from './offset.scss';
@@ -27,7 +25,7 @@ export const Offset = ({
 
   const sizeStyleNames = ['all', 'top', 'right', 'bottom', 'left']
     .filter(size => sizeMap[size])
-    .map(size => generateResponsiveStyleNames(size, responsiveStyleConfigAdaptor(sizeMap[size])));
+    .map(size => generateResponsiveStyleNames(size, sizeMap[size]));
 
   return (
     <div

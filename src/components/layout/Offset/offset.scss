@@ -22,29 +22,37 @@
   }
 }
 
-@mixin responsive-offset($suffix) {
-    @each $key, $size in $spacing-map {
-        $_suffix: '-' + $suffix + '-' + $key;
-        @include block-offset($_suffix, $size);
-    }
+@mixin responsive-offset($suffix: '') {
+  @each $key, $size in $spacing-map {
+    $_suffix: '-' + $suffix + '-' + $key;
+    @include block-offset($_suffix, $size);
+  }
 
-    @include block-offset('-' + $suffix + '-0', 0);
+  @include block-offset('-' + $suffix + '-0', 0);
 }
 
-@include responsive-offset('xl');
+@include responsive-offset();
 
-@media (max-width: $max-device-width-l) {
-    @include responsive-offset('l');
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-offset('xs');
 }
 
-@media (max-width: $max-device-width-m) {
-    @include responsive-offset('m');
+@media (min-width: $min-device-width-s + 1) {
+  @include responsive-offset('s');
 }
 
-@media (max-width: $max-device-width-s) {
-    @include responsive-offset('s');
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-offset('m');
 }
 
-@media (max-width: $max-device-width-xs) {
-    @include responsive-offset('xs');
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-offset('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-offset('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-offset('xxl');
 }

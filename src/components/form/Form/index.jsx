@@ -9,6 +9,9 @@ import {
   inputSizeKeys,
   defaultInputSizeKey,
 } from 'src/config/inputs';
+import {
+  shiftSize,
+} from 'src/config/shapes';
 import Row from '../../layout/Row';
 import Col from '../../layout/Col';
 import Offset from '../../layout/Offset';
@@ -359,7 +362,7 @@ class Form extends PureComponent {
             align={buttonAlign}
           >
             <Button
-              size={size}
+              size={shiftSize(size, 1)}
               text={buttonText}
               onSubmit={() => this.handleSubmit(formIndex)}
               isLoading={isLoading}

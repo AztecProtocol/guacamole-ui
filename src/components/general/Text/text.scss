@@ -2,13 +2,39 @@
 @import '../../../styles/colors';
 @import '../../../styles/layout';
 
-@mixin responsive-text($suffix) {
+@mixin responsive-text($suffix: '') {
   @each $key, $size in $font-size-map {
     .size-#{$suffix}-#{$key} {
       font-size: $size;
       line-height: get-line-height($key);
     }
   }
+}
+
+@include responsive-text();
+
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-text('xs');
+}
+
+@media (min-width: $min-device-width-s + 1) {
+  @include responsive-text('s');
+}
+
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-text('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-text('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-text('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-text('xxl');
 }
 
 .text {
@@ -22,17 +48,6 @@
   overflow: hidden;
   white-space: nowrap;
 }
-
-@include responsive-text('m');
-
-@media all and (max-width: $max-device-width-s) {
-  @include responsive-text('s');
-}
-
-@media all and (max-width: $max-device-width-xs) {
-  @include responsive-text('xs');
-}
-
 
 %highlight-text {
   padding: 0 get-spacing('xs');

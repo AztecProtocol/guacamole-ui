@@ -50,3 +50,15 @@ $max-shadow-layer: 3;
     @include aspect-ratio(2.76, 1);
   }
 }
+
+@function shift-size($size, $offset) {
+  $index: index($device-breakpoints, $size);
+  $new-size-index: $index - $offset;
+  @if $new-size-index < 1 {
+    @return 'xxl';
+  }
+  @if $new-size-index > 7 {
+    @return 'xxs';
+  }
+  @return nth($device-breakpoints, $new-size-index);
+}

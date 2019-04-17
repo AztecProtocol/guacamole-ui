@@ -5,7 +5,7 @@
   .size-#{$key} {
     $padding-v: get-spacing('xxs');
     $padding-h: get-spacing('m');
-    @if $size >= $padding-v * 5 {
+    @if $size >= $padding-v * 10 {
       $padding-v: get-spacing('xs');
       $padding-h: get-spacing('l');
     }
@@ -15,7 +15,7 @@
     height: $tag-height;
     font-size: $size;
     line-height: $line-height;
-    border-radius: map-get($rounded-corner-map, 'default');
+    border-radius: map-get($rounded-corner-map, $default-rounded-corner-key);
 
     &.rounded {
       border-radius: $tag-height / 2;

@@ -119,18 +119,24 @@ import Block from '../Block';
 #### Directions
 
 ```js
-import Col from '../Col';
+import DemoItems from '../../demo/DemoItems';
 import Block from '../Block';
-<FlexBox direction="column">
-  <Col column={2}>
+<DemoItems>
+  <FlexBox direction="row">
+    <Block background="grey-light">
+      {'direction="row"'}
+    </Block>
+    <Block background="secondary">
+      {'direction="row"'}
+    </Block>
+  </FlexBox>
+  <FlexBox direction="column">
     <Block background="grey-light">
       {'direction="column"'}
     </Block>
-  </Col>
-  <Col column={3}>
     <Block background="secondary">
       {'direction="column"'}
     </Block>
-  </Col>
-</FlexBox>
+  </FlexBox>
+</DemoItems>
 ```

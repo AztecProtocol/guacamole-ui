@@ -31,7 +31,7 @@ $aligns: (
     }
 }
 
-@mixin responsive-col($suffix) {
+@mixin responsive-col($suffix: '') {
     .col-#{$suffix}-auto {
         flex: 1 1 auto;
     }
@@ -62,19 +62,35 @@ $aligns: (
     }
 }
 
+@include responsive-col();
+
+@media (min-width: $min-device-width-xs + 1) {
+  @include responsive-col('xs');
+}
+
+@media (min-width: $min-device-width-s + 1) {
+  @include responsive-col('s');
+}
+
+@media (min-width: $min-device-width-m + 1) {
+  @include responsive-col('m');
+}
+
+@media (min-width: $min-device-width-l + 1) {
+  @include responsive-col('l');
+}
+
+@media (min-width: $min-device-width-xl + 1) {
+  @include responsive-col('xl');
+}
+
+@media (min-width: $min-device-width-xxl + 1) {
+  @include responsive-col('xxl');
+}
+
 @each $name, $color in $color-map {
     .bg-#{$name} {
         background: $color;
         color: get-text-color-on-background($name);
     }
-}
-
-@include responsive-col('m');
-
-@media (max-width: $max-device-width-s) {
-    @include responsive-col('s');
-}
-
-@media (max-width: $max-device-width-xs) {
-    @include responsive-col('xs');
 }

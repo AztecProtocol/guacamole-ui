@@ -1,16 +1,8 @@
 @import '../../../styles/layout';
+@import '../../../styles/shapes';
 
 .wrapper {
   position: relative;
-}
-
-@media all and (max-width: $max-device-width-s) {
-  .calendar-container {
-    height: 100%;
-    overflow: auto;
-    margin-left: - get-spacing($default-spacing-key-s);
-    margin-right: - get-spacing($default-spacing-key-s);
-  }
 }
 
 .input-button {

@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import generateResponsiveShape from 'src/helpers/generateResponsiveShape';
-import generateResponsiveStyleNames, {
-  responsiveStyleConfigAdaptor,
-} from 'src/helpers/generateResponsiveStyleNames';
+import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
 import Block from '../Block';
 import styles from './wrapper.scss';
 
@@ -33,10 +31,10 @@ const PageContentWrapper = ({
       styleName={classnames(
         'content',
         (alignCenter
-          && generateResponsiveStyleNames('align-center', responsiveStyleConfigAdaptor(alignCenter)))
+          && generateResponsiveStyleNames('align-center', alignCenter))
           || '',
         (expand
-          && generateResponsiveStyleNames('expand', responsiveStyleConfigAdaptor(expand)))
+          && generateResponsiveStyleNames('expand', expand))
           || '',
         {
           stretch,
