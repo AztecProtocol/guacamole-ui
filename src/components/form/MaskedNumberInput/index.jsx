@@ -123,7 +123,11 @@ class MaskedNumberInput extends PureComponent {
   }
 
   setInputRef(ref) {
+    const {
+      setInputRef,
+    } = this.props;
     this.input = ref;
+    setInputRef(ref);
   }
 
   getSelection() {
@@ -363,6 +367,7 @@ MaskedNumberInput.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   validate: PropTypes.func,
+  setInputRef: PropTypes.func,
   readingSpeed: PropTypes.number,
   maxValue: PropTypes.number,
   minValue: PropTypes.number,
@@ -382,6 +387,7 @@ MaskedNumberInput.defaultProps = {
   allowNegative: false,
   disabled: false,
   onChange() {},
+  setInputRef() {},
   validate: undefined,
   readingSpeed: (200 * 5) / (60 * 1000), // characters per millisecond
   maxValue: 10000000000,
