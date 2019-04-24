@@ -15,10 +15,10 @@
       padding: $padding-v $padding-h;
       height: $height;
       font-size: get-font-size($text-size-key);
-      line-height: $text-size-key;
+      line-height: $line-height;
 
       &.outlined {
-        padding: ($padding-v - $button-border-width * 2) $padding-h;
+        padding: ($padding-v - $outlined-button-border-width * 2) $padding-h;
       }
 
       &.rounded {
@@ -82,12 +82,12 @@
     &.outlined {
       background: transparent;
       color: $button-color;
-      border: $button-border-width solid $button-color;
+      border: $outlined-button-border-width solid get-color($color-name, 0.5);
 
       &:not(.disabled-hover):hover {
-        @include background($color-name, 1);
-        color: $button-content-color;
-        border-color: transparent;
+        background: transparent;
+        color: $button-color;
+        border-color: $button-color;
       }
     }
 

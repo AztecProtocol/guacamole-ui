@@ -1,6 +1,6 @@
 export const buttonThemeMap = {
-  primary: 'primary',
-  secondary: 'secondary',
+  primary: 'secondary',
+  secondary: 'primary-lighter',
   white: 'white',
 };
 
@@ -37,3 +37,4 @@ export const buttonSpacingHSizeMap = {
 };
 
 export const buttonBorderWidth = '1px';
+export const outlinedButtonBorderWidth = '2px';

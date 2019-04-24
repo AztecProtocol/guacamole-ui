@@ -113,7 +113,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: '',
-  theme: 'secondary',
+  theme: 'primary',
   size: defaultInputSizeKey,
   expand: false,
   text: '',
