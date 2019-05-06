@@ -57,7 +57,7 @@ Text.propTypes = {
   textAlign: PropTypes.oneOf(['center', 'left', 'right', 'inherit']),
   highlight: PropTypes.oneOf(['', ...colorNames]),
   showEllipsis: PropTypes.bool,
-  weight: PropTypes.oneOf(fontWeightKeys),
+  weight: PropTypes.oneOf(['', ...fontWeightKeys]),
 };
 
 Text.defaultProps = {
@@ -70,7 +70,7 @@ Text.defaultProps = {
   color: '',
   highlight: '',
   showEllipsis: false,
-  weight: 'light',
+  weight: '',
 };
 
 export default CSSModules(Text, styles, {
