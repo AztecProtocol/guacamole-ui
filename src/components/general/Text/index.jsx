@@ -15,6 +15,7 @@ import styles from './text.scss';
 
 export const Text = ({
   className,
+  title,
   text,
   children,
   size,
@@ -40,6 +41,7 @@ export const Text = ({
         'show-ellipsis': showEllipsis,
       }
     )}
+    title={title}
   >
     {children || text}
   </div>
@@ -47,6 +49,7 @@ export const Text = ({
 
 Text.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   children: PropTypes.node,
   size: responsiveTextSizes,
@@ -59,6 +62,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
   className: '',
+  title: '',
   text: '',
   children: null,
   size: 'inherit',
