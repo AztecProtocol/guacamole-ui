@@ -13,6 +13,7 @@ import {
 const nameMapping = {
   './src/fonts': './dist/fonts',
   './src/assets': './dist/assets',
+  './src/styles/variables.scss': './dist/styles/guacamole-ui.scss',
 };
 
 export default async function copy() {
