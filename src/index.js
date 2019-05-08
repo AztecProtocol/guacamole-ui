@@ -43,6 +43,10 @@ import Row from './components/layout/Row';
 import PageSteps from './components/navigation/PageSteps';
 import Progress from './components/navigation/Progress';
 import Steps from './components/navigation/Steps';
+import Clickable from './components/utils/Clickable';
+import ClickOutsideHandler from './components/utils/ClickOutsideHandler';
+import Draggable from './components/utils/Draggable';
+import LazyLoad from './components/utils/LazyLoad';
 import './styles/reset.scss';
 
 export {
@@ -91,4 +95,8 @@ export {
   PageSteps,
   Progress,
   Steps,
+  Clickable,
+  ClickOutsideHandler,
+  Draggable,
+  LazyLoad,
 };
