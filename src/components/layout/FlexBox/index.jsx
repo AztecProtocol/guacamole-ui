@@ -23,11 +23,11 @@ export const FlexBox = ({
     className={className}
     styleName={classnames(
       'flex-box',
+      generateResponsiveStyleNames('direction', direction, notEmptyString),
       generateResponsiveStyleNames('align', align, notEmptyString),
       generateResponsiveStyleNames('valign', valign, notEmptyString),
       generateResponsiveStyleNames('nowrap', nowrap),
       {
-        [`dir-${direction}`]: direction !== 'row',
         expand,
         fixedWidth,
         stretch,
@@ -40,7 +40,13 @@ export const FlexBox = ({
 
 FlexBox.propTypes = {
   className: PropTypes.string,
-  direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+  direction: generateResponsiveShape([
+    '',
+    'row',
+    'row-reverse',
+    'column',
+    'column-reverse',
+  ]),
   align: generateResponsiveShape([
     '',
     'flex-start',

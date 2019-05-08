@@ -130,12 +130,28 @@ import Block from '../Block';
       {'direction="row"'}
     </Block>
   </FlexBox>
+  <FlexBox direction="row-reverse">
+    <Block background="grey-light">
+      {'direction="row"-reverse'}
+    </Block>
+    <Block background="secondary">
+      {'direction="row-reverse"'}
+    </Block>
+  </FlexBox>
   <FlexBox direction="column">
     <Block background="grey-light">
       {'direction="column"'}
     </Block>
     <Block background="secondary">
       {'direction="column"'}
+    </Block>
+  </FlexBox>
+  <FlexBox direction="column-reverse">
+    <Block background="grey-light">
+      {'direction="column-reverse"'}
+    </Block>
+    <Block background="secondary">
+      {'direction="column-reverse"'}
     </Block>
   </FlexBox>
 </DemoItems>

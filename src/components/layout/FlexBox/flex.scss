@@ -25,6 +25,12 @@ $valigns: (
 );
 
 @mixin responsive-row($size: '') {
+  @each $direction in $flex-directions {
+    .direction-#{$size}-#{$direction} {
+      flex-direction: $direction;
+    }
+  }
+
   @each $align in $aligns {
     .align-#{$size}-#{$align} {
       justify-content: $align;
@@ -87,10 +93,4 @@ $valigns: (
 
 .stretch {
   height: 100%;
-}
-
-@each $direction in $flex-directions {
-  .dir-#{$direction} {
-    flex-direction: $direction;
-  }
 }
