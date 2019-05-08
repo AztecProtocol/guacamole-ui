@@ -83,6 +83,10 @@ module.exports = {
           content: 'src/config/spacings.md',
           exampleMode: 'hide',
         },
+        {
+          name: 'Responsive Design',
+          content: 'src/config/layout.md',
+        },
       ],
       sectionDepth: 2,
     },
