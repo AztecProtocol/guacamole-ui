@@ -23,26 +23,30 @@
   }
 }
 
-@mixin responsive-layout($size: '') {
+@mixin responsive-layout($suffix: '') {
+  $size-key: map-get($default-page-spacing-map, $suffix);
+  @if $suffix == '' {
+    $size-key: map-get($default-page-spacing-map, 'xxs');
+  }
   .content {
-    padding: 0 get-spacing(map-get($default-page-spacing-map, $size));
+    padding: 0 get-spacing($size-key);
   }
 
-  .align-center-#{$size}-true {
+  .align-center-#{$suffix}-true {
     margin: 0 auto;
   }
 
-  .align-center-#{$size}-false {
+  .align-center-#{$suffix}-false {
     margin: 0;
   }
 
-  .expand-#{$size}-true {
+  .expand-#{$suffix}-true {
     max-width: 100%;
   }
 
-  .expand-#{$size}-false {
-    @if $size != '' {
-      max-width: map-get($device-breakpoint-map, shift-size($size, -1));
+  .expand-#{$suffix}-false {
+    @if $suffix != '' {
+      max-width: map-get($device-breakpoint-map, shift-size($size-key, -1));
     }
   }
 }
