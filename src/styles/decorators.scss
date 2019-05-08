@@ -13,3 +13,33 @@
 :global(.flex-free-expand) {
   flex: 1 1 auto;
 }
+
+@each $key in $device-breakpoints {
+  $i: index($device-breakpoints, $key);
+  $width: map-get($device-breakpoint-map, $key);
+
+  @media all and (min-width: $width) {
+    :global(.hide-gte-#{$key}) {
+      display: none !important;
+    }
+  }
+
+  @if $i != length($device-breakpoints) {
+    $next-key: nth($device-breakpoints, $i + 1);
+    @media all and (max-width: $width - 1) {
+      :global(.hide-lte-#{$next-key}) {
+        display: none !important;
+      }
+    }
+  }
+
+  @if $i == 1 {
+    :global(.hide-lte-#{$key}) {
+      display: none !important;
+    }
+  }
+}
+
+:global(.hide) {
+  display: none !important;
+}
