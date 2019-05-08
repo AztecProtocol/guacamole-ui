@@ -45,6 +45,7 @@ import Progress from './components/navigation/Progress';
 import Steps from './components/navigation/Steps';
 import Clickable from './components/utils/Clickable';
 import ClickOutsideHandler from './components/utils/ClickOutsideHandler';
+import DeviceWidthListener from './components/utils/DeviceWidthListener';
 import Draggable from './components/utils/Draggable';
 import LazyLoad from './components/utils/LazyLoad';
 import './styles/reset.scss';
@@ -97,6 +98,7 @@ export {
   Steps,
   Clickable,
   ClickOutsideHandler,
+  DeviceWidthListener,
   Draggable,
   LazyLoad,
 };
