@@ -3,10 +3,10 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.buttonBorderWidth = exports.buttonSpacingHSizeMap = exports.buttonTextSizeMap = exports.buttonSizeKeys = exports.buttonSizeMap = exports.buttonThemeMap = void 0;
+exports.outlinedButtonBorderWidth = exports.buttonBorderWidth = exports.buttonSpacingHSizeMap = exports.buttonTextSizeMap = exports.buttonSizeKeys = exports.buttonSizeMap = exports.buttonThemeMap = void 0;
 var buttonThemeMap = {
-  primary: 'primary',
-  secondary: 'secondary',
+  primary: 'secondary',
+  secondary: 'primary-lighter',
   white: 'white'
 };
 exports.buttonThemeMap = buttonThemeMap;
@@ -44,3 +44,5 @@ var buttonSpacingHSizeMap = {
 exports.buttonSpacingHSizeMap = buttonSpacingHSizeMap;
 var buttonBorderWidth = '1px';
 exports.buttonBorderWidth = buttonBorderWidth;
+var outlinedButtonBorderWidth = '2px';
+exports.outlinedButtonBorderWidth = outlinedButtonBorderWidth;

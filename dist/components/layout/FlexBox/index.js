@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames2 = _interopRequireDefault(require("classnames"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
@@ -21,9 +21,11 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var styles = {
+  "direction--row": "flex__direction--row___12qL6",
+  "direction--row-reverse": "flex__direction--row-reverse___37Y7b",
+  "direction--column": "flex__direction--column___1fTtW",
+  "direction--column-reverse": "flex__direction--column-reverse___1zDV8",
   "align--flex-start": "flex__align--flex-start___3dDO8",
   "align--flex-end": "flex__align--flex-end___3RSJx",
   "align--center": "flex__align--center___IuoGt",
@@ -37,6 +39,10 @@ var styles = {
   "valign--baseline": "flex__valign--baseline___2CtRb",
   "nowrap--true": "flex__nowrap--true___17qef",
   "nowrap--false": "flex__nowrap--false___38KyE",
+  "direction-xs-row": "flex__direction-xs-row___1f88i",
+  "direction-xs-row-reverse": "flex__direction-xs-row-reverse___3MILm",
+  "direction-xs-column": "flex__direction-xs-column___SZSMW",
+  "direction-xs-column-reverse": "flex__direction-xs-column-reverse___xOPIs",
   "align-xs-flex-start": "flex__align-xs-flex-start___15nXn",
   "align-xs-flex-end": "flex__align-xs-flex-end___1pj4w",
   "align-xs-center": "flex__align-xs-center___1MrTz",
@@ -50,6 +56,10 @@ var styles = {
   "valign-xs-baseline": "flex__valign-xs-baseline___3sW8b",
   "nowrap-xs-true": "flex__nowrap-xs-true___1IMob",
   "nowrap-xs-false": "flex__nowrap-xs-false___2vBWz",
+  "direction-s-row": "flex__direction-s-row___2o9po",
+  "direction-s-row-reverse": "flex__direction-s-row-reverse___38LVP",
+  "direction-s-column": "flex__direction-s-column___5zSp8",
+  "direction-s-column-reverse": "flex__direction-s-column-reverse___3i9cj",
   "align-s-flex-start": "flex__align-s-flex-start___2z7KX",
   "align-s-flex-end": "flex__align-s-flex-end___3A55E",
   "align-s-center": "flex__align-s-center___3bbDH",
@@ -63,6 +73,10 @@ var styles = {
   "valign-s-baseline": "flex__valign-s-baseline___lRpi2",
   "nowrap-s-true": "flex__nowrap-s-true___2NyDn",
   "nowrap-s-false": "flex__nowrap-s-false___3_PpC",
+  "direction-m-row": "flex__direction-m-row___3W6vX",
+  "direction-m-row-reverse": "flex__direction-m-row-reverse___31Nrx",
+  "direction-m-column": "flex__direction-m-column___u15Ua",
+  "direction-m-column-reverse": "flex__direction-m-column-reverse___FQAIk",
   "align-m-flex-start": "flex__align-m-flex-start___fXcTO",
   "align-m-flex-end": "flex__align-m-flex-end___3kbJh",
   "align-m-center": "flex__align-m-center___3VpUl",
@@ -76,6 +90,10 @@ var styles = {
   "valign-m-baseline": "flex__valign-m-baseline___3jV78",
   "nowrap-m-true": "flex__nowrap-m-true___3Io_A",
   "nowrap-m-false": "flex__nowrap-m-false___G3j2M",
+  "direction-l-row": "flex__direction-l-row___2Ux5t",
+  "direction-l-row-reverse": "flex__direction-l-row-reverse___Lq1e9",
+  "direction-l-column": "flex__direction-l-column___2QpMu",
+  "direction-l-column-reverse": "flex__direction-l-column-reverse___1W4ZF",
   "align-l-flex-start": "flex__align-l-flex-start___3xj8h",
   "align-l-flex-end": "flex__align-l-flex-end___1vTWI",
   "align-l-center": "flex__align-l-center___36oCa",
@@ -89,6 +107,10 @@ var styles = {
   "valign-l-baseline": "flex__valign-l-baseline___23WDG",
   "nowrap-l-true": "flex__nowrap-l-true___2-_ST",
   "nowrap-l-false": "flex__nowrap-l-false___1xqCN",
+  "direction-xl-row": "flex__direction-xl-row___3_Saz",
+  "direction-xl-row-reverse": "flex__direction-xl-row-reverse___1iaWc",
+  "direction-xl-column": "flex__direction-xl-column___hdGSG",
+  "direction-xl-column-reverse": "flex__direction-xl-column-reverse___1fGrQ",
   "align-xl-flex-start": "flex__align-xl-flex-start___3jUD-",
   "align-xl-flex-end": "flex__align-xl-flex-end___3Idal",
   "align-xl-center": "flex__align-xl-center___2s2L_",
@@ -102,6 +124,10 @@ var styles = {
   "valign-xl-baseline": "flex__valign-xl-baseline___2vito",
   "nowrap-xl-true": "flex__nowrap-xl-true___3amz2",
   "nowrap-xl-false": "flex__nowrap-xl-false___2scQP",
+  "direction-xxl-row": "flex__direction-xxl-row___1bbaU",
+  "direction-xxl-row-reverse": "flex__direction-xxl-row-reverse___1I7Va",
+  "direction-xxl-column": "flex__direction-xxl-column___2_8Lc",
+  "direction-xxl-column-reverse": "flex__direction-xxl-column-reverse___2_8Kj",
   "align-xxl-flex-start": "flex__align-xxl-flex-start___3WpbS",
   "align-xxl-flex-end": "flex__align-xxl-flex-end___AaJxm",
   "align-xxl-center": "flex__align-xxl-center___2foun",
@@ -118,16 +144,10 @@ var styles = {
   "flex-box": "flex__flex-box___3K-jt",
   "fixedWidth": "flex__fixedWidth___3Y4AX",
   "expand": "flex__expand___2SMXW",
-  "stretch": "flex__stretch___1usYL",
-  "dir-row": "flex__dir-row___2DTl6",
-  "dir-row-reverse": "flex__dir-row-reverse___k_aZa",
-  "dir-column": "flex__dir-column___Gtxeu",
-  "dir-column-reverse": "flex__dir-column-reverse___2x02O"
+  "stretch": "flex__stretch___1usYL"
 };
 
 var FlexBox = function FlexBox(_ref) {
-  var _classnames;
-
   var className = _ref.className,
       direction = _ref.direction,
       align = _ref.align,
@@ -139,14 +159,18 @@ var FlexBox = function FlexBox(_ref) {
       children = _ref.children;
   return _react.default.createElement("div", {
     className: className,
-    styleName: (0, _classnames2.default)('flex-box', (0, _generateResponsiveStyleNames.default)('align', align, _generateResponsiveStyleNames.notEmptyString), (0, _generateResponsiveStyleNames.default)('valign', valign, _generateResponsiveStyleNames.notEmptyString), (0, _generateResponsiveStyleNames.default)('nowrap', nowrap), (_classnames = {}, _defineProperty(_classnames, "dir-".concat(direction), direction !== 'row'), _defineProperty(_classnames, "expand", expand), _defineProperty(_classnames, "fixedWidth", fixedWidth), _defineProperty(_classnames, "stretch", stretch), _classnames))
+    styleName: (0, _classnames.default)('flex-box', (0, _generateResponsiveStyleNames.default)('direction', direction, _generateResponsiveStyleNames.notEmptyString), (0, _generateResponsiveStyleNames.default)('align', align, _generateResponsiveStyleNames.notEmptyString), (0, _generateResponsiveStyleNames.default)('valign', valign, _generateResponsiveStyleNames.notEmptyString), (0, _generateResponsiveStyleNames.default)('nowrap', nowrap), {
+      expand: expand,
+      fixedWidth: fixedWidth,
+      stretch: stretch
+    })
   }, children);
 };
 
 exports.FlexBox = FlexBox;
 FlexBox.propTypes = {
   className: _propTypes.default.string,
-  direction: _propTypes.default.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+  direction: (0, _generateResponsiveShape.default)(['', 'row', 'row-reverse', 'column', 'column-reverse']),
   align: (0, _generateResponsiveShape.default)(['', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
   valign: (0, _generateResponsiveShape.default)(['', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline']),
   nowrap: (0, _generateResponsiveShape.default)([true, false]),

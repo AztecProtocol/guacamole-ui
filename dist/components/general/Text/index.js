@@ -147,6 +147,7 @@ var Text = function Text(_ref) {
   var _classnames;
 
   var className = _ref.className,
+      title = _ref.title,
       text = _ref.text,
       children = _ref.children,
       size = _ref.size,
@@ -157,13 +158,15 @@ var Text = function Text(_ref) {
       showEllipsis = _ref.showEllipsis;
   return _react.default.createElement("div", {
     className: className,
-    styleName: (0, _classnames2.default)('text', size && size !== 'inherit' && (0, _generateResponsiveStyleNames.default)('size', size) || '', (_classnames = {}, _defineProperty(_classnames, "color-".concat(color), color), _defineProperty(_classnames, "highlight-".concat(highlight), highlight), _defineProperty(_classnames, "weight-".concat(weight), weight && weight !== 'inherit'), _defineProperty(_classnames, "text-align-".concat(textAlign), textAlign && textAlign !== 'inherit'), _defineProperty(_classnames, 'show-ellipsis', showEllipsis), _classnames))
+    styleName: (0, _classnames2.default)('text', size && size !== 'inherit' && (0, _generateResponsiveStyleNames.default)('size', size) || '', (_classnames = {}, _defineProperty(_classnames, "color-".concat(color), color), _defineProperty(_classnames, "highlight-".concat(highlight), highlight), _defineProperty(_classnames, "weight-".concat(weight), weight && weight !== 'inherit'), _defineProperty(_classnames, "text-align-".concat(textAlign), textAlign && textAlign !== 'inherit'), _defineProperty(_classnames, 'show-ellipsis', showEllipsis), _classnames)),
+    title: title
   }, children || text);
 };
 
 exports.Text = Text;
 Text.propTypes = {
   className: _propTypes.default.string,
+  title: _propTypes.default.string,
   text: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.node]),
   children: _propTypes.default.node,
   size: _responsiveTextSizes.default,
@@ -171,10 +174,11 @@ Text.propTypes = {
   textAlign: _propTypes.default.oneOf(['center', 'left', 'right', 'inherit']),
   highlight: _propTypes.default.oneOf([''].concat(_toConsumableArray(_colors.colorNames))),
   showEllipsis: _propTypes.default.bool,
-  weight: _propTypes.default.oneOf(_typography.fontWeightKeys)
+  weight: _propTypes.default.oneOf([''].concat(_toConsumableArray(_typography.fontWeightKeys)))
 };
 Text.defaultProps = {
   className: '',
+  title: '',
   text: '',
   children: null,
   size: 'inherit',
@@ -182,7 +186,7 @@ Text.defaultProps = {
   color: '',
   highlight: '',
   showEllipsis: false,
-  weight: 'light'
+  weight: ''
 };
 
 var _default = (0, _reactCssModules.default)(Text, styles, {

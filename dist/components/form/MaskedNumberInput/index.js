@@ -163,7 +163,9 @@ function (_PureComponent) {
   }, {
     key: "setInputRef",
     value: function setInputRef(ref) {
+      var setInputRef = this.props.setInputRef;
       this.input = ref;
+      setInputRef(ref);
     }
   }, {
     key: "getSelection",
@@ -414,6 +416,7 @@ MaskedNumberInput.propTypes = {
   disabled: _propTypes.default.bool,
   onChange: _propTypes.default.func,
   validate: _propTypes.default.func,
+  setInputRef: _propTypes.default.func,
   readingSpeed: _propTypes.default.number,
   maxValue: _propTypes.default.number,
   minValue: _propTypes.default.number
@@ -432,6 +435,7 @@ MaskedNumberInput.defaultProps = {
   allowNegative: false,
   disabled: false,
   onChange: function onChange() {},
+  setInputRef: function setInputRef() {},
   validate: undefined,
   readingSpeed: 200 * 5 / (60 * 1000),
   // characters per millisecond
