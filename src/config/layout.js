@@ -43,7 +43,7 @@ export const defaultPageSpacingMap = {
   m: 'l',
   s: 'l',
   xs: 'l',
-  xxs: 'm',
+  xxs: 'l',
 };
 
 export const defaultPageSpacingKeyXxl = defaultPageSpacingMap.xxl;
