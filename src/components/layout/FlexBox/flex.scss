@@ -51,6 +51,11 @@ $valigns: (
   }
 }
 
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @include responsive-row();
 
 @media (min-width: $min-device-width-xs + 1) {
@@ -75,11 +80,6 @@ $valigns: (
 
 @media (min-width: $min-device-width-xxl + 1) {
   @include responsive-row('xxl');
-}
-
-.flex-box {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .fixedWidth {
