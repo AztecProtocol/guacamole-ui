@@ -55,7 +55,12 @@ export const TextButton = ({
 
 TextButton.propTypes = {
   className: PropTypes.string,
-  theme: PropTypes.oneOf(['default', 'normal', 'underline']),
+  theme: PropTypes.oneOf([
+    'default',
+    'normal',
+    'underline',
+    'implicit',
+  ]),
   text: PropTypes.string,
   children: PropTypes.node,
   size: responsiveTextSizes,
