@@ -64,27 +64,27 @@ $aligns: (
 
 @include responsive-col();
 
-@media (min-width: $min-device-width-xs + 1) {
+@media (min-width: $min-device-width-xs) {
   @include responsive-col('xs');
 }
 
-@media (min-width: $min-device-width-s + 1) {
+@media (min-width: $min-device-width-s) {
   @include responsive-col('s');
 }
 
-@media (min-width: $min-device-width-m + 1) {
+@media (min-width: $min-device-width-m) {
   @include responsive-col('m');
 }
 
-@media (min-width: $min-device-width-l + 1) {
+@media (min-width: $min-device-width-l) {
   @include responsive-col('l');
 }
 
-@media (min-width: $min-device-width-xl + 1) {
+@media (min-width: $min-device-width-xl) {
   @include responsive-col('xl');
 }
 
-@media (min-width: $min-device-width-xxl + 1) {
+@media (min-width: $min-device-width-xxl) {
   @include responsive-col('xxl');
 }
 

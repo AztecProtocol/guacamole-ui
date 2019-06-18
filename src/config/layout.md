@@ -4,7 +4,7 @@ There are currently 7 breakpoints in our design system:
 
  - xxs: 0
  - xs: 480px
- - s: 767px
+ - s: 768px
  - m: 960px
  - l: 1248px
  - xl: 1690px
@@ -14,7 +14,7 @@ Those pixel values are the lowerbounds of their corresponding breakpoint keys. T
 
 Some components have special props that could be an object with breakpoints as keys.
 
-In the example below, the Block will have padding size *xs* when device width is more than 1248px; size *m* when device width is between 481px and 1248px; size *l* when device width is less than or equal to 480px.
+In the example below, the Block will have padding size *xs* when device width is more than or equal to 1248px; size *m* when device width is between 480px and 1247px; size *l* when device width is less than 480px.
 
 ```jsx static
 <Block
@@ -31,7 +31,7 @@ In the example below, the Block will have padding size *xs* when device width is
 
 #### Grid System
 
-Grid system is the most common way for responsive layout.
+Grid system is the most common way for structuring responsive layout.
 
 ```jsx static
 import {
@@ -72,13 +72,13 @@ You can also use DeviceWidthListener to wrap other components for responsive des
     if (gt.m) {
       textGt = 'Greater than m (>= 1248px)';
     } else if (gt.xs) {
-      textGt = 'Greater than xs (>= 767px)';
+      textGt = 'Greater than xs (>= 768px)';
     } else if (gte.xs) {
       textGt = 'Greater than and equal to xs (>= 480px)';
     }
 
     if (lt.s) {
-      textLt = 'Less than s (< 767px)';
+      textLt = 'Less than s (< 768px)';
     } else if (lte.m) {
       textLt = 'Less than and equal to m (< 1248px)';
     }
@@ -115,13 +115,13 @@ import Text from '../components/general/Text';
     if (gt.m) {
       textGt = 'Greater than m (>= 1248px)';
     } else if (gt.xs) {
-      textGt = 'Greater than xs (>= 767px)';
+      textGt = 'Greater than xs (>= 768px)';
     } else if (gte.xs) {
       textGt = 'Greater than and equal to xs (>= 480px)';
     }
 
     if (lt.s) {
-      textLt = 'Less than s (< 767px)';
+      textLt = 'Less than s (< 768px)';
     } else if (lte.m) {
       textLt = 'Less than and equal to m (< 1248px)';
     }
@@ -145,10 +145,16 @@ There are some css class names in guacamole-ui.css for hiding content larger tha
 
 ```jsx static
 <div className="hide-gte-s">
-  This will be hidden when device width >= 767px
+  This will be hidden when device width >= 768px
 </div>
 <div className="hide-lte-s">
-  This will be hidden when device width <= 959px
+  This will be hidden when device width < 960px
+</div>
+<div className="hide-gt-s">
+  This will be hidden when device width >= 960px
+</div>
+<div className="hide-lt-s">
+  This will be hidden when device width < 768px
 </div>
 ```
 

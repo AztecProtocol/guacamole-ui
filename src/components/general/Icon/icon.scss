@@ -37,27 +37,27 @@
 
 @include responsive-icon();
 
-@media (min-width: $min-device-width-xs + 1) {
+@media (min-width: $min-device-width-xs) {
   @include responsive-icon('xs');
 }
 
-@media (min-width: $min-device-width-s + 1) {
+@media (min-width: $min-device-width-s) {
   @include responsive-icon('s');
 }
 
-@media (min-width: $min-device-width-m + 1) {
+@media (min-width: $min-device-width-m) {
   @include responsive-icon('m');
 }
 
-@media (min-width: $min-device-width-l + 1) {
+@media (min-width: $min-device-width-l) {
   @include responsive-icon('l');
 }
 
-@media (min-width: $min-device-width-xl + 1) {
+@media (min-width: $min-device-width-xl) {
   @include responsive-icon('xl');
 }
 
-@media (min-width: $min-device-width-xxl + 1) {
+@media (min-width: $min-device-width-xxl) {
   @include responsive-icon('xxl');
 }
 

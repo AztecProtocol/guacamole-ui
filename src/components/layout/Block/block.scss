@@ -48,27 +48,27 @@ $aligns: (
 
 @include responsive-block();
 
-@media (min-width: $min-device-width-xs + 1) {
+@media (min-width: $min-device-width-xs) {
   @include responsive-block('xs');
 }
 
-@media (min-width: $min-device-width-s + 1) {
+@media (min-width: $min-device-width-s) {
   @include responsive-block('s');
 }
 
-@media (min-width: $min-device-width-m + 1) {
+@media (min-width: $min-device-width-m) {
   @include responsive-block('m');
 }
 
-@media (min-width: $min-device-width-l + 1) {
+@media (min-width: $min-device-width-l) {
   @include responsive-block('l');
 }
 
-@media (min-width: $min-device-width-xl + 1) {
+@media (min-width: $min-device-width-xl) {
   @include responsive-block('xl');
 }
 
-@media (min-width: $min-device-width-xxl + 1) {
+@media (min-width: $min-device-width-xxl) {
   @include responsive-block('xxl');
 }
 

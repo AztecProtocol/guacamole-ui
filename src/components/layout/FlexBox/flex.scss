@@ -58,27 +58,27 @@ $valigns: (
 
 @include responsive-row();
 
-@media (min-width: $min-device-width-xs + 1) {
+@media (min-width: $min-device-width-xs) {
   @include responsive-row('xs');
 }
 
-@media (min-width: $min-device-width-s + 1) {
+@media (min-width: $min-device-width-s) {
   @include responsive-row('s');
 }
 
-@media (min-width: $min-device-width-m + 1) {
+@media (min-width: $min-device-width-m) {
   @include responsive-row('m');
 }
 
-@media (min-width: $min-device-width-l + 1) {
+@media (min-width: $min-device-width-l) {
   @include responsive-row('l');
 }
 
-@media (min-width: $min-device-width-xl + 1) {
+@media (min-width: $min-device-width-xl) {
   @include responsive-row('xl');
 }
 
-@media (min-width: $min-device-width-xxl + 1) {
+@media (min-width: $min-device-width-xxl) {
   @include responsive-row('xxl');
 }
 

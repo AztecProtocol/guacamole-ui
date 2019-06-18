@@ -39,27 +39,27 @@
 
 @include responsive-table();
 
-@media (min-width: $min-device-width-xs + 1) {
+@media (min-width: $min-device-width-xs) {
   @include responsive-table('xs');
 }
 
-@media (min-width: $min-device-width-s + 1) {
+@media (min-width: $min-device-width-s) {
   @include responsive-table('s');
 }
 
-@media (min-width: $min-device-width-m + 1) {
+@media (min-width: $min-device-width-m) {
   @include responsive-table('m');
 }
 
-@media (min-width: $min-device-width-l + 1) {
+@media (min-width: $min-device-width-l) {
   @include responsive-table('l');
 }
 
-@media (min-width: $min-device-width-xl + 1) {
+@media (min-width: $min-device-width-xl) {
   @include responsive-table('xl');
 }
 
-@media (min-width: $min-device-width-xxl + 1) {
+@media (min-width: $min-device-width-xxl) {
   @include responsive-table('xxl');
 }
 

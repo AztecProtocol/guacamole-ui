@@ -5,7 +5,7 @@ export const deviceBreakpointMap = {
   xl: '1690px',
   l: '1248px',
   m: '960px',
-  s: '767px',
+  s: '768px',
   xs: '480px',
   xxs: '0',
 };
