@@ -2,7 +2,9 @@ import webpack from 'webpack';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const webpackConfig = (env = 'development') => {
+const webpackConfig = (env = 'development', {
+  locale = 'en',
+} = {}) => {
   const isDevelopment = env === 'development';
   const externals = isDevelopment
     ? []
@@ -51,10 +53,21 @@ const webpackConfig = (env = 'development') => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env),
       }),
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false,
+        options: {
+          context: __dirname,
+        },
+      }),
       new webpack.NoEmitOnErrorsPlugin(),
       new MiniCssExtractPlugin({
         filename: '[name].css',
       }),
+      new webpack.ContextReplacementPlugin(
+        /moment[/\\]locale$/,
+        new RegExp(locale.toLowerCase())
+      ),
     ],
     module: {
       rules: [
