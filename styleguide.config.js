@@ -68,6 +68,14 @@ module.exports = {
     {
       name: 'Introduction',
       content: 'styleguide/categories/Introduction.md',
+      sections: [
+        {
+          name: 'Custom Styles',
+          content: 'src/config/custom.md',
+          exampleMode: 'hide',
+        },
+      ],
+      sectionDepth: 1,
     },
     {
       name: 'Basics',

@@ -29,7 +29,7 @@ const webpackConfig = (env = 'development', {
     },
     resolveLoader: {
       modules: [
-        'scripts/modules',
+        'src/scripts/modules',
         'node_modules',
       ],
     },

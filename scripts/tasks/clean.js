@@ -4,7 +4,7 @@ import {
   log,
   logEntries,
   errorLog,
-} from '../utils/log';
+} from 'src/scripts/utils/log';
 
 export const bundles = [
   './dist/*',

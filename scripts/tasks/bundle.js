@@ -1,11 +1,11 @@
 import webpack from 'webpack';
 import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages';
-import webpackConfig from '../../webpack.config';
 import {
   log,
   successLog,
   warnLog,
-} from '../utils/log';
+} from 'src/scripts/utils/log';
+import webpackConfig from '../../webpack.config';
 
 process.env.NODE_ENV = 'production'; // this assures React is built in prod mode and that the Babel dev config doesn't apply.
 

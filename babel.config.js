@@ -1,4 +1,5 @@
 const path = require('path');
+const config = require('./guacamole.config');
 
 module.exports = {
   presets: [
@@ -40,9 +41,10 @@ module.exports = {
           'css-modules-transform',
           {
             extensions: ['.scss'],
-            preprocessCss: path.resolve(__dirname, 'scripts/tasks/preprocessCss'),
+            preprocessCss: path.resolve(__dirname, 'scripts/helpers/preprocessCss'),
+            generateScopedName: path.resolve(__dirname, 'scripts/helpers/generateScopedName'),
             append: ['postcss-cssnext'],
-            extractCss: path.resolve(__dirname, 'dist/styles/guacamole-ui.css'),
+            extractCss: path.resolve(__dirname, 'dist/styles', config.output.filename),
           },
         ],
       ],

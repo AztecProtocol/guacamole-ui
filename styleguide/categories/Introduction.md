@@ -30,5 +30,5 @@ render(
 And remember to import the stylesheet:
 
 ```jsx static
-import '@aztec/guacamole-ui/dist/styles/guacamole-ui.css';
+import '@aztec/guacamole-ui/dist/styles/guacamole.css';
 ```

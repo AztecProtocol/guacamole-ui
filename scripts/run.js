@@ -1,7 +1,7 @@
 import {
   successLog,
   errorLog,
-} from './utils/log';
+} from 'src/scripts/utils/log';
 
 function run(fn, options) {
   const task = (typeof fn.default === 'undefined') ? fn : fn.default;

@@ -1,9 +1,12 @@
 /* eslint-disable no-console */
 import chalk from 'chalk';
 
-function formatLog(...content) {
-  console.log(...content);
-  console.log();
+function formatLog(title, ...rest) {
+  console.log(title);
+  if (rest.length > 0) {
+    console.log(...rest.map(msg => chalk.gray(msg)));
+  }
+  console.log('');
 }
 
 export function successLog(...args) {
@@ -26,7 +29,7 @@ export function log(...args) {
 }
 
 export function logEntries(files) {
-  log(`\n${files.map(file => `  ${file}`).join('\n')}`);
+  log(`${files.map(file => `  ${file}`).join('\n')}`);
 }
 
 export default log;

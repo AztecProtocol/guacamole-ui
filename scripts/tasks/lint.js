@@ -2,12 +2,12 @@ import cp from 'child_process';
 import {
   isDirectory,
   isFile,
-} from '../utils/fs';
+} from 'src/scripts/utils/fs';
 import {
   log,
   successLog,
   errorLog,
-} from '../utils/log';
+} from 'src/scripts/utils/log';
 
 const defaultDirectory = './src/**';
 

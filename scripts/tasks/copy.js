@@ -3,17 +3,17 @@ import path from 'path';
 import {
   copyFile,
   copyFolder,
-} from '../utils/fs';
+} from 'src/scripts/utils/fs';
 import {
   logEntries,
   errorLog,
   successLog,
-} from '../utils/log';
+} from 'src/scripts/utils/log';
 
 const nameMapping = {
   './src/fonts': './dist/fonts',
   './src/assets': './dist/assets',
-  './src/styles/variables.scss': './dist/styles/guacamole-ui.scss',
+  './src/styles/variables.scss': './dist/styles/guacamole-vars.scss',
 };
 
 export default async function copy() {
