@@ -21,7 +21,7 @@
     "transpile": "BABEL_ENV=transpile babel src -x \".js\",\".jsx\" --ignore \"**/*.spec.js\",\"**/demo/**\" -d dist"
   },
   "bin": {
-    "guacamole": "./bin/guacamole-ui"
+    "guacamole": "./bin/guacamole.js"
   },
   "dependencies": {
     "babel-loader": "^8.0.5",
