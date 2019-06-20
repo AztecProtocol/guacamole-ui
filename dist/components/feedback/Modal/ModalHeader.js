@@ -11,8 +11,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _layout = require("../../../config/layout");
-
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
 var _Block = _interopRequireDefault(require("../../layout/Block"));
@@ -30,15 +28,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 var styles = {
-  "modal": "modal__modal___3DAi_",
-  "hide": "modal__hide___2_Zup",
-  "wrapper": "modal__wrapper___2_wOP",
-  "container": "modal__container___3W_Ta",
-  "auto-width": "modal__auto-width___301B3",
-  "header": "modal__header___3kM3q",
-  "content": "modal__content___1VoSe",
-  "close-button": "modal__close-button___C3cE_",
-  "placeHolderShimmer": "modal__placeHolderShimmer___7K1Nh"
+  "modal": "modal-b9d0f0e0",
+  "hide": "modal-69b09d41",
+  "wrapper": "modal-dc213bbe",
+  "container": "modal-2637ce0b",
+  "auto-width": "modal-adaf9598",
+  "header": "modal-3a60906c",
+  "content": "modal-974e1036",
+  "close-button": "modal-6847e7a9",
+  "placeHolderShimmer": "modal-89d80b5e"
 };
 
 var ModalHeader = function ModalHeader(_ref) {
@@ -50,7 +48,7 @@ var ModalHeader = function ModalHeader(_ref) {
   return _react.default.createElement(_Block.default, {
     className: className,
     background: "grey-lightest",
-    padding: "m ".concat(_layout.defaultSpacingKeyM),
+    padding: "m l",
     hasBorderBottom: true
   }, _react.default.createElement(_FlexBox.default, {
     align: "space-between"
@@ -66,7 +64,7 @@ var ModalHeader = function ModalHeader(_ref) {
     padding: "0 xs"
   }, _react.default.createElement(_Text.default, {
     size: "s",
-    weight: "book"
+    weight: "medium"
   }, children))), hasCloseIcon && _react.default.createElement("div", {
     styleName: "close-button",
     onClick: onClose

@@ -40,8 +40,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "content": "accordion__content___3kBwn",
-  "hide": "accordion__hide___2aS0D"
+  "content": "accordion-f6c7a8a7",
+  "hide": "accordion-89fe9539"
 };
 
 var Accordion =

@@ -3,12 +3,10 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.darkThemeInputValueColor = exports.darkThemeInputActiveOutlineColor = exports.darkThemeInputOutlineColor = exports.defaultInputValueColor = exports.defaultInputActiveOutlineColor = exports.defaultInputOutlineColor = exports.inputThemeNames = exports.inputStatusColorMap = exports.inputFontSizeKeyMap = exports.inputSizeKeys = exports.inputSizeMap = exports.defaultInputSizeKey = void 0;
+exports.darkThemeInputValueColor = exports.darkThemeInputActiveOutlineColor = exports.darkThemeInputOutlineColor = exports.defaultInputValueColor = exports.defaultInputActiveOutlineColor = exports.defaultInputOutlineColor = exports.inputStatusColorMap = exports.inputFontSizeKeyMap = exports.inputSizeMap = void 0;
 
 var _colors = require("./colors");
 
-var defaultInputSizeKey = 'm';
-exports.defaultInputSizeKey = defaultInputSizeKey;
 var inputSizeMap = {
   xs: '24px',
   s: '28px',
@@ -16,8 +14,6 @@ var inputSizeMap = {
   l: '40px'
 };
 exports.inputSizeMap = inputSizeMap;
-var inputSizeKeys = Object.keys(inputSizeMap);
-exports.inputSizeKeys = inputSizeKeys;
 var inputFontSizeKeyMap = {
   xs: 'xxs',
   s: 'xxs',
@@ -26,12 +22,10 @@ var inputFontSizeKeyMap = {
 };
 exports.inputFontSizeKeyMap = inputFontSizeKeyMap;
 var inputStatusColorMap = {
-  error: 'red',
-  focus: 'secondary-light'
+  error: _colors.colorMap.red,
+  focus: _colors.colorMap['secondary-light']
 };
 exports.inputStatusColorMap = inputStatusColorMap;
-var inputThemeNames = ['default', 'inline'];
-exports.inputThemeNames = inputThemeNames;
 var defaultInputOutlineColor = _colors.colorMap['grey-light'];
 exports.defaultInputOutlineColor = defaultInputOutlineColor;
 var defaultInputActiveOutlineColor = _colors.colorMap['secondary-light'];

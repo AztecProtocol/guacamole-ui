@@ -11,7 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _shapes = require("../../../config/shapes");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _withEmptyOrDefault = _interopRequireDefault(require("../../../shapes/withEmptyOrDefault"));
 
@@ -36,21 +36,21 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 var styles = {
-  "ratio-square": "image__ratio-square___dGY9i",
-  "ratio-classic": "image__ratio-classic___3Jmh1",
-  "ratio-golden": "image__ratio-golden___2H6WH",
-  "ratio-landscape": "image__ratio-landscape___1ZJT-",
-  "ratio-ultra": "image__ratio-ultra___2Xu2p",
-  "wrapper": "image__wrapper___3MkBG",
-  "mocked-holder": "image__mocked-holder___1kbJa",
-  "preload-img": "image__preload-img___G_4Wv",
-  "img": "image__img___35Ain",
-  "free": "image__free___3y_Wy",
-  "bg": "image__bg___3xOJd",
-  "placeholder": "image__placeholder___2fLoV",
-  "isLoading": "image__isLoading___C2u3b",
-  "placeHolderShimmer": "image__placeHolderShimmer___BGwuJ",
-  "placeholder-icon": "image__placeholder-icon___3joxc"
+  "ratio-square": "image-8aa5f9de",
+  "ratio-classic": "image-aa46fffc",
+  "ratio-golden": "image-b3194e1b",
+  "ratio-landscape": "image-6cfe8723",
+  "ratio-ultra": "image-24568aef",
+  "wrapper": "image-ef178ce7",
+  "mocked-holder": "image-b32a913b",
+  "preload-img": "image-f3edf1da",
+  "img": "image-d8aa0513",
+  "free": "image-6bb7916c",
+  "bg": "image-ee7d0bc6",
+  "placeholder": "image-ced17b4b",
+  "isLoading": "image-c64da696",
+  "placeHolderShimmer": "image-fad775cb",
+  "placeholder-icon": "image-9eb48fec"
 };
 
 var Image = function Image(_ref) {
@@ -122,14 +122,14 @@ var Image = function Image(_ref) {
 exports.Image = Image;
 Image.propTypes = {
   className: _propTypes.default.string,
-  ratio: _propTypes.default.oneOf([''].concat(_toConsumableArray(_shapes.imageRatioNames))),
+  ratio: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.imageRatioNames))),
   width: _propTypes.default.string,
   height: _propTypes.default.string,
   src: _propTypes.default.string,
   backgroundUrl: _propTypes.default.string,
   backgroundPosition: _propTypes.default.string,
   backgroundSize: _propTypes.default.string,
-  borderRadius: _propTypes.default.oneOf((0, _withEmptyOrDefault.default)(_shapes.roundedCornerKeys)),
+  borderRadius: _propTypes.default.oneOf((0, _withEmptyOrDefault.default)(_styleConstants.roundedCornerKeys)),
   alt: _propTypes.default.string,
   children: _propTypes.default.node,
   lazyLoadContainerId: _propTypes.default.string,

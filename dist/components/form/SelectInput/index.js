@@ -13,7 +13,7 @@ var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _isObjectEmpty = _interopRequireDefault(require("../../../utils/isObjectEmpty"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _itemGroupShape = _interopRequireDefault(require("../../../shapes/itemGroupShape"));
 
@@ -58,7 +58,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "wrapper": "select__wrapper___29wv6"
+  "wrapper": "select-2415101d"
 };
 
 var SelectInput =
@@ -403,8 +403,8 @@ function (_PureComponent) {
 exports.SelectInput = SelectInput;
 SelectInput.propTypes = {
   className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_inputs.inputThemeNames),
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
   itemGroups: _propTypes.default.arrayOf(_itemGroupShape.default).isRequired,
   placeholder: _propTypes.default.string,
@@ -426,7 +426,7 @@ SelectInput.propTypes = {
 SelectInput.defaultProps = {
   className: '',
   theme: 'default',
-  size: _inputs.defaultInputSizeKey,
+  size: _styleConstants.defaultInputSizeKey,
   value: undefined,
   placeholder: '',
   tabIndex: 0,

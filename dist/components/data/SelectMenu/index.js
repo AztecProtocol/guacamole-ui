@@ -9,9 +9,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _shapes = require("../../../config/shapes");
-
-var _layout = require("../../../config/layout");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _responsiveCssSizes = _interopRequireDefault(require("../../../shapes/responsiveCssSizes"));
 
@@ -217,7 +215,7 @@ function (_PureComponent) {
 exports.SelectMenu = SelectMenu;
 SelectMenu.propTypes = {
   className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_shapes.shapeSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys),
   itemGroups: _propTypes.default.arrayOf(_itemGroupShape.default),
   background: _propTypes.default.string,
   padding: _responsiveCssSizes.default,
@@ -236,7 +234,7 @@ SelectMenu.defaultProps = {
   size: 'xs',
   itemGroups: [],
   background: 'white',
-  padding: "0 ".concat(_layout.defaultSpacingKeyM),
+  padding: '0 l',
   borderRadius: '',
   layer: 0,
   hasBorder: false,

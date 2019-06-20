@@ -13,7 +13,7 @@ var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _colors = require("../../../config/colors");
+var _styleConstants = require("../../../config/styleConstants");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,12 +28,12 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "overlay": "overlay__overlay___1uIyO",
-  "hide": "overlay__hide___S2LOw",
-  "theme-primary": "overlay__theme-primary___8dbD4",
-  "theme-secondary": "overlay__theme-secondary___2m924",
-  "theme-white": "overlay__theme-white___1Rc5Z",
-  "placeHolderShimmer": "overlay__placeHolderShimmer___oQlk6"
+  "overlay": "overlay-e2c00955",
+  "hide": "overlay-1be96a74",
+  "theme-primary": "overlay-defea572",
+  "theme-secondary": "overlay-c5e797db",
+  "theme-white": "overlay-a5ef1c2f",
+  "placeHolderShimmer": "overlay-0f589db9"
 };
 
 var Overlay = function Overlay(_ref) {
@@ -53,7 +53,7 @@ var Overlay = function Overlay(_ref) {
 
 Overlay.propTypes = {
   className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf([''].concat(_toConsumableArray(_colors.overlayThemeNames))),
+  theme: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.overlayThemeNames))),
   children: _propTypes.default.node,
   hide: _propTypes.default.bool,
   onClick: _propTypes.default.func

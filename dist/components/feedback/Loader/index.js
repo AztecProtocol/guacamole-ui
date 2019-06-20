@@ -13,29 +13,27 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _typography = require("../../../config/typography");
-
-var _colors = require("../../../config/colors");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _Overlay = _interopRequireDefault(require("../../layout/Overlay"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
-  "loader": "loader__loader___2CfRM",
-  "button-spinner-spin": "loader__button-spinner-spin___1cNRP",
-  "icon-only": "loader__icon-only___3a142",
-  "theme-primary": "loader__theme-primary___1tcr2",
-  "theme-secondary": "loader__theme-secondary___1BFPU",
-  "theme-white": "loader__theme-white___249Rm",
-  "size-xxs": "loader__size-xxs___7R0sl",
-  "size-xs": "loader__size-xs___14mmK",
-  "size-s": "loader__size-s___3_YZy",
-  "size-m": "loader__size-m___ykqYi",
-  "size-l": "loader__size-l___31ERb",
-  "size-xl": "loader__size-xl___3z0CI",
-  "size-xxl": "loader__size-xxl___1yrJh",
-  "shake": "loader__shake___1Otyo"
+  "loader": "loader-8cf184ab",
+  "button-spinner-spin": "loader-fd8d6296",
+  "icon-only": "loader-8ccb293b",
+  "theme-primary": "loader-491fbcc9",
+  "theme-secondary": "loader-045ecef7",
+  "theme-white": "loader-df9fe6c7",
+  "size-xxs": "loader-4a62dac3",
+  "size-xs": "loader-ff7401af",
+  "size-s": "loader-c7bfa305",
+  "size-m": "loader-0e7ad29b",
+  "size-l": "loader-e8c7dc53",
+  "size-xl": "loader-17ca3faa",
+  "size-xxl": "loader-4e778fe9",
+  "shake": "loader-7fa5e8ef"
 };
 
 var Loader = function Loader(_ref) {
@@ -57,8 +55,8 @@ var Loader = function Loader(_ref) {
 exports.Loader = Loader;
 Loader.propTypes = {
   className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_colors.overlayThemeNames),
-  size: _propTypes.default.oneOf(_typography.fontSizeKeys),
+  theme: _propTypes.default.oneOf(_styleConstants.overlayThemeNames),
+  size: _propTypes.default.oneOf(_styleConstants.fontSizeKeys),
   hasBackground: _propTypes.default.bool,
   hide: _propTypes.default.bool
 };

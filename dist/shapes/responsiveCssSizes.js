@@ -10,7 +10,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _errorPropDefinition = _interopRequireDefault(require("./utils/errorPropDefinition"));
 
-var _layout = require("../config/layout");
+var _styleConstants = require("../config/styleConstants");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,7 +22,7 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-var cssSizes = ['0'].concat(_toConsumableArray(_layout.sizeKeys));
+var cssSizes = ['0'].concat(_toConsumableArray(_styleConstants.sizeKeys));
 
 function isCssValue(value) {
   return value === '' || value.split(' ').every(function (val) {

@@ -38,13 +38,13 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 var styles = {
-  "shift": "table__shift___1Ki0v",
-  "left": "table__left___1tf86",
-  "right": "table__right___Ruhnd",
-  "delete-button": "table__delete-button___NiG2d",
-  "row": "table__row___3ttDW",
-  "delete-hint": "table__delete-hint___2gmc-",
-  "delete-active": "table__delete-active___2r5L2"
+  "shift": "table-037e4cc1",
+  "left": "table-0b52e9d2",
+  "right": "table-40e102c3",
+  "delete-button": "table-9fe1f873",
+  "row": "table-bc629920",
+  "delete-hint": "table-ca1e7f98",
+  "delete-active": "table-809377f4"
 };
 
 var SmartTableRow = function SmartTableRow(_ref) {

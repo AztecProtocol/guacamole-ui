@@ -9,8 +9,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _layout = require("../../../config/layout");
-
 var _Block = _interopRequireDefault(require("../../layout/Block"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -20,7 +18,7 @@ var ModalFooter = function ModalFooter(_ref) {
       children = _ref.children;
   return _react.default.createElement(_Block.default, {
     className: className,
-    padding: "m ".concat(_layout.defaultSpacingKeyM),
+    padding: "l",
     background: "grey-lightest",
     align: "right",
     hasBorderTop: true

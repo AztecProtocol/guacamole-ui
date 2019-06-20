@@ -13,7 +13,7 @@ var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _Icon = _interopRequireDefault(require("../../general/Icon"));
 
@@ -42,22 +42,22 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "wrapper": "checkbox__wrapper___3UPFf",
-  "inline": "checkbox__inline___2qSh4",
-  "checkbox": "checkbox__checkbox___3BftJ",
-  "disabled": "checkbox__disabled___3xmXV",
-  "tick-box": "checkbox__tick-box___1Gs_I",
-  "align-right": "checkbox__align-right___L_XCk",
-  "type-radio": "checkbox__type-radio___26Mee",
-  "checked": "checkbox__checked___tQ_LO",
-  "theme-dark": "checkbox__theme-dark___1PCyS",
-  "size-xs": "checkbox__size-xs___3xONU",
-  "check-icon": "checkbox__check-icon___QcWCM",
-  "label": "checkbox__label___1ba7a",
-  "size-s": "checkbox__size-s___1UtVx",
-  "size-m": "checkbox__size-m___2UXe2",
-  "size-l": "checkbox__size-l___3_5IZ",
-  "placeHolderShimmer": "checkbox__placeHolderShimmer___2_xWU"
+  "wrapper": "checkbox-b130feb2",
+  "inline": "checkbox-1cf245b1",
+  "checkbox": "checkbox-cec2e868",
+  "disabled": "checkbox-069e72ec",
+  "tick-box": "checkbox-910ed571",
+  "align-right": "checkbox-a542271d",
+  "type-radio": "checkbox-33321fd7",
+  "checked": "checkbox-0c0d0895",
+  "theme-dark": "checkbox-ead0d610",
+  "size-xs": "checkbox-e98c0376",
+  "check-icon": "checkbox-4d1d146c",
+  "label": "checkbox-9a1c582e",
+  "size-s": "checkbox-5e473b55",
+  "size-m": "checkbox-87c2412b",
+  "size-l": "checkbox-92b956c8",
+  "placeHolderShimmer": "checkbox-5f787b7b"
 };
 
 var Checkbox =
@@ -175,7 +175,7 @@ Checkbox.propTypes = {
   className: _propTypes.default.string,
   theme: _propTypes.default.oneOf(['dark', 'light']),
   type: _propTypes.default.oneOf(['check', 'radio']),
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.node]),
   defaultValue: _propTypes.default.bool,
   value: _propTypes.default.bool,
@@ -190,7 +190,7 @@ Checkbox.defaultProps = {
   className: '',
   theme: 'light',
   type: 'check',
-  size: _inputs.defaultInputSizeKey,
+  size: _styleConstants.defaultInputSizeKey,
   label: '',
   defaultValue: false,
   value: undefined,

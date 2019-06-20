@@ -13,7 +13,7 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38,20 +38,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "wrapper": "switch__wrapper___2uN99",
-  "loading": "switch__loading___4XTG5",
-  "outlined": "switch__outlined___nYbqF",
-  "switch-button": "switch__switch-button___31u_G",
-  "spinner": "switch__spinner___1ejrI",
-  "button-spinner-spin": "switch__button-spinner-spin___2SLnm",
-  "size-xs": "switch__size-xs___1Fb1W",
-  "size-s": "switch__size-s___3xhda",
-  "size-m": "switch__size-m___1_49O",
-  "size-l": "switch__size-l___19lFO",
-  "checked": "switch__checked___3fYBl",
-  "disabled": "switch__disabled___1xFHe",
-  "shake": "switch__shake___3_W7N",
-  "placeHolderShimmer": "switch__placeHolderShimmer___1dZIS"
+  "wrapper": "switch-b65e80f0",
+  "loading": "switch-f4fc2e8b",
+  "outlined": "switch-e9bc2334",
+  "switch-button": "switch-069fa8e1",
+  "spinner": "switch-7f75cce6",
+  "button-spinner-spin": "switch-e49f0757",
+  "size-xs": "switch-5ca01df5",
+  "size-s": "switch-590179aa",
+  "size-m": "switch-413f96ac",
+  "size-l": "switch-6a379515",
+  "checked": "switch-6e9841b6",
+  "disabled": "switch-db94fadd",
+  "shake": "switch-2ef9a77e",
+  "placeHolderShimmer": "switch-7d3ac5d8"
 };
 
 var SwitchInput =
@@ -146,7 +146,7 @@ function (_PureComponent) {
 exports.SwitchInput = SwitchInput;
 SwitchInput.propTypes = {
   className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
   isLoading: _propTypes.default.bool,

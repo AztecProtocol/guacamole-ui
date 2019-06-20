@@ -3,9 +3,17 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deviceBreakpoints = exports.default = void 0;
+exports.default = void 0;
 
-var _layout = require("../../../config/layout");
+var _styleConstants = require("../../../config/styleConstants");
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -15,9 +23,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var deviceBreakpoints = Object.keys(_layout.deviceBreakpointMap).reverse();
-exports.deviceBreakpoints = deviceBreakpoints;
-
 var DeviceWidthDetector =
 /*#__PURE__*/
 function () {
@@ -26,9 +31,40 @@ function () {
 
     _classCallCheck(this, DeviceWidthDetector);
 
+    _defineProperty(this, "register", function (breakpointSizeMap) {
+      var isSameMap = breakpointSizeMap === _this.breakpointSizeMap || _styleConstants.deviceBreakpointKeys.every(function (key) {
+        return breakpointSizeMap[key] === _this.breakpointSizeMap[key];
+      });
+
+      if (!isSameMap) {
+        _this.unbindActions();
+
+        _styleConstants.deviceBreakpointKeys.forEach(function (key) {
+          _this.subscribers[key] = [];
+          _this.sizeKeyToWidth[key] = parseInt(breakpointSizeMap[key], 10);
+        });
+
+        var _ref = document || {},
+            readyState = _ref.readyState;
+
+        if (readyState === 'interactive' || readyState === 'complete') {
+          _this.updateByWindowSize();
+        } else {
+          document.addEventListener('DOMContentLoaded', function () {
+            _this.updateByWindowSize();
+          });
+        }
+
+        _this.bindActions();
+      }
+
+      return _this.orderedKeys;
+    });
+
     _defineProperty(this, "updateByWindowSize", function () {
       var currentWidth = window.innerWidth;
-      var size = Object.keys(_this.sizeKeyToWidth).reverse().find(function (key) {
+
+      var size = _toConsumableArray(_this.orderedKeys).reverse().find(function (key) {
         return currentWidth >= _this.sizeKeyToWidth[key];
       });
 
@@ -41,35 +77,19 @@ function () {
       }
     });
 
+    this.breakpointSizeMap = {};
+    this.orderedKeys = _styleConstants.deviceBreakpointKeys[0] === 'xxs' ? _styleConstants.deviceBreakpointKeys : _toConsumableArray(_styleConstants.deviceBreakpointKeys).reverse();
     this.currentSize = 'xxs';
-    this.currentLevel = deviceBreakpoints.indexOf(this.currentSize);
+    this.currentLevel = this.orderedKeys.indexOf(this.currentSize);
     this.subscribers = {};
     this.sizeKeyToWidth = {};
-    deviceBreakpoints.forEach(function (size) {
-      _this.subscribers[size] = [];
-      var width = parseInt(_layout.deviceBreakpointMap[size], 10);
-      _this.sizeKeyToWidth[size] = width;
-    });
-
-    var _ref = document || {},
-        readyState = _ref.readyState;
-
-    if (readyState === 'interactive' || readyState === 'complete') {
-      this.updateByWindowSize();
-    } else {
-      document.addEventListener('DOMContentLoaded', function () {
-        _this.updateByWindowSize();
-      });
-    }
-
-    this.listenForResize();
   }
 
   _createClass(DeviceWidthDetector, [{
     key: "setCurrentSize",
     value: function setCurrentSize(size) {
       this.currentSize = size;
-      this.currentLevel = deviceBreakpoints.indexOf(size);
+      this.currentLevel = this.orderedKeys.indexOf(size);
     }
   }, {
     key: "forceChangeSize",
@@ -80,22 +100,27 @@ function () {
       }
     }
   }, {
-    key: "listenForResize",
-    value: function listenForResize() {
+    key: "bindActions",
+    value: function bindActions() {
       window.addEventListener('resize', this.updateByWindowSize, true);
+    }
+  }, {
+    key: "unbindActions",
+    value: function unbindActions() {
+      window.removeEventListener('resize', this.updateByWindowSize, true);
     }
   }, {
     key: "broadcastSizeChanged",
     value: function broadcastSizeChanged(prev, current) {
       var notified = [];
-      var prevIdx = deviceBreakpoints.indexOf(prev);
-      var currIdx = deviceBreakpoints.indexOf(current);
+      var prevIdx = this.orderedKeys.indexOf(prev);
+      var currIdx = this.orderedKeys.indexOf(current);
       var from = Math.min(prevIdx, currIdx);
       var to = Math.max(prevIdx, currIdx);
 
       for (var i = from; i <= to; i += 1) {
-        var width = deviceBreakpoints[i];
-        this.subscribers[width].forEach(function (callback) {
+        var sizeKey = this.orderedKeys[i];
+        this.subscribers[sizeKey].forEach(function (callback) {
           if (notified.indexOf(callback) >= 0) return;
           callback(current);
           notified.push(callback);
@@ -105,7 +130,7 @@ function () {
   }, {
     key: "applyToCurrentSize",
     value: function applyToCurrentSize(size) {
-      var level = deviceBreakpoints.indexOf(size);
+      var level = this.orderedKeys.indexOf(size);
       return {
         gt: level < this.currentLevel,
         lt: level > this.currentLevel

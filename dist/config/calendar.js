@@ -5,14 +5,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _layout = require("./layout");
+var _styleConstants = require("./styleConstants");
 
 var _colors = require("./colors");
 
 /*
  * Commented attributes will use inhirited values
  */
-var baseSpacing = parseInt(_layout.defaultSize, 10);
+var baseSpacing = parseInt(_styleConstants.defaultSize, 10);
 var calendarDaySize = baseSpacing * 5 + 1;
 var _default = {
   calendarBg: _colors.colorMap.white,

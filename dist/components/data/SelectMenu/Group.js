@@ -13,7 +13,7 @@ var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _shapes = require("../../../config/shapes");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _listItemShape = _interopRequireDefault(require("../../../shapes/listItemShape"));
 
@@ -54,38 +54,38 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "item": "menu__item___1ssE3",
-  "hovered": "menu__hovered___yvJdA",
-  "selected": "menu__selected___28rdX",
-  "has-divider": "menu__has-divider___1MyKY",
-  "size-xxs": "menu__size-xxs___3OM6A",
-  "group-xxs": "menu__group-xxs___dGEOo",
-  "size-xs": "menu__size-xs___2fW7x",
-  "group-xs": "menu__group-xs___Ehu-R",
-  "size-s": "menu__size-s___r9cAa",
-  "group-s": "menu__group-s___uRlaU",
-  "size-m": "menu__size-m___1y7fE",
-  "group-m": "menu__group-m___2QnA9",
-  "size-l": "menu__size-l___3VR-p",
-  "group-l": "menu__group-l___1y5vd",
-  "size-xl": "menu__size-xl___1_PGI",
-  "group-xl": "menu__group-xl___1EZZD",
-  "size-xxl": "menu__size-xxl___2qa_1",
-  "group-xxl": "menu__group-xxl___pGQPE",
-  "disabled": "menu__disabled___115Dg",
-  "caption": "menu__caption___1mtp3",
-  "toggleable": "menu__toggleable___2SSyk",
-  "pad-xxs": "menu__pad-xxs___pNazm",
-  "pad-xs": "menu__pad-xs___lOEmy",
-  "pad-s": "menu__pad-s___2U0qg",
-  "pad-m": "menu__pad-m___2u8lW",
-  "pad-l": "menu__pad-l___P1fX6",
-  "pad-xl": "menu__pad-xl___3Gj3T",
-  "pad-xxl": "menu__pad-xxl___24VH7",
-  "expand-button": "menu__expand-button___2Eflf",
-  "items": "menu__items___2-sxz",
-  "hide": "menu__hide___2HIeX",
-  "placeHolderShimmer": "menu__placeHolderShimmer___3XqgM"
+  "item": "menu-82a72305",
+  "hovered": "menu-1b9ba041",
+  "selected": "menu-e14e43ff",
+  "has-divider": "menu-c7ebb91e",
+  "size-xxs": "menu-a8f287cc",
+  "group-xxs": "menu-a1582c75",
+  "size-xs": "menu-f8d326e3",
+  "group-xs": "menu-6c3f3a39",
+  "size-s": "menu-845de9c6",
+  "group-s": "menu-1d2cd88a",
+  "size-m": "menu-a71fb01c",
+  "group-m": "menu-56cfd3d0",
+  "size-l": "menu-1f310176",
+  "group-l": "menu-9c7060ba",
+  "size-xl": "menu-75da5256",
+  "group-xl": "menu-c6acba8c",
+  "size-xxl": "menu-5dfe62d4",
+  "group-xxl": "menu-a5b00cb1",
+  "disabled": "menu-561372c5",
+  "caption": "menu-48bc803d",
+  "toggleable": "menu-ef1069f8",
+  "pad-xxs": "menu-ed652ba2",
+  "pad-xs": "menu-cb204492",
+  "pad-s": "menu-d0151491",
+  "pad-m": "menu-408353df",
+  "pad-l": "menu-abac99a9",
+  "pad-xl": "menu-6cfeab81",
+  "pad-xxl": "menu-ab9a53ea",
+  "expand-button": "menu-252a0987",
+  "items": "menu-b8eb4ed7",
+  "hide": "menu-3030d541",
+  "placeHolderShimmer": "menu-703e8771"
 };
 
 var Group =
@@ -204,7 +204,7 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 Group.propTypes = {
-  size: _propTypes.default.oneOf(_shapes.shapeSizeKeys).isRequired,
+  size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys).isRequired,
   padding: _propTypes.default.string,
   caption: _propTypes.default.shape(_listItemShape.default),
   toggleable: _propTypes.default.bool,

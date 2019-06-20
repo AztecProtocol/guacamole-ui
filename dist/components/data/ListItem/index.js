@@ -13,7 +13,9 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _shapes = require("../../../config/shapes");
+var _listItem = require("../../../config/listItem");
+
+var _styleConstants = require("../../../config/styleConstants");
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
@@ -28,40 +30,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 var styles = {
-  "list-item": "item__list-item___3nS-k",
-  "icon": "item__icon___192YV",
-  "content": "item__content___380CD",
-  "nowrap": "item__nowrap___2fpbu",
-  "valign-center": "item__valign-center___fT8o5",
-  "wrap": "item__wrap___Fkynt",
-  "showEllipsis": "item__showEllipsis___Bl-8U",
-  "size-xxs": "item__size-xxs___2w83y",
-  "size-xs": "item__size-xs___TYBUT",
-  "size-s": "item__size-s___1R44E",
-  "size-m": "item__size-m___W6ZPL",
-  "size-l": "item__size-l___2DPHo",
-  "size-xl": "item__size-xl___36tpx",
-  "size-xxl": "item__size-xxl___3IT3W",
-  "avatar": "item__avatar___2gsXk",
-  "no-description": "item__no-description___2ZSQX"
-};
-var iconSizeMap = {
-  xxs: 'xxs',
-  xs: 'xs',
-  s: 's',
-  m: 'm',
-  l: 'l',
-  xl: 'xl',
-  xxl: 'xl'
-};
-var avatarTextSizeMap = {
-  xxs: 'xs',
-  xs: 's',
-  s: 'm',
-  m: 'l',
-  l: 'xl',
-  xl: 'xxl',
-  xxl: 'xxl'
+  "list-item": "item-497ea20e",
+  "icon": "item-c09a1cd3",
+  "content": "item-bf6dcd95",
+  "nowrap": "item-2e4aef60",
+  "valign-center": "item-ecdb2cb0",
+  "wrap": "item-22dde596",
+  "showEllipsis": "item-ef74add7",
+  "size-xxs": "item-5b998476",
+  "size-xs": "item-d8650362",
+  "size-s": "item-8fcdf749",
+  "size-m": "item-f684f233",
+  "size-l": "item-39c3733d",
+  "size-xl": "item-cd24c0a8",
+  "size-xxl": "item-8aa83c97",
+  "avatar": "item-a2b0bab8",
+  "no-description": "item-0cd54fde"
 };
 
 var ListItem = function ListItem(_ref) {
@@ -92,7 +76,7 @@ var ListItem = function ListItem(_ref) {
   }, _react.default.createElement(_Icon.default, _extends({
     name: iconName,
     color: iconColor,
-    size: iconSizeMap[size],
+    size: _listItem.listItemIconSizeMap[size],
     rotate: iconRotate
   }, icon))), avatar && _react.default.createElement("div", {
     styleName: "avatar"
@@ -102,7 +86,7 @@ var ListItem = function ListItem(_ref) {
     styleName: "content"
   }, title && _react.default.createElement(_Text.default, {
     text: title,
-    size: avatar ? avatarTextSizeMap[size] : size
+    size: avatar ? _listItem.listItemAvatarTextSizeMap[size] : size
   }), description && _react.default.createElement("div", null, _react.default.createElement(_Text.default, {
     text: description,
     size: size === 'l' ? 'xs' : 'xxs',
@@ -113,7 +97,7 @@ var ListItem = function ListItem(_ref) {
 exports.ListItem = ListItem;
 ListItem.propTypes = {
   className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_shapes.shapeSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys),
   icon: _iconShape.default,
   iconName: _propTypes.default.string,
   iconColor: _propTypes.default.string,

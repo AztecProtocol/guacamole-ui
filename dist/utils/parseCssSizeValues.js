@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = parseCssSizeValues;
 
-var _layout = require("../config/layout");
+var _styleConstants = require("../config/styleConstants");
 
 var directions = ['top', 'right', 'bottom', 'left'];
 
@@ -36,7 +36,7 @@ function isSimpleValue(val) {
 }
 
 function containSimpleValueOnly(values) {
-  return _layout.deviceBreakpoints.every(function (key) {
+  return _styleConstants.deviceBreakpointKeys.every(function (key) {
     return !values[key] || isSimpleValue(values[key]);
   });
 }
@@ -56,7 +56,7 @@ function parseCssSizeValues(values) {
 
   var sizeMap = {};
 
-  _layout.deviceBreakpoints.filter(function (key) {
+  _styleConstants.deviceBreakpointKeys.filter(function (key) {
     return values[key];
   }).forEach(function (key) {
     var sizes = parseCssSizeString(values[key]);

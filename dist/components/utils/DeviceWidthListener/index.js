@@ -9,9 +9,11 @@ var _react = require("react");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _deviceWidthDetector = _interopRequireWildcard(require("./deviceWidthDetector"));
+var _layout = require("../../../config/layout");
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+var _styleConstants = require("../../../config/styleConstants");
+
+var _deviceWidthDetector = _interopRequireDefault(require("./deviceWidthDetector"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55,7 +57,7 @@ function (_PureComponent) {
       var breakpoints = _this.props.breakpoints;
       var gteCurrent = false;
 
-      _deviceWidthDetector.deviceBreakpoints.forEach(function (size) {
+      _this.orderedKeys.forEach(function (size) {
         var isTrackinbg = breakpoints.indexOf(size) >= 0;
 
         if (isTrackinbg) {
@@ -85,7 +87,9 @@ function (_PureComponent) {
     var _gte = {};
     var _lt = {};
     var _lte = {};
-    var _breakpoints = props.breakpoints;
+    var breakpointSizeMap = props.breakpointSizeMap,
+        _breakpoints = props.breakpoints;
+    _this.orderedKeys = _deviceWidthDetector.default.register(breakpointSizeMap);
 
     _breakpoints.forEach(function (breakpoint) {
       var applied = _deviceWidthDetector.default.subscribe(breakpoint, _this.handleChangeDeviceWidth);
@@ -124,9 +128,19 @@ function (_PureComponent) {
   return DeviceWidthListener;
 }(_react.PureComponent);
 
+var breakpointSizeMapShape = {};
+
+_styleConstants.deviceBreakpointKeys.forEach(function (key) {
+  breakpointSizeMapShape[key] = _propTypes.default.string;
+});
+
 DeviceWidthListener.propTypes = {
-  breakpoints: _propTypes.default.arrayOf(_propTypes.default.oneOf(_deviceWidthDetector.deviceBreakpoints)).isRequired,
+  breakpointSizeMap: _propTypes.default.shape(breakpointSizeMapShape),
+  breakpoints: _propTypes.default.arrayOf(_propTypes.default.oneOf(_styleConstants.deviceBreakpointKeys)).isRequired,
   children: _propTypes.default.func.isRequired
+};
+DeviceWidthListener.defaultProps = {
+  breakpointSizeMap: _layout.deviceBreakpointMap
 };
 var _default = DeviceWidthListener;
 exports.default = _default;

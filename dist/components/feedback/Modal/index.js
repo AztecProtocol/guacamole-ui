@@ -13,7 +13,7 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _colors = require("../../../config/colors");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
@@ -52,15 +52,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "modal": "modal__modal___3DAi_",
-  "hide": "modal__hide___2_Zup",
-  "wrapper": "modal__wrapper___2_wOP",
-  "container": "modal__container___3W_Ta",
-  "auto-width": "modal__auto-width___301B3",
-  "header": "modal__header___3kM3q",
-  "content": "modal__content___1VoSe",
-  "close-button": "modal__close-button___C3cE_",
-  "placeHolderShimmer": "modal__placeHolderShimmer___7K1Nh"
+  "modal": "modal-b9d0f0e0",
+  "hide": "modal-69b09d41",
+  "wrapper": "modal-dc213bbe",
+  "container": "modal-2637ce0b",
+  "auto-width": "modal-adaf9598",
+  "header": "modal-3a60906c",
+  "content": "modal-974e1036",
+  "close-button": "modal-6847e7a9",
+  "placeHolderShimmer": "modal-89d80b5e"
 };
 var valignMap = {
   top: 'flex-start',
@@ -235,7 +235,7 @@ function (_PureComponent) {
 exports.Modal = Modal;
 Modal.propTypes = {
   className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_colors.overlayThemeNames),
+  theme: _propTypes.default.oneOf(_styleConstants.overlayThemeNames),
   headerIcon: _iconShape.default,
   header: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.node]),
   children: _propTypes.default.node,

@@ -42,10 +42,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "box": "time__box___11pE2",
-  "size-m": "time__size-m___ggoHo",
-  "size-s": "time__size-s___3IYOy",
-  "smallText": "time__smallText___PtowP"
+  "box": "time-380484c5",
+  "size-m": "time-2e171f78",
+  "size-s": "time-0a832e06",
+  "smallText": "time-2424babb"
 };
 
 var Time =

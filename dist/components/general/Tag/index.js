@@ -13,7 +13,7 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _typography = require("../../../config/typography");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _Block = _interopRequireDefault(require("../../layout/Block"));
 
@@ -24,18 +24,18 @@ var _Icon = _interopRequireDefault(require("../Icon"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
-  "size-xxs": "tag__size-xxs___tBeeq",
-  "rounded": "tag__rounded___19Zt8",
-  "size-xs": "tag__size-xs___324Z8",
-  "size-s": "tag__size-s___3oJY5",
-  "size-m": "tag__size-m___11ht-",
-  "size-l": "tag__size-l___3tbGC",
-  "size-xl": "tag__size-xl___1FjyZ",
-  "size-xxl": "tag__size-xxl___Hfbmj",
-  "tag": "tag__tag___3GjLO",
-  "align-reverse": "tag__align-reverse___M_6NP",
-  "text": "tag__text___2JmXb",
-  "icon": "tag__icon___1iafj"
+  "size-xxs": "tag-cf14140a",
+  "rounded": "tag-dd7b38c1",
+  "size-xs": "tag-5eac7c3a",
+  "size-s": "tag-f1ae4703",
+  "size-m": "tag-97947afe",
+  "size-l": "tag-469676b8",
+  "size-xl": "tag-4158f7f2",
+  "size-xxl": "tag-f194b7e3",
+  "tag": "tag-28a7e67e",
+  "align-reverse": "tag-608a8b21",
+  "text": "tag-248cb177",
+  "icon": "tag-55274153"
 };
 
 var Tag = function Tag(_ref) {
@@ -74,7 +74,7 @@ var Tag = function Tag(_ref) {
 exports.Tag = Tag;
 Tag.propTypes = {
   className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_typography.fontSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.fontSizeKeys),
   children: _propTypes.default.node,
   text: _propTypes.default.string.isRequired,
   iconName: _propTypes.default.string,
@@ -86,7 +86,7 @@ Tag.propTypes = {
 };
 Tag.defaultProps = {
   className: '',
-  size: _typography.defaultTextSizeKey,
+  size: _styleConstants.defaultFontSizeKey,
   children: null,
   iconName: '',
   alignIcon: 'right',

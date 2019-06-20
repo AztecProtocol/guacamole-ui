@@ -15,9 +15,9 @@ var _isObjectEmpty = _interopRequireDefault(require("../../../utils/isObjectEmpt
 
 var _fieldShape = _interopRequireDefault(require("../../../shapes/fieldShape"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
-var _shapes = require("../../../config/shapes");
+var _shiftSize = _interopRequireDefault(require("../../../utils/shiftSize"));
 
 var _Row = _interopRequireDefault(require("../../layout/Row"));
 
@@ -72,9 +72,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "wrapper": "form__wrapper___1Wh2S",
-  "form": "form__form___C5ZjY",
-  "label-required": "form__label-required___1WXVQ"
+  "wrapper": "form-ef74c025",
+  "form": "form-b475bc45",
+  "label-required": "form-5cf143fb"
 };
 var DEFAULT_ERROR_POSITION = 'bottom';
 
@@ -362,7 +362,7 @@ function (_PureComponent) {
         padding: "l 0",
         align: buttonAlign
       }, _react.default.createElement(_Button.default, {
-        size: (0, _shapes.shiftSize)(size, 1),
+        size: (0, _shiftSize.default)(size, 1),
         text: buttonText,
         onSubmit: function onSubmit() {
           return _this3.handleSubmit(formIndex);
@@ -396,7 +396,7 @@ function (_PureComponent) {
 
 Form.propTypes = {
   className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   initialData: _propTypes.default.object,
   data: _propTypes.default.object,
   formData: _propTypes.default.object,
@@ -420,7 +420,7 @@ Form.propTypes = {
 };
 Form.defaultProps = {
   className: '',
-  size: _inputs.defaultInputSizeKey,
+  size: _styleConstants.defaultInputSizeKey,
   initialData: {},
   data: undefined,
   formData: null,

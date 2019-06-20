@@ -11,7 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _isObjectEmpty = _interopRequireDefault(require("../../../utils/isObjectEmpty"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _itemGroupShape = _interopRequireDefault(require("../../../shapes/itemGroupShape"));
 
@@ -242,8 +242,8 @@ function (_PureComponent) {
 
 AutoComplete.propTypes = {
   className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_inputs.inputThemeNames),
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   placeholder: _propTypes.default.string,
   value: _propTypes.default.string,
   defaultValue: _propTypes.default.string,
@@ -271,7 +271,7 @@ AutoComplete.propTypes = {
 AutoComplete.defaultProps = {
   className: '',
   theme: 'default',
-  size: _inputs.defaultInputSizeKey,
+  size: _styleConstants.defaultInputSizeKey,
   placeholder: '',
   value: null,
   defaultValue: '',

@@ -15,9 +15,7 @@ var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _responsiveTextSizes = _interopRequireDefault(require("../../../shapes/responsiveTextSizes"));
 
-var _colors = require("../../../config/colors");
-
-var _typography = require("../../../config/typography");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _Clickable = _interopRequireDefault(require("../../utils/Clickable"));
 
@@ -28,35 +26,40 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "color-primary": "button__color-primary___LVCp9",
-  "color-primary-light": "button__color-primary-light___3EM3n",
-  "color-primary-lighter": "button__color-primary-lighter___2H2yR",
-  "color-primary-lightest": "button__color-primary-lightest___1nXwh",
-  "color-black": "button__color-black___vHrPY",
-  "color-grey-darker": "button__color-grey-darker___32eE6",
-  "color-grey-dark": "button__color-grey-dark___3khha",
-  "color-grey": "button__color-grey___3N_pc",
-  "color-grey-light": "button__color-grey-light___2GUjY",
-  "color-grey-lighter": "button__color-grey-lighter___2_KH_",
-  "color-grey-lightest": "button__color-grey-lightest___QytOC",
-  "color-white": "button__color-white___2pjFa",
-  "color-white-light": "button__color-white-light___JW5ZT",
-  "color-white-lighter": "button__color-white-lighter___3590b",
-  "color-white-lightest": "button__color-white-lightest___30ao6",
-  "color-secondary": "button__color-secondary___Uu4_I",
-  "color-secondary-light": "button__color-secondary-light___1ARHn",
-  "color-secondary-lighter": "button__color-secondary-lighter___3tJPs",
-  "color-secondary-lightest": "button__color-secondary-lightest___3RReC",
-  "color-red": "button__color-red___3KGtB",
-  "color-green": "button__color-green___14O6C",
-  "color-blue": "button__color-blue___ITm8z",
-  "color-yellow": "button__color-yellow___3qxU2",
-  "color-default": "button__color-default___hOlOT",
-  "color-label": "button__color-label___1Yrut",
-  "button": "button__button___25Xbf",
-  "disabled": "button__disabled___2WQdT",
-  "theme-default": "button__theme-default___2Sr-3",
-  "theme-underline": "button__theme-underline___5mChj"
+  "color-primary": "button-74681260",
+  "color-primary-light": "button-edeb2219",
+  "color-primary-lighter": "button-c0a2bff6",
+  "color-primary-lightest": "button-8887b782",
+  "color-black": "button-577010cb",
+  "color-grey-darker": "button-88bfcbd0",
+  "color-grey-dark": "button-4dc763d2",
+  "color-grey": "button-cc1950b7",
+  "color-grey-light": "button-19eac32f",
+  "color-grey-lighter": "button-7ddabf22",
+  "color-grey-lightest": "button-cd69bf65",
+  "color-white": "button-2c75ee63",
+  "color-white-light": "button-2f863f32",
+  "color-white-lighter": "button-8b6745ad",
+  "color-white-lightest": "button-a815f846",
+  "color-secondary": "button-16c1c629",
+  "color-secondary-light": "button-815f94b5",
+  "color-secondary-lighter": "button-84abeccb",
+  "color-secondary-lightest": "button-2c0bc8e0",
+  "color-pink": "button-a7607aaa",
+  "color-red": "button-3093cfcb",
+  "color-purple": "button-1fa90b86",
+  "color-blue": "button-cf9d8c9b",
+  "color-green": "button-279bf7ac",
+  "color-yellow": "button-a282f511",
+  "color-orange": "button-e610fd64",
+  "color-brown": "button-70e20441",
+  "color-default": "button-aaad2b5a",
+  "color-label": "button-39bc6479",
+  "button": "button-e7b9830c",
+  "disabled": "button-e3c063de",
+  "theme-uppercase": "button-a6c45fc0",
+  "theme-underline": "button-acfa6798",
+  "theme-implicit": "button-4ae00dd2"
 };
 
 var TextButton = function TextButton(_ref) {
@@ -92,12 +95,12 @@ var TextButton = function TextButton(_ref) {
 exports.TextButton = TextButton;
 TextButton.propTypes = {
   className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(['default', 'normal', 'underline']),
+  theme: _propTypes.default.oneOf(['normal', 'implicit', 'underline', 'uppercase']),
   text: _propTypes.default.string,
   children: _propTypes.default.node,
   size: _responsiveTextSizes.default,
-  weight: _propTypes.default.oneOf(_typography.fontWeightKeys),
-  color: _propTypes.default.oneOf(_colors.textColorNames),
+  weight: _propTypes.default.oneOf(_styleConstants.fontWeightKeys),
+  color: _propTypes.default.oneOf(_styleConstants.textColorNames),
   href: _propTypes.default.string,
   onClick: _propTypes.default.func,
   Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func]),
@@ -106,11 +109,11 @@ TextButton.propTypes = {
 };
 TextButton.defaultProps = {
   className: '',
-  theme: 'default',
+  theme: 'normal',
   text: '',
   children: null,
   size: 'inherit',
-  weight: 'book',
+  weight: 'medium',
   color: 'secondary',
   href: '',
   onClick: null,

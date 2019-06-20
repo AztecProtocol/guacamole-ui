@@ -11,7 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
@@ -64,10 +64,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "wrapper": "select__wrapper___2y_B1",
-  "menu": "select__menu___zrLTn",
-  "filter-input": "select__filter-input___RmcGH",
-  "tree-data": "select__tree-data___1QdYy"
+  "wrapper": "select-5ebc695b",
+  "menu": "select-2f097871",
+  "filter-input": "select-711a4ebe",
+  "tree-data": "select-76665e57"
 };
 
 var TreeSelect =
@@ -367,9 +367,9 @@ function (_PureComponent) {
 
 exports.TreeSelect = TreeSelect;
 TreeSelect.propTypes = {
-  theme: _propTypes.default.oneOf(_inputs.inputThemeNames),
+  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
   selectedValues: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])),
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   data: _propTypes.default.arrayOf(_propTypes.default.shape({
     value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]).isRequired,
     title: _propTypes.default.string,
@@ -397,7 +397,7 @@ TreeSelect.propTypes = {
 };
 TreeSelect.defaultProps = {
   theme: 'default',
-  size: _inputs.defaultInputSizeKey,
+  size: _styleConstants.defaultInputSizeKey,
   selectedValues: null,
   placeholder: '',
   filterPlaceholder: '',

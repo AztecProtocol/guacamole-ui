@@ -15,7 +15,7 @@ var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _Clickable = _interopRequireDefault(require("../../utils/Clickable"));
 
@@ -32,22 +32,22 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "progress": "progress__progress___2L5o5",
-  "step": "progress__step___1b1jM",
-  "step-tail": "progress__step-tail___1mBZ-",
-  "step-content": "progress__step-content___3QDe3",
-  "theme-primary": "progress__theme-primary___1sc5a",
-  "finished": "progress__finished___e68HI",
-  "clickable": "progress__clickable___hEHsz",
-  "theme-secondary": "progress__theme-secondary___3jUcO",
-  "theme-white": "progress__theme-white___2KkQ2",
-  "size-xs": "progress__size-xs___1fuye",
-  "size-s": "progress__size-s___37XrX",
-  "size-m": "progress__size-m___2q-Kg",
-  "size-l": "progress__size-l___12S-i",
-  "icon": "progress__icon___1AClM",
-  "title": "progress__title___2p-ln",
-  "placeHolderShimmer": "progress__placeHolderShimmer___1zBje"
+  "progress": "progress-44e3dc21",
+  "step": "progress-33b14a46",
+  "step-tail": "progress-f773bdbd",
+  "step-content": "progress-5d741159",
+  "theme-primary": "progress-30e5d654",
+  "finished": "progress-ef8e1fb1",
+  "clickable": "progress-1abe7c18",
+  "theme-secondary": "progress-bd27dad9",
+  "theme-white": "progress-c3fcadc0",
+  "size-xs": "progress-a25e8e37",
+  "size-s": "progress-042398e9",
+  "size-m": "progress-f6f0ee83",
+  "size-l": "progress-177023c4",
+  "icon": "progress-9310e02b",
+  "title": "progress-5c1b68d9",
+  "placeHolderShimmer": "progress-e2a49ad8"
 };
 
 var Progress = function Progress(_ref) {
@@ -108,7 +108,7 @@ exports.Progress = Progress;
 Progress.propTypes = {
   className: _propTypes.default.string,
   theme: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   totalSteps: _propTypes.default.number,
   currentStep: _propTypes.default.number,
   steps: _propTypes.default.arrayOf(_propTypes.default.shape({

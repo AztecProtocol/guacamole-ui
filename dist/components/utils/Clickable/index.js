@@ -38,8 +38,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "inline": "clickable__inline___1J1VJ",
-  "clickable": "clickable__clickable___3Hf2c"
+  "inline": "clickable-a78731cd",
+  "clickable": "clickable-7d7f391f"
 };
 
 var Clickable =

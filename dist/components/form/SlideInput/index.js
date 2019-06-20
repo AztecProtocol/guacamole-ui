@@ -13,9 +13,9 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
-var _shapes = require("../../../config/shapes");
+var _shiftSize = _interopRequireDefault(require("../../../utils/shiftSize"));
 
 var _getScaleByPosition = _interopRequireDefault(require("../../utils/Draggable/utils/getScaleByPosition"));
 
@@ -50,25 +50,25 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "wrapper": "slide__wrapper___2FVlt",
-  "track": "slide__track___12Lub",
-  "placeholder": "slide__placeholder___18K4m",
-  "handle": "slide__handle___3uB2I",
-  "handle-icon": "slide__handle-icon___3J-Z4",
-  "spinner": "slide__spinner___2EvDV",
-  "button-spinner-spin": "slide__button-spinner-spin___8_tMX",
-  "target-position": "slide__target-position____xtF3",
-  "size-xs": "slide__size-xs___2twJX",
-  "size-s": "slide__size-s___3KOwM",
-  "size-m": "slide__size-m___34wst",
-  "size-l": "slide__size-l___3joYD",
-  "dragging": "slide__dragging___qG6R5",
-  "active": "slide__active___1kMOB",
-  "should-drop": "slide__should-drop___2JcGV",
-  "loading": "slide__loading___1Zc9D",
-  "outlined": "slide__outlined___93F0v",
-  "shake": "slide__shake___16BXq",
-  "placeHolderShimmer": "slide__placeHolderShimmer___1JLHQ"
+  "wrapper": "slide-b83c40ea",
+  "track": "slide-54326fc2",
+  "placeholder": "slide-7cc1d784",
+  "handle": "slide-3a297992",
+  "handle-icon": "slide-a8d36b62",
+  "spinner": "slide-a3904183",
+  "button-spinner-spin": "slide-11afc084",
+  "target-position": "slide-d9222b95",
+  "size-xs": "slide-3e5dd941",
+  "size-s": "slide-536b8e6c",
+  "size-m": "slide-9d298d0e",
+  "size-l": "slide-4d809676",
+  "dragging": "slide-1451d26d",
+  "active": "slide-ec1d0525",
+  "should-drop": "slide-0edeb591",
+  "loading": "slide-fab4a50f",
+  "outlined": "slide-dc37bf2e",
+  "shake": "slide-a326134f",
+  "placeHolderShimmer": "slide-d7846b65"
 };
 
 var SlideInput =
@@ -225,7 +225,7 @@ function (_PureComponent) {
         styleName: "track"
       }, !!placeholder && _react.default.createElement(_Text.default, {
         styleName: "placeholder",
-        size: (0, _shapes.shiftSize)(size, -2),
+        size: (0, _shiftSize.default)(size, -2),
         text: placeholder
       }), isDragging && _react.default.createElement("div", {
         styleName: "target-position"
@@ -255,7 +255,7 @@ function (_PureComponent) {
 exports.SlideInput = SlideInput;
 SlideInput.propTypes = {
   className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   value: _propTypes.default.bool,
   initialValue: _propTypes.default.bool,
   dropzoneLimit: _propTypes.default.number,
@@ -270,7 +270,7 @@ SlideInput.propTypes = {
 };
 SlideInput.defaultProps = {
   className: '',
-  size: _inputs.defaultInputSizeKey,
+  size: _styleConstants.defaultInputSizeKey,
   value: undefined,
   initialValue: false,
   dropzoneLimit: 80,

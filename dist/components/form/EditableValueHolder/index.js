@@ -18,10 +18,10 @@ var _StaticValue = _interopRequireDefault(require("../StaticValue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
-  "value-holder": "value__value-holder___8TJJT",
-  "input-mask": "value__input-mask___14HGU",
-  "icon-mask": "value__icon-mask___19gXl",
-  "placeHolderShimmer": "value__placeHolderShimmer___ZTkgt"
+  "value-holder": "value-6b4e4a9a",
+  "input-mask": "value-52660527",
+  "icon-mask": "value-924a4061",
+  "placeHolderShimmer": "value-4339bb59"
 };
 
 var EditableValueHolder = function EditableValueHolder(_ref) {

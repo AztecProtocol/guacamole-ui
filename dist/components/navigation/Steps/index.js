@@ -15,7 +15,7 @@ var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _Clickable = _interopRequireDefault(require("../../utils/Clickable"));
 
@@ -28,19 +28,19 @@ var _Text = _interopRequireDefault(require("../../general/Text"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
-  "steps": "steps__steps___13uSj",
-  "step": "steps__step___H9J-I",
-  "dot": "steps__dot___2HAzO",
-  "static": "steps__static___1enZr",
-  "line": "steps__line___3GQEu",
-  "size-xs": "steps__size-xs___LaTy0",
-  "size-s": "steps__size-s___3robx",
-  "size-m": "steps__size-m___TlpUy",
-  "size-l": "steps__size-l___1imAy",
-  "finished": "steps__finished___1cvUh",
-  "current": "steps__current___23Kdf",
-  "waiting": "steps__waiting___3fvDF",
-  "placeHolderShimmer": "steps__placeHolderShimmer___DLjfc"
+  "steps": "steps-b68e0d71",
+  "step": "steps-ea2059ed",
+  "dot": "steps-a58c7849",
+  "static": "steps-8e95619c",
+  "line": "steps-8bd139b7",
+  "size-xs": "steps-42749a64",
+  "size-s": "steps-7f03bf8f",
+  "size-m": "steps-88060924",
+  "size-l": "steps-e7e4da51",
+  "finished": "steps-3f80ead4",
+  "current": "steps-0ac3322f",
+  "waiting": "steps-4a4551ee",
+  "placeHolderShimmer": "steps-6019d1bd"
 };
 
 var Steps = function Steps(_ref) {
@@ -106,7 +106,7 @@ var Steps = function Steps(_ref) {
 exports.Steps = Steps;
 Steps.propTypes = {
   className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   totalSteps: _propTypes.default.number.isRequired,
   currentStep: _propTypes.default.number,
   currentId: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),

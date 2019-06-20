@@ -13,7 +13,7 @@ var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
@@ -50,27 +50,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "input": "input__input___1PpST",
-  "size-xs": "input__size-xs___1f1M_",
-  "with-icon": "input__with-icon___1Cib5",
-  "status-icon": "input__status-icon___18bsz",
-  "size-s": "input__size-s___1u1bV",
-  "size-m": "input__size-m___2a9EZ",
-  "size-l": "input__size-l___3HKYH",
-  "holder": "input__holder___1Ufms",
-  "shake": "input__shake___3DkZe",
-  "flash-error": "input__flash-error___E063c",
-  "theme-inline": "input__theme-inline___2ZIu7",
-  "disabled": "input__disabled___1I6dj",
-  "theme-default": "input__theme-default___5ZHoX",
-  "clickable": "input__clickable___2YqwH",
-  "error": "input__error___TnFIu",
-  "error-content": "input__error-content___3i5nW",
-  "hide": "input__hide___tPXlX",
-  "status-error": "input__status-error___vPtn7",
-  "status-focus": "input__status-focus___3mz6c",
-  "button-spinner-spin": "input__button-spinner-spin___2464U",
-  "placeHolderShimmer": "input__placeHolderShimmer___ZS_0f"
+  "input": "input-b8d47f80",
+  "size-xs": "input-d73f51ce",
+  "with-icon": "input-3dd982f7",
+  "status-icon": "input-6552c285",
+  "size-s": "input-9fdb48ff",
+  "size-m": "input-3eaf6630",
+  "size-l": "input-d915edb5",
+  "holder": "input-74bd2b91",
+  "shake": "input-87755749",
+  "flash-error": "input-1520581c",
+  "theme-inline": "input-de27ff90",
+  "disabled": "input-88acde4e",
+  "theme-default": "input-69de054e",
+  "clickable": "input-26a3d4d7",
+  "error": "input-3c04b3db",
+  "error-content": "input-7920530a",
+  "hide": "input-5beb0bb4",
+  "status-error": "input-e552daed",
+  "status-focus": "input-4bc7edfe",
+  "button-spinner-spin": "input-572ab191",
+  "placeHolderShimmer": "input-dbb953a7"
 };
 
 var TextInput =
@@ -445,8 +445,8 @@ function (_PureComponent) {
 exports.TextInput = TextInput;
 TextInput.propTypes = {
   className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_inputs.inputThemeNames),
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   type: _propTypes.default.string,
   name: _propTypes.default.string,
   value: _propTypes.default.string,
@@ -477,7 +477,7 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
   className: '',
   theme: 'default',
-  size: _inputs.defaultInputSizeKey,
+  size: _styleConstants.defaultInputSizeKey,
   type: 'text',
   name: '',
   value: undefined,

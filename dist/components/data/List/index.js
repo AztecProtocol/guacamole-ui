@@ -20,11 +20,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 var styles = {
-  "size-s": "list__size-s___28jTA",
-  "size-m": "list__size-m___12Jfd",
-  "size-l": "list__size-l___1w3E1",
-  "with-description": "list__with-description___3WT4f",
-  "item": "list__item___1o1op"
+  "size-s": "list-19b6eec5",
+  "size-m": "list-1ec3c5e5",
+  "size-l": "list-f6a8291b",
+  "with-description": "list-7775855f",
+  "item": "list-5985ad7b"
 };
 
 var List = function List(_ref) {

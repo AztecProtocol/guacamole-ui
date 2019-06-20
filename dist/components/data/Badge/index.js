@@ -13,32 +13,32 @@ var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _shapes = require("../../../config/shapes");
+var _styleConstants = require("../../../config/styleConstants");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "badge": "badge__badge___F3ljS",
-  "hide": "badge__hide___3i306",
-  "size-xxs": "badge__size-xxs___1aocr",
-  "dot-xxs": "badge__dot-xxs___2sN2R",
-  "size-xs": "badge__size-xs___3wFuT",
-  "dot-xs": "badge__dot-xs___1_a_Y",
-  "size-s": "badge__size-s___1wnBR",
-  "dot-s": "badge__dot-s___2tfQX",
-  "size-m": "badge__size-m___1PK8N",
-  "dot-m": "badge__dot-m___9hW3I",
-  "size-l": "badge__size-l___3J8tn",
-  "dot-l": "badge__dot-l___GlTXk",
-  "size-xl": "badge__size-xl___1GFbl",
-  "dot-xl": "badge__dot-xl___29R8d",
-  "size-xxl": "badge__size-xxl___vZoRr",
-  "dot-xxl": "badge__dot-xxl___vNggo",
-  "theme-default": "badge__theme-default___2Isp0",
-  "theme-label": "badge__theme-label___2mRyL",
-  "placeHolderShimmer": "badge__placeHolderShimmer___9lugQ"
+  "badge": "badge-b423108d",
+  "hide": "badge-be889538",
+  "size-xxs": "badge-d3289781",
+  "dot-xxs": "badge-7412d3f2",
+  "size-xs": "badge-ad8e4ad5",
+  "dot-xs": "badge-24703f66",
+  "size-s": "badge-063d066e",
+  "dot-s": "badge-3f1e7c0f",
+  "size-m": "badge-6bdb9a9b",
+  "dot-m": "badge-19e3843e",
+  "size-l": "badge-4a6040e4",
+  "dot-l": "badge-71db51fc",
+  "size-xl": "badge-1071ee58",
+  "dot-xl": "badge-d08dcbb5",
+  "size-xxl": "badge-3b739505",
+  "dot-xxl": "badge-b12f36b8",
+  "theme-default": "badge-01c68e88",
+  "theme-label": "badge-0698ef62",
+  "placeHolderShimmer": "badge-9c8f9601"
 };
 
 var Badge = function Badge(_ref) {
@@ -61,7 +61,7 @@ exports.Badge = Badge;
 Badge.propTypes = {
   className: _propTypes.default.string,
   theme: _propTypes.default.oneOf(['default', 'label']),
-  size: _propTypes.default.oneOf(_shapes.shapeSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys),
   count: _propTypes.default.number.isRequired,
   countOverflow: _propTypes.default.number,
   showZero: _propTypes.default.bool,

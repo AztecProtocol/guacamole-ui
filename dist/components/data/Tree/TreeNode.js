@@ -44,14 +44,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "node": "tree__node___3NxKC",
-  "selectable": "tree__selectable___304tE",
-  "highlight": "tree__highlight___167Qz",
-  "selected": "tree__selected___3xErm",
-  "node-item": "tree__node-item___37OGC",
-  "expand-arrow": "tree__expand-arrow___3t-cJ",
-  "subset": "tree__subset___1L3oa",
-  "placeHolderShimmer": "tree__placeHolderShimmer___1UqDe"
+  "node": "tree-7a1cc8bb",
+  "selectable": "tree-070a98cc",
+  "highlight": "tree-e6e6aeba",
+  "selected": "tree-cce46244",
+  "node-item": "tree-93e96a72",
+  "expand-arrow": "tree-54551c49",
+  "subset": "tree-0856d502",
+  "placeHolderShimmer": "tree-dce5abfe"
 };
 
 var TreeNode =

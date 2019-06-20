@@ -36,7 +36,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "draggable": "draggable__draggable___1l19E"
+  "draggable": "draggable-3e80681d"
 };
 
 var isTouchEvent = function isTouchEvent(e) {

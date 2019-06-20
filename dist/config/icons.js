@@ -3,8 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.iconRotateDegrees = exports.iconSizeMap = void 0;
+exports.iconSizeMap = void 0;
 var iconSizeMap = {
+  // eslint-disable-line import/prefer-default-export
   xxs: '12px',
   xs: '14px',
   s: '16px',
@@ -14,5 +15,3 @@ var iconSizeMap = {
   xxl: '48px'
 };
 exports.iconSizeMap = iconSizeMap;
-var iconRotateDegrees = [0, 90, 180, 270];
-exports.iconRotateDegrees = iconRotateDegrees;

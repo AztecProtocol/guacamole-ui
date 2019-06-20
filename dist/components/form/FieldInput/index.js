@@ -9,9 +9,9 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
-var _shapes = require("../../../config/shapes");
+var _shiftSize = _interopRequireDefault(require("../../../utils/shiftSize"));
 
 var _responsiveColumns = _interopRequireDefault(require("../../../shapes/responsiveColumns"));
 
@@ -124,7 +124,7 @@ var FieldInput = function FieldInput(_ref) {
         return _react.default.createElement("div", {
           className: "lh0"
         }, _react.default.createElement(_SwitchInput.default, _extends({
-          size: (0, _shapes.shiftSize)(inputSize, -1),
+          size: (0, _shiftSize.default)(inputSize, -1),
           checked: value,
           onChange: handleChange,
           disabled: isDisabled
@@ -198,7 +198,7 @@ var FieldInput = function FieldInput(_ref) {
         return _react.default.createElement(_Button.default, _extends({
           theme: "secondary",
           text: label,
-          size: (0, _shapes.shiftSize)(inputSize, -2),
+          size: (0, _shiftSize.default)(inputSize, -2),
           disabled: isDisabled,
           outlined: true,
           rounded: true,
@@ -218,8 +218,8 @@ FieldInput.propTypes = {
   value: _propTypes.default.any,
   fieldName: _propTypes.default.string.isRequired,
   inputType: _propTypes.default.oneOf(['', 'switch', 'checkbox', 'text', 'number', 'select', 'date', 'button']),
-  inputTheme: _propTypes.default.oneOf(_inputs.inputThemeNames),
-  inputSize: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  inputTheme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
+  inputSize: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   inputStatus: _propTypes.default.oneOf(['', 'error', 'loading']),
   extraProps: _propTypes.default.object,
   label: _propTypes.default.string,
@@ -249,7 +249,7 @@ FieldInput.defaultProps = {
   value: undefined,
   inputType: '',
   inputTheme: 'default',
-  inputSize: _inputs.defaultInputSizeKey,
+  inputSize: _styleConstants.defaultInputSizeKey,
   inputStatus: '',
   extraProps: null,
   label: '',

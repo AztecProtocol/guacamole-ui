@@ -9,7 +9,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _responsiveTextSizes = _interopRequireDefault(require("./responsiveTextSizes"));
 
-var _colors = require("../config/colors");
+var _styleConstants = require("../config/styleConstants");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,7 +25,7 @@ var iconPropTypes = {
   className: _propTypes.default.string,
   name: _propTypes.default.string.isRequired,
   size: _responsiveTextSizes.default,
-  color: _propTypes.default.oneOf([''].concat(_toConsumableArray(_colors.textColorNames))),
+  color: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.textColorNames))),
   rotate: _propTypes.default.oneOf([0, 90, 180, 270]),
   flipHorizontal: _propTypes.default.bool,
   flipVertical: _propTypes.default.bool,

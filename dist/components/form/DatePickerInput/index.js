@@ -13,7 +13,7 @@ var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _moment = _interopRequireDefault(require("moment"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _date = require("../../../utils/date");
 
@@ -64,11 +64,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
-  "wrapper": "datepicker__wrapper___1Lbo1",
-  "input-button": "datepicker__input-button___275s3",
-  "focused": "datepicker__focused___3AS7z",
-  "editable": "datepicker__editable___2U2Sz",
-  "input-button-mask": "datepicker__input-button-mask___1P57l"
+  "wrapper": "datepicker-34f16093",
+  "input-button": "datepicker-686f2b1c",
+  "focused": "datepicker-b9a9f6f2",
+  "editable": "datepicker-e3462b3e",
+  "input-button-mask": "datepicker-c22391c4"
 };
 
 var DatePickerInput =
@@ -494,8 +494,8 @@ function (_PureComponent) {
 exports.DatePickerInput = DatePickerInput;
 DatePickerInput.propTypes = {
   className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_inputs.inputThemeNames),
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.string)]),
   unifiedLabel: _propTypes.default.string,
   placeholder: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.string)]),
@@ -537,7 +537,7 @@ DatePickerInput.propTypes = {
 DatePickerInput.defaultProps = {
   className: '',
   theme: 'default',
-  size: _inputs.defaultInputSizeKey,
+  size: _styleConstants.defaultInputSizeKey,
   label: '',
   unifiedLabel: '',
   placeholder: '',

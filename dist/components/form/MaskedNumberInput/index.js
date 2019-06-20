@@ -9,7 +9,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _inputs = require("../../../config/inputs");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _TextInput = _interopRequireDefault(require("../TextInput"));
 
@@ -405,7 +405,7 @@ MaskedNumberInput.propTypes = {
   className: _propTypes.default.string,
   theme: _propTypes.default.oneOf(['default', 'inline']),
   value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
-  size: _propTypes.default.oneOf(_inputs.inputSizeKeys),
+  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
   defaultValue: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
   placeholder: _propTypes.default.string,
   status: _propTypes.default.oneOf(['', 'focus', 'error', 'warning']),

@@ -13,6 +13,8 @@ var _cssLength = _interopRequireDefault(require("../../../propTypes/cssLength"))
 
 var _colors = require("../../../config/colors");
 
+var _styleConstants = require("../../../config/styleConstants");
+
 var _extractColorDetail3 = _interopRequireDefault(require("./utils/extractColorDetail"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -93,8 +95,8 @@ SVG.propTypes = {
   glyph: _propTypes.default.object.isRequired,
   width: _cssLength.default,
   height: _cssLength.default,
-  color: _propTypes.default.oneOf([''].concat(_toConsumableArray(_colors.colorNames))),
-  strokeColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_colors.colorNames))),
+  color: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+  strokeColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
   fill: _propTypes.default.string,
   stroke: _propTypes.default.string,
   strokeWidth: _propTypes.default.number

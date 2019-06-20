@@ -11,7 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _colors = require("../../../config/colors");
+var _styleConstants = require("../../../config/styleConstants");
 
 var _Pie = _interopRequireDefault(require("../Pie"));
 
@@ -46,8 +46,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
-  "wrapper": "pies__wrapper___2sc_1",
-  "centered": "pies__centered___1dyIW"
+  "wrapper": "pies-2e573cad",
+  "centered": "pies-1388b3c6"
 };
 
 var ConcentricPies =
@@ -120,16 +120,16 @@ ConcentricPies.propTypes = {
     value: _propTypes.default.number.isRequired,
     spacing: _propTypes.default.number,
     strokeWidth: _propTypes.default.number,
-    strokeColor: _propTypes.default.oneOf(_colors.colorNames),
-    trackColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_colors.colorNames))),
-    fill: _propTypes.default.oneOf([''].concat(_toConsumableArray(_colors.colorNames))),
+    strokeColor: _propTypes.default.oneOf(_styleConstants.colorNames),
+    trackColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+    fill: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
     showArcValue: _propTypes.default.bool,
     showTrack: _propTypes.default.bool,
     delay: _propTypes.default.number
   })).isRequired,
   startDeg: _propTypes.default.number,
   strokeWidth: _propTypes.default.number,
-  strokeColor: _propTypes.default.oneOf(_colors.colorNames),
+  strokeColor: _propTypes.default.oneOf(_styleConstants.colorNames),
   children: _propTypes.default.node
 };
 ConcentricPies.defaultProps = {

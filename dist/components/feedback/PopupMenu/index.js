@@ -20,11 +20,11 @@ var _FlexPopupMenu = _interopRequireDefault(require("./FlexPopupMenu"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
-  "popup-menu": "popup__popup-menu___1lwx_",
-  "tether": "popup__tether___3n00O",
-  "hide": "popup__hide___hbCdo",
-  "tether-content": "popup__tether-content___qYUAy",
-  "placeHolderShimmer": "popup__placeHolderShimmer___1kkR6"
+  "popup-menu": "popup-4c089e3b",
+  "tether": "popup-023cba98",
+  "hide": "popup-b4c8fb11",
+  "tether-content": "popup-97cebb8b",
+  "placeHolderShimmer": "popup-ea7f262e"
 };
 
 var PopupMenu = function PopupMenu(_ref) {

@@ -24,13 +24,13 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 var styles = {
-  "steps": "steps__steps___1yd3e",
-  "step": "steps__step___Hm0Rm",
-  "active": "steps__active___1sTua",
-  "button": "steps__button___2fJ34",
-  "theme-primary": "steps__theme-primary___1T_uq",
-  "theme-white": "steps__theme-white___2vI1a",
-  "placeHolderShimmer": "steps__placeHolderShimmer___1alcj"
+  "steps": "steps-a6ee89e7",
+  "step": "steps-e7ead84a",
+  "active": "steps-a2913e1b",
+  "button": "steps-76196e5e",
+  "theme-primary": "steps-d09d658b",
+  "theme-white": "steps-d1a7d3d2",
+  "placeHolderShimmer": "steps-5d9f9c01"
 };
 
 var PageSteps = function PageSteps(_ref) {
