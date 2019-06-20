@@ -31,7 +31,7 @@
     font-size: map-get($font-size-map, map-get($avatar-text-size-map, $key));
 
     @if $key != 'l' {
-      font-weight: map-get($font-weight-map, 'book');
+      font-weight: map-get($font-weight-map, 'medium');
     }
   }
 }

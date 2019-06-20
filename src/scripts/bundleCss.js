@@ -6,6 +6,9 @@ import path from 'path';
 import chalk from 'chalk';
 import webpackConfig from './generateCssWebpackConfig';
 import {
+  ensureDirectory,
+} from './utils/fs';
+import {
   log,
   successLog,
   warnLog,
@@ -13,6 +16,19 @@ import {
 } from './utils/log';
 
 process.env.NODE_ENV = 'production';
+
+const copyFilesFromMemory = (mfs, outputPath) => {
+  mfs.readdirSync(outputPath).forEach((filename) => {
+    if (filename.endsWith('.js')) return;
+    const filepath = path.join(outputPath, filename);
+    if (mfs.statSync(filepath).isDirectory()) {
+      ensureDirectory(filepath);
+      copyFilesFromMemory(mfs, filepath);
+    } else {
+      fs.writeFileSync(filepath, mfs.readFileSync(filepath));
+    }
+  });
+};
 
 export default function bundleCss(webpackOptions = {}) {
   log('Generating minified css. This will take a moment...');
@@ -28,11 +44,7 @@ export default function bundleCss(webpackOptions = {}) {
     }
 
     const outputPath = config.output.path;
-    mfs.readdirSync(outputPath).forEach((filename) => {
-      if (filename.endsWith('.js')) return;
-      const filepath = path.join(outputPath, filename);
-      fs.writeFileSync(filepath, mfs.readFileSync(filepath));
-    });
+    copyFilesFromMemory(mfs, outputPath);
 
     if (messages.warnings.length) {
       warnLog(messages.warnings.join('\n'));
@@ -44,9 +56,15 @@ export default function bundleCss(webpackOptions = {}) {
         },
       } = webpackOptions;
       successLog('Your custom style files are compiled successfully!');
-      logEntries([
+      const outputFiles = [
         filename,
         variablesFilename,
+      ];
+      if (!webpackOptions.ignoreFonts) {
+        outputFiles.push('fonts/');
+      }
+      logEntries([
+        ...outputFiles,
         '',
         chalk.grey(`path: ${outputPath}`),
       ]);

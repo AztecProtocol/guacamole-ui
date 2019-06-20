@@ -42,7 +42,7 @@ describe('generate responsive style names by prefix and sizes', () => {
       'padding',
       'xl',
     )).toEqual([
-      'padding-m-xl',
+      'padding--xl',
     ]);
   });
 
@@ -51,7 +51,7 @@ describe('generate responsive style names by prefix and sizes', () => {
       '',
       'xl',
     )).toEqual([
-      'm-xl',
+      'xl',
     ]);
 
     expect(generateResponsiveStyleNames(
@@ -59,10 +59,12 @@ describe('generate responsive style names by prefix and sizes', () => {
       {
         m: 'xl',
         xs: 'l',
+        xxs: 'm',
       },
     )).toEqual([
       'm-xl',
       'xs-l',
+      'm',
     ]);
   });
 
@@ -71,7 +73,7 @@ describe('generate responsive style names by prefix and sizes', () => {
       'padding',
       true,
     )).toEqual([
-      'padding-m-true',
+      'padding--true',
     ]);
 
     expect(generateResponsiveStyleNames(
@@ -89,7 +91,7 @@ describe('generate responsive style names by prefix and sizes', () => {
       'padding',
       1,
     )).toEqual([
-      'padding-m-1',
+      'padding--1',
     ]);
   });
 

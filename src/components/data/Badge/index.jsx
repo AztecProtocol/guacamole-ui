@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   shapeSizeKeys,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
 import styles from './badge.scss';
 
 export const Badge = ({

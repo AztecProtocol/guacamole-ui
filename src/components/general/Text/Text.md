@@ -151,8 +151,8 @@
 <br />
 <br />
 <Text
-  text={'weight="book"'}
-  weight="book"
+  text={'weight="medium"'}
+  weight="medium"
 />
 <br />
 <br />

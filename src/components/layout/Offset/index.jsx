@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
-import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
-import parseCssSizeValues from 'src/helpers/parseCssSizeValues';
+import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
+import parseCssSizeValues from 'src/utils/parseCssSizeValues';
 import responsiveCssSizes from 'src/shapes/responsiveCssSizes';
 import styles from './offset.scss';
 

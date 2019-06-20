@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import source from 'src/config';
+import * as styleConstants from '../config/styleConstants';
 import jsToSass from './utils/jsToSass';
 import deepMerge from './utils/deepMerge';
 import {
@@ -11,7 +12,10 @@ import {
 const generateContent = ({
   theme,
 }) => {
-  const cssConfig = deepMerge(source, theme);
+  const cssConfig = {
+    ...deepMerge(source, theme),
+    ...styleConstants, // values defined in this file can't be overwritten by user
+  };
   const variables = jsToSass(cssConfig);
 
   const processRoot = process.cwd();

@@ -71,7 +71,7 @@
     color: $button-content-color;
 
     @if $theme == 'white' {
-      font-weight: map-get($font-weight-map, 'book');
+      font-weight: map-get($font-weight-map, 'medium');
     }
 
     &:not(.disabled-hover):hover {

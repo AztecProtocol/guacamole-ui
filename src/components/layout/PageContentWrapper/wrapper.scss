@@ -24,9 +24,9 @@
 }
 
 @mixin responsive-layout($suffix: '') {
-  $size-key: map-get($default-page-spacing-map, $suffix);
+  $size-key: map-get($page-spacing-key-map, $suffix);
   @if $suffix == '' {
-    $size-key: map-get($default-page-spacing-map, 'xxs');
+    $size-key: map-get($page-spacing-key-map, 'xxs');
   }
   .content {
     padding: 0 get-spacing($size-key);

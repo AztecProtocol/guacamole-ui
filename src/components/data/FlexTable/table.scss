@@ -81,8 +81,8 @@
   @include background('loading-light');
   margin: get-spacing('xxs') 0;
   width: 60%;
-  min-width: get-line-height($default-text-size-key);
-  height: get-line-height($default-text-size-key);
+  min-width: get-line-height($default-font-size-key);
+  height: get-line-height($default-font-size-key);
 }
 
 .highlight {

@@ -19,8 +19,8 @@ export const styles = ({
     color: color.base,
     fontFamily: fontFamily.base,
     fontWeight: fontWeightMap.light,
-    fontSize: fontSizeMap.xs,
-    lineHeight: lineHeightMap.xs,
+    fontSize: fontSizeMap.s,
+    lineHeight: lineHeightMap.m,
     marginTop: space[1],
     marginBottom: space[1],
     '& > strong': {
@@ -46,6 +46,13 @@ export const styles = ({
       ...prismTheme({
         color,
       }),
+    },
+    '& > span': {
+      display: 'block',
+      marginTop: `-${space[1]}px`,
+      marginBottom: `-${space[1]}px`,
+      fontSize: '12px',
+      lineHeight: '12px',
     },
   },
 });

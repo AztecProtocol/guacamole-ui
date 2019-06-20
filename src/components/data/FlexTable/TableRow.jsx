@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
-import generateResponsiveShape from 'src/helpers/generateResponsiveShape';
+import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import Block from '../../layout/Block';
 import Row from '../../layout/Row';
 import styles from './table.scss';

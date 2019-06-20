@@ -4,7 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 import {
   inputSizeKeys,
-} from 'src/config/inputs';
+} from 'src/config/styleConstants';
 import TextInput from '../TextInput';
 import getNextCursorPosition from './utils/getNextCursorPosition';
 import getNumeralValue from './utils/getNumeralValue';

@@ -18,20 +18,26 @@
 
 ```js
 <TextButton
-  text={'theme="default"'}
-  theme="default"
-/>    
-<br />
-<br />
-<TextButton
   text={'theme="normal"'}
   theme="normal"
 />    
 <br />
 <br />
 <TextButton
+  text={'theme="implicit"'}
+  theme="implicit"
+/>    
+<br />
+<br />
+<TextButton
   text={'theme="underline"'}
   theme="underline"
+/>
+<br />
+<br />
+<TextButton
+  text={'theme="uppercase"'}
+  theme="uppercase"
 />    
 ```
 

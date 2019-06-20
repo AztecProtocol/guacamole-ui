@@ -16,8 +16,8 @@
 }
 
 .wrapper {
-  padding-top: get-spacing($default-page-spacing-key-m);
-  padding-bottom: get-spacing($default-page-spacing-key-m);
+  padding-top: get-spacing(map-get($page-spacing-key-map, 'm'));
+  padding-bottom: get-spacing(map-get($page-spacing-key-map, 'm'));
   width: 100%;
   height: 100%;
 }

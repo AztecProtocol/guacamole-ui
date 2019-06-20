@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cssLength from 'src/propTypes/cssLength';
 import {
-  colorNames, colorMap,
+  colorMap,
 } from 'src/config/colors';
+import {
+  colorNames,
+} from 'src/config/styleConstants';
 import extractColorDetail from './utils/extractColorDetail';
 
 const SVG = ({

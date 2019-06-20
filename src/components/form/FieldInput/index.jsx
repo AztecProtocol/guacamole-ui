@@ -4,10 +4,8 @@ import {
   inputThemeNames,
   inputSizeKeys,
   defaultInputSizeKey,
-} from 'src/config/inputs';
-import {
-  shiftSize,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
+import shiftSize from 'src/utils/shiftSize';
 import responsiveColumns from 'src/shapes/responsiveColumns';
 import itemGroupShape from 'src/shapes/itemGroupShape';
 import EditableValueHolder from '../EditableValueHolder';

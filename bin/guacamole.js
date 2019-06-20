@@ -28,9 +28,10 @@ function generateStyles() {
   } = config;
   ensureDirectory(outputPath);
   generateSassVariablesSync(config);
+  const customTheme = config.theme || {};
   bundleCss({
     ...config,
-    ignoreFonts: true,
+    ignoreFonts: !!customTheme.defaultFontFamily,
   });
 }
 

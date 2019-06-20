@@ -1,8 +1,8 @@
-import generateResponsiveShape from '../helpers/generateResponsiveShape';
+import generateResponsiveShape from '../utils/generateResponsiveShape';
 import withEmptyOrDefault from './withEmptyOrDefault';
 import {
   sizeKeys,
-} from '../config/layout';
+} from '../config/styleConstants';
 
 const sizeNames = withEmptyOrDefault(sizeKeys);
 

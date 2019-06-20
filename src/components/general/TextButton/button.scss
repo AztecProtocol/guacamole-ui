@@ -10,9 +10,9 @@
     color: $color;
   }
 }
-@each $name, $color in $default-text-color-map {
+@each $name in $special-text-color-names {
   .color-#{$name} {
-    color: $color;
+    color: get-text-color($name);
   }
 }
 
@@ -40,15 +40,16 @@ a {
         @include hovered-link($color);
       }
     }
-    @each $color-name, $color in $default-text-color-map {
-      &.color-#{$color-name} {
-        @include hovered-link($color);
+    @each $name in $special-text-color-names {
+      $special-color: get-text-color($name);
+      &.color-#{$name} {
+        @include hovered-link($special-color);
       }
     }
   }
 }
 
-.theme-default {
+.theme-uppercase {
   text-transform: uppercase;
 
   &:hover:not(.disabled) {

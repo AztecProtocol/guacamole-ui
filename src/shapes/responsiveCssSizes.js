@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import errorPropDefinition from './utils/errorPropDefinition';
 import {
   sizeKeys,
-} from '../config/layout';
+} from '../config/styleConstants';
 
 const cssSizes = ['0', ...sizeKeys];
 

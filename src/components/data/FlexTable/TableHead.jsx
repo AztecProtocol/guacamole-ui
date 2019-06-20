@@ -5,7 +5,7 @@ import {
   ASC,
   DESC,
 } from 'utils/sort';
-import generateResponsiveShape from 'src/helpers/generateResponsiveShape';
+import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import Block from '../../layout/Block';
 import Text from '../../general/Text';
 import TextButton from '../../general/TextButton';

@@ -33,8 +33,8 @@ module.exports = {
       base: defaultFontFamily,
     },
     fontSize: {
-      base: 14,
-      text: 14,
+      base: 16,
+      text: 16,
       small: 12,
       h1: fontSizeMap.xxl,
       h2: fontSizeMap.xl,
@@ -52,6 +52,21 @@ module.exports = {
       border: defaultBorderColor,
       sidebarBackground: colorMap['grey-lightest'],
       codeBackground: colorMap['grey-lightest'],
+      codeBase: '#333',
+
+      name: colorMap.green,
+      type: colorMap.purple,
+
+      codeComment: '#6d6d6d',
+      codePunctuation: '#999',
+      codeProperty: colorMap.orange,
+      codeDeleted: colorMap.red,
+      codeString: colorMap.green,
+      codeInserted: colorMap.purple,
+      codeOperator: '#9a6e3a',
+      codeKeyword: colorMap.blue,
+      codeFunction: colorMap.purple,
+      codeVariable: colorMap.orange,
     },
   },
   styleguideComponents: {

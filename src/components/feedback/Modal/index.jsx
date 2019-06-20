@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   overlayThemeNames,
-} from 'src/config/colors';
+} from 'src/config/styleConstants';
 import iconShape from 'src/shapes/iconShape';
 import Overlay from '../../layout/Overlay';
 import PageContentWrapper from '../../layout/PageContentWrapper';

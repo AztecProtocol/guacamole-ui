@@ -8,10 +8,8 @@ import fieldShape from 'src/shapes/fieldShape';
 import {
   inputSizeKeys,
   defaultInputSizeKey,
-} from 'src/config/inputs';
-import {
-  shiftSize,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
+import shiftSize from 'src/utils/shiftSize';
 import Row from '../../layout/Row';
 import Col from '../../layout/Col';
 import Offset from '../../layout/Offset';

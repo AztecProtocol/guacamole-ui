@@ -7,10 +7,8 @@ import CSSModules from 'react-css-modules';
 import {
   inputSizeKeys,
   defaultInputSizeKey,
-} from 'src/config/inputs';
-import {
-  shiftSize,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
+import shiftSize from 'src/utils/shiftSize';
 import getScaleByPosition from '../../utils/Draggable/utils/getScaleByPosition';
 import Draggable from '../../utils/Draggable';
 import Icon from '../../general/Icon';

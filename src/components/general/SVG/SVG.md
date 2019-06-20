@@ -31,6 +31,10 @@ const glyph = require('./demo/demo.svg').default;
 />
 ```
 
+Note that the color keys in SVG component will always refer to the default color codes since they are rendered in js file. If you have a custom config of colors, pass them through the *fill* prop.
+
+&nbsp;
+
 #### Custom Colors
 
 ```js

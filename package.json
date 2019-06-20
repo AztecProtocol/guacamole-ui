@@ -17,6 +17,7 @@
     "start": "yarn styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
+    "test": "jest ./src",
     "transpile": "BABEL_ENV=transpile babel src -x \".js\",\".jsx\" --ignore \"**/*.spec.js\",\"**/demo/**\" -d dist"
   },
   "bin": {

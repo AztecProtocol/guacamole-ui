@@ -1,4 +1,4 @@
-export const iconSizeMap = {
+export const iconSizeMap = { // eslint-disable-line import/prefer-default-export
   xxs: '12px',
   xs: '14px',
   s: '16px',
@@ -7,5 +7,3 @@ export const iconSizeMap = {
   xl: '36px',
   xxl: '48px',
 };
-
-export const iconRotateDegrees = [0, 90, 180, 270];

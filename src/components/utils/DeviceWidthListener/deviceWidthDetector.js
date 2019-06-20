@@ -1,39 +1,51 @@
 import {
-  deviceBreakpointMap,
-} from 'src/config/layout';
-
-const deviceBreakpoints = Object.keys(deviceBreakpointMap).reverse();
+  deviceBreakpointKeys,
+} from '../../../config/styleConstants';
 
 class DeviceWidthDetector {
   constructor() {
+    this.breakpointSizeMap = {};
+    this.orderedKeys = deviceBreakpointKeys[0] === 'xxs'
+      ? deviceBreakpointKeys
+      : [...deviceBreakpointKeys].reverse();
     this.currentSize = 'xxs';
-    this.currentLevel = deviceBreakpoints.indexOf(this.currentSize);
-
+    this.currentLevel = this.orderedKeys.indexOf(this.currentSize);
     this.subscribers = {};
     this.sizeKeyToWidth = {};
-    deviceBreakpoints.forEach((size) => {
-      this.subscribers[size] = [];
-      const width = parseInt(deviceBreakpointMap[size], 10);
-      this.sizeKeyToWidth[size] = width;
-    });
+  }
 
-    const {
-      readyState,
-    } = document || {};
-    if (readyState === 'interactive' || readyState === 'complete') {
-      this.updateByWindowSize();
-    } else {
-      document.addEventListener('DOMContentLoaded', () => {
-        this.updateByWindowSize();
+  register = (breakpointSizeMap) => {
+    const isSameMap = breakpointSizeMap === this.breakpointSizeMap
+      || deviceBreakpointKeys.every(key => breakpointSizeMap[key] === this.breakpointSizeMap[key]);
+
+    if (!isSameMap) {
+      this.unbindActions();
+
+      deviceBreakpointKeys.forEach((key) => {
+        this.subscribers[key] = [];
+        this.sizeKeyToWidth[key] = parseInt(breakpointSizeMap[key], 10);
       });
+
+      const {
+        readyState,
+      } = document || {};
+      if (readyState === 'interactive' || readyState === 'complete') {
+        this.updateByWindowSize();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => {
+          this.updateByWindowSize();
+        });
+      }
+
+      this.bindActions();
     }
 
-    this.listenForResize();
-  }
+    return this.orderedKeys;
+  };
 
   setCurrentSize(size) {
     this.currentSize = size;
-    this.currentLevel = deviceBreakpoints.indexOf(size);
+    this.currentLevel = this.orderedKeys.indexOf(size);
   }
 
   forceChangeSize(size) {
@@ -43,13 +55,17 @@ class DeviceWidthDetector {
     }
   }
 
-  listenForResize() {
+  bindActions() {
     window.addEventListener('resize', this.updateByWindowSize, true);
+  }
+
+  unbindActions() {
+    window.removeEventListener('resize', this.updateByWindowSize, true);
   }
 
   updateByWindowSize = () => {
     const currentWidth = window.innerWidth;
-    const size = Object.keys(this.sizeKeyToWidth)
+    const size = [...this.orderedKeys]
       .reverse()
       .find(key => currentWidth >= this.sizeKeyToWidth[key]);
 
@@ -62,13 +78,13 @@ class DeviceWidthDetector {
 
   broadcastSizeChanged(prev, current) {
     const notified = [];
-    const prevIdx = deviceBreakpoints.indexOf(prev);
-    const currIdx = deviceBreakpoints.indexOf(current);
+    const prevIdx = this.orderedKeys.indexOf(prev);
+    const currIdx = this.orderedKeys.indexOf(current);
     const from = Math.min(prevIdx, currIdx);
     const to = Math.max(prevIdx, currIdx);
     for (let i = from; i <= to; i += 1) {
-      const width = deviceBreakpoints[i];
-      this.subscribers[width].forEach((callback) => {
+      const sizeKey = this.orderedKeys[i];
+      this.subscribers[sizeKey].forEach((callback) => {
         if (notified.indexOf(callback) >= 0) return;
 
         callback(current);
@@ -78,7 +94,7 @@ class DeviceWidthDetector {
   }
 
   applyToCurrentSize(size) {
-    const level = deviceBreakpoints.indexOf(size);
+    const level = this.orderedKeys.indexOf(size);
     return {
       gt: level < this.currentLevel,
       lt: level > this.currentLevel,
@@ -99,6 +115,3 @@ class DeviceWidthDetector {
 }
 
 export default new DeviceWidthDetector();
-export {
-  deviceBreakpoints,
-};

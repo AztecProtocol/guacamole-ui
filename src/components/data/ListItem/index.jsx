@@ -3,33 +3,17 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
+  listItemIconSizeMap,
+  listItemAvatarTextSizeMap,
+} from 'src/config/listItem';
+import {
   shapeSizeKeys,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
 import iconShape from 'src/shapes/iconShape';
 import Icon from '../../general/Icon';
 import Text from '../../general/Text';
 import Avatar from '../Avatar';
 import styles from './item.scss';
-
-const iconSizeMap = {
-  xxs: 'xxs',
-  xs: 'xs',
-  s: 's',
-  m: 'm',
-  l: 'l',
-  xl: 'xl',
-  xxl: 'xl',
-};
-
-const avatarTextSizeMap = {
-  xxs: 'xs',
-  xs: 's',
-  s: 'm',
-  m: 'l',
-  l: 'xl',
-  xl: 'xxl',
-  xxl: 'xxl',
-};
 
 export const ListItem = ({
   className,
@@ -65,7 +49,7 @@ export const ListItem = ({
         <Icon
           name={iconName}
           color={iconColor}
-          size={iconSizeMap[size]}
+          size={listItemIconSizeMap[size]}
           rotate={iconRotate}
           {...icon}
         />
@@ -83,7 +67,7 @@ export const ListItem = ({
       {title && (
         <Text
           text={title}
-          size={avatar ? avatarTextSizeMap[size] : size}
+          size={avatar ? listItemAvatarTextSizeMap[size] : size}
         />
       )}
       {description && (

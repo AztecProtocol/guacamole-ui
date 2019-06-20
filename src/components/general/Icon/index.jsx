@@ -4,9 +4,10 @@ import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import {
   textColorNames,
-} from 'src/config/colors';
+  iconRotateDegrees,
+} from 'src/config/styleConstants';
 import responsiveTextSizes from 'src/shapes/responsiveTextSizes';
-import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
+import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import styles from './icon.scss';
 
 export const Icon = ({
@@ -41,7 +42,7 @@ Icon.propTypes = {
   name: PropTypes.string.isRequired,
   size: responsiveTextSizes,
   color: PropTypes.oneOf(['', ...textColorNames]),
-  rotate: PropTypes.oneOf([0, 90, 180, 270]),
+  rotate: PropTypes.oneOf(iconRotateDegrees),
   flipHorizontal: PropTypes.bool,
   flipVertical: PropTypes.bool,
   spin: PropTypes.bool,

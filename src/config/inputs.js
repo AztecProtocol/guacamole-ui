@@ -2,16 +2,12 @@ import {
   colorMap,
 } from './colors';
 
-export const defaultInputSizeKey = 'm';
-
 export const inputSizeMap = {
   xs: '24px',
   s: '28px',
   m: '32px',
   l: '40px',
 };
-
-export const inputSizeKeys = Object.keys(inputSizeMap);
 
 export const inputFontSizeKeyMap = {
   xs: 'xxs',
@@ -21,14 +17,9 @@ export const inputFontSizeKeyMap = {
 };
 
 export const inputStatusColorMap = {
-  error: 'red',
-  focus: 'secondary-light',
+  error: colorMap.red,
+  focus: colorMap['secondary-light'],
 };
-
-export const inputThemeNames = [
-  'default',
-  'inline',
-];
 
 export const defaultInputOutlineColor = colorMap['grey-light'];
 export const defaultInputActiveOutlineColor = colorMap['secondary-light'];

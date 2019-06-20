@@ -4,12 +4,10 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   defaultInputSizeKey,
-} from 'src/config/inputs';
-import {
   buttonSizeKeys,
-} from 'src/config/buttons';
-import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
-import generateResponsiveShape from 'src/helpers/generateResponsiveShape';
+} from 'src/config/styleConstants';
+import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
+import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import styles from './button.scss';
 
 export const Button = ({

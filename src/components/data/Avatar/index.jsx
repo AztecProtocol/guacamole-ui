@@ -6,11 +6,9 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   shapeSizeKeys,
-} from 'src/config/shapes';
-import {
   colorNames,
   backgroundNames,
-} from 'src/config/colors';
+} from 'src/config/styleConstants';
 import Icon from '../../general/Icon';
 import Image from '../../general/Image';
 import Text from '../../general/Text';

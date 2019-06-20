@@ -7,7 +7,7 @@ import CSSModules from 'react-css-modules';
 import {
   defaultInputSizeKey,
   inputSizeKeys,
-} from 'src/config/inputs';
+} from 'src/config/styleConstants';
 import Icon from '../../general/Icon';
 import styles from './checkbox.scss';
 

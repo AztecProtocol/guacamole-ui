@@ -1,6 +1,6 @@
 import {
-  deviceBreakpoints,
-} from '../config/layout';
+  deviceBreakpointKeys,
+} from '../config/styleConstants';
 
 const directions = ['top', 'right', 'bottom', 'left'];
 
@@ -35,7 +35,7 @@ function isSimpleValue(val) {
 }
 
 function containSimpleValueOnly(values) {
-  return deviceBreakpoints
+  return deviceBreakpointKeys
     .every(key => !values[key] || isSimpleValue(values[key]));
 }
 
@@ -53,7 +53,7 @@ export default function parseCssSizeValues(values) {
   }
 
   const sizeMap = {};
-  deviceBreakpoints
+  deviceBreakpointKeys
     .filter(key => values[key])
     .forEach((key) => {
       const sizes = parseCssSizeString(values[key]);

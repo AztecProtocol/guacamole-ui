@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import generateResponsiveStyleNames, {
   notEmptyString,
-} from '../../../helpers/generateResponsiveStyleNames';
-import generateResponsiveShape from '../../../helpers/generateResponsiveShape';
+} from 'src/utils/generateResponsiveStyleNames';
+import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import styles from './flex.scss';
 
 export const FlexBox = ({

@@ -1,6 +1,4 @@
-import {
-  shiftSize,
-} from './shapes';
+import shiftSize from './shiftSize';
 
 describe('shiftSize', () => {
   it('increase sizes', () => {
@@ -24,7 +22,6 @@ describe('shiftSize', () => {
     expect(shiftSize('s', -1)).toBe('xs');
     expect(shiftSize('xs', -1)).toBe('xxs');
     expect(shiftSize('xxs', -1)).toBe('xxs');
-    expect(shiftSize('xxs', -1, true)).toBe('0');
 
     expect(shiftSize('xl', -4)).toBe('xs');
     expect(shiftSize('xl', -10)).toBe('xxs');

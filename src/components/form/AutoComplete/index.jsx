@@ -7,7 +7,7 @@ import {
   inputThemeNames,
   inputSizeKeys,
   defaultInputSizeKey,
-} from 'src/config/inputs';
+} from 'src/config/styleConstants';
 import itemGroupShape from 'src/shapes/itemGroupShape';
 import iconShape from 'src/shapes/iconShape';
 import SelectMenu from '../../data/SelectMenu';

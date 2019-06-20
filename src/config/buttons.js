@@ -14,8 +14,6 @@ export const buttonSizeMap = {
   xxl: '56px',
 };
 
-export const buttonSizeKeys = Object.keys(buttonSizeMap);
-
 export const buttonTextSizeMap = {
   xxs: 'xxs',
   xs: 'xxs',

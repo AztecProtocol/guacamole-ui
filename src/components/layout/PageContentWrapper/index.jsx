@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
-import generateResponsiveShape from 'src/helpers/generateResponsiveShape';
-import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
+import generateResponsiveShape from 'src/utils/generateResponsiveShape';
+import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import Block from '../Block';
 import styles from './wrapper.scss';
 

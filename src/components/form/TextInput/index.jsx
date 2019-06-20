@@ -8,7 +8,7 @@ import {
   inputThemeNames,
   inputSizeKeys,
   defaultInputSizeKey,
-} from 'src/config/inputs';
+} from 'src/config/styleConstants';
 import iconShape from 'src/shapes/iconShape';
 import Block from '../../layout/Block';
 import Text from '../../general/Text';

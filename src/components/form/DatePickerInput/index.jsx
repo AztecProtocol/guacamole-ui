@@ -9,7 +9,7 @@ import {
   inputThemeNames,
   inputSizeKeys,
   defaultInputSizeKey,
-} from 'src/config/inputs';
+} from 'src/config/styleConstants';
 import {
   toDateString,
 } from 'utils/date';

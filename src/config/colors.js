@@ -22,10 +22,14 @@ export const colorMap = {
   'secondary-lighter': 'rgba(74,144,226, 0.3)',
   'secondary-lightest': 'rgba(74,144,226, 0.1)',
 
+  pink: '#F7B2D1',
   red: '#F23A5B',
-  green: '#1BD1A6',
-  blue: '#1766F0',
-  yellow: '#fff5cc',
+  purple: '#49098A',
+  blue: '#2772CE',
+  green: '#41BA00',
+  yellow: '#FACB00',
+  orange: '#E57300',
+  brown: '#49311A',
 };
 
 export const darkBackgroundColors = [
@@ -39,32 +43,25 @@ export const darkBackgroundColors = [
   'grey-dark',
   'grey',
   'red',
+  'purple',
   'blue',
   'green',
+  'orange',
+  'brown',
   'white-lightest',
 ];
 
-export const colorNames = Object.keys(colorMap);
-
-export const backgroundNames = colorNames;
-
-export const textColorNames = [...colorNames, 'default', 'label'];
-
 export const defaultShadowColor = colorMap['grey-lighter'];
 
-export const defaultBorderColorKey = 'grey-lighter';
-export const defaultBorderColor = colorMap[defaultBorderColorKey];
+export const defaultBorderColor = colorMap['grey-lighter'];
 
 export const defaultHoverBackgroundColor = colorMap['grey-lightest'];
 
-export const defaultTextColorKey = 'grey-darker';
-export const defaultTextColor = colorMap[defaultTextColorKey];
+export const defaultTextColor = colorMap['grey-darker'];
 
-export const defaultLabelColorKey = 'grey';
-export const defaultLabelColor = colorMap[defaultLabelColorKey];
+export const defaultLabelColor = colorMap.grey;
 
-export const defaultLinkColorKey = 'secondary';
-export const defaultLinkColor = colorMap[defaultLinkColorKey];
+export const defaultLinkColor = colorMap.secondary;
 
 export const overlayThemeBgMap = {
   primary: 'primary-lightest',
@@ -76,11 +73,4 @@ export const svgProgressThemeBgMap = {
   primary: 'primary-lightest',
   secondary: 'secondary-lightest',
   white: 'white-lighter',
-};
-
-export const overlayThemeNames = Object.keys(overlayThemeBgMap);
-
-export const defaultTextColorMap = {
-  default: defaultTextColor,
-  label: defaultLabelColor,
 };

@@ -1,8 +1,8 @@
-import generateResponsiveShape from '../helpers/generateResponsiveShape';
+import generateResponsiveShape from '../utils/generateResponsiveShape';
 import {
-  sizeKeys,
-} from '../config/layout';
+  fontSizeKeys,
+} from '../config/styleConstants';
 
-const sizeNames = ['', 'inherit', ...sizeKeys];
+const sizeNames = ['', 'inherit', ...fontSizeKeys];
 
 export default generateResponsiveShape(sizeNames);

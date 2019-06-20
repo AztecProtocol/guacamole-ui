@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import responsiveTextSizes from './responsiveTextSizes';
 import {
   textColorNames,
-} from '../config/colors';
+} from '../config/styleConstants';
 
 export const iconPropTypes = {
   className: PropTypes.string,

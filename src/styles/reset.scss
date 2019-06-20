@@ -23,7 +23,7 @@
 
 @font-face {
   font-family: 'Cerebri Sans';
-  font-weight: 450;
+  font-weight: 500;
   font-style: normal;
 
   src: url('../fonts/cerebrisans/cerebrisans-book.eot');
@@ -35,7 +35,7 @@
 
 @font-face {
   font-family: 'Cerebri Sans';
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
 
   src: url('../fonts/cerebrisans/cerebrisans-medium.eot');
@@ -47,7 +47,7 @@
 
 @font-face {
   font-family: 'Cerebri Sans';
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
 
   src: url('../fonts/cerebrisans/cerebrisans-semibold.eot');
@@ -80,7 +80,7 @@ time, mark, audio, video {
 
 body {
   font-family: $default-font-family;
-  font-size: get-font-size($default-text-size-key);
+  font-size: get-font-size($default-font-size-key);
   line-height: 1;
   color: $default-text-color;
 }

@@ -5,10 +5,8 @@ import classnames from 'classnames';
 import {
   backgroundNames,
   textColorNames,
-} from 'src/config/colors';
-import {
   fontWeightKeys,
-} from 'src/config/typography';
+} from 'src/config/styleConstants';
 import responsiveTextSizes from 'src/shapes/responsiveTextSizes';
 import Text from '../../general/Text';
 import styles from './bar.scss';

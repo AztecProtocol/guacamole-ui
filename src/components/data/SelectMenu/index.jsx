@@ -4,10 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 import {
   shapeSizeKeys,
-} from 'src/config/shapes';
-import {
-  defaultSpacingKeyM,
-} from 'src/config/layout';
+} from 'src/config/styleConstants';
 import responsiveCssSizes from 'src/shapes/responsiveCssSizes';
 import itemGroupShape from 'src/shapes/itemGroupShape';
 import Block from '../../layout/Block';
@@ -197,7 +194,7 @@ SelectMenu.defaultProps = {
   size: 'xs',
   itemGroups: [],
   background: 'white',
-  padding: `0 ${defaultSpacingKeyM}`,
+  padding: '0 l',
   borderRadius: '',
   layer: 0,
   hasBorder: false,

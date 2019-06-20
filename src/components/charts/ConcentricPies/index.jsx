@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import {
   colorNames,
-} from 'src/config/colors';
+} from 'src/config/styleConstants';
 import Pie from '../Pie';
 import styles from './pies.scss';
 

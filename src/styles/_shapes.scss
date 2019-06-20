@@ -52,7 +52,7 @@ $max-shadow-layer: 3;
 }
 
 @function shift-size($size, $offset) {
-  $index: index($device-breakpoints, $size);
+  $index: index($size-keys, $size);
   $new-size-index: $index - $offset;
   @if $new-size-index < 1 {
     @return 'xxl';
@@ -60,5 +60,5 @@ $max-shadow-layer: 3;
   @if $new-size-index > 7 {
     @return 'xxs';
   }
-  @return nth($device-breakpoints, $new-size-index);
+  @return nth($size-keys, $new-size-index);
 }

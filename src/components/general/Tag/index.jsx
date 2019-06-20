@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   fontSizeKeys,
-  defaultTextSizeKey,
-} from '../../../config/typography';
+  defaultFontSizeKey,
+} from '../../../config/styleConstants';
 import Block from '../../layout/Block';
 import Text from '../Text';
 import Icon from '../Icon';
@@ -70,7 +70,7 @@ Tag.propTypes = {
 
 Tag.defaultProps = {
   className: '',
-  size: defaultTextSizeKey,
+  size: defaultFontSizeKey,
   children: null,
   iconName: '',
   alignIcon: 'right',

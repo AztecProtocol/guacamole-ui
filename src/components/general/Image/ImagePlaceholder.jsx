@@ -5,7 +5,7 @@ import CSSModules from 'react-css-modules';
 import {
   imageRatioNames,
   roundedCornerKeys,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
 import withEmptyOrDefault from 'src/shapes/withEmptyOrDefault';
 import cameraGlyph from 'src/assets/camera.svg';
 import SVG from '../SVG';

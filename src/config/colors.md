@@ -101,6 +101,13 @@ import Col from '../components/layout/Col';
   <DemoItems>
     <Row>
       <Col column={3}>
+        <Block padding="m" background="pink">
+          <div style={{ textAlign: 'center' }}>
+            pink
+          </div>
+        </Block>
+      </Col>
+      <Col column={3}>
         <Block padding="m" background="red">
           <div style={{ textAlign: 'center' }}>
             red
@@ -108,9 +115,9 @@ import Col from '../components/layout/Col';
         </Block>
       </Col>
       <Col column={3}>
-        <Block padding="m" background="green">
+        <Block padding="m" background="purple">
           <div style={{ textAlign: 'center' }}>
-            green
+            purple
           </div>
         </Block>
       </Col>
@@ -121,10 +128,33 @@ import Col from '../components/layout/Col';
           </div>
         </Block>
       </Col>
+    </Row>
+    <Row>
+      <Col column={3}>
+        <Block padding="m" background="green">
+          <div style={{ textAlign: 'center' }}>
+            green
+          </div>
+        </Block>
+      </Col>
       <Col column={3}>
         <Block padding="m" background="yellow">
           <div style={{ textAlign: 'center' }}>
             yellow
+          </div>
+        </Block>
+      </Col>
+      <Col column={3}>
+        <Block padding="m" background="orange">
+          <div style={{ textAlign: 'center' }}>
+            orange
+          </div>
+        </Block>
+      </Col>
+      <Col column={3}>
+        <Block padding="m" background="brown">
+          <div style={{ textAlign: 'center' }}>
+            brown
           </div>
         </Block>
       </Col>

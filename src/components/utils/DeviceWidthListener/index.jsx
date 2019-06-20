@@ -2,9 +2,13 @@ import {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import deviceWidthDetector, {
-  deviceBreakpoints,
-} from './deviceWidthDetector';
+import {
+  deviceBreakpointMap,
+} from '../../../config/layout';
+import {
+  deviceBreakpointKeys,
+} from '../../../config/styleConstants';
+import deviceWidthDetector from './deviceWidthDetector';
 
 class DeviceWidthListener extends PureComponent {
   constructor(props, context) {
@@ -15,8 +19,11 @@ class DeviceWidthListener extends PureComponent {
     const lt = {};
     const lte = {};
     const {
+      breakpointSizeMap,
       breakpoints,
     } = props;
+
+    this.orderedKeys = deviceWidthDetector.register(breakpointSizeMap);
     breakpoints.forEach((breakpoint) => {
       const applied = deviceWidthDetector.subscribe(breakpoint, this.handleChangeDeviceWidth);
       gt[breakpoint] = applied.gt;
@@ -49,7 +56,7 @@ class DeviceWidthListener extends PureComponent {
       breakpoints,
     } = this.props;
     let gteCurrent = false;
-    deviceBreakpoints.forEach((size) => {
+    this.orderedKeys.forEach((size) => {
       const isTrackinbg = breakpoints.indexOf(size) >= 0;
       if (isTrackinbg) {
         lt[size] = gteCurrent;
@@ -81,9 +88,19 @@ class DeviceWidthListener extends PureComponent {
   }
 }
 
+const breakpointSizeMapShape = {};
+deviceBreakpointKeys.forEach((key) => {
+  breakpointSizeMapShape[key] = PropTypes.string;
+});
+
 DeviceWidthListener.propTypes = {
-  breakpoints: PropTypes.arrayOf(PropTypes.oneOf(deviceBreakpoints)).isRequired,
+  breakpointSizeMap: PropTypes.shape(breakpointSizeMapShape),
+  breakpoints: PropTypes.arrayOf(PropTypes.oneOf(deviceBreakpointKeys)).isRequired,
   children: PropTypes.func.isRequired,
+};
+
+DeviceWidthListener.defaultProps = {
+  breakpointSizeMap: deviceBreakpointMap,
 };
 
 export default DeviceWidthListener;

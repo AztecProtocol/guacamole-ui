@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
-import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
-import generateResponsiveShape from 'src/helpers/generateResponsiveShape';
-import parseCssSizeValues from 'src/helpers/parseCssSizeValues';
+import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
+import generateResponsiveShape from 'src/utils/generateResponsiveShape';
+import parseCssSizeValues from 'src/utils/parseCssSizeValues';
 import responsiveCssSizes from 'src/shapes/responsiveCssSizes';
 import {
   roundedCornerKeys,
   defaultRoundedCornerKey,
   shadowLayerKeys,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
 import withEmptyOrDefault from 'src/shapes/withEmptyOrDefault';
 import styles from './block.scss';
 

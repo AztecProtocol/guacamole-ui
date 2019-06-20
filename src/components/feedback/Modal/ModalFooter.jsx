@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  defaultSpacingKeyM,
-} from 'src/config/layout';
 import Block from '../../layout/Block';
 
 const ModalFooter = ({
@@ -10,7 +7,7 @@ const ModalFooter = ({
 }) => (
   <Block
     className={className}
-    padding={`m ${defaultSpacingKeyM}`}
+    padding="l"
     background="grey-lightest"
     align="right"
     hasBorderTop

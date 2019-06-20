@@ -11,6 +11,10 @@
     @return $color;
   }
 
+  @return opacify($color, $opacity);
+}
+
+@function opacify($color, $opacity) {
   $original-opacity: alpha($color);
   @if $original-opacity != 1 {
     @if $opacity == 1 {

@@ -1,4 +1,5 @@
 @import '../../../styles/colors';
+@import '../../../styles/typography';
 @import '../../../styles/layout';
 
 :global(i.cm-icon.material-icons) {
@@ -17,9 +18,9 @@
   }
 }
 
-@each $name, $color in $default-text-color-map {
+@each $name in $special-text-color-names {
   .color-#{$name} {
-    color: $color;
+    color: get-text-color($name);
   }
 }
 

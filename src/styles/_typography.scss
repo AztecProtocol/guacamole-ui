@@ -8,6 +8,16 @@
   @return map-get($line-height-map, $size);
 }
 
+@function get-text-color($text-color-name) {
+  @if $text-color-name == 'default' {
+    @return $default-text-color;
+  }
+  @if $text-color-name == 'label' {
+    @return $default-label-color;
+  }
+  @return map-get($color-map, $text-color-name);
+}
+
 @mixin font-size($size) {
   font-size: get-font-size($size);
   line-height: get-line-height($size);

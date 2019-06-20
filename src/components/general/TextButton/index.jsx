@@ -5,10 +5,8 @@ import classnames from 'classnames';
 import responsiveTextSizes from 'src/shapes/responsiveTextSizes';
 import {
   textColorNames,
-} from 'src/config/colors';
-import {
   fontWeightKeys,
-} from 'src/config/typography';
+} from 'src/config/styleConstants';
 import Clickable from '../../utils/Clickable';
 import Text from '../Text';
 import styles from './button.scss';
@@ -56,10 +54,10 @@ export const TextButton = ({
 TextButton.propTypes = {
   className: PropTypes.string,
   theme: PropTypes.oneOf([
-    'default',
     'normal',
-    'underline',
     'implicit',
+    'underline',
+    'uppercase',
   ]),
   text: PropTypes.string,
   children: PropTypes.node,
@@ -78,11 +76,11 @@ TextButton.propTypes = {
 
 TextButton.defaultProps = {
   className: '',
-  theme: 'default',
+  theme: 'normal',
   text: '',
   children: null,
   size: 'inherit',
-  weight: 'book',
+  weight: 'medium',
   color: 'secondary',
   href: '',
   onClick: null,

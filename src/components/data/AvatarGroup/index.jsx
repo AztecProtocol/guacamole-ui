@@ -5,10 +5,8 @@ import classnames from 'classnames';
 import {
   colorNames,
   backgroundNames,
-} from 'src/config/colors';
-import {
   shapeSizeKeys,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
 import Text from '../../general/Text';
 import Avatar from '../Avatar';
 import styles from './avatars.scss';

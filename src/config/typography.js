@@ -1,5 +1,4 @@
 export const defaultFontFamily = '\'Cerebri Sans\', sans-serif';
-export const defaultTextSizeKey = 'xs';
 
 export const fontSizeMap = {
   xxs: '12px',
@@ -10,8 +9,6 @@ export const fontSizeMap = {
   xl: '32px',
   xxl: '48px',
 };
-
-export const fontSizeKeys = Object.keys(fontSizeMap);
 
 export const lineHeightMap = {
   xxs: '18px',
@@ -26,12 +23,7 @@ export const lineHeightMap = {
 export const fontWeightMap = {
   light: 300,
   normal: 400,
-  book: 450,
-  semibold: 500,
-  bold: 600,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
 };
-
-export const fontWeightKeys = [
-  'inherit',
-  ...Object.keys(fontWeightMap),
-];

@@ -28,7 +28,7 @@
   }
 
   &::placeholder {
-    color: get-color($default-label-color-key, 0.5);
+    color: opacify($default-label-color, 0.5);
   }
 }
 
@@ -92,8 +92,7 @@
   @if $status == 'focus' {
     @include input-focus($theme);
   } @else {
-    $color-name: map-get($input-status-color-map, $status);
-    $color: get-color($color-name);
+    $color: map-get($input-status-color-map, $status);
     border-color: $color;
 
     &:focus, &:hover {

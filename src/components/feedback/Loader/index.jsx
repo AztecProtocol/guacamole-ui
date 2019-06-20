@@ -4,10 +4,8 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   fontSizeKeys,
-} from 'src/config/typography';
-import {
   overlayThemeNames,
-} from 'src/config/colors';
+} from 'src/config/styleConstants';
 import Overlay from '../../layout/Overlay';
 import styles from './loader.scss';
 

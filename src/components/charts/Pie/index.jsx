@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   colorNames,
-} from 'src/config/colors';
+} from 'src/config/styleConstants';
 import calculateArcValuePosition from './utils/calculateArcValuePosition';
 import styles from './pie.scss';
 

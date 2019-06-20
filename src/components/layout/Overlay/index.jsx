@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   overlayThemeNames,
-} from 'src/config/colors';
+} from 'src/config/styleConstants';
 import styles from './overlay.scss';
 
 const Overlay = ({

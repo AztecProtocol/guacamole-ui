@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
-import {
-  defaultSpacingKeyM,
-} from 'src/config/layout';
 import iconShape from 'src/shapes/iconShape';
 import Block from '../../layout/Block';
 import FlexBox from '../../layout/FlexBox';
@@ -22,7 +19,7 @@ const ModalHeader = ({
   <Block
     className={className}
     background="grey-lightest"
-    padding={`m ${defaultSpacingKeyM}`}
+    padding="m l"
     hasBorderBottom
   >
     <FlexBox align="space-between">
@@ -42,7 +39,7 @@ const ModalHeader = ({
           <Block padding="0 xs">
             <Text
               size="s"
-              weight="book"
+              weight="medium"
             >
               {children}
             </Text>

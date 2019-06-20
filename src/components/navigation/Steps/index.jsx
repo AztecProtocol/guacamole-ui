@@ -5,7 +5,7 @@ import CSSModules from 'react-css-modules';
 import iconShape from 'src/shapes/iconShape';
 import {
   inputSizeKeys,
-} from 'src/config/inputs';
+} from 'src/config/styleConstants';
 import Clickable from '../../utils/Clickable';
 import FlexBox from '../../layout/FlexBox';
 import Icon from '../../general/Icon';

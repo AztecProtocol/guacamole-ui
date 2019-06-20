@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   inputSizeKeys,
-} from 'src/config/inputs';
+} from 'src/config/styleConstants';
 import styles from './switch.scss';
 
 export class SwitchInput extends PureComponent {

@@ -1,6 +1,6 @@
 import {
   defaultSize,
-} from './layout';
+} from './styleConstants';
 import {
   colorMap,
   defaultTextColor,

@@ -2,15 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
-import generateResponsiveStyleNames from 'src/helpers/generateResponsiveStyleNames';
+import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import responsiveTextSizes from 'src/shapes/responsiveTextSizes';
 import {
   textColorNames,
   colorNames,
-} from 'src/config/colors';
-import {
   fontWeightKeys,
-} from 'src/config/typography';
+} from 'src/config/styleConstants';
 import styles from './text.scss';
 
 export const Text = ({

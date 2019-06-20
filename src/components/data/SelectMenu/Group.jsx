@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   shapeSizeKeys,
-} from 'src/config/shapes';
+} from 'src/config/styleConstants';
 import listItemShape from 'src/shapes/listItemShape';
 import Icon from '../../general/Icon';
 import ListItem from '../ListItem';

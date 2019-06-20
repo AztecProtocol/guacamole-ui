@@ -14,8 +14,8 @@
   flex: 1 1 auto;
 }
 
-@each $key in $device-breakpoints {
-  $i: index($device-breakpoints, $key);
+@each $key in $device-breakpoint-keys {
+  $i: index($device-breakpoint-keys, $key);
   $width: map-get($device-breakpoint-map, $key);
 
   @media all and (min-width: $width) {
@@ -24,8 +24,8 @@
     }
   }
 
-  @if $i != length($device-breakpoints) {
-    $next-key: nth($device-breakpoints, $i + 1);
+  @if $i != length($device-breakpoint-keys) {
+    $next-key: nth($device-breakpoint-keys, $i + 1);
     @media all and (max-width: $width - 1) {
       :global(.hide-lte-#{$next-key}) {
         display: none !important;
