@@ -5,5 +5,5 @@
 babel.config.js
 styleguide.config.js
 webpack.config.js
-scripts
-src
+/scripts
+/styleguide
