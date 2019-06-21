@@ -73,7 +73,7 @@ function generateCssWebpackConfig() {
     module: {
       rules: [{
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        include: /guacamole-ui/,
         use: {
           loader: 'babel-loader',
           options: {
