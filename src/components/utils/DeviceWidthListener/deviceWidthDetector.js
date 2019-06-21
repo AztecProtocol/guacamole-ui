@@ -21,9 +21,19 @@ class DeviceWidthDetector {
     if (!isSameMap) {
       this.unbindActions();
 
+      const prevSubscribers = {
+        ...this.subscribers,
+      };
       deviceBreakpointKeys.forEach((key) => {
+        if (breakpointSizeMap[key] === this.breakpointSizeMap[key]) return;
+
         this.subscribers[key] = [];
         this.sizeKeyToWidth[key] = parseInt(breakpointSizeMap[key], 10);
+      });
+
+      this.breakpointSizeMap = breakpointSizeMap;
+      Object.keys(prevSubscribers).forEach((key) => {
+        prevSubscribers[key].forEach(cb => this.subscribe(key, cb));
       });
 
       const {
