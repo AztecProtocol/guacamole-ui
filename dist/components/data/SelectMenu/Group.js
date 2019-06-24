@@ -211,7 +211,7 @@ Group.propTypes = {
   items: _propTypes.default.arrayOf(_propTypes.default.shape(_objectSpread({}, _listItemShape.default, {
     value: _propTypes.default.string.isRequired,
     href: _propTypes.default.string,
-    Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func]),
+    Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
     disabled: _propTypes.default.bool
   }))),
   selectedValue: _propTypes.default.string.isRequired,

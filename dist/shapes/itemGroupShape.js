@@ -27,7 +27,7 @@ exports.makeItemGroupShape = makeItemGroupShape;
 var defaultItemGroupShape = makeItemGroupShape({
   value: _propTypes.default.string.isRequired,
   href: _propTypes.default.string,
-  Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func]),
+  Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
   disabled: _propTypes.default.bool
 });
 

@@ -15,6 +15,8 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -39,9 +41,19 @@ function () {
       if (!isSameMap) {
         _this.unbindActions();
 
+        var prevSubscribers = _objectSpread({}, _this.subscribers);
+
         _styleConstants.deviceBreakpointKeys.forEach(function (key) {
+          if (breakpointSizeMap[key] === _this.breakpointSizeMap[key]) return;
           _this.subscribers[key] = [];
           _this.sizeKeyToWidth[key] = parseInt(breakpointSizeMap[key], 10);
+        });
+
+        _this.breakpointSizeMap = breakpointSizeMap;
+        Object.keys(prevSubscribers).forEach(function (key) {
+          prevSubscribers[key].forEach(function (cb) {
+            return _this.subscribe(key, cb);
+          });
         });
 
         var _ref = document || {},

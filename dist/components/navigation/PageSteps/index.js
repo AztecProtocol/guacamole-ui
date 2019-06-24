@@ -59,7 +59,7 @@ PageSteps.propTypes = {
     title: _propTypes.default.string.isRequired,
     href: _propTypes.default.string,
     onClick: _propTypes.default.func,
-    Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func])
+    Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object])
   })).isRequired,
   currentStep: _propTypes.default.number
 };

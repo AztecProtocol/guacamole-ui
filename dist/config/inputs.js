@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.darkThemeInputValueColor = exports.darkThemeInputActiveOutlineColor = exports.darkThemeInputOutlineColor = exports.defaultInputValueColor = exports.defaultInputActiveOutlineColor = exports.defaultInputOutlineColor = exports.inputStatusColorMap = exports.inputFontSizeKeyMap = exports.inputSizeMap = void 0;
+exports.darkThemeInputValueColor = exports.darkThemeInputActiveOutlineColor = exports.darkThemeInputOutlineColor = exports.defaultInputValueColor = exports.defaultInputActiveOutlineColor = exports.defaultInputOutlineColor = exports.inputBorderWidth = exports.inputStatusColorMap = exports.inputFontSizeKeyMap = exports.inputSizeMap = void 0;
 
 var _colors = require("./colors");
 
@@ -26,6 +26,8 @@ var inputStatusColorMap = {
   focus: _colors.colorMap['secondary-light']
 };
 exports.inputStatusColorMap = inputStatusColorMap;
+var inputBorderWidth = '1px';
+exports.inputBorderWidth = inputBorderWidth;
 var defaultInputOutlineColor = _colors.colorMap['grey-light'];
 exports.defaultInputOutlineColor = defaultInputOutlineColor;
 var defaultInputActiveOutlineColor = _colors.colorMap['secondary-light'];

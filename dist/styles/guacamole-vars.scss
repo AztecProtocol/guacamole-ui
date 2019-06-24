@@ -19,6 +19,7 @@ $icon-size-map: ('xxs':12px,'xs':14px,'s':16px,'m':18px,'l':24px,'xl':36px,'xxl'
 $input-size-map: ('xs':24px,'s':28px,'m':32px,'l':40px);
 $input-font-size-key-map: ('xs':'xxs','s':'xxs','m':'xs','l':'s');
 $input-status-color-map: ('error':#F23A5B,'focus':rgba(74, 144, 226, 0.7));
+$input-border-width: 1px;
 $default-input-outline-color: rgba(0, 0, 0, 0.2);
 $default-input-active-outline-color: rgba(74, 144, 226, 0.7);
 $default-input-value-color: rgba(0, 0, 0, 0.7);

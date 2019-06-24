@@ -103,7 +103,7 @@ TextButton.propTypes = {
   color: _propTypes.default.oneOf(_styleConstants.textColorNames),
   href: _propTypes.default.string,
   onClick: _propTypes.default.func,
-  Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func]),
+  Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
   stopPropagation: _propTypes.default.bool,
   disabled: _propTypes.default.bool
 };

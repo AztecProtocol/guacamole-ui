@@ -3542,7 +3542,8 @@ input::-webkit-inner-spin-button {
   -moz-appearance: none;
   outline: none;
   -webkit-box-shadow: none;
-          box-shadow: none; }
+          box-shadow: none;
+  white-space: nowrap; }
   .button-d4953c4c:focus {
     outline: none; }
 
