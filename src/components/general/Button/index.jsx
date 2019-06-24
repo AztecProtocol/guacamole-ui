@@ -103,6 +103,7 @@ Button.propTypes = {
   Link: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
+    PropTypes.object,
   ]),
   stopPropagation: PropTypes.bool,
   onClick: PropTypes.func,

@@ -82,6 +82,7 @@ Clickable.propTypes = {
   Link: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
+    PropTypes.object,
   ]),
   doubleClickBufferTime: PropTypes.number,
   stopPropagation: PropTypes.bool,

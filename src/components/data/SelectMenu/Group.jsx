@@ -167,6 +167,7 @@ Group.propTypes = {
     Link: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.func,
+      PropTypes.object,
     ]),
     disabled: PropTypes.bool,
   })),

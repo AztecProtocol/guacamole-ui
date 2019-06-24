@@ -40,6 +40,7 @@ PageSteps.propTypes = {
     Link: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.func,
+      PropTypes.object,
     ]),
   })).isRequired,
   currentStep: PropTypes.number,

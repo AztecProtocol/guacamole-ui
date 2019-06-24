@@ -16,6 +16,7 @@ const defaultItemGroupShape = makeItemGroupShape({
   Link: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
+    PropTypes.object,
   ]),
   disabled: PropTypes.bool,
 });
