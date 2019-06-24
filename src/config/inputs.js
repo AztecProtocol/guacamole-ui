@@ -21,6 +21,8 @@ export const inputStatusColorMap = {
   focus: colorMap['secondary-light'],
 };
 
+export const inputBorderWidth = '1px';
+
 export const defaultInputOutlineColor = colorMap['grey-light'];
 export const defaultInputActiveOutlineColor = colorMap['secondary-light'];
 export const defaultInputValueColor = colorMap['grey-dark'];

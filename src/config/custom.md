@@ -319,6 +319,8 @@ module.exports = {
       focus: colorMap['secondary-light'],
     },
 
+    inputBorderWidth: '1px',
+
     defaultInputOutlineColor: colorMap['grey-light'],
 
     defaultInputActiveOutlineColor: colorMap['secondary-light'],
