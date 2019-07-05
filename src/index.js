@@ -5,6 +5,8 @@ import Avatar from './components/data/Avatar';
 import AvatarGroup from './components/data/AvatarGroup';
 import Badge from './components/data/Badge';
 import Calendar from './components/data/Calendar';
+import TableRow from './components/data/FlexTable/TableRow';
+import TableCell from './components/data/FlexTable/TableCell';
 import List from './components/data/List';
 import ListItem from './components/data/ListItem';
 import ProgressBar from './components/data/ProgressBar';
@@ -57,6 +59,8 @@ export {
   AvatarGroup,
   Badge,
   Calendar,
+  TableRow,
+  TableCell,
   List,
   ListItem,
   ProgressBar,

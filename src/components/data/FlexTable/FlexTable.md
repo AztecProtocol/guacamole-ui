@@ -1,6 +1,11 @@
 #### Basic Usage
 
 ```jsx static
+import {
+  TableRow,
+  TableCell,
+} from '@aztec/guacamole-ui';
+
 <TableRow>
   <TableCell width="15%">1</TableCell>
   <TableCell width="30%">2</TableCell>
