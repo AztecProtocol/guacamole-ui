@@ -106,6 +106,7 @@ function (_PureComponent) {
           onClick = _this$props2.onClick,
           Link = _this$props2.Link,
           href = _this$props2.href,
+          target = _this$props2.target,
           disabled = _this$props2.disabled,
           inline = _this$props2.inline;
       var Tag = href && !disabled ? Link : 'div';
@@ -117,6 +118,7 @@ function (_PureComponent) {
         }),
         to: href,
         href: href,
+        target: target,
         onClick: onClick && this.handleClick || null
       }, children);
     }
@@ -129,6 +131,7 @@ Clickable.propTypes = {
   className: _propTypes.default.string,
   children: _propTypes.default.node.isRequired,
   href: _propTypes.default.string,
+  target: _propTypes.default.oneOf(['', '_self', '_blank', '_parent', '_top']),
   onClick: _propTypes.default.func,
   Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
   doubleClickBufferTime: _propTypes.default.number,
@@ -140,6 +143,7 @@ Clickable.propTypes = {
 Clickable.defaultProps = {
   className: '',
   href: '',
+  target: '',
   onClick: null,
   Link: 'a',
   doubleClickBufferTime: 400,

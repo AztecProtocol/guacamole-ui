@@ -45,6 +45,18 @@ Object.defineProperty(exports, "Calendar", {
     return _Calendar.default;
   }
 });
+Object.defineProperty(exports, "TableRow", {
+  enumerable: true,
+  get: function get() {
+    return _TableRow.default;
+  }
+});
+Object.defineProperty(exports, "TableCell", {
+  enumerable: true,
+  get: function get() {
+    return _TableCell.default;
+  }
+});
 Object.defineProperty(exports, "List", {
   enumerable: true,
   get: function get() {
@@ -317,6 +329,10 @@ var _AvatarGroup = _interopRequireDefault(require("./components/data/AvatarGroup
 var _Badge = _interopRequireDefault(require("./components/data/Badge"));
 
 var _Calendar = _interopRequireDefault(require("./components/data/Calendar"));
+
+var _TableRow = _interopRequireDefault(require("./components/data/FlexTable/TableRow"));
+
+var _TableCell = _interopRequireDefault(require("./components/data/FlexTable/TableCell"));
 
 var _List = _interopRequireDefault(require("./components/data/List"));
 
