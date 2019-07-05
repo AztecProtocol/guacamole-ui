@@ -20,6 +20,7 @@ export const TextButton = ({
   weight,
   color,
   href,
+  target,
   onClick,
   Link,
   stopPropagation,
@@ -36,6 +37,7 @@ export const TextButton = ({
       },
     )}
     href={href}
+    target={target}
     onClick={onClick}
     Link={Link}
     stopPropagation={stopPropagation}
@@ -65,6 +67,13 @@ TextButton.propTypes = {
   weight: PropTypes.oneOf(fontWeightKeys),
   color: PropTypes.oneOf(textColorNames),
   href: PropTypes.string,
+  target: PropTypes.oneOf([
+    '',
+    '_self',
+    '_blank',
+    '_parent',
+    '_top',
+  ]),
   onClick: PropTypes.func,
   Link: PropTypes.oneOfType([
     PropTypes.string,
@@ -84,6 +93,7 @@ TextButton.defaultProps = {
   weight: 'medium',
   color: 'secondary',
   href: '',
+  target: '',
   onClick: null,
   Link: 'a',
   stopPropagation: false,

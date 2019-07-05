@@ -49,6 +49,7 @@ class Clickable extends PureComponent {
       onClick,
       Link,
       href,
+      target,
       disabled,
       inline,
     } = this.props;
@@ -66,6 +67,7 @@ class Clickable extends PureComponent {
         })}
         to={href}
         href={href}
+        target={target}
         onClick={(onClick && this.handleClick) || null}
       >
         {children}
@@ -78,6 +80,13 @@ Clickable.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
   href: PropTypes.string,
+  target: PropTypes.oneOf([
+    '',
+    '_self',
+    '_blank',
+    '_parent',
+    '_top',
+  ]),
   onClick: PropTypes.func,
   Link: PropTypes.oneOfType([
     PropTypes.string,
@@ -94,6 +103,7 @@ Clickable.propTypes = {
 Clickable.defaultProps = {
   className: '',
   href: '',
+  target: '',
   onClick: null,
   Link: 'a',
   doubleClickBufferTime: 400,
