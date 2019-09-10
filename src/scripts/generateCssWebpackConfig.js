@@ -153,10 +153,7 @@ export default function generateCssWebpackConfig({
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [
-                  srcPath,
-                ],
-                data: `@import "~outputStyles/${variablesFilename}";`,
+                prependData: `@import "~outputStyles/${variablesFilename}";`,
               },
             },
           ],
