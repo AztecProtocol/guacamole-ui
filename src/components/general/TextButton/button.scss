@@ -5,17 +5,6 @@
   color: get-darken-color($color, $amount);
 }
 
-@each $name, $color in $color-map {
-  .color-#{$name} {
-    color: $color;
-  }
-}
-@each $name in $special-text-color-names {
-  .color-#{$name} {
-    color: get-text-color($name);
-  }
-}
-
 a {
   &.button {
     &:focus {
@@ -26,6 +15,7 @@ a {
 
 .button {
   display: inline;
+  color: $default-link-color;
   text-decoration: none;
   cursor: pointer;
 
@@ -87,5 +77,16 @@ a {
 
   * {
     opacity: 0.4;
+  }
+}
+
+@each $name, $color in $color-map {
+  .color-#{$name} {
+    color: $color;
+  }
+}
+@each $name in $special-text-color-names {
+  .color-#{$name} {
+    color: get-text-color($name);
   }
 }

@@ -65,7 +65,7 @@ TextButton.propTypes = {
   children: PropTypes.node,
   size: responsiveTextSizes,
   weight: PropTypes.oneOf(fontWeightKeys),
-  color: PropTypes.oneOf(textColorNames),
+  color: PropTypes.oneOf(['', ...textColorNames]),
   href: PropTypes.string,
   target: PropTypes.oneOf([
     '',
