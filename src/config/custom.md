@@ -321,17 +321,25 @@ module.exports = {
 
     inputBorderWidth: '1px',
 
+    defaultInputBgColor: colorMap.white,
     defaultInputOutlineColor: colorMap['grey-light'],
-
+    defaultInputActiveBgColor: colorMap.white,
     defaultInputActiveOutlineColor: colorMap['secondary-light'],
-
     defaultInputValueColor: colorMap['grey-dark'],
+    defaultInputPlaceholderColor: colorMap['grey-light'];
 
-    darkThemeInputOutlineColor: colorMap['white-light'],
+    darkInputBgColor: 'rgba(255,255,255,0)',
+    darkInputOutlineColor: colorMap['white-light'],
+    darkInputActiveBgColor: 'rgba(255,255,255,0)',
+    darkInputActiveOutlineColor: colorMap.white,
+    darkInputValueColor: colorMap.white,
+    darkInputPlaceholderColor: colorMap['white-lighter'],
 
-    darkThemeInputActiveOutlineColor: colorMap.white,
-
-    darkThemeInputValueColor: colorMap.white,
+    inlineInputBgColor: colorMap['grey-lightest'],
+    inlineInputActiveBgColor: colorMap['grey-lightest'],
+    inlineInputActiveOutlineColor: colorMap['secondary-light'],
+    inlineInputValueColor: colorMap['grey-dark'],
+    inlineInputPlaceholderColor: colorMap['grey-dark'],
 
     roundedCornerMap: {
       none: '0',

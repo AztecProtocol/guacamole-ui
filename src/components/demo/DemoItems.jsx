@@ -8,6 +8,7 @@ const DemoItems = ({
   size,
   children,
   dark,
+  white,
 }) => {
   const isSingleChild = !Array.isArray(children);
   const contentNode = (
@@ -23,11 +24,15 @@ const DemoItems = ({
       </Block>
     ));
 
-  if (!dark && isSingleChild) {
+  const background = (dark && 'grey-darker')
+    || (white && 'white')
+    || '';
+
+  if (!background && isSingleChild) {
     return contentNode;
   }
 
-  if (!dark) {
+  if (!background) {
     return (
       <Offset margin={size}>
         {contentNode}
@@ -40,7 +45,7 @@ const DemoItems = ({
       <Block padding={dark ? `${size} 0` : ''}>
         <Block
           padding={dark ? size : ''}
-          background={dark ? 'grey-darker' : ''}
+          background={background}
         >
           {contentNode}
         </Block>
@@ -57,12 +62,14 @@ DemoItems.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
   dark: PropTypes.bool,
+  white: PropTypes.bool,
 };
 
 DemoItems.defaultProps = {
   direction: 'column',
   size: 'm',
   dark: false,
+  white: false,
 };
 
 export default DemoItems;

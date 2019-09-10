@@ -35,6 +35,7 @@ export const inputSizeKeys = Object.keys(inputSizeMap);
 export const inputThemeNames = [
   'default',
   'inline',
+  'dark',
 ];
 
 // layout

@@ -6,7 +6,6 @@
 
 @mixin input() {
   @include rounded-corner();
-  @include background('white');
   position: relative;
   appearance: none;
   padding: 0;
@@ -17,18 +16,20 @@
   font-size: inherit;
   line-height: inherit;
   box-shadow: none;
+  background: $default-input-bg-color;
   border: $input-border-width solid $default-input-outline-color;
   color: $default-input-value-color;
   transition: border-color 0.2s ease-out;
   text-align: inherit;
 
   &:focus, &:hover {
+    background: $default-input-active-bg-color;
     border-color: $default-input-active-outline-color;
     box-shadow: none;
   }
 
   &::placeholder {
-    color: opacify($default-label-color, 0.5);
+    color: $default-input-placeholder-color;
   }
 }
 
@@ -52,19 +53,41 @@
 
 @mixin input-theme($theme: 'default') {
   @if $theme == 'inline' {
-    @include background('grey-lightest', 0.5);
+    background: $inline-input-bg-color;
     border-color: transparent;
+    color: $inline-input-value-color;
 
     &:focus, &:hover {
-      @include background('grey-lightest');
+      background: $inline-input-active-bg-color;
+      border-color: $inline-input-active-outline-color;
+    }
+
+    &::placeholder {
+      color: $inline-input-placeholder-color;
+    }
+  } @else if $theme == 'dark' {
+    background: $dark-input-bg-color;
+    border-color: $dark-input-outline-color;
+    color: $dark-input-value-color;
+
+    &:focus, &:hover {
+      background: $dark-input-active-bg-color;
+      border-color: $dark-input-active-outline-color;
+    }
+
+    &::placeholder {
+      color: $dark-input-placeholder-color;
     }
   }
 }
 
 @mixin input-focus($theme: 'default') {
   @if $theme == 'inline' {
-    @include background('grey-lightest');
+    background: $inline-input-active-bg-color;
     border-color: transparent;
+  } @else if $theme == 'dark' {
+    background: $dark-input-active-bg-color;
+    border-color: $dark-input-active-outline-color;
   } @else {
     border-color: $default-input-active-outline-color;
     box-shadow: none;
@@ -73,11 +96,19 @@
 
 @mixin input-disabled($theme: 'default') {
   @if $theme == 'inline' {
-    @include background('grey-lightest', 0.5);
+    background: rgba($inline-input-bg-color, 0.5);
     opacity: 0.7;
 
     &:focus, &:hover {
       border-color: transparent;
+    }
+  } @else if $theme == 'dark' {
+    background: opacify($dark-input-bg-color, 0.5);
+    border-color: opacify($dark-input-outline-color, 0.5);
+    opacity: 0.7;
+
+    &:focus, &:hover {
+      border-color: opacify($dark-input-outline-color, 0.5);
     }
   } @else {
     opacity: 0.3;

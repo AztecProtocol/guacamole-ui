@@ -116,7 +116,7 @@ import Col from '../../layout/Col';
 </Row>
 ```
 
-#### Inline
+#### Disabled
 
 ```js
 import Row from '../../layout/Row';
@@ -124,85 +124,22 @@ import Col from '../../layout/Col';
 <Row>
   <Col column={3}>
     <TextInput
-      theme="inline"
-      placeholder={'theme="inline"'}
-      size="xs"
+      disabled
     />
   </Col>
   <Col column={3}>
     <TextInput
-      theme="inline"
-      placeholder={'theme="inline"'}
-      size="s"
+      placeholder={'disabled={true}'}
+      disabled
     />
   </Col>
   <Col column={3}>
     <TextInput
-      theme="inline"
-      placeholder={'theme="inline"'}
-      size="m"
-    />
-  </Col>
-  <Col column={3}>
-    <TextInput
-      theme="inline"
-      placeholder={'theme="inline"'}
-      size="l"
+      value="disabled"
+      disabled
     />
   </Col>
 </Row>
-```
-
-#### Disabled
-
-```js
-import DemoItems from '../../demo/DemoItems';
-import Row from '../../layout/Row';
-import Col from '../../layout/Col';
-import Block from '../../layout/Block';
-<DemoItems>
-  <Row>
-    <Col column={3}>
-      <TextInput
-        disabled
-      />
-    </Col>
-    <Col column={3}>
-      <TextInput
-        placeholder={'disabled={true}'}
-        disabled
-      />
-    </Col>
-    <Col column={3}>
-      <TextInput
-        value="disabled"
-        disabled
-      />
-    </Col>
-  </Row>
-  <Row>
-    <Col column={3}>
-      <TextInput
-        theme="inline"
-        disabled
-      />
-    </Col>
-    <Col column={3}>
-      <TextInput
-        theme="inline"
-        placeholder={'disabled={true}'}
-        disabled
-      />
-    </Col>
-    <Col column={3}>
-      <TextInput
-        theme="inline"
-        value="disabled"
-        disabled
-      />
-    </Col>
-  </Row>
-</DemoItems>
 ```
 
 #### Status
@@ -224,6 +161,141 @@ import Col from '../../layout/Col';
     />
   </Col>
 </Row>
+```
+
+#### Themes
+
+```js
+import DemoItems from '../../demo/DemoItems';
+import Row from '../../layout/Row';
+import Col from '../../layout/Col';
+import Block from '../../layout/Block';
+<div>
+  <DemoItems white>
+    <Row>
+      <Col column={3}>
+        <TextInput
+          theme="inline"
+          placeholder={'theme="inline"'}
+          size="xs"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="inline"
+          placeholder={'theme="inline"'}
+          size="s"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="inline"
+          placeholder={'theme="inline"'}
+          size="m"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="inline"
+          placeholder={'theme="inline"'}
+          size="l"
+        />
+      </Col>
+    </Row>
+    <Row>
+      <Col column={3}>
+        <TextInput
+          theme="inline"
+          status="focus"
+          placeholder="inline focus"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="inline"
+          status="error"
+          placeholder="inline error"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="inline"
+          placeholder="inline disabled placeholder"
+          disabled
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="inline"
+          value="inline disabled value"
+          disabled
+        />
+      </Col>
+    </Row>
+  </DemoItems>
+  <DemoItems dark>
+    <Row>
+      <Col column={3}>
+        <TextInput
+          theme="dark"
+          placeholder={'theme="dark"'}
+          size="xs"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="dark"
+          placeholder={'theme="dark"'}
+          size="s"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="dark"
+          placeholder={'theme="dark"'}
+          size="m"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="dark"
+          placeholder={'theme="dark"'}
+          size="l"
+        />
+      </Col>
+    </Row>
+    <Row>
+      <Col column={3}>
+        <TextInput
+          theme="dark"
+          status="focus"
+          placeholder="dark focus"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="dark"
+          status="error"
+          placeholder="dark error"
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="dark"
+          placeholder="dark disabled placeholder"
+          disabled
+        />
+      </Col>
+      <Col column={3}>
+        <TextInput
+          theme="dark"
+          value="dark disabled value"
+          disabled
+        />
+      </Col>
+    </Row>
+  </DemoItems>
+</div>
 ```
 
 #### Validate

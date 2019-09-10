@@ -92,30 +92,30 @@ $checkbox-outline-width: 2px;
 
 .theme-dark {
   .tick-box {
-    border-color: $dark-theme-input-outline-color;
+    border-color: $dark-input-outline-color;
   }
 
   .checkbox {
     &:hover:not(.disabled) {
       .tick-box {
-        border-color: get-darken-color($dark-theme-input-outline-color, 3%);
+        border-color: get-darken-color($dark-input-outline-color, 3%);
       }
     }
   }
 
   &.checked {
     .tick-box {
-      border-color: $dark-theme-input-active-outline-color;
+      border-color: $dark-input-active-outline-color;
       background: transparent;
-      color: $dark-theme-input-active-outline-color;
+      color: $dark-input-active-outline-color;
     }
 
     .checkbox {
       &:hover:not(.disabled) {
         .tick-box {
-          border-color: get-darken-color($dark-theme-input-active-outline-color, 3%);
+          border-color: get-darken-color($dark-input-active-outline-color, 3%);
           background: transparent;
-          color: get-darken-color($dark-theme-input-active-outline-color, 3%);
+          color: get-darken-color($dark-input-active-outline-color, 3%);
         }
       }
     }
