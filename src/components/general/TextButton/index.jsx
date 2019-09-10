@@ -32,7 +32,7 @@ export const TextButton = ({
       'button',
       {
         [`theme-${theme}`]: theme !== 'normal',
-        [`color-${color}`]: color && color !== 'inherit',
+        [`color-${color}`]: color,
         disabled,
       },
     )}
@@ -91,7 +91,7 @@ TextButton.defaultProps = {
   children: null,
   size: 'inherit',
   weight: 'medium',
-  color: 'secondary',
+  color: '',
   href: '',
   target: '',
   onClick: null,
