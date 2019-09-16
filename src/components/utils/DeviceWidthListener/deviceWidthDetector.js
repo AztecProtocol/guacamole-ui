@@ -107,7 +107,9 @@ class DeviceWidthDetector {
     const level = this.orderedKeys.indexOf(size);
     return {
       gt: level < this.currentLevel,
+      gte: level <= this.currentLevel,
       lt: level > this.currentLevel,
+      lte: level >= this.currentLevel,
     };
   }
 

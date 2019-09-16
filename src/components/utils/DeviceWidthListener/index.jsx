@@ -27,7 +27,9 @@ class DeviceWidthListener extends PureComponent {
     breakpoints.forEach((breakpoint) => {
       const applied = deviceWidthDetector.subscribe(breakpoint, this.handleChangeDeviceWidth);
       gt[breakpoint] = applied.gt;
+      gte[breakpoint] = applied.gte;
       lt[breakpoint] = applied.lt;
+      lte[breakpoint] = applied.lte;
     });
 
     this.state = {
