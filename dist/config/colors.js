@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.svgProgressThemeBgMap = exports.overlayThemeBgMap = exports.defaultLinkColor = exports.defaultLabelColor = exports.defaultTextColor = exports.defaultHoverBackgroundColor = exports.defaultBorderColor = exports.defaultShadowColor = exports.darkBackgroundColors = exports.colorMap = void 0;
+exports.svgProgressThemeBgMap = exports.overlayThemeBgMap = exports.defaultLinkColor = exports.defaultLinkColorName = exports.defaultLabelColor = exports.defaultLabelColorName = exports.defaultTextColor = exports.defaultTextColorName = exports.defaultHoverBackgroundColor = exports.defaultHoverBackgroundColorName = exports.defaultBorderColor = exports.defaultBorderColorName = exports.defaultShadowColor = exports.defaultShadowColorName = exports.darkBackgroundColors = exports.colorMap = void 0;
 var colorMap = {
   primary: 'rgb(18,38,63)',
   'primary-light': 'rgba(18,38,63, 0.8)',
@@ -20,6 +20,7 @@ var colorMap = {
   'white-light': 'rgba(255, 255, 255, 0.85)',
   'white-lighter': 'rgba(255, 255, 255, 0.5)',
   'white-lightest': 'rgba(255, 255, 255, 0.1)',
+  transparent: 'rgba(255, 255, 255, 0)',
   secondary: 'rgb(74,144,226)',
   'secondary-light': 'rgba(74, 144, 226, 0.7)',
   'secondary-lighter': 'rgba(74,144,226, 0.3)',
@@ -36,17 +37,29 @@ var colorMap = {
 exports.colorMap = colorMap;
 var darkBackgroundColors = ['primary', 'primary-light', 'primary-lighter', 'secondary', 'secondary-light', 'black', 'grey-darker', 'grey-dark', 'grey', 'red', 'purple', 'blue', 'green', 'orange', 'brown', 'white-lightest'];
 exports.darkBackgroundColors = darkBackgroundColors;
-var defaultShadowColor = colorMap['grey-lighter'];
+var defaultShadowColorName = 'grey-lighter';
+exports.defaultShadowColorName = defaultShadowColorName;
+var defaultShadowColor = colorMap[defaultShadowColorName];
 exports.defaultShadowColor = defaultShadowColor;
-var defaultBorderColor = colorMap['grey-lighter'];
+var defaultBorderColorName = 'grey-lighter';
+exports.defaultBorderColorName = defaultBorderColorName;
+var defaultBorderColor = colorMap[defaultBorderColorName];
 exports.defaultBorderColor = defaultBorderColor;
-var defaultHoverBackgroundColor = colorMap['grey-lightest'];
+var defaultHoverBackgroundColorName = 'grey-lightest';
+exports.defaultHoverBackgroundColorName = defaultHoverBackgroundColorName;
+var defaultHoverBackgroundColor = colorMap[defaultHoverBackgroundColorName];
 exports.defaultHoverBackgroundColor = defaultHoverBackgroundColor;
-var defaultTextColor = colorMap['grey-darker'];
+var defaultTextColorName = 'grey-darker';
+exports.defaultTextColorName = defaultTextColorName;
+var defaultTextColor = colorMap[defaultTextColorName];
 exports.defaultTextColor = defaultTextColor;
-var defaultLabelColor = colorMap.grey;
+var defaultLabelColorName = 'grey';
+exports.defaultLabelColorName = defaultLabelColorName;
+var defaultLabelColor = colorMap[defaultLabelColorName];
 exports.defaultLabelColor = defaultLabelColor;
-var defaultLinkColor = colorMap.secondary;
+var defaultLinkColorName = 'secondary';
+exports.defaultLinkColorName = defaultLinkColorName;
+var defaultLinkColor = colorMap[defaultLinkColorName];
 exports.defaultLinkColor = defaultLinkColor;
 var overlayThemeBgMap = {
   primary: 'primary-lightest',

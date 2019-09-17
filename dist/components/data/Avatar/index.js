@@ -81,6 +81,7 @@ var styles = {
   "bg-white-light": "avatar-0d322e22",
   "bg-white-lighter": "avatar-d9138498",
   "bg-white-lightest": "avatar-b48d63d7",
+  "bg-transparent": "avatar-81b61199",
   "bg-secondary": "avatar-c519beec",
   "bg-secondary-light": "avatar-b0486a32",
   "bg-secondary-lighter": "avatar-30578aa3",

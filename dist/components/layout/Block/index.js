@@ -391,6 +391,8 @@ var styles = {
   "border-white-lighter": "block-e1c4f66d",
   "bg-white-lightest": "block-d3c2dffe",
   "border-white-lightest": "block-45541e53",
+  "bg-transparent": "block-9fed1f26",
+  "border-transparent": "block-85830cd7",
   "bg-secondary": "block-0c3c3208",
   "border-secondary": "block-dad7b547",
   "bg-secondary-light": "block-b3b79eb4",

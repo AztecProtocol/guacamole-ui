@@ -47,6 +47,7 @@ var styles = {
   "color-white-light": "icon-4aa0f466",
   "color-white-lighter": "icon-d2d8e512",
   "color-white-lightest": "icon-2d5d186f",
+  "color-transparent": "icon-d2cab0dc",
   "color-secondary": "icon-3f85569f",
   "color-secondary-light": "icon-987f4099",
   "color-secondary-lighter": "icon-ccbd29c0",

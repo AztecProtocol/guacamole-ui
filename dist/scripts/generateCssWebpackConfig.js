@@ -136,8 +136,7 @@ function generateCssWebpackConfig() {
         }, 'resolve-url-loader', {
           loader: 'sass-loader',
           options: {
-            includePaths: [srcPath],
-            data: "@import \"~outputStyles/".concat(variablesFilename, "\";")
+            prependData: "@import \"~outputStyles/".concat(variablesFilename, "\";")
           }
         }]
       }, {

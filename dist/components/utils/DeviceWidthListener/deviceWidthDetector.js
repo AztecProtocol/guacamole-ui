@@ -145,7 +145,9 @@ function () {
       var level = this.orderedKeys.indexOf(size);
       return {
         gt: level < this.currentLevel,
-        lt: level > this.currentLevel
+        gte: level <= this.currentLevel,
+        lt: level > this.currentLevel,
+        lte: level >= this.currentLevel
       };
     }
   }, {

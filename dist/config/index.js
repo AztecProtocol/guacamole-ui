@@ -21,11 +21,9 @@ var shapes = _interopRequireWildcard(require("./shapes"));
 
 var typography = _interopRequireWildcard(require("./typography"));
 
-var _calendar = _interopRequireDefault(require("./calendar"));
+var calendar = _interopRequireWildcard(require("./calendar"));
 
 var styleConstants = _interopRequireWildcard(require("./styleConstants"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -33,6 +31,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _default = _objectSpread({}, buttons, colors, icons, inputs, layout, listItem, shapes, typography, _calendar.default, styleConstants);
+var _default = _objectSpread({}, buttons, colors, icons, inputs, layout, listItem, shapes, typography, calendar, styleConstants);
 
 exports.default = _default;

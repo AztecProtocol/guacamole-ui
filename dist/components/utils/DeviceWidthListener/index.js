@@ -95,7 +95,9 @@ function (_PureComponent) {
       var applied = _deviceWidthDetector.default.subscribe(breakpoint, _this.handleChangeDeviceWidth);
 
       _gt[breakpoint] = applied.gt;
+      _gte[breakpoint] = applied.gte;
       _lt[breakpoint] = applied.lt;
+      _lte[breakpoint] = applied.lte;
     });
 
     _this.state = {

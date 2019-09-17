@@ -70,6 +70,8 @@ var styles = {
   "tooltip-white-lighter": "avatars-88bf80c7",
   "bg-white-lightest": "avatars-59ab5743",
   "tooltip-white-lightest": "avatars-345938ce",
+  "bg-transparent": "avatars-a2b3581a",
+  "tooltip-transparent": "avatars-27c9305a",
   "bg-secondary": "avatars-73e65958",
   "tooltip-secondary": "avatars-bd5d784e",
   "bg-secondary-light": "avatars-53311c7b",

@@ -61,6 +61,7 @@ var styles = {
   "shake": "input-87755749",
   "flash-error": "input-1520581c",
   "theme-inline": "input-de27ff90",
+  "theme-dark": "input-826243a2",
   "disabled": "input-88acde4e",
   "theme-default": "input-69de054e",
   "clickable": "input-26a3d4d7",

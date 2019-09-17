@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.specialTextColorNames = exports.fontWeightKeys = exports.defaultFontSizeKey = exports.fontSizeKeys = exports.iconRotateDegrees = exports.shapeSizeKeys = exports.imageRatioNames = exports.shadowLayerKeys = exports.defaultRoundedCornerKey = exports.roundedCornerKeys = exports.maxGridColumns = exports.defaultSize = exports.sizeKeys = exports.defaultDeviceBreakpointKey = exports.deviceBreakpointKeys = exports.inputThemeNames = exports.inputSizeKeys = exports.defaultInputSizeKey = exports.overlayThemeNames = exports.textColorNames = exports.backgroundNames = exports.colorNames = exports.buttonSizeKeys = void 0;
+exports.specialTextColorNames = exports.fontWeightKeys = exports.defaultFontSizeKey = exports.fontSizeKeys = exports.iconRotateDegrees = exports.shapeSizeKeys = exports.imageRatioNames = exports.shadowLayerKeys = exports.defaultRoundedCornerKey = exports.roundedCornerKeys = exports.maxGridColumns = exports.defaultSize = exports.sizeKeys = exports.defaultDeviceBreakpointKey = exports.deviceBreakpointKeys = exports.inputStatusNames = exports.inputThemeNames = exports.inputSizeKeys = exports.defaultInputSizeKey = exports.overlayThemeNames = exports.textColorNames = exports.backgroundNames = exports.colorNames = exports.buttonSizeKeys = void 0;
 
 var _buttons = require("./buttons");
 
@@ -42,9 +42,11 @@ var defaultInputSizeKey = 'm';
 exports.defaultInputSizeKey = defaultInputSizeKey;
 var inputSizeKeys = Object.keys(_inputs.inputSizeMap);
 exports.inputSizeKeys = inputSizeKeys;
-var inputThemeNames = ['default', 'inline']; // layout
-
+var inputThemeNames = ['default', 'inline', 'dark'];
 exports.inputThemeNames = inputThemeNames;
+var inputStatusNames = ['error', 'focus']; // layout
+
+exports.inputStatusNames = inputStatusNames;
 var deviceBreakpointKeys = Object.keys(_layout.deviceBreakpointMap);
 exports.deviceBreakpointKeys = deviceBreakpointKeys;
 var defaultDeviceBreakpointKey = 'xxs';

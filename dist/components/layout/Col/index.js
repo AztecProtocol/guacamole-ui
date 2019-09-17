@@ -309,6 +309,7 @@ var styles = {
   "bg-white-light": "col-5abde076",
   "bg-white-lighter": "col-66524df8",
   "bg-white-lightest": "col-d90d24c4",
+  "bg-transparent": "col-acfed02e",
   "bg-secondary": "col-7a3875ed",
   "bg-secondary-light": "col-879187da",
   "bg-secondary-lighter": "col-d060bae8",

@@ -56,6 +56,7 @@ var styles = {
   "bg-white-light": "scroll-2d8c53c9",
   "bg-white-lighter": "scroll-7c3d5766",
   "bg-white-lightest": "scroll-d8e8ccd6",
+  "bg-transparent": "scroll-0491bdec",
   "bg-secondary": "scroll-2364a8b3",
   "bg-secondary-light": "scroll-21ab45cf",
   "bg-secondary-lighter": "scroll-ddbe5f5f",

@@ -1,12 +1,18 @@
 {
   "name": "@aztec/guacamole-ui",
-  "version": "1.1.0-beta3",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "license": "MIT",
+  "homepage": "https://ui.aztecprotocol.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aztec/guacamole-ui.git"
+    "url": "https://github.com/AztecProtocol/guacamole-ui.git"
   },
+  "bugs": {
+    "url": "https://github.com/AztecProtocol/guacamole-ui/issues"
+  },
+  "author": "AZTEC Protocol",
+  "description": "Customizable React UI Components",
   "scripts": {
     "build": "yarn clean && yarn generate && BABEL_ENV=transpile yarn transpile && yarn copy && yarn styleguide:build",
     "bundle": "babel-node scripts/run bundle",
@@ -80,11 +86,5 @@
   "peerDependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
-  },
-  "bugs": {
-    "url": "https://github.com/aztec/guacamole-ui/issues"
-  },
-  "homepage": "https://github.com/aztec/guacamole-ui#readme",
-  "author": "",
-  "description": ""
+  }
 }

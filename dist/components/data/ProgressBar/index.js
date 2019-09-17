@@ -72,6 +72,8 @@ var styles = {
   "active-white-lighter": "bar-dc745021",
   "base-white-lightest": "bar-89f66883",
   "active-white-lightest": "bar-77d90754",
+  "base-transparent": "bar-9eaaf74f",
+  "active-transparent": "bar-6ea6bee3",
   "base-secondary": "bar-9ca77fe6",
   "active-secondary": "bar-8b3563bf",
   "base-secondary-light": "bar-cc4e5c18",

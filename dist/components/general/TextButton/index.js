@@ -23,9 +23,19 @@ var _Text = _interopRequireDefault(require("../Text"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
+  "button": "button-e7b9830c",
+  "disabled": "button-e3c063de",
   "color-primary": "button-74681260",
   "color-primary-light": "button-edeb2219",
   "color-primary-lighter": "button-c0a2bff6",
@@ -41,6 +51,7 @@ var styles = {
   "color-white-light": "button-2f863f32",
   "color-white-lighter": "button-8b6745ad",
   "color-white-lightest": "button-a815f846",
+  "color-transparent": "button-759e3e53",
   "color-secondary": "button-16c1c629",
   "color-secondary-light": "button-815f94b5",
   "color-secondary-lighter": "button-84abeccb",
@@ -55,8 +66,6 @@ var styles = {
   "color-brown": "button-70e20441",
   "color-default": "button-aaad2b5a",
   "color-label": "button-39bc6479",
-  "button": "button-e7b9830c",
-  "disabled": "button-e3c063de",
   "theme-uppercase": "button-a6c45fc0",
   "theme-underline": "button-acfa6798",
   "theme-implicit": "button-4ae00dd2"
@@ -80,7 +89,7 @@ var TextButton = function TextButton(_ref) {
       disabled = _ref.disabled;
   return _react.default.createElement(_Clickable.default, {
     className: className,
-    styleName: (0, _classnames2.default)('button', (_classnames = {}, _defineProperty(_classnames, "theme-".concat(theme), theme !== 'normal'), _defineProperty(_classnames, "color-".concat(color), color && color !== 'inherit'), _defineProperty(_classnames, "disabled", disabled), _classnames)),
+    styleName: (0, _classnames2.default)('button', (_classnames = {}, _defineProperty(_classnames, "theme-".concat(theme), theme !== 'normal'), _defineProperty(_classnames, "color-".concat(color), color), _defineProperty(_classnames, "disabled", disabled), _classnames)),
     href: href,
     target: target,
     onClick: onClick,
@@ -102,7 +111,7 @@ TextButton.propTypes = {
   children: _propTypes.default.node,
   size: _responsiveTextSizes.default,
   weight: _propTypes.default.oneOf(_styleConstants.fontWeightKeys),
-  color: _propTypes.default.oneOf(_styleConstants.textColorNames),
+  color: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.textColorNames))),
   href: _propTypes.default.string,
   target: _propTypes.default.oneOf(['', '_self', '_blank', '_parent', '_top']),
   onClick: _propTypes.default.func,
@@ -117,7 +126,7 @@ TextButton.defaultProps = {
   children: null,
   size: 'inherit',
   weight: 'medium',
-  color: 'secondary',
+  color: '',
   href: '',
   target: '',
   onClick: null,
