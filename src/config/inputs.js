@@ -16,29 +16,47 @@ export const inputFontSizeKeyMap = {
   l: 's',
 };
 
-export const inputStatusColorMap = {
-  error: colorMap.red,
-  focus: colorMap['secondary-light'],
-};
-
 export const inputBorderWidth = '1px';
 
-export const defaultInputBgColor = colorMap.white;
-export const defaultInputOutlineColor = colorMap['grey-light'];
-export const defaultInputActiveBgColor = colorMap.white;
-export const defaultInputActiveOutlineColor = colorMap['secondary-light'];
-export const defaultInputValueColor = colorMap['grey-dark'];
-export const defaultInputPlaceholderColor = colorMap['grey-light'];
+export const defaultInputBgColorName = 'white';
+export const defaultInputBgColor = colorMap[defaultInputBgColorName];
+export const defaultInputOutlineColorName = 'grey-light';
+export const defaultInputOutlineColor = colorMap[defaultInputOutlineColorName];
+export const defaultInputActiveBgColorName = 'white';
+export const defaultInputActiveBgColor = colorMap[defaultInputActiveBgColorName];
+export const defaultInputActiveOutlineColorName = 'secondary-light';
+export const defaultInputActiveOutlineColor = colorMap[defaultInputActiveOutlineColorName];
+export const defaultInputValueColorName = 'grey-dark';
+export const defaultInputValueColor = colorMap[defaultInputValueColorName];
+export const defaultInputPlaceholderColorName = 'grey-light';
+export const defaultInputPlaceholderColor = colorMap[defaultInputPlaceholderColorName];
 
-export const darkInputBgColor = 'rgba(255,255,255,0)';
-export const darkInputOutlineColor = colorMap['white-light'];
-export const darkInputActiveBgColor = 'rgba(255,255,255,0)';
-export const darkInputActiveOutlineColor = colorMap.white;
-export const darkInputValueColor = colorMap.white;
-export const darkInputPlaceholderColor = colorMap['white-lighter'];
+export const darkInputBgColorName = 'transparent';
+export const darkInputBgColor = colorMap[darkInputBgColorName];
+export const darkInputOutlineColorName = 'white-light';
+export const darkInputOutlineColor = colorMap[darkInputOutlineColorName];
+export const darkInputActiveBgColorName = 'transparent';
+export const darkInputActiveBgColor = colorMap[darkInputActiveBgColorName];
+export const darkInputActiveOutlineColorName = 'white';
+export const darkInputActiveOutlineColor = colorMap[darkInputActiveOutlineColorName];
+export const darkInputValueColorName = 'white';
+export const darkInputValueColor = colorMap[darkInputValueColorName];
+export const darkInputPlaceholderColorName = 'white-lighter';
+export const darkInputPlaceholderColor = colorMap[darkInputPlaceholderColorName];
 
-export const inlineInputBgColor = colorMap['grey-lightest'];
-export const inlineInputActiveBgColor = colorMap['grey-lightest'];
-export const inlineInputActiveOutlineColor = colorMap['secondary-light'];
-export const inlineInputValueColor = colorMap['grey-dark'];
-export const inlineInputPlaceholderColor = colorMap['grey-light'];
+export const inlineInputBgColorName = 'grey-lightest';
+export const inlineInputBgColor = colorMap[inlineInputBgColorName];
+export const inlineInputActiveBgColorName = 'grey-lightest';
+export const inlineInputActiveBgColor = colorMap[inlineInputActiveBgColorName];
+export const inlineInputActiveOutlineColorName = 'secondary-light';
+export const inlineInputActiveOutlineColor = colorMap[inlineInputActiveOutlineColorName];
+export const inlineInputValueColorName = 'grey-dark';
+export const inlineInputValueColor = colorMap[inlineInputValueColorName];
+export const inlineInputPlaceholderColorName = 'grey-light';
+export const inlineInputPlaceholderColor = colorMap[inlineInputPlaceholderColorName];
+
+export const errorInputColorName = 'red';
+export const errorInputColor = colorMap[errorInputColorName];
+
+export const focusInputColorName = 'secondary-light';
+export const focusInputColor = colorMap[focusInputColorName];

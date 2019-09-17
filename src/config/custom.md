@@ -30,7 +30,7 @@ Add the following command to your *package.json*:
 ```js static
 {
   "scripts": {
-    "generateStyles": "guacamole generateStyles"
+    "generate:styles": "guacamole generateStyles"
   },
 }
 ```
@@ -38,7 +38,7 @@ Add the following command to your *package.json*:
 In your terminal, run:
 
 ```bash static
-yarn generateStyles
+yarn generate:styles
 ```
 
 That's it! A CSS file with your custom theme and a Sass variables file will be generated.
@@ -51,6 +51,8 @@ MyProject
 │   ├── guacamole.css
 │   ├── guacamole-vars.scss
 ```
+
+Instead of importing css file from module ('@aztec/guacamole-ui/dist/styles/guacamole.css'), you can just import this *guacamole.css* into your app, which contains all the style rules with your custom values.
 
 &nbsp;
 &nbsp;
@@ -98,6 +100,7 @@ module.exports = {
       'white-light': 'rgba(255, 255, 255, 0.85)',
       'white-lighter': 'rgba(255, 255, 255, 0.5)',
       'white-lightest': 'rgba(255, 255, 255, 0.1)',
+      transparent: 'rgba(255, 255, 255, 0)',
       secondary: 'rgb(74,144,226)',
       'secondary-light': 'rgba(74, 144, 226, 0.7)',
       'secondary-lighter': 'rgba(74,144,226, 0.3)',
@@ -135,17 +138,23 @@ module.exports = {
       'white-lightest',
     ],
 
-    defaultShadowColor: colorMap['grey-lighter'],
+    defaultShadowColorName: 'grey-lighter',
+    defaultShadowColor: 'rgba(0, 0, 0, 0.1)',
 
-    defaultBorderColor: colorMap['grey-lighter'],
+    defaultBorderColorName: 'grey-lighter',
+    defaultBorderColor: 'rgba(0, 0, 0, 0.1)',
 
-    defaultHoverBackgroundColor: colorMap['grey-lighter'],
+    defaultHoverBackgroundColorName: 'grey-lightest',
+    defaultHoverBackgroundColor: '#F9fbfd',
 
-    defaultTextColor: colorMap['grey-darker'],
+    defaultTextColorName: 'grey-darker',
+    defaultTextColor: 'rgba(0, 0, 0, 0.85)',
 
-    defaultLabelColor: colorMap.grey,
+    defaultLabelColorName: 'grey',
+    defaultLabelColor: 'rgba(0, 0, 0, 0.45)',
 
-    defaultLinkColor: colorMap.secondary,
+    defaultLinkColorName: 'secondary',
+    defaultLinkColor: 'rgb(74,144,226)',
 
     defaultFontFamily: '\'Cerebri Sans\', sans-serif',
 
@@ -314,32 +323,50 @@ module.exports = {
       l: 's',
     },
 
-    inputStatusColorMap: {
-      error: colorMap.red,
-      focus: colorMap['secondary-light'],
-    },
-
     inputBorderWidth: '1px',
 
-    defaultInputBgColor: colorMap.white,
-    defaultInputOutlineColor: colorMap['grey-light'],
-    defaultInputActiveBgColor: colorMap.white,
-    defaultInputActiveOutlineColor: colorMap['secondary-light'],
-    defaultInputValueColor: colorMap['grey-dark'],
-    defaultInputPlaceholderColor: colorMap['grey-light'];
+    defaultInputBgColorName: 'white',
+    defaultInputBgColor: '#FFFFFF',
+    defaultInputOutlineColorName: 'grey-light',
+    defaultInputOutlineColor: 'rgba(0, 0, 0, 0.2)',
+    defaultInputActiveBgColorName: 'white',
+    defaultInputActiveBgColor: '#FFFFFF',
+    defaultInputActiveOutlineColorName: 'secondary-light',
+    defaultInputActiveOutlineColor: 'rgba(74, 144, 226, 0.7)',
+    defaultInputValueColorName: 'grey-dark',
+    defaultInputValueColor: 'rgba(0, 0, 0, 0.7)',
+    defaultInputPlaceholderColorName: 'grey-light',
+    defaultInputPlaceholderColor: 'rgba(0, 0, 0, 0.2)',
 
-    darkInputBgColor: 'rgba(255,255,255,0)',
-    darkInputOutlineColor: colorMap['white-light'],
-    darkInputActiveBgColor: 'rgba(255,255,255,0)',
-    darkInputActiveOutlineColor: colorMap.white,
-    darkInputValueColor: colorMap.white,
-    darkInputPlaceholderColor: colorMap['white-lighter'],
+    darkInputBgColorName: 'transparent',
+    darkInputBgColor: 'rgba(255, 255, 255, 0)',
+    darkInputOutlineColorName: 'white-light',
+    darkInputOutlineColor: 'rgba(255, 255, 255, 0.85)',
+    darkInputActiveBgColorName: 'transparent',
+    darkInputActiveBgColor: 'rgba(255, 255, 255, 0)',
+    darkInputActiveOutlineColorName: 'white',
+    darkInputActiveOutlineColor: '#FFFFFF',
+    darkInputValueColorName: 'white',
+    darkInputValueColor: '#FFFFFF',
+    darkInputPlaceholderColorName: 'white-lighter',
+    darkInputPlaceholderColor: 'rgba(255, 255, 255, 0.5)',
 
-    inlineInputBgColor: colorMap['grey-lightest'],
-    inlineInputActiveBgColor: colorMap['grey-lightest'],
-    inlineInputActiveOutlineColor: colorMap['secondary-light'],
-    inlineInputValueColor: colorMap['grey-dark'],
-    inlineInputPlaceholderColor: colorMap['grey-dark'],
+    inlineInputBgColorName: 'grey-lightest',
+    inlineInputBgColor: '#F9fbfd',
+    inlineInputActiveBgColorName: 'grey-lightest',
+    inlineInputActiveBgColor: '#F9fbfd',
+    inlineInputActiveOutlineColorName: 'secondary-light',
+    inlineInputActiveOutlineColor: 'rgba(74, 144, 226, 0.7)',
+    inlineInputValueColorName: 'grey-dark',
+    inlineInputValueColor: 'rgba(0, 0, 0, 0.7)',
+    inlineInputPlaceholderColorName: 'grey-light',
+    inlineInputPlaceholderColor: 'rgba(0, 0, 0, 0.2)',
+
+    errorInputColorName: 'red',
+    errorInputColor: '#F23A5B',
+
+    focusInputColorName: 'secondary-light',
+    focusInputColor: 'rgba(74, 144, 226, 0.7)',
 
     roundedCornerMap: {
       none: '0',
@@ -412,6 +439,79 @@ module.exports = {
       secondary: 'secondary-lightest',
       white: 'white-lighter',
     },
+
+    calendarBgName: 'white',
+    calendarBg: '#FFFFFF',
+    calendarMonthWidth: '319px',
+    calendarMonthPaddingSizeKey: 'l',
+    calendarMonthFontSizeKey: 'm',
+    calendarWeekFontSizeKey: 'xs',
+    calendarWeekColorName: 'grey',
+    calendarWeekColor: 'rgba(0, 0, 0, 0.45)',
+    calendarDayWidth: '41px',
+    calendarDayHeight: '41px',
+    calendarDayFontSizeKey: 's',
+    calendarHoveredColorName: 'grey-darker',
+    calendarHoveredColor: 'rgba(0, 0, 0, 0.85)',
+    calendarHoveredBgName: 'secondary-lightest',
+    calendarHoveredBg: 'rgba(74,144,226, 0.1)',
+    calendarSelectedColorName: 'white',
+    calendarSelectedColor: '#FFFFFF',
+    calendarSelectedBgName: 'secondary',
+    calendarSelectedBg: 'rgb(74,144,226)',
+    calendarInRangeBgName: 'secondary-lightest',
+    calendarInRangeBg: 'rgba(74,144,226, 0.1)',
+    calendarOutsideColorName: 'grey',
+    calendarOutsideColor: 'rgba(0, 0, 0, 0.45)',
   },
 };
 ```
+
+If an attribute has a color name and a color code, you can change its color by changing either one of them. For example, a variable is defined as following:
+
+```js static
+const defaultTextColorName = 'grey-darker';
+const defaultTextColor = 'rgba(0, 0, 0, 0.85)';
+```
+
+You can change its color code directly in your config:
+
+```js static
+// guacamole.config.js
+module.exports = {
+  theme: {
+    defaultTextColor: '#888',
+  },
+};
+```
+
+And all the texts will have a default color *#888*.
+
+You can also change the color code:
+
+```js static
+// guacamole.config.js
+module.exports = {
+  theme: {
+    defaultTextColorName: 'pink',
+  },
+};
+```
+
+And all the texts will have a default color *#F7B2D1*, which is defined in *colorMap*.
+
+If the color is also changed in *colorMap*, all the attributes that are using that color will be changed, too.
+
+```js static
+// guacamole.config.js
+module.exports = {
+  theme: {
+    defaultTextColorName: 'pink',
+    colorMap: {
+      pink: '#fa7db5',
+    },
+  },
+};
+```
+
+All the texts will now have a default color *#fa7db5*.

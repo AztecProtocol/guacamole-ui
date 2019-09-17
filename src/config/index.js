@@ -6,7 +6,7 @@ import * as layout from './layout';
 import * as listItem from './listItem';
 import * as shapes from './shapes';
 import * as typography from './typography';
-import calendar from './calendar';
+import * as calendar from './calendar';
 import * as styleConstants from './styleConstants';
 
 export default {

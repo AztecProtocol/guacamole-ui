@@ -17,6 +17,8 @@ export const colorMap = {
   'white-lighter': 'rgba(255, 255, 255, 0.5)',
   'white-lightest': 'rgba(255, 255, 255, 0.1)',
 
+  transparent: 'rgba(255, 255, 255, 0)',
+
   secondary: 'rgb(74,144,226)',
   'secondary-light': 'rgba(74, 144, 226, 0.7)',
   'secondary-lighter': 'rgba(74,144,226, 0.3)',
@@ -51,17 +53,23 @@ export const darkBackgroundColors = [
   'white-lightest',
 ];
 
-export const defaultShadowColor = colorMap['grey-lighter'];
+export const defaultShadowColorName = 'grey-lighter';
+export const defaultShadowColor = colorMap[defaultShadowColorName];
 
-export const defaultBorderColor = colorMap['grey-lighter'];
+export const defaultBorderColorName = 'grey-lighter';
+export const defaultBorderColor = colorMap[defaultBorderColorName];
 
-export const defaultHoverBackgroundColor = colorMap['grey-lightest'];
+export const defaultHoverBackgroundColorName = 'grey-lightest';
+export const defaultHoverBackgroundColor = colorMap[defaultHoverBackgroundColorName];
 
-export const defaultTextColor = colorMap['grey-darker'];
+export const defaultTextColorName = 'grey-darker';
+export const defaultTextColor = colorMap[defaultTextColorName];
 
-export const defaultLabelColor = colorMap.grey;
+export const defaultLabelColorName = 'grey';
+export const defaultLabelColor = colorMap[defaultLabelColorName];
 
-export const defaultLinkColor = colorMap.secondary;
+export const defaultLinkColorName = 'secondary';
+export const defaultLinkColor = colorMap[defaultLinkColorName];
 
 export const overlayThemeBgMap = {
   primary: 'primary-lightest',

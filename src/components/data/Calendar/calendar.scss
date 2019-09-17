@@ -15,7 +15,7 @@ $highlight-dot-size: get-spacing('xs');
 }
 
 .month {
-  padding: get-spacing($calendar-month-padding-size);
+  padding: get-spacing($calendar-month-padding-size-key);
   width: $calendar-month-width;
 }
 
@@ -43,14 +43,14 @@ $highlight-dot-size: get-spacing('xs');
   width: 100%;
 
   .month {
-    padding: get-spacing($calendar-month-padding-size) 0;
+    padding: get-spacing($calendar-month-padding-size-key) 0;
     width: 100%;
   }
 }
 
 .month-name {
-  @if variable-exists('calendar-month-font-size') {
-    font-size: get-font-size($calendar-month-font-size);
+  @if variable-exists('calendar-month-font-size-key') {
+    font-size: get-font-size($calendar-month-font-size-key);
   }
   @if variable-exists('calendar-month-font-weight') {
     font-weight: get-font-weight($calendar-month-font-weight);
@@ -91,8 +91,8 @@ $highlight-dot-size: get-spacing('xs');
 
 .weekday {
   @extend %calendar-grid;
-  @if variable-exists('calendar-week-font-size') {
-    font-size: get-font-size($calendar-week-font-size);
+  @if variable-exists('calendar-week-font-size-key') {
+    font-size: get-font-size($calendar-week-font-size-key);
   }
   @if variable-exists('calendar-week-font-weight') {
     font-weight: get-font-weight($calendar-week-font-weight);
@@ -112,8 +112,8 @@ $highlight-dot-size: get-spacing('xs');
   line-height: $calendar-day-height;
   cursor: default;
 
-  @if variable-exists('calendar-day-font-size') {
-    font-size: get-font-size($calendar-day-font-size);
+  @if variable-exists('calendar-day-font-size-key') {
+    font-size: get-font-size($calendar-day-font-size-key);
   }
   @if variable-exists('calendar-day-font-weight') {
     font-weight: get-font-weight($calendar-day-font-weight);
@@ -239,7 +239,7 @@ $highlight-dot-size: get-spacing('xs');
 
   %calendar-nav-h-button {
     position: relative;
-    margin: get-spacing($calendar-month-padding-size);
+    margin: get-spacing($calendar-month-padding-size-key);
     z-index: 1;
   }
 

@@ -37,6 +37,10 @@ export const inputThemeNames = [
   'inline',
   'dark',
 ];
+export const inputStatusNames = [
+  'error',
+  'focus',
+];
 
 // layout
 export const deviceBreakpointKeys = Object.keys(deviceBreakpointMap);

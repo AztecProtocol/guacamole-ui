@@ -129,7 +129,7 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@each $status, $color in $input-status-color-map {
+@each $status in $input-status-names {
   .status-#{$status} {
     @each $theme in $input-theme-names {
       &.theme-#{$theme} {

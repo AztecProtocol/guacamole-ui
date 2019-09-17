@@ -123,7 +123,12 @@
   @if $status == 'focus' {
     @include input-focus($theme);
   } @else {
-    $color: map-get($input-status-color-map, $status);
+    $color: $default-input-outline-color;
+    @if ($status == 'error') {
+      $color: $error-input-color;
+    } @else if ($status == 'focus') {
+      $color: $focus-input-color;
+    }
     border-color: $color;
 
     &:focus, &:hover {
