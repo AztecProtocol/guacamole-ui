@@ -59,6 +59,7 @@ export default function bundleCss(webpackOptions = {}) {
       const outputFiles = [
         filename,
         variablesFilename,
+        variablesFilename.replace(/scss$/, 'js'),
       ];
       if (!webpackOptions.ignoreFonts) {
         outputFiles.push('fonts/');
