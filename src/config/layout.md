@@ -141,7 +141,7 @@ import Text from '../components/general/Text';
 
 #### CSS decorators
 
-There are some css class names in guacamole-ui.css for hiding content larger than or less than device breakpoints.
+There are some css class names in guacamole.css for hiding content larger/less than or equal to device breakpoints.
 
 ```jsx static
 <div className="hide-gte-s">
