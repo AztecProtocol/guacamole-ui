@@ -22,6 +22,10 @@ module.exports = {
     head: {
       links: [
         {
+          rel: 'canonical',
+          href: 'https://ui.aztecprotocol.com',
+        },
+        {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
         },
