@@ -8,7 +8,7 @@
     "url": "git+https://github.com/aztec/guacamole-ui.git"
   },
   "scripts": {
-    "build": "yarn clean && yarn generate && BABEL_ENV=transpile yarn transpile && yarn copy",
+    "build": "yarn clean && yarn generate && BABEL_ENV=transpile yarn transpile && yarn copy && yarn styleguide:build",
     "bundle": "babel-node scripts/run bundle",
     "clean": "babel-node scripts/run clean",
     "copy": "babel-node scripts/run copy",
