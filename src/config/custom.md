@@ -41,7 +41,7 @@ In your terminal, run:
 yarn generate:styles
 ```
 
-That's it! A CSS file with your custom theme and a Sass variables file will be generated.
+That's it! A CSS file with your custom theme and two variables files (.scss and .js) will be generated.
 
 ```bash static
 MyProject
@@ -50,6 +50,7 @@ MyProject
 ├── guacamole
 │   ├── guacamole.css
 │   ├── guacamole-vars.scss
+│   ├── guacamole-vars.js
 ```
 
 Instead of importing css file from module ('@aztec/guacamole-ui/dist/styles/guacamole.css'), you can just import this *guacamole.css* into your app, which contains all the style rules with your custom values.
