@@ -6,6 +6,7 @@ import {
   colorNames,
   backgroundNames,
   shapeSizeKeys,
+  shadowLayerKeys,
 } from 'src/config/styleConstants';
 import Text from '../../general/Text';
 import Avatar from '../Avatar';
@@ -16,6 +17,7 @@ export const AvatarGroup = ({
   size,
   avatars,
   background,
+  layer,
 }) => (
   <div
     className={className}
@@ -35,6 +37,7 @@ export const AvatarGroup = ({
         <Avatar
           {...avatar}
           size={size}
+          layer={layer}
           shape="circular"
         />
         {tooltip && (
@@ -77,12 +80,14 @@ AvatarGroup.propTypes = {
     onClick: PropTypes.func,
   })).isRequired,
   background: PropTypes.oneOf(colorNames),
+  layer: PropTypes.oneOf(shadowLayerKeys),
 };
 
 AvatarGroup.defaultProps = {
   className: '',
   size: 's',
   background: 'white',
+  layer: 0,
 };
 
 export default CSSModules(AvatarGroup, styles, {

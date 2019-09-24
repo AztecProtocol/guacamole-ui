@@ -47,6 +47,12 @@
   }
 }
 
+@for $i from 1 through $max-shadow-layer {
+  .layer-#{$i} {
+    @include shadow-layer($i);
+  }
+}
+
 .shape-circular {
   border-radius: 100%;
 }

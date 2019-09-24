@@ -117,6 +117,44 @@ import DemoItems from '../../demo/DemoItems';
 </DemoItems>
 ```
 
+#### Layers
+
+```js
+import DemoItems from '../../demo/DemoItems';
+<DemoItems>
+  <DemoItems direction="row">
+    <Avatar
+      shape="circular"
+      layer={1}
+    />
+    <Avatar
+      shape="square"
+      layer={1}
+    />
+  </DemoItems>
+  <DemoItems direction="row">
+    <Avatar
+      shape="circular"
+      layer={2}
+    />
+    <Avatar
+      shape="square"
+      layer={2}
+    />
+  </DemoItems>
+  <DemoItems direction="row">
+    <Avatar
+      shape="circular"
+      layer={3}
+    />
+    <Avatar
+      shape="square"
+      layer={3}
+    />
+  </DemoItems>
+</DemoItems>
+```
+
 #### Inactive
 
 ```js

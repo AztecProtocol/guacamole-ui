@@ -8,6 +8,7 @@ import {
   shapeSizeKeys,
   colorNames,
   backgroundNames,
+  shadowLayerKeys,
 } from 'src/config/styleConstants';
 import Icon from '../../general/Icon';
 import Image from '../../general/Image';
@@ -96,6 +97,7 @@ export class Avatar extends PureComponent {
       src,
       iconBackground,
       background,
+      layer,
       size,
       status,
       inactive,
@@ -126,6 +128,7 @@ export class Avatar extends PureComponent {
               || (!backgroundColor
                 && isSrcAvailable
                 && inactive),
+            [`layer-${layer}`]: layer,
           },
         )}
         onClick={onClick}
@@ -148,6 +151,7 @@ Avatar.propTypes = {
   iconBackground: PropTypes.oneOf(['', ...backgroundNames]),
   color: PropTypes.oneOf(colorNames),
   background: PropTypes.oneOf(['', ...backgroundNames]),
+  layer: PropTypes.oneOf(shadowLayerKeys),
   size: PropTypes.oneOf(shapeSizeKeys),
   status: PropTypes.oneOf(['', 'online', 'offline']),
   inactive: PropTypes.bool,
@@ -164,6 +168,7 @@ Avatar.defaultProps = {
   iconBackground: '',
   background: 'primary-lightest',
   color: 'primary-lighter',
+  layer: 0,
   size: 's',
   status: '',
   inactive: false,
