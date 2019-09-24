@@ -31,7 +31,7 @@ $avatar-highlight-color-name: 'primary-lighter';
   top: -(get-spacing('s'));
   left: 50%;
   transform: translateX(-50%) translateY(-100%);
-  border-radius: map-get($rounded-corner-map, 'default');
+  border-radius: map-get($rounded-corner-map, 'xxs');
   white-space: nowrap;
   color: get-text-color-on-background($avatar-highlight-color-name);
 }
