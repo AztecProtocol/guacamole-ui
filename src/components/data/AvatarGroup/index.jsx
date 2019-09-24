@@ -16,26 +16,35 @@ export const AvatarGroup = ({
   className,
   size,
   avatars,
+  canvasBackground,
   background,
+  iconBackground,
+  tooltipBackground,
   layer,
 }) => (
   <div
     className={className}
-    styleName={`group-${size} bg-${background}`}
+    styleName={`group-${size} bg-${canvasBackground}`}
   >
     {avatars.map(({
+      className: avatarClassName,
       tooltip,
-      tooltipBackground,
+      background: avatarBg,
+      iconBackground: avatarIconBg,
+      tooltipBackground: avatarTooltipBg,
       ...avatar
     }, i) => (
       <div
         key={+i}
+        className={avatarClassName}
         styleName={classnames('avatar', {
           interactive: tooltip || avatar.onClick,
         })}
       >
         <Avatar
           {...avatar}
+          background={avatarBg || background}
+          iconBackground={avatarIconBg || iconBackground}
           size={size}
           layer={layer}
           shape="circular"
@@ -44,9 +53,7 @@ export const AvatarGroup = ({
           <div
             styleName={classnames(
               'tooltip',
-              {
-                [`tooltip-${tooltipBackground}`]: tooltipBackground,
-              },
+              `tooltip-${avatarTooltipBg || tooltipBackground}`,
             )}
           >
             {typeof tooltip !== 'string' ? tooltip : (
@@ -66,7 +73,9 @@ AvatarGroup.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(shapeSizeKeys),
   avatars: PropTypes.arrayOf(PropTypes.shape({
+    className: PropTypes.string,
     iconName: PropTypes.string,
+    iconBackground: PropTypes.oneOf(backgroundNames),
     src: PropTypes.string,
     alt: PropTypes.string,
     color: PropTypes.oneOf(colorNames),
@@ -79,14 +88,20 @@ AvatarGroup.propTypes = {
     tooltipBackground: PropTypes.oneOf(backgroundNames),
     onClick: PropTypes.func,
   })).isRequired,
-  background: PropTypes.oneOf(colorNames),
+  canvasBackground: PropTypes.oneOf(colorNames),
+  background: PropTypes.oneOf(backgroundNames),
+  iconBackground: PropTypes.oneOf(['', ...backgroundNames]),
+  tooltipBackground: PropTypes.oneOf(backgroundNames),
   layer: PropTypes.oneOf(shadowLayerKeys),
 };
 
 AvatarGroup.defaultProps = {
   className: '',
   size: 's',
-  background: 'white',
+  canvasBackground: 'white',
+  background: 'primary-lightest',
+  iconBackground: '',
+  tooltipBackground: 'grey-dark',
   layer: 0,
 };
 

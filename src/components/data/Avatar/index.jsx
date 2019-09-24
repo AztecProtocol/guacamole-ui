@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import CSSModules from 'react-css-modules';
 import {
   shapeSizeKeys,
-  colorNames,
+  textColorNames,
   backgroundNames,
   shadowLayerKeys,
 } from 'src/config/styleConstants';
@@ -149,7 +149,7 @@ Avatar.propTypes = {
   alt: PropTypes.string,
   iconName: PropTypes.string,
   iconBackground: PropTypes.oneOf(['', ...backgroundNames]),
-  color: PropTypes.oneOf(colorNames),
+  color: PropTypes.oneOf(textColorNames),
   background: PropTypes.oneOf(['', ...backgroundNames]),
   layer: PropTypes.oneOf(shadowLayerKeys),
   size: PropTypes.oneOf(shapeSizeKeys),

@@ -38,6 +38,32 @@ import DemoItems from '../../demo/DemoItems';
 </DemoItems>
 ```
 
+#### Backgrounds
+
+```js
+import DemoItems from '../../demo/DemoItems';
+<DemoItems>
+  <Avatar
+    alt="AZ"
+    background="primary"
+    color="white"
+  />
+  <Avatar
+    alt="AZ"
+    background="primary"
+    iconBackground="orange"
+    color="white"
+  />
+  <Avatar
+    alt="AZ"
+    src="https://www.aztecprotocol.com/icons/icon-48x48.png"
+    background="primary"
+    iconBackground="orange"
+    color="white"
+  />
+</DemoItems>
+```
+
 #### Images
 
 ```js
