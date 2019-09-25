@@ -15,6 +15,8 @@ export default function generateCssWebpackConfig({
   } = {},
   ignoreFonts = false,
 } = {}) {
+  const variablesSassFilename = variablesFilename.replace(/.js$/, '.scss');
+
   return {
     resolve: {
       extensions: ['*', '.js', '.jsx', '.json'],
@@ -91,8 +93,11 @@ export default function generateCssWebpackConfig({
               {
                 loader: 'file-loader',
                 options: {
-                  name: '[name].[ext]',
-                  outputPath: 'fonts',
+                  outputPath: (url, resourcePath) => {
+                    const srcFonts = '/src/fonts/';
+                    const cutAt = resourcePath.lastIndexOf(srcFonts);
+                    return `fonts/${resourcePath.substr(cutAt + srcFonts.length)}`;
+                  },
                 },
               },
             ],
@@ -153,7 +158,7 @@ export default function generateCssWebpackConfig({
             {
               loader: 'sass-loader',
               options: {
-                prependData: `@import "~outputStyles/${variablesFilename}";`,
+                prependData: `@import "~outputStyles/${variablesSassFilename}";`,
               },
             },
           ],

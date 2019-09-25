@@ -28,10 +28,12 @@ function generateStyles() {
   } = config;
   ensureDirectory(outputPath);
   generateSassVariablesSync(config);
-  const customTheme = config.theme || {};
+  const {
+    defaultFontFamily,
+  } = config.theme || {};
   bundleCss({
     ...config,
-    ignoreFonts: !!customTheme.defaultFontFamily,
+    ignoreFonts: !!defaultFontFamily && !defaultFontFamily.includes('Cerebri Sans'),
   });
 }
 
