@@ -11,7 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _classnames2 = _interopRequireDefault(require("classnames"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -21,7 +21,13 @@ var _Avatar = _interopRequireDefault(require("../Avatar"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -103,25 +109,36 @@ var AvatarGroup = function AvatarGroup(_ref) {
   var className = _ref.className,
       size = _ref.size,
       avatars = _ref.avatars,
-      background = _ref.background;
+      canvasBackground = _ref.canvasBackground,
+      background = _ref.background,
+      iconBackground = _ref.iconBackground,
+      tooltipBackground = _ref.tooltipBackground,
+      layer = _ref.layer;
   return _react.default.createElement("div", {
     className: className,
-    styleName: "group-".concat(size, " bg-").concat(background)
+    styleName: "group-".concat(size, " bg-").concat(canvasBackground)
   }, avatars.map(function (_ref2, i) {
-    var tooltip = _ref2.tooltip,
-        tooltipBackground = _ref2.tooltipBackground,
-        avatar = _objectWithoutProperties(_ref2, ["tooltip", "tooltipBackground"]);
+    var avatarClassName = _ref2.className,
+        tooltip = _ref2.tooltip,
+        avatarBg = _ref2.background,
+        avatarIconBg = _ref2.iconBackground,
+        avatarTooltipBg = _ref2.tooltipBackground,
+        avatar = _objectWithoutProperties(_ref2, ["className", "tooltip", "background", "iconBackground", "tooltipBackground"]);
 
     return _react.default.createElement("div", {
       key: +i,
-      styleName: (0, _classnames2.default)('avatar', {
+      className: avatarClassName,
+      styleName: (0, _classnames.default)('avatar', {
         interactive: tooltip || avatar.onClick
       })
     }, _react.default.createElement(_Avatar.default, _extends({}, avatar, {
+      background: avatarBg || background,
+      iconBackground: avatarIconBg || iconBackground,
       size: size,
+      layer: layer,
       shape: "circular"
     })), tooltip && _react.default.createElement("div", {
-      styleName: (0, _classnames2.default)('tooltip', _defineProperty({}, "tooltip-".concat(tooltipBackground), tooltipBackground))
+      styleName: (0, _classnames.default)('tooltip', "tooltip-".concat(avatarTooltipBg || tooltipBackground))
     }, typeof tooltip !== 'string' ? tooltip : _react.default.createElement(_Text.default, {
       text: tooltip,
       size: "xxs"
@@ -134,7 +151,9 @@ AvatarGroup.propTypes = {
   className: _propTypes.default.string,
   size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys),
   avatars: _propTypes.default.arrayOf(_propTypes.default.shape({
+    className: _propTypes.default.string,
     iconName: _propTypes.default.string,
+    iconBackground: _propTypes.default.oneOf(_styleConstants.backgroundNames),
     src: _propTypes.default.string,
     alt: _propTypes.default.string,
     color: _propTypes.default.oneOf(_styleConstants.colorNames),
@@ -144,12 +163,20 @@ AvatarGroup.propTypes = {
     tooltipBackground: _propTypes.default.oneOf(_styleConstants.backgroundNames),
     onClick: _propTypes.default.func
   })).isRequired,
-  background: _propTypes.default.oneOf(_styleConstants.colorNames)
+  canvasBackground: _propTypes.default.oneOf(_styleConstants.colorNames),
+  background: _propTypes.default.oneOf(_styleConstants.backgroundNames),
+  iconBackground: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  tooltipBackground: _propTypes.default.oneOf(_styleConstants.backgroundNames),
+  layer: _propTypes.default.oneOf(_styleConstants.shadowLayerKeys)
 };
 AvatarGroup.defaultProps = {
   className: '',
   size: 's',
-  background: 'white'
+  canvasBackground: 'white',
+  background: 'primary-lightest',
+  iconBackground: '',
+  tooltipBackground: 'grey-dark',
+  layer: 0
 };
 
 var _default = (0, _reactCssModules.default)(AvatarGroup, styles, {

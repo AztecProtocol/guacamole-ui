@@ -94,6 +94,9 @@ var styles = {
   "bg-yellow": "avatar-660c14e1",
   "bg-orange": "avatar-3a8bad4e",
   "bg-brown": "avatar-fdfc0538",
+  "layer-1": "avatar-52daf1fc",
+  "layer-2": "avatar-a138e872",
+  "layer-3": "avatar-f24ac2fc",
   "shape-circular": "avatar-54692a0a",
   "shape-square": "avatar-3d03eb0e",
   "status-online": "avatar-3bc0182a",
@@ -186,6 +189,7 @@ function (_PureComponent) {
           src = _this$props2.src,
           iconBackground = _this$props2.iconBackground,
           background = _this$props2.background,
+          layer = _this$props2.layer,
           size = _this$props2.size,
           status = _this$props2.status,
           inactive = _this$props2.inactive,
@@ -201,7 +205,7 @@ function (_PureComponent) {
         className: className,
         styleName: (0, _classnames2.default)('avatar', "shape-".concat(shape), "size-".concat(size), (_classnames = {
           inactive: inactive
-        }, _defineProperty(_classnames, "bg-".concat(backgroundColor), backgroundColor), _defineProperty(_classnames, 'bg-white', backgroundColor === 'white' || !backgroundColor && isSrcAvailable && inactive), _classnames)),
+        }, _defineProperty(_classnames, "bg-".concat(backgroundColor), backgroundColor), _defineProperty(_classnames, 'bg-white', backgroundColor === 'white' || !backgroundColor && isSrcAvailable && inactive), _defineProperty(_classnames, "layer-".concat(layer), layer), _classnames)),
         onClick: onClick
       }, this.renderContent(), status && _react.default.createElement("div", {
         styleName: "status-".concat(status)
@@ -220,8 +224,9 @@ Avatar.propTypes = {
   alt: _propTypes.default.string,
   iconName: _propTypes.default.string,
   iconBackground: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
-  color: _propTypes.default.oneOf(_styleConstants.colorNames),
+  color: _propTypes.default.oneOf(_styleConstants.textColorNames),
   background: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  layer: _propTypes.default.oneOf(_styleConstants.shadowLayerKeys),
   size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys),
   status: _propTypes.default.oneOf(['', 'online', 'offline']),
   inactive: _propTypes.default.bool,
@@ -237,6 +242,7 @@ Avatar.defaultProps = {
   iconBackground: '',
   background: 'primary-lightest',
   color: 'primary-lighter',
+  layer: 0,
   size: 's',
   status: '',
   inactive: false,

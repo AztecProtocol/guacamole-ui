@@ -34,6 +34,7 @@ function generateCssWebpackConfig() {
       variablesFilename = _ref$output$variables === void 0 ? 'guacamole-vars.scss' : _ref$output$variables,
       _ref$ignoreFonts = _ref.ignoreFonts,
       ignoreFonts = _ref$ignoreFonts === void 0 ? false : _ref$ignoreFonts;
+  var variablesSassFilename = variablesFilename.replace(/.js$/, '.scss');
   return {
     resolve: {
       extensions: ['*', '.js', '.jsx', '.json'],
@@ -88,8 +89,11 @@ function generateCssWebpackConfig() {
         } : [{
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts'
+            outputPath: function outputPath(url, resourcePath) {
+              var srcFonts = '/src/fonts/';
+              var cutAt = resourcePath.lastIndexOf(srcFonts);
+              return "fonts/".concat(resourcePath.substr(cutAt + srcFonts.length));
+            }
           }
         }]
       }, {
@@ -136,7 +140,7 @@ function generateCssWebpackConfig() {
         }, 'resolve-url-loader', {
           loader: 'sass-loader',
           options: {
-            prependData: "@import \"~outputStyles/".concat(variablesFilename, "\";")
+            prependData: "@import \"~outputStyles/".concat(variablesSassFilename, "\";")
           }
         }]
       }, {
