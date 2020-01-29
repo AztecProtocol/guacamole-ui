@@ -82,3 +82,15 @@ export const svgProgressThemeBgMap = {
   secondary: 'secondary-lightest',
   white: 'white-lighter',
 };
+
+export const loaderThemeColorMap = {
+  primary: 'primary-lightest',
+  secondary: 'secondary-lightest',
+  white: 'white',
+};
+
+export const loaderThemeInvertedColorMap = {
+  primary: 'white',
+  secondary: 'white',
+  white: 'grey-lighter',
+};

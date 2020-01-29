@@ -441,6 +441,18 @@ module.exports = {
       white: 'white-lighter',
     },
 
+    loaderThemeColorMap: {
+      primary: 'primary-lightest',
+      secondary: 'secondary-lightest',
+      white: 'white',
+    },
+
+    loaderThemeInvertedColorMap: {
+      primary: 'white',
+      secondary: 'white',
+      white: 'grey-lighter',
+    },
+
     calendarBgName: 'white',
     calendarBg: '#FFFFFF',
     calendarMonthWidth: '319px',

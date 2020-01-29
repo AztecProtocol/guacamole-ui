@@ -2,18 +2,6 @@
 @import '../../../styles/typography';
 @import '../../../styles/colors';
 
-$loader-theme-color-map: (
-  'primary': 'primary-lightest',
-  'secondary': 'secondary-lightest',
-  'white': 'white',
-);
-
-$loader-theme-inverted-color-map: (
-  'primary': 'white',
-  'secondary': 'white',
-  'white': 'grey-lighter',
-);
-
 .loader {
   @include spinner();
 
