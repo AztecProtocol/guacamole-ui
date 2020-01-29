@@ -136,14 +136,15 @@ export default function generateCssWebpackConfig({
             {
               loader: 'css-loader',
               options: {
-                modules: true,
                 importLoaders: 1,
-                getLocalIdent: (context, localIdentName, localName) => {
-                  const {
-                    resourcePath,
-                  } = context;
+                modules: {
+                  getLocalIdent: (context, localIdentName, localName) => {
+                    const {
+                      resourcePath,
+                    } = context;
 
-                  return generateCssName(resourcePath, localName);
+                    return generateCssName(resourcePath, localName);
+                  },
                 },
               },
             },
