@@ -1,8 +1,10 @@
 export default function extractColorDetail(color) {
-  const [, rgb, opacity] = color.match(/^rgba\((.+),(.+)\)$/) || [];
+  const [, rgbValue, opacity] = color.match(/^rgba\((.+),(.+)\)$/) || [];
 
   return {
-    rgb: rgb || color,
+    rgb: rgbValue
+      ? `rgb(${rgbValue})`
+      : color,
     opacity,
   };
 }

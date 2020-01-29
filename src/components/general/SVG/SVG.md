@@ -47,6 +47,18 @@ const glyph = require('./demo/demo.svg').default;
 />
 ```
 
+#### Colors With Opacity
+
+```js
+const glyph = require('./demo/demo.svg').default;
+<SVG
+  glyph={glyph}
+  width="60"
+  height="60"
+  fill="rgba(74, 144, 226, 0.5)"
+/>
+```
+
 #### Sizes
 
 ```js

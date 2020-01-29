@@ -31,7 +31,8 @@ const SVG = ({
   const colorCode = color ? colorMap[color] : fill;
   if (colorCode) {
     const {
-      rgb, opacity,
+      rgb,
+      opacity,
     } = extractColorDetail(colorCode);
     svgProps.fill = rgb;
     if (opacity !== undefined) {
@@ -42,7 +43,8 @@ const SVG = ({
   const strokeColorCode = strokeColor ? colorMap[strokeColor] : stroke;
   if (strokeColorCode) {
     const {
-      rgb, opacity,
+      rgb,
+      opacity,
     } = extractColorDetail(strokeColorCode);
     svgProps.stroke = rgb;
     if (opacity !== undefined) {
