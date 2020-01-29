@@ -16,11 +16,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function extractColorDetail(color) {
   var _ref = color.match(/^rgba\((.+),(.+)\)$/) || [],
       _ref2 = _slicedToArray(_ref, 3),
-      rgb = _ref2[1],
+      rgbValue = _ref2[1],
       opacity = _ref2[2];
 
   return {
-    rgb: rgb || color,
+    rgb: rgbValue ? "rgb(".concat(rgbValue, ")") : color,
     opacity: opacity
   };
 }

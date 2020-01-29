@@ -1693,7 +1693,16 @@
   width: 100%; }
 
 .bar-8e8f130f {
-  height: 100%; }
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out; }
 
 .bar-95a62393 {
   -ms-flex-negative: 0;

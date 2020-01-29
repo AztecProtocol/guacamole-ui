@@ -124,7 +124,8 @@ var ProgressBar = function ProgressBar(_ref) {
   }, _react.default.createElement("div", {
     styleName: (0, _classnames3.default)('bar-progress', _defineProperty({}, "active-".concat(activeColor), activeColor)),
     style: {
-      width: "".concat(base ? Math.round(value / base * 100) : 0, "%")
+      transform: "scaleX(".concat(base ? value / base : 0, ")"),
+      WebkitTransform: "scaleX(".concat(base ? value / base : 0, ")")
     }
   })), showLabel && _react.default.createElement(_Text.default, {
     styleName: "label",

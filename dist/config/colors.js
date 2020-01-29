@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.svgProgressThemeBgMap = exports.overlayThemeBgMap = exports.defaultLinkColor = exports.defaultLinkColorName = exports.defaultLabelColor = exports.defaultLabelColorName = exports.defaultTextColor = exports.defaultTextColorName = exports.defaultHoverBackgroundColor = exports.defaultHoverBackgroundColorName = exports.defaultBorderColor = exports.defaultBorderColorName = exports.defaultShadowColor = exports.defaultShadowColorName = exports.darkBackgroundColors = exports.colorMap = void 0;
+exports.loaderThemeInvertedColorMap = exports.loaderThemeColorMap = exports.svgProgressThemeBgMap = exports.overlayThemeBgMap = exports.defaultLinkColor = exports.defaultLinkColorName = exports.defaultLabelColor = exports.defaultLabelColorName = exports.defaultTextColor = exports.defaultTextColorName = exports.defaultHoverBackgroundColor = exports.defaultHoverBackgroundColorName = exports.defaultBorderColor = exports.defaultBorderColorName = exports.defaultShadowColor = exports.defaultShadowColorName = exports.darkBackgroundColors = exports.colorMap = void 0;
 var colorMap = {
   primary: 'rgb(18,38,63)',
   'primary-light': 'rgba(18,38,63, 0.8)',
@@ -73,3 +73,15 @@ var svgProgressThemeBgMap = {
   white: 'white-lighter'
 };
 exports.svgProgressThemeBgMap = svgProgressThemeBgMap;
+var loaderThemeColorMap = {
+  primary: 'primary-lightest',
+  secondary: 'secondary-lightest',
+  white: 'white'
+};
+exports.loaderThemeColorMap = loaderThemeColorMap;
+var loaderThemeInvertedColorMap = {
+  primary: 'white',
+  secondary: 'white',
+  white: 'grey-lighter'
+};
+exports.loaderThemeInvertedColorMap = loaderThemeInvertedColorMap;

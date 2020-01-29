@@ -122,11 +122,12 @@ function generateCssWebpackConfig() {
         }, {
           loader: 'css-loader',
           options: {
-            modules: true,
             importLoaders: 1,
-            getLocalIdent: function getLocalIdent(context, localIdentName, localName) {
-              var resourcePath = context.resourcePath;
-              return (0, _generateCssName.default)(resourcePath, localName);
+            modules: {
+              getLocalIdent: function getLocalIdent(context, localIdentName, localName) {
+                var resourcePath = context.resourcePath;
+                return (0, _generateCssName.default)(resourcePath, localName);
+              }
             }
           }
         }, {
