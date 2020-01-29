@@ -45,7 +45,8 @@ export const ProgressBar = ({
           [`active-${activeColor}`]: activeColor,
         })}
         style={{
-          width: `${base ? Math.round((value / base) * 100) : 0}%`,
+          transform: `scaleX(${base ? (value / base) : 0})`,
+          WebkitTransform: `scaleX(${base ? (value / base) : 0})`,
         }}
       />
     </div>
