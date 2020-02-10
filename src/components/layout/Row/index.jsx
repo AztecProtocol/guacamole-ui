@@ -7,7 +7,7 @@ import responsiveSizes from 'src/shapes/responsiveSizes';
 import FlexBox from '../FlexBox';
 import styles from './row.scss';
 
-export const Row = ({
+const Row = ({
   margin, ...props
 }) => (
   <FlexBox

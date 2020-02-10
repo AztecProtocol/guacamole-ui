@@ -7,7 +7,7 @@ import generateResponsiveStyleNames, {
 import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import styles from './flex.scss';
 
-export const FlexBox = ({
+const FlexBox = ({
   className,
   direction,
   align,

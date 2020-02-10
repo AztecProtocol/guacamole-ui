@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import ListItem from '../ListItem';
 import styles from './list.scss';
 
-export const List = ({
+const List = ({
   size,
   items,
 }) => items.map((item, i) => (

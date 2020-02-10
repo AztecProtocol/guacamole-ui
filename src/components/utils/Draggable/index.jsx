@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './draggable.scss';
 
-const isTouchEvent = e => e.touches.length === 1
+const isTouchEvent = (e) => e.touches.length === 1
   && (e.type.toLowerCase() !== 'touchend');
 
 const stopEventBubble = (e) => {
@@ -138,6 +138,8 @@ class Draggable extends PureComponent {
 
     return (
       <div
+        role="button"
+        tabIndex="-1"
         className={classnames(
           className,
           {
@@ -147,7 +149,8 @@ class Draggable extends PureComponent {
         style={style}
         onMouseDown={this.handleMouseDown}
         onTouchStart={this.handleTouchStart}
-        onClick={e => e.stopPropagation()}
+        onKeyDown={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>
@@ -158,7 +161,7 @@ class Draggable extends PureComponent {
 Draggable.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  style: PropTypes.object,
+  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   onDrag: PropTypes.func.isRequired,
   onDragStop: PropTypes.func,
   disabled: PropTypes.bool,

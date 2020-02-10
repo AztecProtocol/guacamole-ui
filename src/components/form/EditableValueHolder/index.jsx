@@ -10,6 +10,8 @@ const EditableValueHolder = ({
   onClick,
 }) => (
   <div
+    role="button"
+    tabIndex="0"
     className={classnames(
       styles['value-holder'],
       {
@@ -17,6 +19,7 @@ const EditableValueHolder = ({
         [styles['icon-mask']]: ['switch', 'checkbox'].indexOf(inputType) >= 0,
       },
     )}
+    onKeyDown={onClick}
     onClick={onClick}
   >
     <StaticValue
@@ -28,7 +31,7 @@ const EditableValueHolder = ({
 
 EditableValueHolder.propTypes = {
   inputType: PropTypes.string.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
   onClick: PropTypes.func.isRequired,
 };
 

@@ -14,7 +14,7 @@ import Text from '../../general/Text';
 import Avatar from '../Avatar';
 import styles from './item.scss';
 
-export const ListItem = ({
+const ListItem = ({
   className,
   size,
   icon,

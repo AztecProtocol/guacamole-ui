@@ -21,7 +21,7 @@ const valignMap = {
   bottom: 'flex-end',
 };
 
-export class Modal extends PureComponent {
+class Modal extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -182,7 +182,7 @@ export class Modal extends PureComponent {
               background="white"
               layer={2}
               borderRadius="default"
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
               stretch={stretch}
             >
               {this.renderHeader()}

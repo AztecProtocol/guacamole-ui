@@ -8,7 +8,7 @@ import {
 import Overlay from '../../layout/Overlay';
 import styles from './loader.scss';
 
-export const Loader = ({
+const Loader = ({
   className,
   theme,
   size,

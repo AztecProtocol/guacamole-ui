@@ -6,7 +6,7 @@ import {
 } from 'src/config/styleConstants';
 import styles from './badge.scss';
 
-export const Badge = ({
+const Badge = ({
   className,
   theme,
   size,

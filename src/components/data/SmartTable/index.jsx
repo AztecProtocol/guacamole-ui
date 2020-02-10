@@ -12,7 +12,7 @@ import TableHead from '../FlexTable/TableHead';
 import sortRowValuesWithDefault from './utils/sortRowValuesWithDefault';
 import TableRow from './TableRow';
 
-export class SmartTable extends PureComponent {
+class SmartTable extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       sortable,
@@ -56,7 +56,7 @@ export class SmartTable extends PureComponent {
       );
     } else {
       const newDataMap = new Map();
-      rowsData.forEach(row => newDataMap.set(getRowKey(row), row));
+      rowsData.forEach((row) => newDataMap.set(getRowKey(row), row));
       const orderedData = [];
       prevSortedData.forEach((row) => {
         const key = getRowKey(row);
@@ -186,7 +186,7 @@ export class SmartTable extends PureComponent {
       onDeleteRow,
     } = this.props;
 
-    return rows.map(row => (
+    return rows.map((row) => (
       <TableRow
         key={getRowKey(row)}
         align={defaultAlign}
@@ -222,8 +222,7 @@ export class SmartTable extends PureComponent {
     const contentRows = this.renderFormContent();
     const visibleFields = fields.filter(({
       visible,
-    }) =>
-      visible === undefined
+    }) => visible === undefined
       || (typeof visible !== 'function' ? visible : visible({
         formData,
       })));
@@ -251,7 +250,7 @@ SmartTable.propTypes = {
     fields: PropTypes.arrayOf(PropTypes.shape(fieldShape)).isRequired,
   }).isRequired,
   rowsData: PropTypes.arrayOf(PropTypes.object),
-  formData: PropTypes.object,
+  formData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   getRowKey: PropTypes.func,
   numberOfPlaceholderRows: PropTypes.number,
   onChange: PropTypes.func,

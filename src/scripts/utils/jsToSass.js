@@ -1,4 +1,4 @@
-export const camelToKebabCase = str => str
+export const camelToKebabCase = (str) => str
   .replace(/([A-Z])/g, '-$1')
   .toLowerCase()
   .replace(/^(-)/, '');
@@ -11,7 +11,7 @@ export const isSassValue = (val) => {
     || strVal.match(/'|"|,/));
 };
 
-const formatValue = val => (!isSassValue(val) && `'${val}'`) || `${val}`;
+const formatValue = (val) => (!isSassValue(val) && `'${val}'`) || `${val}`;
 
 export default function jsToSass(source) {
   let sass = '';
@@ -25,7 +25,7 @@ export default function jsToSass(source) {
       if (Array.isArray(value)) {
         valueArr = source[jsKey].map(formatValue);
       } else {
-        Object.keys(source[jsKey]).map(key => valueArr.push(`'${camelToKebabCase(key)}':${formatValue(value[key])}`));
+        Object.keys(source[jsKey]).map((key) => valueArr.push(`'${camelToKebabCase(key)}':${formatValue(value[key])}`));
       }
       value = `(${valueArr.join(',')})`;
     } else {

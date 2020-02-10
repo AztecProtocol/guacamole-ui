@@ -10,7 +10,7 @@ import Clickable from '../../utils/Clickable';
 import Text from '../Text';
 import styles from './button.scss';
 
-export const TextButton = ({
+const TextButton = ({
   className,
   theme,
   text,

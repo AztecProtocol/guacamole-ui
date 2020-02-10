@@ -69,7 +69,7 @@ const SVG = ({
 
 SVG.propTypes = {
   className: PropTypes.string,
-  glyph: PropTypes.object.isRequired,
+  glyph: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   width: cssLength,
   height: cssLength,
   color: PropTypes.oneOf(['', ...colorNames]),

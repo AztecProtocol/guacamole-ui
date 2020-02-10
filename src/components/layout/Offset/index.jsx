@@ -6,7 +6,7 @@ import parseCssSizeValues from 'src/utils/parseCssSizeValues';
 import responsiveCssSizes from 'src/shapes/responsiveCssSizes';
 import styles from './offset.scss';
 
-export const Offset = ({
+const Offset = ({
   className,
   margin,
   top,
@@ -24,8 +24,8 @@ export const Offset = ({
   };
 
   const sizeStyleNames = ['all', 'top', 'right', 'bottom', 'left']
-    .filter(size => sizeMap[size])
-    .map(size => generateResponsiveStyleNames(size, sizeMap[size]).map((n) => styles[n]));
+    .filter((size) => sizeMap[size])
+    .map((size) => generateResponsiveStyleNames(size, sizeMap[size]).map((n) => styles[n]));
 
   return (
     <div

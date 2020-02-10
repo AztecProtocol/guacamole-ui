@@ -37,7 +37,10 @@ const StaticValue = ({
 
 StaticValue.propTypes = {
   inputType: PropTypes.string.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 export default StaticValue;

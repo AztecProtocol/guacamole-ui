@@ -11,7 +11,7 @@ import Text from '../../general/Text';
 import Avatar from '../Avatar';
 import styles from './avatars.scss';
 
-export const AvatarGroup = ({
+const AvatarGroup = ({
   className,
   size,
   avatars,

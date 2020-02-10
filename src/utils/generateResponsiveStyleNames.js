@@ -4,7 +4,7 @@ import {
 } from '../config/styleConstants';
 
 const defaultValidation = () => true;
-const notEmptyString = v => v !== '';
+const notEmptyString = (v) => v !== '';
 
 export default function generateResponsiveStyleNames(
   prefix,
@@ -18,8 +18,8 @@ export default function generateResponsiveStyleNames(
     : sizes;
 
   return deviceBreakpointKeys
-    .filter(key => key in sizeMap && validation(sizeMap[key]))
-    .map(key => [
+    .filter((key) => key in sizeMap && validation(sizeMap[key]))
+    .map((key) => [
       prefix,
       prefix ? '-' : '',
       key !== defaultDeviceBreakpointKey ? key : '',

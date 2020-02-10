@@ -53,7 +53,7 @@ class DatePicker extends PureComponent {
         firstVisibleMonth,
         numberOfMonths,
         minDay,
-        maxDay
+        maxDay,
       );
       nextState = {
         ...nextState,
@@ -85,7 +85,7 @@ class DatePicker extends PureComponent {
 
     this.isControlled = !!selectedDays;
 
-    const getPrevDay = days => getFirstValidDayBeforeIndex(days, currentDayIndex + 1);
+    const getPrevDay = (days) => getFirstValidDayBeforeIndex(days, currentDayIndex + 1);
     const firstVisibleMonth = initialFirstVisibleMonth
       || (selectedDays && getPrevDay(selectedDays))
       || (!this.isControlled && initialSelectedDays && getPrevDay(initialSelectedDays))
@@ -347,7 +347,7 @@ DatePicker.propTypes = {
   initialFirstVisibleMonth: PropTypes.instanceOf(moment),
   initialSelectedDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)),
   selectedDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)),
-  daysStatus: PropTypes.object,
+  daysStatus: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   disabledDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)),
   highlightedDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)),
   minDay: PropTypes.instanceOf(moment),

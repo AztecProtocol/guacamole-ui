@@ -1,6 +1,6 @@
 import {
   dayDiff,
-} from 'utils/date';
+} from 'src/utils/date';
 
 export default function getDaysInRange(startDay, endDay) {
   const days = [];

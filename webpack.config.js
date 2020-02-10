@@ -66,7 +66,7 @@ const webpackConfig = (env = 'development', {
       }),
       new webpack.ContextReplacementPlugin(
         /moment[/\\]locale$/,
-        new RegExp(locale.toLowerCase())
+        new RegExp(locale.toLowerCase()),
       ),
     ],
     module: {

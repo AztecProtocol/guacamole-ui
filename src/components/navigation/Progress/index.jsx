@@ -11,7 +11,7 @@ import Icon from '../../general/Icon';
 import Text from '../../general/Text';
 import styles from './progress.scss';
 
-export const Progress = ({
+const Progress = ({
   className,
   size,
   totalSteps,
@@ -21,8 +21,7 @@ export const Progress = ({
   onChange,
   theme,
 }) => {
-  const stepArr
-    = steps
+  const stepArr = steps
     || Array(totalSteps)
       .fill(0)
       .map((_, id) => ({

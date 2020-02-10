@@ -11,7 +11,7 @@ import Icon from '../../general/Icon';
 import Text from '../../general/Text';
 import styles from './steps.scss';
 
-export const Steps = ({
+const Steps = ({
   className,
   size,
   totalSteps,
@@ -48,7 +48,9 @@ export const Steps = ({
       )}
     >
       {stepArr.map(({
-        id, title, icon,
+        id,
+        title,
+        icon,
       }, i) => {
         const isClickable = i < currentIndex && allowToGoBack;
         const DotWrapper = isClickable ? Clickable : 'div';

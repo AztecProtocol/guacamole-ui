@@ -3,7 +3,7 @@ export default function getItemByValue(itemGroups, value) {
   itemGroups.find(({
     items,
   }) => {
-    item = items && items.find((i => i.value === value));
+    item = items && items.find(((i) => i.value === value));
     return item;
   });
 

@@ -144,7 +144,7 @@ Month.propTypes = {
   monthNameFormat: PropTypes.string.isRequired,
   startOfWeek: PropTypes.number.isRequired,
   showOutsideDays: PropTypes.bool,
-  daysStatus: PropTypes.object,
+  daysStatus: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   onSelectDay: PropTypes.func,
   onHoverDay: PropTypes.func,
   onBlurDay: PropTypes.func,

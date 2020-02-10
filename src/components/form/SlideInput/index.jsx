@@ -14,7 +14,7 @@ import Icon from '../../general/Icon';
 import Text from '../../general/Text';
 import styles from './slide.scss';
 
-export class SlideInput extends PureComponent {
+class SlideInput extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       isControlled,

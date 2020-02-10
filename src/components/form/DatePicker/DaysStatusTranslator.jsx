@@ -97,7 +97,7 @@ class DaysStatusTranslator extends PureComponent {
           daysStatus,
           disableStart,
           minDay.clone().subtract(1, 'day'),
-          'disabled'
+          'disabled',
         );
       }
       if (maxDay) {
@@ -112,7 +112,7 @@ class DaysStatusTranslator extends PureComponent {
           daysStatus,
           maxDay.clone().add(1, 'day'),
           disableEnd,
-          'disabled'
+          'disabled',
         );
       }
     }
@@ -123,10 +123,10 @@ class DaysStatusTranslator extends PureComponent {
     ) {
       modifiers = {};
       if (isDayDisabled) {
-        modifiers.disabled = day => isDayDisabled(day);
+        modifiers.disabled = (day) => isDayDisabled(day);
       }
       if (isDayHighlighted) {
-        modifiers.isHighlighted = day => isDayHighlighted(day);
+        modifiers.isHighlighted = (day) => isDayHighlighted(day);
       }
     }
 
@@ -150,7 +150,7 @@ class DaysStatusTranslator extends PureComponent {
         daysStatus,
         visibleDays,
         modifiers,
-        !hasDaysStatusReset
+        !hasDaysStatusReset,
       );
     }
 
@@ -186,7 +186,7 @@ class DaysStatusTranslator extends PureComponent {
             daysStatus = deleteStatus(
               daysStatus,
               day,
-              new Set(['softDisabled', 'disabled'])
+              new Set(['softDisabled', 'disabled']),
             );
           }
         });
@@ -199,7 +199,7 @@ class DaysStatusTranslator extends PureComponent {
             daysStatus = addStatus(
               daysStatus,
               day,
-              new Set(['softDisabled', 'disabled'])
+              new Set(['softDisabled', 'disabled']),
             );
           }
         });
@@ -221,7 +221,7 @@ class DaysStatusTranslator extends PureComponent {
             daysStatus,
             startDay,
             prevHoveredDay,
-            'isTrailing'
+            'isTrailing',
           );
         }
       }
@@ -239,7 +239,7 @@ class DaysStatusTranslator extends PureComponent {
             daysStatus,
             dayMax(startDay, prevDay.clone().add(1, 'day')),
             hoveredDay.clone().subtract(1, 'day'),
-            'isTrailing'
+            'isTrailing',
           );
         }
       }
@@ -304,7 +304,7 @@ DaysStatusTranslator.propTypes = {
   currentDayIndex: PropTypes.number.isRequired,
   selectedDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)).isRequired,
   hoveredDay: PropTypes.instanceOf(moment),
-  fixedDaysStatus: PropTypes.object.isRequired,
+  fixedDaysStatus: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   disabledDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)).isRequired,
   highlightedDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)).isRequired,
   isDayDisabled: PropTypes.func,

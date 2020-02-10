@@ -96,7 +96,7 @@ describe('generate responsive style names by prefix and sizes', () => {
   });
 
   it('accept a validation function', () => {
-    const noMediumSize = val => val !== 'm';
+    const noMediumSize = (val) => val !== 'm';
     expect(generateResponsiveStyleNames(
       'padding',
       {
@@ -110,7 +110,7 @@ describe('generate responsive style names by prefix and sizes', () => {
       'padding-xs-l',
     ]);
 
-    const noSmallerThan5 = val => val >= 5;
+    const noSmallerThan5 = (val) => val >= 5;
     expect(generateResponsiveStyleNames(
       'col',
       {

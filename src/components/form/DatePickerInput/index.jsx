@@ -26,7 +26,7 @@ import InputButtonWrapper from './InputButtonWrapper';
 import castToArray from './utils/castToArray';
 import styles from './datepicker.scss';
 
-export class DatePickerInput extends PureComponent {
+class DatePickerInput extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -117,7 +117,7 @@ export class DatePickerInput extends PureComponent {
       return refineInputValue(selectedDays);
     }
 
-    const dateStrings = selectedDays.map(day => toDateString(day, inputDateFormat));
+    const dateStrings = selectedDays.map((day) => toDateString(day, inputDateFormat));
     if (selectedDays.length < numberOfDays) {
       dateStrings.push('');
     }
@@ -257,7 +257,7 @@ export class DatePickerInput extends PureComponent {
     return (
       <div
         key={key}
-        ref={ref => this.setMonthRef(key, ref)}
+        ref={(ref) => this.setMonthRef(key, ref)}
       >
         <Block padding="0 l">
           {children}
@@ -414,7 +414,7 @@ export class DatePickerInput extends PureComponent {
       const labelStr = labelArr[i] || (mobileMode && showMenu && placeholderArr[i]) || '';
       const showPlaceholder = !mobileMode || !showMenu || labelArr[i] || errorArr[i];
 
-      buttonNodes.push(
+      buttonNodes.push((
         <Col
           key={i}
           size={{
@@ -443,7 +443,7 @@ export class DatePickerInput extends PureComponent {
             />
           </InputButtonWrapper>
         </Col>
-      );
+      ));
     }
 
     return (
@@ -516,7 +516,7 @@ DatePickerInput.propTypes = {
 
   // props for DatePicker
   /* eslint-disable react/require-default-props */
-  daysStatus: PropTypes.object,
+  daysStatus: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   disabledDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)),
   highlightedDays: PropTypes.arrayOf(PropTypes.instanceOf(moment)),
   initialFirstVisibleMonth: PropTypes.instanceOf(moment),

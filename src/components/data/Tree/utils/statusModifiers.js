@@ -1,10 +1,8 @@
 import replaceValue from 'utils/replaceValue';
 
-export const hasStatus = (modifier, status) =>
-  (modifier && modifier.has(status)) || false;
+export const hasStatus = (modifier, status) => (modifier && modifier.has(status)) || false;
 
-export const getModifier = (modifiers, value) =>
-  (modifiers && modifiers[value]) || null;
+export const getModifier = (modifiers, value) => (modifiers && modifiers[value]) || null;
 
 export const addStatus = (modifiers, value, status) => {
   const prevModifier = getModifier(modifiers, value);

@@ -11,7 +11,7 @@ import SVG from '../SVG';
 import ImageWrapper from './ImageWrapper';
 import styles from './image.scss';
 
-export const ImagePlaceholder = ({
+const ImagePlaceholder = ({
   className,
   ratio,
   width,

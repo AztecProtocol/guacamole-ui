@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import {
   ASC,
   DESC,
-} from 'utils/sort';
+} from 'src/utils/sort';
 import responsiveColumns from './responsiveColumns';
 import responsiveTextAlign from './responsiveTextAlign';
 import itemGroupShape from './itemGroupShape';

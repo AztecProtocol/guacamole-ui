@@ -148,8 +148,8 @@ const SmartTableRow = ({
 SmartTableRow.propTypes = {
   align: responsiveTextAlign,
   fieldsConfig: PropTypes.arrayOf(PropTypes.shape(fieldShape)).isRequired,
-  data: PropTypes.object,
-  formData: PropTypes.object,
+  data: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  formData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   isEditing: PropTypes.bool,
   isLoading: PropTypes.bool,
   isUpdating: PropTypes.bool,

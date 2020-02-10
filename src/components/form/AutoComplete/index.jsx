@@ -247,7 +247,7 @@ AutoComplete.defaultProps = {
   itemGroups: null,
   defaultItemGroups: [],
   itemGroupsSource: [],
-  formatSelectedItem: item => item.title,
+  formatSelectedItem: (item) => item.title,
   getMatchingDistance: defaultGetMatchingDistance,
   maxVisibleItems: -1,
   showZeroMatch: false,

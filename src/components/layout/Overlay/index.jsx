@@ -14,6 +14,8 @@ const Overlay = ({
   onClick,
 }) => (
   <div
+    role="button"
+    tabIndex="-1"
     className={classnames(
       className,
       styles.overlay,
@@ -22,6 +24,7 @@ const Overlay = ({
         [styles.hide]: hide,
       },
     )}
+    onKeyDown={onClick}
     onClick={onClick}
   >
     {children}

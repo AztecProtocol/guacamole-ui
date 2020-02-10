@@ -8,7 +8,7 @@ export default function addSelectedStatus(prevDaysStatus, selectedDays) {
   let prevDay;
 
   selectedDays
-    .filter(day => day)
+    .filter((day) => day)
     .forEach((day) => {
       daysStatus = addStatus(daysStatus, day, 'isSelected');
 
@@ -17,7 +17,7 @@ export default function addSelectedStatus(prevDaysStatus, selectedDays) {
           daysStatus,
           prevDay.clone().add(1, 'day'),
           day.clone().subtract(1, 'day'),
-          'isInRange'
+          'isInRange',
         );
       }
 

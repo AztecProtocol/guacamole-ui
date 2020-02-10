@@ -26,6 +26,10 @@ function InputButtonWrapper({
       {mobileMode && (
         <div
           className={styles['input-button-mask']}
+          role="button"
+          tabIndex="0"
+          aria-label="Open Date Picker"
+          onKeyDown={onOpenMenu}
           onClick={onOpenMenu}
         />
       )}

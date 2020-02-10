@@ -10,7 +10,7 @@ import itemGroupShape from 'src/shapes/itemGroupShape';
 import Block from '../../layout/Block';
 import Group from './Group';
 
-export class SelectMenu extends PureComponent {
+class SelectMenu extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       isControlled,

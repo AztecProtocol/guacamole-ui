@@ -17,7 +17,7 @@ export default function getConfig(configFilepath) {
     const configFileDest = [
       configFilepath,
       path.join(configFilepath, CONFIG_FILE_NAME),
-    ].find(filepath => isFile(filepath));
+    ].find((filepath) => isFile(filepath));
 
     if (configFileDest) {
       const processRoot = process.cwd();

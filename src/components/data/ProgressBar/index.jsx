@@ -10,7 +10,7 @@ import responsiveTextSizes from 'src/shapes/responsiveTextSizes';
 import Text from '../../general/Text';
 import styles from './bar.scss';
 
-export const ProgressBar = ({
+const ProgressBar = ({
   className,
   size,
   value,

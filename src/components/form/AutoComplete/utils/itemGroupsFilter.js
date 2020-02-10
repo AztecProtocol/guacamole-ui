@@ -45,7 +45,7 @@ export default function itemGroupsFilter(
     const {
       items,
     } = group;
-    const validItems = items.filter(item => validValueMap[item.value]);
+    const validItems = items.filter((item) => validValueMap[item.value]);
     return {
       ...group,
       items: sortBySortedArray(validItems, sortedValues, 'value'),
@@ -64,7 +64,7 @@ export const makeItemGroupsFilter = (
     maxVisibleItems = -1,
     showZeroMatch = false,
   },
-) => value => itemGroupsFilter(
+) => (value) => itemGroupsFilter(
   itemGroupsSource,
   value,
   {

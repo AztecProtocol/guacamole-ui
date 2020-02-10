@@ -1,6 +1,8 @@
 const isMatchNode = (node, value, ignoreCase) => {
-  const [targetValue, requiredValue] = [node.title, value].map(v =>
-    (ignoreCase && v.toLowerCase()) || v);
+  const [targetValue, requiredValue] = [
+    node.title,
+    value,
+  ].map((v) => (ignoreCase && v.toLowerCase()) || v);
 
   return targetValue.includes(requiredValue);
 };

@@ -9,7 +9,7 @@ import responsiveTextSizes from 'src/shapes/responsiveTextSizes';
 import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import styles from './icon.scss';
 
-export const Icon = ({
+const Icon = ({
   className,
   name,
   size,

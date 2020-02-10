@@ -8,7 +8,7 @@ export default function removeSelectedStatus(prevDaysStatus, selectedDays) {
   let daysStatus = prevDaysStatus;
 
   selectedDays
-    .filter(day => day)
+    .filter((day) => day)
     .forEach((day) => {
       daysStatus = deleteStatus(daysStatus, day, 'isSelected');
     });

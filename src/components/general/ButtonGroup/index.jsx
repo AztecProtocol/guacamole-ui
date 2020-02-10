@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from '../Button/button.scss';
 
-export const ButtonGroup = ({
+const ButtonGroup = ({
   className, children,
 }) => (
   <div

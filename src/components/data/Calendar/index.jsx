@@ -12,7 +12,7 @@ import getVisibleMonthsOfCalendar from 'utils/calendar/getVisibleMonthsOfCalenda
 import Month from './Month';
 import styles from './calendar.scss';
 
-export class Calendar extends PureComponent {
+class Calendar extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -122,7 +122,7 @@ Calendar.propTypes = {
   showOutsideDays: PropTypes.bool,
   flexWidth: PropTypes.bool,
   orientation: PropTypes.oneOf(['horizontal', 'vertical']),
-  daysStatus: PropTypes.object,
+  daysStatus: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   onSelectDay: PropTypes.func,
   onHoverDay: PropTypes.func,
   onBlurDay: PropTypes.func,

@@ -4,7 +4,7 @@ import chalk from 'chalk';
 function formatLog(title, ...rest) {
   console.log(title);
   if (rest.length > 0) {
-    console.log(...rest.map(msg => chalk.gray(msg)));
+    console.log(...rest.map((msg) => chalk.gray(msg)));
   }
   console.log('');
 }
@@ -29,7 +29,7 @@ export function log(...args) {
 }
 
 export function logEntries(files) {
-  log(`${files.map(file => `  ${file}`).join('\n')}`);
+  log(`${files.map((file) => `  ${file}`).join('\n')}`);
 }
 
 export default log;

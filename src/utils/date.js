@@ -98,12 +98,10 @@ export function monthDiff(month1, month2, compareYear = true, absolute = true) {
 
 export function dayMin(...days) {
   const [firstDay, ...restDays] = moment.isMoment(days[0]) ? days : [...days[0]];
-  return restDays.reduce((min, day) =>
-    (day.isBefore(min) && day) || min, firstDay);
+  return restDays.reduce((min, day) => (day.isBefore(min) && day) || min, firstDay);
 }
 
 export function dayMax(...days) {
   const [firstDay, ...restDays] = moment.isMoment(days[0]) ? days : [...days[0]];
-  return restDays.reduce((max, day) =>
-    (day.isAfter(max) && day) || max, firstDay);
+  return restDays.reduce((max, day) => (day.isAfter(max) && day) || max, firstDay);
 }

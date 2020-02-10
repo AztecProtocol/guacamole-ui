@@ -3,7 +3,7 @@ import * as styleConstants from '../../config/styleConstants';
 import deepMerge from './deepMerge';
 import updateColorsInConfig from './updateColorsInConfig';
 
-const capitalize = text => `${text[0].toUpperCase()}${text.substr(1).toLowerCase()}`;
+const capitalize = (text) => `${text[0].toUpperCase()}${text.substr(1).toLowerCase()}`;
 
 export default function mergeCssConfig(theme) {
   let config = {

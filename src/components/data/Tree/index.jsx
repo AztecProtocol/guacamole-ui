@@ -13,7 +13,7 @@ import {
 import TreeNode from './TreeNode';
 import styles from './tree.scss';
 
-export class Tree extends PureComponent {
+class Tree extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       isSelectedControlled,

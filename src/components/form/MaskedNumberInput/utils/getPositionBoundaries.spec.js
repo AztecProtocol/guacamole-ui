@@ -1,6 +1,6 @@
 import getPositionBoundaries from './getPositionBoundaries';
 
-const inputEvent = value => ({
+const inputEvent = (value) => ({
   target: {
     value,
   },

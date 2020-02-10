@@ -14,7 +14,7 @@ import Text from '../../general/Text';
 import Icon from '../../general/Icon';
 import styles from './input.scss';
 
-export class TextInput extends PureComponent {
+class TextInput extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       isErrorControlled,
@@ -324,12 +324,19 @@ export class TextInput extends PureComponent {
 
     return (
       <div
+        role="input"
         className={classnames(
           styles['status-icon'],
           {
             [styles.clickable]: onClickCallback,
           },
         )}
+        onKeyDown={(e) => {
+          if (onClickCallback) {
+            e.stopPropagation();
+            onClickCallback();
+          }
+        }}
         onClick={(e) => {
           if (onClickCallback) {
             e.stopPropagation(); // prevent triggering onClick twice

@@ -9,7 +9,7 @@ import {
 import calculateArcValuePosition from './utils/calculateArcValuePosition';
 import styles from './pie.scss';
 
-export class Pie extends PureComponent {
+class Pie extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       value,

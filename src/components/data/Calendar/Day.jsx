@@ -26,8 +26,11 @@ function Day({
 
   const disabled = status.has('disabled');
 
+  /* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-tabindex */
   return (
     <div
+      role={onSelect ? 'button' : ''}
+      tabIndex={onSelect ? 0 : -1}
       className={classnames(
         styles.day,
         {
@@ -41,12 +44,14 @@ function Day({
         },
       )}
       onClick={() => onSelect && onSelect(day, status)}
+      onKeyDown={() => onSelect && onSelect(day, status)}
       onMouseEnter={() => onHover && onHover(day, status)}
       onMouseLeave={() => onBlur && onBlur(day, status)}
     >
       {date}
     </div>
   );
+  /* eslint-enable */
 }
 
 Day.propTypes = {

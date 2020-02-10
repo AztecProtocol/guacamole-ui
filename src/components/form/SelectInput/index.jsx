@@ -19,7 +19,7 @@ import TextInput from '../TextInput';
 import getFlattenItemValues from './utils/getFlattenItemValues';
 import styles from './select.scss';
 
-export class SelectInput extends PureComponent {
+class SelectInput extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       itemGroups,
@@ -178,8 +178,7 @@ export class SelectInput extends PureComponent {
         } = this.props;
         const hasItem = itemGroups.some(({
           items,
-        }) =>
-          items && items.length);
+        }) => items && items.length);
         if (hasItem) {
           e.preventDefault();
           const offset = keyCode === 38 ? -1 : 1;
@@ -201,7 +200,7 @@ export class SelectInput extends PureComponent {
     const {
       flattenValues,
     } = this.state;
-    const hoveredIndex = flattenValues.findIndex(v => v === hoveredValue);
+    const hoveredIndex = flattenValues.findIndex((v) => v === hoveredValue);
 
     this.setState({
       hoveredIndex,
@@ -337,8 +336,7 @@ export class SelectInput extends PureComponent {
         color: 'grey-light',
       };
     } else {
-      inputIcon
-        = icon
+      inputIcon = icon
         || {
           name: showMenu ? 'expand_less' : 'expand_more',
           size: 'l',

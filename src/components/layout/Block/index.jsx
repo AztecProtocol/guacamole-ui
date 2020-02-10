@@ -13,7 +13,7 @@ import {
 import withEmptyOrDefault from 'src/shapes/withEmptyOrDefault';
 import styles from './block.scss';
 
-export const Block = ({
+const Block = ({
   className,
   style,
   padding,
@@ -46,8 +46,8 @@ export const Block = ({
   };
 
   const sizeStyleNames = ['all', 'top', 'right', 'bottom', 'left']
-    .filter(size => sizeMap[size])
-    .map(size => generateResponsiveStyleNames(size, sizeMap[size]).map((n) => styles[n]));
+    .filter((size) => sizeMap[size])
+    .map((size) => generateResponsiveStyleNames(size, sizeMap[size]).map((n) => styles[n]));
 
   const hasAnyBorder = hasBorder
     || hasBorderTop
@@ -61,6 +61,7 @@ export const Block = ({
       ? borderRadius
       : '');
 
+  /* eslint-disable jsx-a11y/no-static-element-interactions */
   return (
     <div
       className={classnames(
@@ -85,16 +86,18 @@ export const Block = ({
         },
       )}
       style={style}
+      onKeyDown={onClick}
       onClick={onClick}
     >
       {children}
     </div>
   );
+  /* eslint-enable jsx-a11y/no-static-element-interactions */
 };
 
 Block.propTypes = {
   className: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   padding: responsiveCssSizes,
   top: responsiveCssSizes,
   right: responsiveCssSizes,

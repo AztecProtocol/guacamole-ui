@@ -62,7 +62,7 @@ const FieldInput = ({
     return null;
   }
 
-  const handleChange = v => onChange(fieldName, v, data);
+  const handleChange = (v) => onChange(fieldName, v, data);
 
   if (Component) {
     return (
@@ -163,7 +163,7 @@ const FieldInput = ({
           placeholder={placeholder}
           size={inputSize}
           onChange={handleChange}
-          validate={validate && (v => validate({
+          validate={validate && ((v) => validate({
             ...fieldProps,
             value: v,
           }))}
@@ -218,9 +218,9 @@ const FieldInput = ({
 };
 
 FieldInput.propTypes = {
-  data: PropTypes.object,
-  formData: PropTypes.object,
-  value: PropTypes.any,
+  data: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  formData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
   fieldName: PropTypes.string.isRequired,
   inputType: PropTypes.oneOf([
     '',
@@ -235,13 +235,13 @@ FieldInput.propTypes = {
   inputTheme: PropTypes.oneOf(inputThemeNames),
   inputSize: PropTypes.oneOf(inputSizeKeys),
   inputStatus: PropTypes.oneOf(['', 'error', 'loading']),
-  extraProps: PropTypes.object,
+  extraProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   label: PropTypes.string,
   placeholder: PropTypes.string,
   width: PropTypes.string,
   column: responsiveColumns,
   align: PropTypes.string,
-  defaultValue: PropTypes.any,
+  defaultValue: PropTypes.any, // eslint-disable-line react/forbid-prop-types
   itemGroups: PropTypes.oneOfType([
     PropTypes.arrayOf(itemGroupShape),
     PropTypes.func,

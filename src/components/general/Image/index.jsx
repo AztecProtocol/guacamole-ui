@@ -11,7 +11,7 @@ import ImageWrapper from './ImageWrapper';
 import ImagePlaceholder from './ImagePlaceholder';
 import RealImage from './RealImage';
 
-export const Image = ({
+const Image = ({
   className,
   ratio,
   width,

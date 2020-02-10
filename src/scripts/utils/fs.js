@@ -25,42 +25,42 @@ export const ensureDirectory = (dest) => {
   }
 };
 
-export const copyFile = (src, dest) =>
-  new Promise((resolve) => {
-    const readStream = fs.createReadStream(src);
+export const copyFile = (src, dest) => new Promise((resolve) => {
+  const readStream = fs.createReadStream(src);
 
-    readStream.on('error', err => resolve({
-      err,
-      src,
-      dest,
+  readStream.on('error', (err) => resolve({
+    err,
+    src,
+    dest,
+  }));
+
+  readStream.on('end', () => resolve({
+    src,
+    dest,
+  }));
+
+  readStream.pipe(fs.createWriteStream(dest));
+});
+
+export const copyFolder = async (src, dest) => {
+  ensureDirectory(dest);
+
+  await Promise.all(fs.readdirSync(src)
+    .map((name) => {
+      const srcPath = path.join(src, name);
+      const destPath = path.join(dest, name);
+      if (isDirectory(srcPath)) {
+        return copyFolder(srcPath, destPath);
+      }
+
+      return copyFile(srcPath, destPath);
     }));
 
-    readStream.on('end', () => resolve({
-      src,
-      dest,
-    }));
-
-    readStream.pipe(fs.createWriteStream(dest));
-  });
-
-export const copyFolder = (src, dest) =>
-  new Promise(async (resolve) => {
-    ensureDirectory(dest);
-    await Promise.all(fs.readdirSync(src)
-      .map((name) => {
-        const srcPath = path.join(src, name);
-        const destPath = path.join(dest, name);
-        if (isDirectory(srcPath)) {
-          return copyFolder(srcPath, destPath);
-        }
-
-        return copyFile(srcPath, destPath);
-      }));
-    resolve({
-      src,
-      dest,
-    });
-  });
+  return {
+    src,
+    dest,
+  };
+};
 
 export const safeReaddirSync = (dir) => {
   try {

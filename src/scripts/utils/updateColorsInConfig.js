@@ -15,7 +15,7 @@ export default function updateColorsInConfig(
   };
 
   Object.keys(source)
-    .filter(key => key.endsWith('Name'))
+    .filter((key) => key.endsWith('Name'))
     .forEach((key) => {
       const colorName = customConfig[key] || source[key];
       if (!defaultColors[colorName]) return;

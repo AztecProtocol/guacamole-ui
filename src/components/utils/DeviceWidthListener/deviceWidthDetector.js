@@ -16,7 +16,9 @@ class DeviceWidthDetector {
 
   register = (breakpointSizeMap) => {
     const isSameMap = breakpointSizeMap === this.breakpointSizeMap
-      || deviceBreakpointKeys.every(key => breakpointSizeMap[key] === this.breakpointSizeMap[key]);
+      || deviceBreakpointKeys.every(
+        (key) => breakpointSizeMap[key] === this.breakpointSizeMap[key],
+      );
 
     if (!isSameMap) {
       this.unbindActions();
@@ -33,7 +35,7 @@ class DeviceWidthDetector {
 
       this.breakpointSizeMap = breakpointSizeMap;
       Object.keys(prevSubscribers).forEach((key) => {
-        prevSubscribers[key].forEach(cb => this.subscribe(key, cb));
+        prevSubscribers[key].forEach((cb) => this.subscribe(key, cb));
       });
 
       const {
@@ -77,7 +79,7 @@ class DeviceWidthDetector {
     const currentWidth = window.innerWidth;
     const size = [...this.orderedKeys]
       .reverse()
-      .find(key => currentWidth >= this.sizeKeyToWidth[key]);
+      .find((key) => currentWidth >= this.sizeKeyToWidth[key]);
 
     if (size !== this.currentSize) {
       const prevSize = this.currentSize;
@@ -119,7 +121,7 @@ class DeviceWidthDetector {
   }
 
   unsubscribe(size, func) {
-    const index = this.subscribers[size].findIndex(callback => callback === func);
+    const index = this.subscribers[size].findIndex((callback) => callback === func);
     if (index >= 0) {
       this.subscribers[size].splice(index, 1);
     }

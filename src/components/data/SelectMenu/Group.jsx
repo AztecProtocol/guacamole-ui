@@ -93,6 +93,8 @@ class Group extends PureComponent {
 
     return (
       <div
+        role="menuitem"
+        tabIndex="-1"
         className={classnames(
           styles.caption,
           styles[`size-${captionSize}`],
@@ -100,6 +102,7 @@ class Group extends PureComponent {
             [styles.toggleable]: toggleable,
           },
         )}
+        onKeyDown={toggleable ? this.handleToggleItems : undefined}
         onClick={toggleable ? this.handleToggleItems : undefined}
       >
         <ListItem

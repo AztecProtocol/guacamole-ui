@@ -8,7 +8,7 @@ export default function applyModifiersToVisibleDays(
   prevDaysStatus,
   visibleDays,
   modifiers,
-  shouldToggle = true
+  shouldToggle = true,
 ) {
   let daysStatus = prevDaysStatus;
   const modifierNames = Object.keys(modifiers);
@@ -21,7 +21,7 @@ export default function applyModifiersToVisibleDays(
     days,
   }) => {
     days.forEach((day) => {
-      const status = modifierNames.filter(name => modifiers[name](day));
+      const status = modifierNames.filter((name) => modifiers[name](day));
       if (status.length) {
         daysStatus = addStatus(daysStatus, day, new Set(status), month);
       }

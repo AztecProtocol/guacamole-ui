@@ -10,7 +10,7 @@ export default function sortRowValuesWithDefault(
   getRowKey,
   fields,
 ) {
-  const toBeSorted = prevSortedData.map(row => ({
+  const toBeSorted = prevSortedData.map((row) => ({
     ...row,
     key: getRowKey(row),
     [`${sortBy}`]: getFormFieldValue(sortBy, row, fields),
@@ -24,7 +24,7 @@ export default function sortRowValuesWithDefault(
     .map(({
       key,
     }) => key);
-  const sortGetKey = row => getRowKey(row);
+  const sortGetKey = (row) => getRowKey(row);
 
   return sortBySortedArray(prevSortedData, sortedKeys, sortBy, sortGetKey);
 }

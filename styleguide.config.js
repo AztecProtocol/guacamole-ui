@@ -180,7 +180,6 @@ module.exports = {
         'src/components/data/FlexTable/index.jsx',
         'src/components/data/Tree/index.jsx',
         'src/components/data/ProgressBar/index.jsx',
-        'src/components/data/Time/index.jsx',
         'src/components/data/Calendar/index.jsx',
       ],
       sectionDepth: 12,

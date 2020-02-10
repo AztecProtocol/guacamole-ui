@@ -3,7 +3,7 @@ const indent = (strArr) => {
     return `  ${strArr}`;
   }
 
-  return strArr.map(str => `  ${str}`);
+  return strArr.map((str) => `  ${str}`);
 };
 
 const formatObject = (obj) => {

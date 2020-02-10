@@ -10,7 +10,7 @@ import {
 import Icon from '../../general/Icon';
 import styles from './checkbox.scss';
 
-export class Checkbox extends PureComponent {
+class Checkbox extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -128,6 +128,10 @@ export class Checkbox extends PureComponent {
               [styles.disabled]: disabled,
             },
           )}
+          role="checkbox"
+          tabIndex="0"
+          aria-checked={value}
+          onKeyDown={this.handleClick}
           onClick={this.handleClick}
         >
           {align === 'right' && labelNode}

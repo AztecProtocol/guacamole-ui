@@ -8,7 +8,7 @@ export default function getCurrentSelectedRange(selectedDays) {
   }
 
   return {
-    startDay: selectedDays.find(day => day),
+    startDay: selectedDays.find((day) => day),
     endDay,
   };
 }

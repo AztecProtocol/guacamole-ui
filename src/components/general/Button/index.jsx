@@ -9,7 +9,7 @@ import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames
 import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import styles from './button.scss';
 
-export const Button = ({
+const Button = ({
   className,
   theme,
   size,

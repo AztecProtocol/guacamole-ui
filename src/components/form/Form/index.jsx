@@ -276,7 +276,7 @@ class Form extends PureComponent {
     });
 
     return colGroups
-      .filter(group => group.length)
+      .filter((group) => group.length)
       .map((colNodes, i) => (
         <Row key={`${+i}`}>
           {colNodes}
@@ -391,12 +391,11 @@ class Form extends PureComponent {
         )}
         margin="m 0"
       >
-        {fieldsConfig.map((formConfig, i) =>
-          this.renderForm(
-            formConfig,
-            i,
-            i === totalForms - 1 ? extraContent : null,
-          ))}
+        {fieldsConfig.map((formConfig, i) => this.renderForm(
+          formConfig,
+          i,
+          i === totalForms - 1 ? extraContent : null,
+        ))}
       </Offset>
     );
   }
@@ -405,10 +404,10 @@ class Form extends PureComponent {
 Form.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(inputSizeKeys),
-  initialData: PropTypes.object,
-  data: PropTypes.object,
-  formData: PropTypes.object,
-  errors: PropTypes.object,
+  initialData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  data: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  formData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   fieldsConfig: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     description: PropTypes.string,

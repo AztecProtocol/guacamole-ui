@@ -36,7 +36,7 @@ function isSimpleValue(val) {
 
 function containSimpleValueOnly(values) {
   return deviceBreakpointKeys
-    .every(key => !values[key] || isSimpleValue(values[key]));
+    .every((key) => !values[key] || isSimpleValue(values[key]));
 }
 
 export default function parseCssSizeValues(values) {
@@ -54,7 +54,7 @@ export default function parseCssSizeValues(values) {
 
   const sizeMap = {};
   deviceBreakpointKeys
-    .filter(key => values[key])
+    .filter((key) => values[key])
     .forEach((key) => {
       const sizes = parseCssSizeString(values[key]);
       directions.forEach((dir) => {

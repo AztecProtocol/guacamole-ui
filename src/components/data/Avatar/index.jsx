@@ -15,7 +15,7 @@ import Text from '../../general/Text';
 import Clickable from '../../utils/Clickable';
 import styles from './avatar.scss';
 
-export class Avatar extends PureComponent {
+class Avatar extends PureComponent {
   constructor(props) {
     super(props);
 

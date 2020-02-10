@@ -9,7 +9,7 @@ import {
 import Pie from '../Pie';
 import styles from './pies.scss';
 
-export class ConcentricPies extends PureComponent {
+class ConcentricPies extends PureComponent {
   render() {
     const {
       className,

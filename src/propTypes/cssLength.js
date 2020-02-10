@@ -5,8 +5,11 @@ function isCSSLength(value) {
 }
 
 export default function cssLength(props, propName, componentName) {
-  const prop = props[propName];
+  const {
+    [propName]: prop,
+  } = props;
   if (prop !== undefined && !isCSSLength(prop)) {
     return errorPropDefinition(prop, propName, componentName);
   }
+  return null;
 }

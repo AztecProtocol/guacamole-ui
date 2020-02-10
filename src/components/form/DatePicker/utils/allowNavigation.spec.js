@@ -2,8 +2,8 @@ import moment from 'moment';
 import allowNavigation from './allowNavigation';
 
 const currentMonth = moment();
-const earlier = diff => currentMonth.clone().subtract(diff, 'months');
-const later = diff => currentMonth.clone().add(diff, 'months');
+const earlier = (diff) => currentMonth.clone().subtract(diff, 'months');
+const later = (diff) => currentMonth.clone().add(diff, 'months');
 
 test('always allow if min or max month is empty', () => {
   expect(allowNavigation(currentMonth, 1)).toBe(true);

@@ -10,7 +10,7 @@ import Text from '../Text';
 import Icon from '../Icon';
 import styles from './tag.scss';
 
-export const Tag = ({
+const Tag = ({
   className,
   size,
   children,

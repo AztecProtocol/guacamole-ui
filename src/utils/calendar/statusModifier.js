@@ -7,7 +7,7 @@ const containStatus = (day, status) => {
     return day.has(status);
   }
 
-  return Object.keys(status).every(s => day.has(s));
+  return Object.keys(status).every((s) => day.has(s));
 };
 
 const addStatusToDay = (day, status) => {
@@ -15,7 +15,7 @@ const addStatusToDay = (day, status) => {
   if (typeof status === 'string') {
     modifiedDay.add(status);
   } else {
-    status.forEach(s => modifiedDay.add(s));
+    status.forEach((s) => modifiedDay.add(s));
   }
 
   return modifiedDay;
@@ -111,5 +111,5 @@ export const hasStatus = (daysStatus, day, status, outsideMonth = null) => {
 
 export const hasSomeStatus = (daysStatus, day, statusList, outsideMonth = null) => {
   const dayStatus = getDayStatus(daysStatus, day, outsideMonth);
-  return dayStatus && statusList.some(status => dayStatus.has(status));
+  return dayStatus && statusList.some((status) => dayStatus.has(status));
 };

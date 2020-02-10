@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import Clickable from '../../utils/Clickable';
 import styles from './accordion.scss';
 
-export class Accordion extends PureComponent {
+class Accordion extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       isControlled,

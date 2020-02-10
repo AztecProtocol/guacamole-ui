@@ -8,7 +8,7 @@ import {
 } from 'src/config/styleConstants';
 import styles from './switch.scss';
 
-export class SwitchInput extends PureComponent {
+class SwitchInput extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       isControlled,
@@ -80,6 +80,9 @@ export class SwitchInput extends PureComponent {
 
     return (
       <div
+        role="switch"
+        aria-checked={checked}
+        tabIndex="0"
         className={classnames(
           className,
           styles.wrapper,
@@ -91,6 +94,7 @@ export class SwitchInput extends PureComponent {
             [styles.loading]: isLoading,
           },
         )}
+        onKeyDown={this.handleClick}
         onClick={this.handleClick}
       >
         <div className={styles['switch-button']}>

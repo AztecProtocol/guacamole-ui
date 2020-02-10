@@ -17,7 +17,7 @@ import getTreeNodeByValue from './utils/getTreeNodeByValue';
 import treeNodesFilter from './utils/treeNodesFilter';
 import styles from './select.scss';
 
-export class TreeSelect extends PureComponent {
+class TreeSelect extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
       isControlled,
@@ -46,8 +46,8 @@ export class TreeSelect extends PureComponent {
 
     if (isControlled || data !== prevData) {
       const values = isControlled ? selectedValues : prevState.selectedValues;
-      nextState.selectedNodes = values.map(value => getTreeNodeByValue(data, value))
-        .filter(n => n);
+      nextState.selectedNodes = values.map((value) => getTreeNodeByValue(data, value))
+        .filter((n) => n);
       nextState.activeValues = [];
     }
 
@@ -130,7 +130,7 @@ export class TreeSelect extends PureComponent {
     const {
       activeValues: prevActiveValues,
     } = this.state;
-    const activeValues = prevActiveValues.filter(v => v !== value);
+    const activeValues = prevActiveValues.filter((v) => v !== value);
     if (activeValues.length !== prevActiveValues.length) {
       this.setState({
         activeValues,

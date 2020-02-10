@@ -10,7 +10,7 @@ import {
 } from 'src/config/styleConstants';
 import styles from './text.scss';
 
-export const Text = ({
+const Text = ({
   className,
   title,
   text,

@@ -162,6 +162,8 @@ class RealImage extends PureComponent {
         </div>
       );
     }
+
+    return null;
   }
 
   render() {

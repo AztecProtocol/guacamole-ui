@@ -8,7 +8,7 @@ import responsiveTextAlign from 'src/shapes/responsiveTextAlign';
 import responsiveSizes from 'src/shapes/responsiveSizes';
 import styles from './col.scss';
 
-export const Col = ({
+const Col = ({
   className,
   column,
   shift,

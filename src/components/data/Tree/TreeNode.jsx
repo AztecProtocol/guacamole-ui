@@ -45,7 +45,13 @@ class TreeNode extends PureComponent {
             [styles.selected]: hasStatus(modifier, 'selected'),
           },
         )}
+        role="button"
+        tabIndex="-1"
         onClick={(e) => {
+          e.stopPropagation();
+          onClickCallback(value, data);
+        }}
+        onKeyDown={(e) => {
           e.stopPropagation();
           onClickCallback(value, data);
         }}
@@ -53,7 +59,10 @@ class TreeNode extends PureComponent {
         {children && (
           <div
             className={styles['expand-arrow']}
+            role="button"
+            tabIndex="-1"
             onClick={() => onToggleActive(value, data)}
+            onKeyDown={() => onToggleActive(value, data)}
           >
             <Icon
               name={isOpen ? 'expand_more' : 'chevron_right'}
@@ -89,7 +98,7 @@ TreeNode.propTypes = {
   content: PropTypes.node,
   selectable: PropTypes.bool,
   highlight: PropTypes.bool,
-  modifier: PropTypes.object,
+  modifier: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   children: PropTypes.node,
   defaultExpandAll: PropTypes.bool.isRequired,
   onSelect: PropTypes.func,
