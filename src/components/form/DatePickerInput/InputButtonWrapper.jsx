@@ -30,7 +30,13 @@ function InputButtonWrapper({
           tabIndex="0"
           aria-label="Open Date Picker"
           onKeyDown={onOpenMenu}
-          onClick={onOpenMenu}
+          onClick={(e) => {
+            const { keyCode } = e;
+            if ([13, 32, 40].indexOf(keyCode) >= 0) {
+              e.preventDefault();
+              onOpenMenu();
+            }
+          }}
         />
       )}
     </div>

@@ -91,10 +91,10 @@ class Group extends PureComponent {
 
     const captionSize = caption.size || size;
 
+    /* eslint-disable jsx-a11y/no-static-element-interactions */
     return (
       <div
-        role="menuitem"
-        tabIndex="-1"
+        role={toggleable ? 'menuitem' : ''}
         className={classnames(
           styles.caption,
           styles[`size-${captionSize}`],
@@ -118,6 +118,7 @@ class Group extends PureComponent {
         )}
       </div>
     );
+    /* eslint-enable */
   }
 
   render() {

@@ -29,6 +29,10 @@ $checkbox-outline-width: 2px;
       border-color: get-darken-color($default-input-outline-color, 3%);
     }
   }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .tick-box {

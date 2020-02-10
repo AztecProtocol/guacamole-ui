@@ -12,10 +12,9 @@ const Overlay = ({
   children,
   hide,
   onClick,
+  onKeyDown,
 }) => (
   <div
-    role="button"
-    tabIndex="-1"
     className={classnames(
       className,
       styles.overlay,
@@ -24,8 +23,10 @@ const Overlay = ({
         [styles.hide]: hide,
       },
     )}
-    onKeyDown={onClick}
+    role="menu"
+    tabIndex="-1"
     onClick={onClick}
+    onKeyDown={onKeyDown}
   >
     {children}
   </div>
@@ -37,6 +38,7 @@ Overlay.propTypes = {
   children: PropTypes.node,
   hide: PropTypes.bool,
   onClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
 };
 
 Overlay.defaultProps = {
@@ -45,6 +47,7 @@ Overlay.defaultProps = {
   children: null,
   hide: false,
   onClick() {},
+  onKeyDown: null,
 };
 
 export default Overlay;

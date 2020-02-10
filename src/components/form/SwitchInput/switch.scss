@@ -23,6 +23,10 @@ $switch-loading-color: rgba($default-input-active-outline-color, 0.3);
     background: none;
     border-color: $switch-active-color;
   }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .switch-button {

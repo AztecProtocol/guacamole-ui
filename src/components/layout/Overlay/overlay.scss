@@ -23,6 +23,10 @@ $overlay-theme-bg-map: (
     transition: opacity 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s, max-height 0s ease-in 1s;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   @each $theme, $bg-name in $overlay-theme-bg-map {
     &.theme-#{$theme} {
       @include background($bg-name);

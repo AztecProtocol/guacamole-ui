@@ -324,22 +324,25 @@ class TextInput extends PureComponent {
 
     return (
       <div
-        role="input"
         className={classnames(
           styles['status-icon'],
           {
             [styles.clickable]: onClickCallback,
           },
         )}
-        onKeyDown={(e) => {
-          if (onClickCallback) {
-            e.stopPropagation();
-            onClickCallback();
-          }
-        }}
+        role="button"
+        tabIndex="0"
         onClick={(e) => {
           if (onClickCallback) {
             e.stopPropagation(); // prevent triggering onClick twice
+            onClickCallback();
+          }
+        }}
+        onKeyDown={(e) => {
+          const { keyCode } = e;
+          if (onClickCallback && [13, 32].indexOf(keyCode) >= 0) {
+            e.stopPropagation();
+            e.preventDefault();
             onClickCallback();
           }
         }}

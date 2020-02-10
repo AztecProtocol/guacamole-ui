@@ -127,6 +127,10 @@ input::-webkit-inner-spin-button {
   &.clickable {
     cursor: pointer;
   }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 @each $status in $input-status-names {

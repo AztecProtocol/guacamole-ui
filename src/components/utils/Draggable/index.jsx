@@ -138,19 +138,19 @@ class Draggable extends PureComponent {
 
     return (
       <div
-        role="button"
-        tabIndex="-1"
         className={classnames(
           className,
           {
             [styles.draggable]: !disabled,
           },
         )}
+        role="button"
+        tabIndex="-1"
         style={style}
         onMouseDown={this.handleMouseDown}
         onTouchStart={this.handleTouchStart}
-        onKeyDown={(e) => e.stopPropagation()}
         onClick={(e) => e.stopPropagation()}
+        onKeyDown={(e) => e.stopPropagation()}
       >
         {children}
       </div>

@@ -10,8 +10,6 @@ const EditableValueHolder = ({
   onClick,
 }) => (
   <div
-    role="button"
-    tabIndex="0"
     className={classnames(
       styles['value-holder'],
       {
@@ -19,8 +17,16 @@ const EditableValueHolder = ({
         [styles['icon-mask']]: ['switch', 'checkbox'].indexOf(inputType) >= 0,
       },
     )}
-    onKeyDown={onClick}
+    role="button"
+    tabIndex="0"
     onClick={onClick}
+    onKeyDown={(e) => {
+      const { keyCode } = e;
+      if ([13, 32].indexOf(keyCode) >= 0) {
+        e.preventDefault();
+        onClick();
+      }
+    }}
   >
     <StaticValue
       inputType={inputType}

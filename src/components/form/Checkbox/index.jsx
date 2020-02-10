@@ -131,8 +131,14 @@ class Checkbox extends PureComponent {
           role="checkbox"
           tabIndex="0"
           aria-checked={value}
-          onKeyDown={this.handleClick}
           onClick={this.handleClick}
+          onKeyDown={(e) => {
+            const { keyCode } = e;
+            if ([13, 32].indexOf(keyCode) >= 0) {
+              e.preventDefault();
+              this.handleClick();
+            }
+          }}
         >
           {align === 'right' && labelNode}
           {this.renderBox()}

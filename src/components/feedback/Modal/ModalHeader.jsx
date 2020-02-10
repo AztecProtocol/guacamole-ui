@@ -47,11 +47,17 @@ const ModalHeader = ({
       </Row>
       {hasCloseIcon && (
         <div
+          className={styles['close-button']}
           role="button"
           tabIndex="0"
-          className={styles['close-button']}
-          onKeyDown={onClose}
           onClick={onClose}
+          onKeyDown={(e) => {
+            const { keyCode } = e;
+            if ([13, 32].indexOf(keyCode) >= 0) {
+              e.preventDefault();
+              onClose();
+            }
+          }}
         >
           <Icon
             name="close"

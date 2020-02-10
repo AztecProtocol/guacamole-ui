@@ -51,10 +51,7 @@ class TreeNode extends PureComponent {
           e.stopPropagation();
           onClickCallback(value, data);
         }}
-        onKeyDown={(e) => {
-          e.stopPropagation();
-          onClickCallback(value, data);
-        }}
+        onKeyDown={null}
       >
         {children && (
           <div
@@ -62,7 +59,7 @@ class TreeNode extends PureComponent {
             role="button"
             tabIndex="-1"
             onClick={() => onToggleActive(value, data)}
-            onKeyDown={() => onToggleActive(value, data)}
+            onKeyDown={null}
           >
             <Icon
               name={isOpen ? 'expand_more' : 'chevron_right'}

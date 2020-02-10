@@ -80,9 +80,6 @@ class SwitchInput extends PureComponent {
 
     return (
       <div
-        role="switch"
-        aria-checked={checked}
-        tabIndex="0"
         className={classnames(
           className,
           styles.wrapper,
@@ -94,8 +91,17 @@ class SwitchInput extends PureComponent {
             [styles.loading]: isLoading,
           },
         )}
-        onKeyDown={this.handleClick}
+        role="switch"
+        tabIndex="0"
+        aria-checked={checked}
         onClick={this.handleClick}
+        onKeyDown={(e) => {
+          const { keyCode } = e;
+          if ([13, 32].indexOf(keyCode) >= 0) {
+            e.preventDefault();
+            this.handleClick();
+          }
+        }}
       >
         <div className={styles['switch-button']}>
           {isLoading && <div className={styles.spinner} />}
