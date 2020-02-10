@@ -42,7 +42,7 @@ export const copyFile = (src, dest) => new Promise((resolve) => {
   readStream.pipe(fs.createWriteStream(dest));
 });
 
-export const copyFolder = async (src, dest) => {
+export const copyFolder = (src, dest) => new Promise(async (resolve) => { // eslint-disable-line no-async-promise-executor
   ensureDirectory(dest);
 
   await Promise.all(fs.readdirSync(src)
@@ -56,11 +56,11 @@ export const copyFolder = async (src, dest) => {
       return copyFile(srcPath, destPath);
     }));
 
-  return {
+  resolve({
     src,
     dest,
-  };
-};
+  });
+});
 
 export const safeReaddirSync = (dir) => {
   try {
