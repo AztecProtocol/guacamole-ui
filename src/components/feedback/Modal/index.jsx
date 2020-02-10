@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   overlayThemeNames,
 } from 'src/config/styleConstants';
@@ -117,7 +116,7 @@ export class Modal extends PureComponent {
 
     return (
       <ModalHeader
-        styleName="header"
+        className={styles.header}
         icon={headerIcon}
         hasCloseIcon={hasCloseIcon}
         onClose={onClose}
@@ -163,23 +162,23 @@ export class Modal extends PureComponent {
         onClick={this.handleClickOverlay}
       >
         <PageContentWrapper
-          styleName={classnames(
-            'modal',
+          className={classnames(
+            styles.modal,
             {
-              hide,
-              'auto-width': autoWidth,
+              [styles.hide]: hide,
+              [styles['auto-width']]: autoWidth,
             },
           )}
           alignCenter
           stretch
         >
           <FlexBox
-            styleName="wrapper"
+            className={styles.wrapper}
             align="center"
             valign={valignMap[valign]}
           >
             <Block
-              styleName="container"
+              className={styles.container}
               background="white"
               layer={2}
               borderRadius="default"
@@ -187,7 +186,7 @@ export class Modal extends PureComponent {
               stretch={stretch}
             >
               {this.renderHeader()}
-              <div styleName="content">
+              <div className={styles.content}>
                 {!hide && children}
               </div>
               {this.renderFooter()}
@@ -235,6 +234,4 @@ Modal.defaultProps = {
   onClose() {},
 };
 
-export default CSSModules(Modal, styles, {
-  allowMultiple: true,
-});
+export default Modal;

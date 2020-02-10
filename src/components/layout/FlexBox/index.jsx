@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import generateResponsiveStyleNames, {
   notEmptyString,
 } from 'src/utils/generateResponsiveStyleNames';
@@ -20,17 +19,17 @@ export const FlexBox = ({
   children,
 }) => (
   <div
-    className={className}
-    styleName={classnames(
-      'flex-box',
-      generateResponsiveStyleNames('direction', direction, notEmptyString),
-      generateResponsiveStyleNames('align', align, notEmptyString),
-      generateResponsiveStyleNames('valign', valign, notEmptyString),
-      generateResponsiveStyleNames('nowrap', nowrap),
+    className={classnames(
+      className,
+      styles['flex-box'],
+      generateResponsiveStyleNames('direction', direction, notEmptyString).map((n) => styles[n]),
+      generateResponsiveStyleNames('align', align, notEmptyString).map((n) => styles[n]),
+      generateResponsiveStyleNames('valign', valign, notEmptyString).map((n) => styles[n]),
+      generateResponsiveStyleNames('nowrap', nowrap).map((n) => styles[n]),
       {
-        expand,
-        fixedWidth,
-        stretch,
+        [styles.expand]: expand,
+        [styles.fixedWidth]: fixedWidth,
+        [styles.stretch]: stretch,
       },
     )}
   >
@@ -82,6 +81,4 @@ FlexBox.defaultProps = {
   nowrap: false,
 };
 
-export default CSSModules(FlexBox, styles, {
-  allowMultiple: true,
-});
+export default FlexBox;

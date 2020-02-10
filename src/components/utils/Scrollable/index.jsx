@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import {
   Scrollbars,
 } from 'react-custom-scrollbars';
-import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import styles from './scroll.scss';
 
@@ -83,10 +82,13 @@ class Scrollable extends PureComponent {
     return (
       <div
         ref={this.setWrapperRef}
-        className={className}
-        styleName={classnames('wrapper', {
-          [`bg-${background}`]: background,
-        })}
+        className={classnames(
+          className,
+          styles.wrapper,
+          {
+            [styles[`bg-${background}`]]: background,
+          },
+        )}
       >
         <Scrollbars
           ref={this.setScrollbarRef}
@@ -123,6 +125,4 @@ Scrollable.defaultProps = {
   delayInitialResize: 0,
 };
 
-export default CSSModules(Scrollable, styles, {
-  allowMultiple: true,
-});
+export default Scrollable;

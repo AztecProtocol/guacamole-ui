@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
+import classnames from 'classnames';
 import FlexBox from '../../layout/FlexBox';
 import Step from './Step';
 import styles from './steps.scss';
@@ -11,7 +11,10 @@ const PageSteps = ({
   currentStep,
 }) => (
   <div
-    styleName={`steps theme-${theme}`}
+    className={classnames(
+      styles.steps,
+      styles[`theme-${theme}`],
+    )}
   >
     <FlexBox
       align="center"
@@ -51,6 +54,4 @@ PageSteps.defaultProps = {
   currentStep: 0,
 };
 
-export default CSSModules(PageSteps, styles, {
-  allowMultiple: true,
-});
+export default PageSteps;

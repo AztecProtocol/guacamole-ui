@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   shapeSizeKeys,
 } from 'src/config/styleConstants';
@@ -56,13 +55,13 @@ class Group extends PureComponent {
       return (
         <Tag
           key={value}
-          styleName={classnames(
-            'item',
-            `size-${itemSize}`,
+          className={classnames(
+            styles.item,
+            styles[`size-${itemSize}`],
             {
-              selected: value === selectedValue,
-              hovered: value === hoveredValue,
-              disabled,
+              [styles.selected]: value === selectedValue,
+              [styles.hovered]: value === hoveredValue,
+              [styles.disabled]: disabled,
             },
           )}
           to={href}
@@ -94,11 +93,11 @@ class Group extends PureComponent {
 
     return (
       <div
-        styleName={classnames(
-          'caption',
-          `size-${captionSize}`,
+        className={classnames(
+          styles.caption,
+          styles[`size-${captionSize}`],
           {
-            toggleable,
+            [styles.toggleable]: toggleable,
           },
         )}
         onClick={toggleable ? this.handleToggleItems : undefined}
@@ -109,7 +108,7 @@ class Group extends PureComponent {
         />
         {toggleable && (
           <Icon
-            styleName="expand-button"
+            className={styles['expand-button']}
             name={hide ? 'expand_more' : 'expand_less'}
             size={captionSize}
           />
@@ -132,19 +131,19 @@ class Group extends PureComponent {
     const groupSize = (caption && caption.size) || size;
 
     return (
-      <div styleName={classnames(
-        `group-${groupSize}`,
+      <div className={classnames(
+        styles[`group-${groupSize}`],
         {
-          [`pad-${padding}`]: padding && padding !== '0',
+          [styles[`pad-${padding}`]]: padding && padding !== '0',
         },
       )}
       >
         {(caption && this.renderCaption()) || null}
-        <div styleName={classnames(
-          'items',
+        <div className={classnames(
+          styles.items,
           {
-            hide,
-            'has-divider': hasDivider,
+            [styles.hide]: hide,
+            [styles['has-divider']]: hasDivider,
           },
         )}
         >
@@ -187,6 +186,4 @@ Group.defaultProps = {
   hasDivider: false,
 };
 
-export default CSSModules(Group, styles, {
-  allowMultiple: true,
-});
+export default Group;

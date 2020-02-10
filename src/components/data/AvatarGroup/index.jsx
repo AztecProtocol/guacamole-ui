@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import {
   colorNames,
@@ -23,8 +22,11 @@ export const AvatarGroup = ({
   layer,
 }) => (
   <div
-    className={className}
-    styleName={`group-${size} bg-${canvasBackground}`}
+    className={classnames(
+      className,
+      styles[`group-${size}`],
+      styles[`bg-${canvasBackground}`],
+    )}
   >
     {avatars.map(({
       className: avatarClassName,
@@ -32,28 +34,41 @@ export const AvatarGroup = ({
       background: avatarBg,
       iconBackground: avatarIconBg,
       tooltipBackground: avatarTooltipBg,
-      ...avatar
+      iconName,
+      src,
+      alt,
+      color,
+      inactive,
+      onClick,
     }, i) => (
       <div
         key={+i}
-        className={avatarClassName}
-        styleName={classnames('avatar', {
-          interactive: tooltip || avatar.onClick,
-        })}
+        className={classnames(
+          avatarClassName,
+          styles.avatar,
+          {
+            [styles.interactive]: tooltip || onClick,
+          },
+        )}
       >
         <Avatar
-          {...avatar}
-          background={avatarBg || background}
-          iconBackground={avatarIconBg || iconBackground}
+          src={src}
+          alt={alt}
           size={size}
+          background={avatarBg || background}
+          iconName={iconName}
+          iconBackground={avatarIconBg || iconBackground}
+          color={color}
           layer={layer}
           shape="circular"
+          inactive={inactive}
+          onClick={onClick}
         />
         {tooltip && (
           <div
-            styleName={classnames(
-              'tooltip',
-              `tooltip-${avatarTooltipBg || tooltipBackground}`,
+            className={classnames(
+              styles.tooltip,
+              styles[`tooltip-${avatarTooltipBg || tooltipBackground}`],
             )}
           >
             {typeof tooltip !== 'string' ? tooltip : (
@@ -105,6 +120,4 @@ AvatarGroup.defaultProps = {
   layer: 0,
 };
 
-export default CSSModules(AvatarGroup, styles, {
-  allowMultiple: true,
-});
+export default AvatarGroup;

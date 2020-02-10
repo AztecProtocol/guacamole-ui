@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import iconShape from 'src/shapes/iconShape';
 import {
   inputSizeKeys,
@@ -39,12 +38,12 @@ export const Steps = ({
 
   return (
     <FlexBox
-      className={className}
-      styleName={classnames(
-        'steps',
-        `size-${size}`,
+      className={classnames(
+        className,
+        styles.steps,
+        styles[`size-${size}`],
         {
-          'with-dot-content': withDotContent,
+          [styles['with-dot-content']]: withDotContent,
         },
       )}
     >
@@ -57,20 +56,23 @@ export const Steps = ({
         return (
           <div
             key={id}
-            className={i === numberOfSteps - 1 ? 'flex-fixed' : 'flex-free-expand'}
-            styleName={classnames(
-              'step',
+            className={classnames(
+              i === numberOfSteps - 1 ? 'flex-fixed' : 'flex-free-expand',
+              styles.step,
               {
-                finished: i < currentIndex,
-                current: i === currentIndex,
-                waiting: i > currentIndex,
+                [styles.finished]: i < currentIndex,
+                [styles.current]: i === currentIndex,
+                [styles.waiting]: i > currentIndex,
               },
             )}
           >
             <DotWrapper
-              styleName={classnames('dot', {
-                static: !isClickable,
-              })}
+              className={classnames(
+                styles.dot,
+                {
+                  [styles.static]: !isClickable,
+                },
+              )}
               onClick={isClickable ? () => onChange(i + 1) : undefined}
             >
               {!!icon && <Icon {...icon} />}
@@ -80,7 +82,7 @@ export const Steps = ({
                 />
               )}
             </DotWrapper>
-            {i < numberOfSteps - 1 && <div styleName="line" />}
+            {i < numberOfSteps - 1 && <div className={styles.line} />}
             {!!title && (
               <Text
                 text={title}
@@ -119,6 +121,4 @@ Steps.defaultProps = {
   onChange() {},
 };
 
-export default CSSModules(Steps, styles, {
-  allowMultiple: true,
-});
+export default Steps;

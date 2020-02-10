@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   inputSizeKeys,
 } from 'src/config/styleConstants';
@@ -81,21 +80,21 @@ export class SwitchInput extends PureComponent {
 
     return (
       <div
-        className={className}
-        styleName={classnames(
-          'wrapper',
-          `size-${size}`,
+        className={classnames(
+          className,
+          styles.wrapper,
+          styles[`size-${size}`],
           {
-            checked,
-            disabled,
-            outlined,
-            loading: isLoading,
+            [styles.checked]: checked,
+            [styles.disabled]: disabled,
+            [styles.outlined]: outlined,
+            [styles.loading]: isLoading,
           },
         )}
         onClick={this.handleClick}
       >
-        <div styleName="switch-button">
-          {isLoading && <div styleName="spinner" />}
+        <div className={styles['switch-button']}>
+          {isLoading && <div className={styles.spinner} />}
         </div>
       </div>
     );
@@ -124,6 +123,4 @@ SwitchInput.defaultProps = {
   onChange() {},
 };
 
-export default CSSModules(SwitchInput, styles, {
-  allowMultiple: true,
-});
+export default SwitchInput;

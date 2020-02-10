@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import moment from 'moment';
-import CSSModules from 'react-css-modules';
 import styles from './calendar.scss';
 
 function Day({
@@ -19,26 +18,28 @@ function Day({
   const empty = isOutside && !showOutsideDays;
   if (empty) {
     return (
-      <div styleName="day empty">
+      <div className={`${styles.day} ${styles.empty}`}>
         {date}
       </div>
     );
   }
 
   const disabled = status.has('disabled');
-  const styleName = classnames('day', {
-    selected: status.has('isSelected'),
-    hovered: !disabled && status.has('isHovered'),
-    ranged: status.has('isInRange'),
-    trailing: status.has('isTrailing'),
-    highlighted: status.has('isHighlighted'),
-    outside: isOutside,
-    disabled,
-  });
 
   return (
     <div
-      styleName={styleName}
+      className={classnames(
+        styles.day,
+        {
+          [styles.selected]: status.has('isSelected'),
+          [styles.hovered]: !disabled && status.has('isHovered'),
+          [styles.ranged]: status.has('isInRange'),
+          [styles.trailing]: status.has('isTrailing'),
+          [styles.highlighted]: status.has('isHighlighted'),
+          [styles.outside]: isOutside,
+          [styles.disabled]: disabled,
+        },
+      )}
       onClick={() => onSelect && onSelect(day, status)}
       onMouseEnter={() => onHover && onHover(day, status)}
       onMouseLeave={() => onBlur && onBlur(day, status)}
@@ -67,6 +68,4 @@ Day.defaultProps = {
   onBlur: null,
 };
 
-export default CSSModules(Day, styles, {
-  allowMultiple: true,
-});
+export default Day;

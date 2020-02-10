@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   fontSizeKeys,
   overlayThemeNames,
@@ -17,13 +16,13 @@ export const Loader = ({
   hide,
 }) => (
   <Overlay
-    className={className}
-    styleName={classnames(
-      'loader',
-      `theme-${theme}`,
-      `size-${size}`,
+    className={classnames(
+      className,
+      styles.loader,
+      styles[`theme-${theme}`],
+      styles[`size-${size}`],
       {
-        'icon-only': !hasBackground,
+        [styles['icon-only']]: !hasBackground,
       },
     )}
     theme={hasBackground ? theme : ''}
@@ -47,6 +46,4 @@ Loader.defaultProps = {
   hide: false,
 };
 
-export default CSSModules(Loader, styles, {
-  allowMultiple: true,
-});
+export default Loader;

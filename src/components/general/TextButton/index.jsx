@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import responsiveTextSizes from 'src/shapes/responsiveTextSizes';
 import {
@@ -27,13 +26,13 @@ export const TextButton = ({
   disabled,
 }) => (
   <Clickable
-    className={className}
-    styleName={classnames(
-      'button',
+    className={classnames(
+      className,
+      styles.button,
       {
-        [`theme-${theme}`]: theme !== 'normal',
-        [`color-${color}`]: color,
-        disabled,
+        [styles[`theme-${theme}`]]: theme !== 'normal',
+        [styles[`color-${color}`]]: color,
+        [styles.disabled]: disabled,
       },
     )}
     href={href}
@@ -100,6 +99,4 @@ TextButton.defaultProps = {
   disabled: false,
 };
 
-export default CSSModules(TextButton, styles, {
-  allowMultiple: true,
-});
+export default TextButton;

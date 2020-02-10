@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   inputThemeNames,
   inputSizeKeys,
@@ -289,7 +288,7 @@ export class TextInput extends PureComponent {
     return (
       <TagName
         {...props}
-        styleName="input"
+        className={styles.input}
         ref={this.setInputRef}
         type={type}
         name={name}
@@ -325,10 +324,10 @@ export class TextInput extends PureComponent {
 
     return (
       <div
-        styleName={classnames(
-          'status-icon',
+        className={classnames(
+          styles['status-icon'],
           {
-            clickable: onClickCallback,
+            [styles.clickable]: onClickCallback,
           },
         )}
         onClick={(e) => {
@@ -360,33 +359,37 @@ export class TextInput extends PureComponent {
       error,
     } = this.state;
 
-    const holderStyleName = classnames(
-      'holder',
-      `size-${size}`,
+    const holderClassName = classnames(
+      className,
+      styles.holder,
+      styles[`size-${size}`],
       {
-        disabled,
-        clickable: readOnly && onClick,
-        'flash-error': shakeInput,
-        'status-error': showErrorStatus,
-        'with-icon': icon,
-        [`status-${status}`]: status,
-        [`theme-${theme}`]: theme,
+        [styles.disabled]: disabled,
+        [styles.clickable]: readOnly && onClick,
+        [styles['flash-error']]: shakeInput,
+        [styles['status-error']]: showErrorStatus,
+        [styles['with-icon']]: icon,
+        [styles[`status-${status}`]]: status,
+        [styles[`theme-${theme}`]]: theme,
       },
     );
 
     return (
       <div
-        className={className}
-        styleName={holderStyleName}
+        className={holderClassName}
       >
         {this.renderInput()}
         {!!error && (
-          <div styleName={classnames('error', {
-            hide: !showErrorStatus,
-          })}
+          <div
+            className={classnames(
+              styles.error,
+              {
+                [styles.hide]: !showErrorStatus,
+              },
+            )}
           >
             <Block
-              styleName="error-content"
+              className={styles['error-content']}
               padding="m"
               background="white"
               borderRadius="default"
@@ -474,6 +477,4 @@ TextInput.defaultProps = {
   withErrorShakeEffect: false,
 };
 
-export default CSSModules(TextInput, styles, {
-  allowMultiple: true,
-});
+export default TextInput;

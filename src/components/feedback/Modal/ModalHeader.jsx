@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import iconShape from 'src/shapes/iconShape';
 import Block from '../../layout/Block';
 import FlexBox from '../../layout/FlexBox';
@@ -48,7 +47,7 @@ const ModalHeader = ({
       </Row>
       {hasCloseIcon && (
         <div
-          styleName="close-button"
+          className={styles['close-button']}
           onClick={onClose}
         >
           <Icon
@@ -77,4 +76,4 @@ ModalHeader.defaultProps = {
   onClose() {},
 };
 
-export default CSSModules(ModalHeader, styles);
+export default ModalHeader;

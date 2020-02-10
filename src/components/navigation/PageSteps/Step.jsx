@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import Clickable from '../../utils/Clickable';
 import styles from './steps.scss';
 
@@ -15,11 +14,11 @@ const PageSteps = ({
   if (href || onClick) {
     return (
       <Clickable
-        styleName={classnames(
-          'step',
-          'button',
+        className={classnames(
+          styles.step,
+          styles.button,
           {
-            active,
+            [styles.active]: active,
           },
         )}
         onClick={onClick}
@@ -33,10 +32,10 @@ const PageSteps = ({
 
   return (
     <div
-      styleName={classnames(
-        'step',
+      className={classnames(
+        styles.step,
         {
-          active,
+          [styles.active]: active,
         },
       )}
     >
@@ -60,6 +59,4 @@ PageSteps.defaultProps = {
   isRouterLink: false,
 };
 
-export default CSSModules(PageSteps, styles, {
-  allowMultiple: true,
-});
+export default PageSteps;

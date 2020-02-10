@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import styles from './datepicker.scss';
 
 function InputButtonWrapper({
@@ -14,16 +13,19 @@ function InputButtonWrapper({
 }) {
   return (
     <div
-      className={className}
-      styleName={classnames('input-button', {
-        focused: showMenu,
-        editable,
-      })}
+      className={classnames(
+        className,
+        styles['input-button'],
+        {
+          [styles.focused]: showMenu,
+          [styles.editable]: editable,
+        },
+      )}
     >
       {children}
       {mobileMode && (
         <div
-          styleName="input-button-mask"
+          className={styles['input-button-mask']}
           onClick={onOpenMenu}
         />
       )}
@@ -46,6 +48,4 @@ InputButtonWrapper.defaultProps = {
   editable: false,
 };
 
-export default CSSModules(InputButtonWrapper, styles, {
-  allowMultiple: true,
-});
+export default InputButtonWrapper;

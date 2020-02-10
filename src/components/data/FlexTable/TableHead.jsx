@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import {
   ASC,
   DESC,
@@ -36,7 +35,7 @@ const TableHead = ({
     }, i) => (
       <TableCell
         key={+i}
-        styleName="table-head-cell"
+        className={styles['table-head-cell']}
         width={width}
         align={align}
       >
@@ -48,7 +47,7 @@ const TableHead = ({
           />
         )) || (
           <TextButton
-            styleName="sort-button"
+            className={styles['sort-button']}
             color="label"
             size="xxs"
             onClick={() => onClickColumn(fieldName)}
@@ -95,4 +94,4 @@ TableHead.defaultProps = {
   onClickColumn() {},
 };
 
-export default CSSModules(TableHead, styles);
+export default TableHead;

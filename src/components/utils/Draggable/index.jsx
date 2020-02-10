@@ -2,7 +2,7 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
+import classnames from 'classnames';
 import styles from './draggable.scss';
 
 const isTouchEvent = e => e.touches.length === 1
@@ -138,8 +138,12 @@ class Draggable extends PureComponent {
 
     return (
       <div
-        className={className}
-        styleName={!disabled ? 'draggable' : ''}
+        className={classnames(
+          className,
+          {
+            [styles.draggable]: !disabled,
+          },
+        )}
         style={style}
         onMouseDown={this.handleMouseDown}
         onTouchStart={this.handleTouchStart}
@@ -168,4 +172,4 @@ Draggable.defaultProps = {
   disabled: false,
 };
 
-export default CSSModules(Draggable, styles);
+export default Draggable;

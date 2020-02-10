@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   fontSizeKeys,
   defaultFontSizeKey,
@@ -24,13 +23,13 @@ export const Tag = ({
   onClick,
 }) => (
   <Block
-    className={className}
-    styleName={classnames(
-      'tag',
-      `size-${size}`,
+    className={classnames(
+      className,
+      styles.tag,
+      styles[`size-${size}`],
       {
-        'align-reverse': alignIcon === 'left',
-        rounded,
+        [styles['align-reverse']]: alignIcon === 'left',
+        [styles.rounded]: rounded,
       },
     )}
     background={outlined ? 'white-light' : color}
@@ -40,13 +39,13 @@ export const Tag = ({
     inline
   >
     <Text
-      styleName="text"
+      className={styles.text}
       text={text}
       color={outlined ? color : ''}
     />
     {!!iconName && (
       <Icon
-        styleName="icon"
+        className={styles.icon}
         name={iconName}
         color={outlined ? color : ''}
       />
@@ -80,6 +79,4 @@ Tag.defaultProps = {
   onClick: null,
 };
 
-export default CSSModules(Tag, styles, {
-  allowMultiple: true,
-});
+export default Tag;

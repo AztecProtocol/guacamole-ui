@@ -2,7 +2,6 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import iconShape from 'src/shapes/iconShape';
 import {
@@ -173,10 +172,12 @@ export class Tree extends PureComponent {
 
     return (
       <div
-        className={className}
-        styleName={classnames({
-          subset: couldExpand,
-        })}
+        className={classnames(
+          className,
+          {
+            [styles.subset]: couldExpand,
+          },
+        )}
       >
         {this.renderBranches(data)}
       </div>
@@ -220,4 +221,4 @@ Tree.defaultProps = {
   onToggleActive() {},
 };
 
-export default CSSModules(Tree, styles);
+export default Tree;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import Block from '../Block';
@@ -17,27 +16,27 @@ const PageContentWrapper = ({
   scrollable,
 }) => (
   <Block
-    className={className}
-    styleName={classnames(
-      'wrapper',
+    className={classnames(
+      className,
+      styles.wrapper,
       {
-        scrollable,
+        [styles.scrollable]: scrollable,
       },
     )}
     background={background}
     stretch={stretch || scrollable}
   >
     <div
-      styleName={classnames(
-        'content',
+      className={classnames(
+        styles.content,
         (alignCenter
-          && generateResponsiveStyleNames('align-center', alignCenter))
+          && generateResponsiveStyleNames('align-center', alignCenter).map((n) => styles[n]))
           || '',
         (expand
-          && generateResponsiveStyleNames('expand', expand))
+          && generateResponsiveStyleNames('expand', expand).map((n) => styles[n]))
           || '',
         {
-          stretch,
+          [styles.stretch]: stretch,
         },
       )}
     >
@@ -66,6 +65,4 @@ PageContentWrapper.defaultProps = {
   scrollable: false,
 };
 
-export default CSSModules(PageContentWrapper, styles, {
-  allowMultiple: true,
-});
+export default PageContentWrapper;

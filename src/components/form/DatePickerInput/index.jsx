@@ -3,7 +3,7 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
+import classnames from 'classnames';
 import moment from 'moment';
 import {
   inputThemeNames,
@@ -472,8 +472,7 @@ export class DatePickerInput extends PureComponent {
 
     return (
       <ClickOutsideHandler
-        className={className}
-        styleName="wrapper"
+        className={classnames(className, styles.wrapper)}
         onClickOutside={this.handleCloseMenu}
         disabled={!showMenu}
       >
@@ -559,4 +558,4 @@ DatePickerInput.defaultProps = {
   onChangeMonth() {},
 };
 
-export default CSSModules(DatePickerInput, styles);
+export default DatePickerInput;

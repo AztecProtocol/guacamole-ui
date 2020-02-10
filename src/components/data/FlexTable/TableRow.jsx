@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import Block from '../../layout/Block';
 import Row from '../../layout/Row';
@@ -22,17 +21,20 @@ const TableRow = ({
 }) => (
   <Block
     {...blockProps}
-    styleName={classnames('row-wrapper', {
-      'row-no-divider': noDivider,
-      [`v-${verticalPadding}`]: verticalPadding,
-      highlight,
-    })}
+    className={classnames(
+      styles['row-wrapper'],
+      {
+        [styles['row-no-divider']]: noDivider,
+        [styles[`v-${verticalPadding}`]]: verticalPadding,
+        [styles.highlight]: highlight,
+      },
+    )}
     hasBorder={border}
     align={textAlign}
     background={highlight ? 'grey-lightest' : 'white'}
   >
     <Row
-      styleName="row"
+      className={styles.row}
       margin={margin}
       valign={valign}
       align={align}
@@ -83,6 +85,4 @@ TableRow.defaultProps = {
   border: false,
 };
 
-export default CSSModules(TableRow, styles, {
-  allowMultiple: true,
-});
+export default TableRow;

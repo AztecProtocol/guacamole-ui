@@ -12,7 +12,6 @@ import ListItem from './components/data/ListItem';
 import ProgressBar from './components/data/ProgressBar';
 import SelectMenu from './components/data/SelectMenu';
 import SmartTable from './components/data/SmartTable';
-import Time from './components/data/Time';
 import Tree from './components/data/Tree';
 import Loader from './components/feedback/Loader';
 import Modal from './components/feedback/Modal';
@@ -66,7 +65,6 @@ export {
   ProgressBar,
   SelectMenu,
   SmartTable,
-  Time,
   Tree,
   Loader,
   AutoComplete,

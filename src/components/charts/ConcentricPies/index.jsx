@@ -2,7 +2,7 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
+import classnames from 'classnames';
 import {
   colorNames,
 } from 'src/config/styleConstants';
@@ -25,8 +25,7 @@ export class ConcentricPies extends PureComponent {
 
     return (
       <div
-        className={className}
-        styleName="wrapper"
+        className={classnames(className, styles.wrapper)}
       >
         {pies.map(({
           value,
@@ -44,7 +43,7 @@ export class ConcentricPies extends PureComponent {
           return (
             <Pie
               key={+i}
-              styleName={i === numberOfPies - 1 ? '' : 'centered'}
+              className={i === numberOfPies - 1 ? '' : styles.centered}
               value={value}
               radius={accumRadius}
               startDeg={startDeg}
@@ -59,7 +58,7 @@ export class ConcentricPies extends PureComponent {
           );
         }).reverse()}
         {children && (
-          <div styleName="centered">
+          <div className={styles.centered}>
             {children}
           </div>
         )}
@@ -95,4 +94,4 @@ ConcentricPies.defaultProps = {
   children: null,
 };
 
-export default CSSModules(ConcentricPies, styles);
+export default ConcentricPies;

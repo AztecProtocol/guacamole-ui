@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import iconShape from 'src/shapes/iconShape';
 import {
   inputSizeKeys,
@@ -33,12 +32,12 @@ export const Progress = ({
 
   return (
     <FlexBox
-      className={className}
-      styleName={classnames(
-        'progress',
-        `size-${size}`,
+      className={classnames(
+        className,
+        styles.progress,
+        styles[`size-${size}`],
         {
-          [`theme-${theme}`]: theme,
+          [styles[`theme-${theme}`]]: theme,
         },
       )}
     >
@@ -56,7 +55,7 @@ export const Progress = ({
               && (
                 <Icon
                   key="icon"
-                  styleName="icon"
+                  className={styles.icon}
                   {...icon}
                 />
               ))
@@ -65,7 +64,7 @@ export const Progress = ({
               && (
                 <Text
                   key="title"
-                  styleName="title"
+                  className={styles.title}
                   text={title || (icon ? '' : `${i + 1}`)}
                 />
               ))
@@ -76,20 +75,23 @@ export const Progress = ({
         return (
           <DotWrapper
             key={`step-${+i}`}
-            styleName={classnames('step', {
-              finished: i < currentIndex,
-              clickable: isClickable,
-            })}
+            className={classnames(
+              styles.step,
+              {
+                [styles.finished]: i < currentIndex,
+                [styles.clickable]: isClickable,
+              },
+            )}
             onClick={isClickable
               ? () => onChange(i + 1)
               : null}
           >
             {i > 0 && (
               <div
-                styleName="step-tail"
+                className={styles['step-tail']}
               />
             )}
-            <div styleName="step-content">
+            <div className={styles['step-content']}>
               {contentNode}
             </div>
           </DotWrapper>
@@ -125,6 +127,4 @@ Progress.defaultProps = {
   onChange() {},
 };
 
-export default CSSModules(Progress, styles, {
-  allowMultiple: true,
-});
+export default Progress;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   overlayThemeNames,
 } from 'src/config/styleConstants';
@@ -15,12 +14,12 @@ const Overlay = ({
   onClick,
 }) => (
   <div
-    className={className}
-    styleName={classnames(
-      'overlay',
+    className={classnames(
+      className,
+      styles.overlay,
       {
-        [`theme-${theme}`]: theme,
-        hide,
+        [styles[`theme-${theme}`]]: theme,
+        [styles.hide]: hide,
       },
     )}
     onClick={onClick}
@@ -45,6 +44,4 @@ Overlay.defaultProps = {
   onClick() {},
 };
 
-export default CSSModules(Overlay, styles, {
-  allowMultiple: true,
-});
+export default Overlay;

@@ -1,6 +1,5 @@
 import React from 'react'; import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import ListItem from '../ListItem';
 import styles from './list.scss';
 
@@ -10,11 +9,11 @@ export const List = ({
 }) => items.map((item, i) => (
   <div
     key={+i}
-    styleName={classnames(
-      'item',
-      `size-${size}`,
+    className={classnames(
+      styles.item,
+      styles[`size-${size}`],
       {
-        'with-description': item.description,
+        [styles['with-description']]: item.description,
       },
     )}
   >
@@ -46,6 +45,4 @@ List.defaultProps = {
   items: [],
 };
 
-export default CSSModules(List, styles, {
-  allowMultiple: true,
-});
+export default List;

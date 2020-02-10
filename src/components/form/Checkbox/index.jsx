@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   defaultInputSizeKey,
   inputSizeKeys,
@@ -79,9 +78,9 @@ export class Checkbox extends PureComponent {
     }
 
     return (
-      <div styleName="tick-box">
+      <div className={styles['tick-box']}>
         <Icon
-          styleName="check-icon"
+          className={styles['check-icon']}
           type="mi"
           name={iconName}
         />
@@ -102,30 +101,33 @@ export class Checkbox extends PureComponent {
     } = this.props;
     const value = this.isChecked();
     const labelNode = !!label && (
-      <div styleName="label">
+      <div className={styles.label}>
         {label}
       </div>
     );
 
     return (
       <div
-        className={className}
-        styleName={classnames(
-          'wrapper',
-          `size-${size}`,
+        className={classnames(
+          className,
+          styles.wrapper,
+          styles[`size-${size}`],
           {
-            [`type-${type}`]: type !== 'check',
-            [`theme-${theme}`]: theme !== 'light',
-            [`align-${align}`]: align === 'right',
-            checked: value,
-            inline,
+            [styles[`type-${type}`]]: type !== 'check',
+            [styles[`theme-${theme}`]]: theme !== 'light',
+            [styles[`align-${align}`]]: align === 'right',
+            [styles.checked]: value,
+            [styles.inline]: inline,
           },
         )}
       >
         <div
-          styleName={classnames('checkbox', {
-            disabled,
-          })}
+          className={classnames(
+            styles.checkbox,
+            {
+              [styles.disabled]: disabled,
+            },
+          )}
           onClick={this.handleClick}
         >
           {align === 'right' && labelNode}
@@ -169,6 +171,4 @@ Checkbox.defaultProps = {
   onClick() {},
 };
 
-export default CSSModules(Checkbox, styles, {
-  allowMultiple: true,
-});
+export default Checkbox;

@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   colorNames,
 } from 'src/config/styleConstants';
@@ -123,13 +122,13 @@ export class Pie extends PureComponent {
     return (
       <div
         ref={this.setWrapperRef}
-        className={className}
-        styleName={classnames(
-          'pie-wrapper',
-          `stroke-${strokeColor}`,
+        className={classnames(
+          className,
+          styles['pie-wrapper'],
+          styles[`stroke-${strokeColor}`],
           {
-            'has-own-size': this.hasOwnSize,
-            [`fill-${fill}`]: fill,
+            [styles['has-own-size']]: this.hasOwnSize,
+            [styles[`fill-${fill}`]]: fill,
           },
           {},
         )}
@@ -140,17 +139,17 @@ export class Pie extends PureComponent {
       >
         {circleRadius > 0 && (
           <svg
-            styleName="pie-svg"
+            className={styles['pie-svg']}
             width={radius * 2}
             height={radius * 2}
           >
             {showTrack && (
               <circle
-                styleName={classnames(
-                  'pie',
-                  'track',
+                className={classnames(
+                  styles.pie,
+                  styles.track,
                   {
-                    [`track-${trackColor}`]: trackColor,
+                    [styles[`track-${trackColor}`]]: trackColor,
                   },
                 )}
                 cx={radius}
@@ -162,7 +161,7 @@ export class Pie extends PureComponent {
               />
             )}
             <circle
-              styleName="pie"
+              className={styles.pie}
               cx={radius}
               cy={radius}
               r={circleRadius}
@@ -175,7 +174,7 @@ export class Pie extends PureComponent {
           </svg>
         )}
         {children && (
-          <div styleName="content">
+          <div className={styles.content}>
             {children}
           </div>
         )}
@@ -196,17 +195,17 @@ export class Pie extends PureComponent {
 
           return (
             <div
-              styleName="arc-value"
+              className={styles['arc-value']}
               style={{
                 top: `${y}px`,
                 left: `${x}px`,
               }}
             >
               <div
-                styleName={classnames(
-                  'value',
+                className={classnames(
+                  styles.value,
                   {
-                    inset,
+                    [styles.inset]: inset,
                   },
                 )}
                 style={{
@@ -252,6 +251,4 @@ Pie.defaultProps = {
   delay: 1000,
 };
 
-export default CSSModules(Pie, styles, {
-  allowMultiple: true,
-});
+export default Pie;

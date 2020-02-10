@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   shapeSizeKeys,
   textColorNames,
@@ -57,7 +56,7 @@ export class Avatar extends PureComponent {
     if (src && !isSrcBroken) {
       return (
         <Image
-          styleName="img"
+          className={styles.img}
           backgroundUrl={src}
           width="100%"
           height="100%"
@@ -73,7 +72,7 @@ export class Avatar extends PureComponent {
     if (alt) {
       return (
         <Text
-          styleName="img"
+          className={styles.img}
           text={alt}
           color={color}
         />
@@ -82,7 +81,7 @@ export class Avatar extends PureComponent {
 
     return (
       <Icon
-        styleName="img"
+        className={styles.img}
         name={iconName}
         size={size}
         color={color}
@@ -116,26 +115,26 @@ export class Avatar extends PureComponent {
     const TagName = onClick ? Clickable : 'div';
     return (
       <TagName
-        className={className}
-        styleName={classnames(
-          'avatar',
-          `shape-${shape}`,
-          `size-${size}`,
+        className={classnames(
+          className,
+          styles.avatar,
+          styles[`shape-${shape}`],
+          styles[`size-${size}`],
           {
-            inactive,
-            [`bg-${backgroundColor}`]: backgroundColor,
-            'bg-white': backgroundColor === 'white'
+            [styles.inactive]: inactive,
+            [styles[`bg-${backgroundColor}`]]: backgroundColor,
+            [styles['bg-white']]: backgroundColor === 'white'
               || (!backgroundColor
                 && isSrcAvailable
                 && inactive),
-            [`layer-${layer}`]: layer,
+            [styles[`layer-${layer}`]]: layer,
           },
         )}
         onClick={onClick}
       >
         {this.renderContent()}
         {status && (
-          <div styleName={`status-${status}`} />
+          <div className={styles[`status-${status}`]} />
         )}
       </TagName>
     );
@@ -176,6 +175,4 @@ Avatar.defaultProps = {
   onClick: null,
 };
 
-export default CSSModules(Avatar, styles, {
-  allowMultiple: true,
-});
+export default Avatar;

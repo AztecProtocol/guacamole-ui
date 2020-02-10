@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import styles from './clickable.scss';
 
 class Clickable extends PureComponent {
@@ -60,11 +59,13 @@ class Clickable extends PureComponent {
 
     return (
       <Tag
-        className={className}
-        styleName={classnames({
-          clickable: !disabled,
-          inline,
-        })}
+        className={classnames(
+          className,
+          {
+            [styles.clickable]: !disabled,
+            [styles.inline]: inline,
+          },
+        )}
         to={href}
         href={href}
         target={target}
@@ -113,6 +114,4 @@ Clickable.defaultProps = {
   inline: false,
 };
 
-export default CSSModules(Clickable, styles, {
-  allowMultiple: true,
-});
+export default Clickable;

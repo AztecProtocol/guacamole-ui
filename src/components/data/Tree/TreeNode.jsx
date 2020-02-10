@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import iconShape from 'src/shapes/iconShape';
 import ListItem from '../ListItem';
 import Icon from '../../general/Icon';
@@ -38,12 +37,12 @@ class TreeNode extends PureComponent {
 
     return (
       <div
-        styleName={classnames(
-          'node',
+        className={classnames(
+          styles.node,
           {
-            selectable,
-            highlight,
-            selected: hasStatus(modifier, 'selected'),
+            [styles.selectable]: selectable,
+            [styles.highlight]: highlight,
+            [styles.selected]: hasStatus(modifier, 'selected'),
           },
         )}
         onClick={(e) => {
@@ -53,7 +52,7 @@ class TreeNode extends PureComponent {
       >
         {children && (
           <div
-            styleName="expand-arrow"
+            className={styles['expand-arrow']}
             onClick={() => onToggleActive(value, data)}
           >
             <Icon
@@ -63,7 +62,7 @@ class TreeNode extends PureComponent {
             />
           </div>
         )}
-        <div styleName="node-item">
+        <div className={styles['node-item']}>
           {(icon || title) && (
             <ListItem
               icon={icon}
@@ -74,7 +73,7 @@ class TreeNode extends PureComponent {
           {content}
         </div>
         {isOpen && children && (
-          <div styleName="subset">
+          <div className={styles.subset}>
             {children}
           </div>
         )}
@@ -109,6 +108,4 @@ TreeNode.defaultProps = {
   onToggleActive() {},
 };
 
-export default CSSModules(TreeNode, styles, {
-  allowMultiple: true,
-});
+export default TreeNode;

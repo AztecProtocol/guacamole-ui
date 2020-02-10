@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import CSSModules from 'react-css-modules';
 import {
   isSameMonth,
 } from 'utils/date';
@@ -96,7 +95,7 @@ class Month extends PureComponent {
     } = this.props;
 
     return (
-      <div styleName="month-name">
+      <div className={styles['month-name']}>
         {month.format(monthNameFormat)}
       </div>
     );
@@ -109,14 +108,14 @@ class Month extends PureComponent {
       startOfWeek,
     } = this.props;
     for (let i = 0; i < 7; i += 1) {
-      weekdayNodes.push(
+      weekdayNodes.push((
         <div
           key={i}
-          styleName="weekday"
+          className={styles.weekday}
         >
           {weekdayNames[(startOfWeek + i) % 7]}
         </div>
-      );
+      ));
     }
 
     return weekdayNodes;
@@ -124,7 +123,7 @@ class Month extends PureComponent {
 
   render() {
     return (
-      <div styleName="month">
+      <div className={styles.month}>
         <Block
           bottom="m"
           align="center"
@@ -159,4 +158,4 @@ Month.defaultProps = {
   onBlurDay: null,
 };
 
-export default CSSModules(Month, styles);
+export default Month;

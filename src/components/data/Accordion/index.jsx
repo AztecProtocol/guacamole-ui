@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import Clickable from '../../utils/Clickable';
 import styles from './accordion.scss';
 
@@ -84,10 +83,10 @@ export class Accordion extends PureComponent {
           {title}
         </Clickable>
         <div
-          styleName={classnames(
-            'content',
+          className={classnames(
+            styles.content,
             {
-              hide: !isOpen,
+              [styles.hide]: !isOpen,
             },
           )}
         >
@@ -118,6 +117,4 @@ Accordion.defaultProps = {
   onChange() {},
 };
 
-export default CSSModules(Accordion, styles, {
-  allowMultiple: true,
-});
+export default Accordion;

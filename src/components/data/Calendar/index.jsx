@@ -2,7 +2,6 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import moment from 'moment';
 import {
@@ -98,13 +97,15 @@ export class Calendar extends PureComponent {
 
     return (
       <div
-        className={className}
-        styleName={classnames({
-          'calendar-v': !flexWidth && orientation === 'vertical',
-          'calendar-h': !flexWidth && orientation === 'horizontal',
-          'calendar-flex': flexWidth,
-          interactive: onSelectDay,
-        })}
+        className={classnames(
+          className,
+          {
+            [styles['calendar-v']]: !flexWidth && orientation === 'vertical',
+            [styles['calendar-h']]: !flexWidth && orientation === 'horizontal',
+            [styles['calendar-flex']]: flexWidth,
+            [styles.interactive]: onSelectDay,
+          },
+        )}
       >
         {this.renderMonths()}
       </div>
@@ -146,6 +147,4 @@ Calendar.defaultProps = {
   }) => children,
 };
 
-export default CSSModules(Calendar, styles, {
-  allowMultiple: true,
-});
+export default Calendar;

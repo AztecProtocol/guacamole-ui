@@ -2,7 +2,6 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import {
   inputThemeNames,
   inputSizeKeys,
@@ -230,7 +229,7 @@ export class TreeSelect extends PureComponent {
         hide={!showMenu}
         disabledClickOutside
       >
-        <div styleName="menu">
+        <div className={styles.menu}>
           {!disableFilter && (
             <Block
               className="flex-fixed"
@@ -245,7 +244,7 @@ export class TreeSelect extends PureComponent {
             </Block>
           )}
           <Block
-            styleName="tree-data"
+            className={styles['tree-data']}
             right="s"
             left="xs"
             bottom="xs"
@@ -322,7 +321,7 @@ export class TreeSelect extends PureComponent {
 
     return (
       <ClickOutsideHandler
-        styleName="wrapper"
+        className={styles.wrapper}
         onClickOutside={this.handleCloseMenu}
         disabled={!showMenu}
       >
@@ -387,4 +386,4 @@ TreeSelect.defaultProps = {
   InputComponent: TextInput,
 };
 
-export default CSSModules(TreeSelect, styles);
+export default TreeSelect;

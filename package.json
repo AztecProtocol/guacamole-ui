@@ -62,7 +62,6 @@
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
-    "react-css-modules": "^4.7.9",
     "react-custom-scrollbars": "^4.2.1",
     "react-dev-utils": "^10.1.0",
     "react-dom": "^16.8.4",

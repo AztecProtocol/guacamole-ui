@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import Block from '../../layout/Block';
 import styles from './image.scss';
 
@@ -13,13 +12,6 @@ const ImageWrapper = ({
   borderRadius,
   children,
 }) => {
-  const styleName = classnames(
-    'wrapper',
-    {
-      [`ratio-${ratio}`]: ratio,
-    },
-  );
-
   const divStyle = {};
   if (width) {
     divStyle.width = width;
@@ -30,8 +22,13 @@ const ImageWrapper = ({
 
   return (
     <Block
-      className={className}
-      styleName={styleName}
+      className={classnames(
+        className,
+        styles.wrapper,
+        {
+          [styles[`ratio-${ratio}`]]: ratio,
+        },
+      )}
       borderRadius={borderRadius}
       style={divStyle}
     >
@@ -58,6 +55,4 @@ ImageWrapper.defaultProps = {
   children: null,
 };
 
-export default CSSModules(ImageWrapper, styles, {
-  allowMultiple: true,
-});
+export default ImageWrapper;

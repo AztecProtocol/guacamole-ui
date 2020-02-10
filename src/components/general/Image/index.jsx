@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import {
   imageRatioNames,
   roundedCornerKeys,
@@ -11,7 +10,6 @@ import isFlexibleImage from './utils/isFlexibleImage';
 import ImageWrapper from './ImageWrapper';
 import ImagePlaceholder from './ImagePlaceholder';
 import RealImage from './RealImage';
-import styles from './image.scss';
 
 export const Image = ({
   className,
@@ -134,4 +132,4 @@ Image.defaultProps = {
   onError() {},
 };
 
-export default CSSModules(Image, styles);
+export default Image;

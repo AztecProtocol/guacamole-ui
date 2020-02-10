@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import styles from './popup.scss';
 
 class FlexPopupMenu extends PureComponent {
@@ -64,16 +63,16 @@ class FlexPopupMenu extends PureComponent {
     return (
       <div
         ref={this.setTetherRef}
-        className={className}
-        styleName={classnames(
-          'tether',
+        className={classnames(
+          className,
+          styles.tether,
           {
-            hide,
+            [styles.hide]: hide,
           },
         )}
       >
         <div
-          styleName="tether-content"
+          className={styles['tether-content']}
           style={{
             marginLeft: `${offsetLeft}px`,
           }}
@@ -96,6 +95,4 @@ FlexPopupMenu.defaultProps = {
   hide: false,
 };
 
-export default CSSModules(FlexPopupMenu, styles, {
-  allowMultiple: true,
-});
+export default FlexPopupMenu;

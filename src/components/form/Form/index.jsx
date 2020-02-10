@@ -2,7 +2,7 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
+import classnames from 'classnames';
 import isObjectEmpty from 'utils/isObjectEmpty';
 import fieldShape from 'src/shapes/fieldShape';
 import {
@@ -218,7 +218,7 @@ class Form extends PureComponent {
             {label && (
               <Block padding="xs 0">
                 <Text
-                  styleName={isRequired ? 'label-required' : ''}
+                  className={isRequired ? styles['label-required'] : ''}
                   text={label}
                   color="label"
                   size="xxs"
@@ -305,7 +305,7 @@ class Form extends PureComponent {
       return (
         <Block
           key={formIndex}
-          styleName="form"
+          className={styles.form}
           padding="m 0"
         >
           {renderForm({
@@ -320,7 +320,7 @@ class Form extends PureComponent {
     return (
       <Block
         key={formIndex}
-        styleName="form"
+        className={styles.form}
         padding="m 0"
       >
         {(label || description) && (
@@ -383,8 +383,12 @@ class Form extends PureComponent {
 
     return (
       <Offset
-        className={className}
-        styleName={!expand ? 'wrapper' : ''}
+        className={classnames(
+          className,
+          {
+            [styles.wrapper]: !expand,
+          },
+        )}
         margin="m 0"
       >
         {fieldsConfig.map((formConfig, i) =>
@@ -439,4 +443,4 @@ Form.defaultProps = {
   onSubmit() {},
 };
 
-export default CSSModules(Form, styles);
+export default Form;

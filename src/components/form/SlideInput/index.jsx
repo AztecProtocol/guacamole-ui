@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   inputSizeKeys,
   defaultInputSizeKey,
@@ -174,39 +173,39 @@ export class SlideInput extends PureComponent {
 
     return (
       <div
-        className={className}
-        styleName={classnames(
-          'wrapper',
-          `size-${size}`,
+        className={classnames(
+          className,
+          styles.wrapper,
+          styles[`size-${size}`],
           {
-            dragging: isDragging,
-            loading: isLoading,
-            active: value,
-            'should-drop': isDragging && scale >= dropzoneLimit,
+            [styles.dragging]: isDragging,
+            [styles.loading]: isLoading,
+            [styles.active]: value,
+            [styles['should-drop']]: isDragging && scale >= dropzoneLimit,
           },
         )}
       >
         <div
           ref={this.setTrackRef}
-          styleName="track"
+          className={styles.track}
         >
           {!!placeholder && (
             <Text
-              styleName="placeholder"
+              className={styles.placeholder}
               size={shiftSize(size, -2)}
               text={placeholder}
             />
           )}
           {isDragging && (
-            <div styleName="target-position">
+            <div className={styles['target-position']}>
               <Icon
-                styleName="handle-icon"
+                className={styles['handle-icon']}
                 name={placeholderIconName}
               />
             </div>
           )}
           <Draggable
-            styleName="handle"
+            className={styles.handle}
             style={{
               left: `${scale}%`,
             }}
@@ -214,13 +213,12 @@ export class SlideInput extends PureComponent {
             onDragStop={this.handleDragStop}
             disabled={disabled || isLoading}
           >
-            {isLoading && <div styleName="spinner" />}
+            {isLoading && <div className={styles.spinner} />}
             <Icon
-              styleName="handle-icon"
+              className={styles['handle-icon']}
               name={isLoading
                 ? loadingIconName
-                : (value ? iconName : 'navigate_next')
-              }
+                : (value ? iconName : 'navigate_next')}
             />
           </Draggable>
         </div>
@@ -261,6 +259,4 @@ SlideInput.defaultProps = {
   onChange() {},
 };
 
-export default CSSModules(SlideInput, styles, {
-  allowMultiple: true,
-});
+export default SlideInput;

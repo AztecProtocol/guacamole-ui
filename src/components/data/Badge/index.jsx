@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   shapeSizeKeys,
 } from 'src/config/styleConstants';
@@ -17,14 +16,14 @@ export const Badge = ({
   isDot,
 }) => (
   <div
-    className={className}
-    styleName={classnames(
-      'badge',
-      `theme-${theme}`,
-      `size-${size}`,
+    className={classnames(
+      className,
+      styles.badge,
+      styles[`theme-${theme}`],
+      styles[`size-${size}`],
       {
-        hide: !showZero && count === 0,
-        [`dot-${size}`]: isDot,
+        [styles.hide]: !showZero && count === 0,
+        [styles[`dot-${size}`]]: isDot,
       },
     )}
   >
@@ -51,6 +50,4 @@ Badge.defaultProps = {
   isDot: false,
 };
 
-export default CSSModules(Badge, styles, {
-  allowMultiple: true,
-});
+export default Badge;

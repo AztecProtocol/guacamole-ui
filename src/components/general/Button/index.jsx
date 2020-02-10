@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   defaultInputSizeKey,
   buttonSizeKeys,
@@ -35,18 +34,18 @@ export const Button = ({
 
   return (
     <ButtonTag
-      className={className}
-      styleName={classnames(
-        'button',
-        generateResponsiveStyleNames('size', size),
-        generateResponsiveStyleNames('expand', expand),
+      className={classnames(
+        className,
+        styles.button,
+        generateResponsiveStyleNames('size', size).map((n) => styles[n]),
+        generateResponsiveStyleNames('expand', expand).map((n) => styles[n]),
         {
-          [`theme-${theme}`]: theme,
-          'disabled-hover': isLoading || disabled,
-          outlined,
-          rounded,
-          isLoading,
-          disabled,
+          [styles[`theme-${theme}`]]: theme,
+          [styles['disabled-hover']]: isLoading || disabled,
+          [styles.outlined]: outlined,
+          [styles.rounded]: rounded,
+          [styles.isLoading]: isLoading,
+          [styles.disabled]: disabled,
         },
       )}
       to={href}
@@ -72,13 +71,13 @@ export const Button = ({
       }}
     >
       {alignIcon === 'left' && icon && (
-        <div styleName="icon-left">
+        <div className={styles['icon-left']}>
           {icon}
         </div>
       )}
       {children || text}
       {alignIcon === 'right' && icon && (
-        <div styleName="icon-right">
+        <div className={styles['icon-right']}>
           {icon}
         </div>
       )}
@@ -130,6 +129,4 @@ Button.defaultProps = {
   onSubmit: null,
 };
 
-export default CSSModules(Button, styles, {
-  allowMultiple: true,
-});
+export default Button;

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import getFormFieldValue from 'utils/getFormFieldValue';
 import responsiveTextAlign from 'src/shapes/responsiveTextAlign';
@@ -39,7 +38,7 @@ const SmartTableRow = ({
 
   return (
     <TableRow
-      styleName="row"
+      className={styles.row}
       verticalPadding="m"
       textAlign={defaultAlign}
       nowrap
@@ -97,10 +96,10 @@ const SmartTableRow = ({
 
         return (
           <TableCell
-            className={inputType === 'button' ? 'lh0' : ''}
-            styleName={classnames({
-              shift: shouldShiftInputWrapper,
-              [`${align || defaultAlign}`]: ['left', 'right'].indexOf(align || defaultAlign) >= 0,
+            className={classnames({
+              lh0: inputType === 'button',
+              [styles.shift]: shouldShiftInputWrapper,
+              [styles[`${align || defaultAlign}`]]: ['left', 'right'].indexOf(align || defaultAlign) >= 0,
             })}
             key={fieldName}
             width={width}
@@ -125,17 +124,17 @@ const SmartTableRow = ({
       })}
       {isDeletable && (
         <Clickable
-          styleName="delete-button"
+          className={styles['delete-button']}
           onClick={() => onDelete(data)}
         >
           <Icon
-            styleName="delete-hint"
+            className={styles['delete-hint']}
             name="remove"
             size="xs"
             color="label"
           />
           <Icon
-            styleName="delete-active"
+            className={styles['delete-active']}
             name="remove_circle"
             size="xs"
             color="red"
@@ -173,6 +172,4 @@ SmartTableRow.defaultProps = {
   onTriggerEdit: null,
 };
 
-export default CSSModules(SmartTableRow, styles, {
-  allowMultiple: true,
-});
+export default SmartTableRow;

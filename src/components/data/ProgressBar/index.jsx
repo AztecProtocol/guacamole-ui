@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import {
   backgroundNames,
@@ -26,24 +25,30 @@ export const ProgressBar = ({
   formatLabel,
 }) => (
   <div
-    className={className}
-    styleName={classnames(
-      'wrapper',
-      `size-${size}`,
+    className={classnames(
+      className,
+      styles.wrapper,
+      styles[`size-${size}`],
       {
-        rounded,
+        [styles.rounded]: rounded,
       },
     )}
   >
     <div
-      styleName={classnames('bar-base', {
-        [`base-${baseColor}`]: baseColor,
-      })}
+      className={classnames(
+        styles['bar-base'],
+        {
+          [styles[`base-${baseColor}`]]: baseColor,
+        },
+      )}
     >
       <div
-        styleName={classnames('bar-progress', {
-          [`active-${activeColor}`]: activeColor,
-        })}
+        className={classnames(
+          styles['bar-progress'],
+          {
+            [styles[`active-${activeColor}`]]: activeColor,
+          },
+        )}
         style={{
           transform: `scaleX(${base ? (value / base) : 0})`,
           WebkitTransform: `scaleX(${base ? (value / base) : 0})`,
@@ -52,7 +57,7 @@ export const ProgressBar = ({
     </div>
     {showLabel && (
       <Text
-        styleName="label"
+        className={styles.label}
         color={labelColor}
         size={labelSize}
         weight={labelWeight}
@@ -91,6 +96,4 @@ ProgressBar.defaultProps = {
   formatLabel: (value, base) => `${base ? Math.round((value / base) * 100) : 0}%`,
 };
 
-export default CSSModules(ProgressBar, styles, {
-  allowMultiple: true,
-});
+export default ProgressBar;

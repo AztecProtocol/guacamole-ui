@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import responsiveTextSizes from 'src/shapes/responsiveTextSizes';
 import {
@@ -24,20 +23,20 @@ export const Text = ({
   showEllipsis,
 }) => (
   <div
-    className={className}
-    styleName={classnames(
-      'text',
+    className={classnames(
+      className,
+      styles.text,
       (size
         && size !== 'inherit'
-        && generateResponsiveStyleNames('size', size))
+        && generateResponsiveStyleNames('size', size).map((name) => styles[name]))
         || '',
       {
-        [`color-${color}`]: color,
-        [`highlight-${highlight}`]: highlight,
-        [`weight-${weight}`]: weight && weight !== 'inherit',
-        [`text-align-${textAlign}`]: textAlign && textAlign !== 'inherit',
-        'show-ellipsis': showEllipsis,
-      }
+        [styles[`color-${color}`]]: color,
+        [styles[`highlight-${highlight}`]]: highlight,
+        [styles[`weight-${weight}`]]: weight && weight !== 'inherit',
+        [styles[`text-align-${textAlign}`]]: textAlign && textAlign !== 'inherit',
+        [styles['show-ellipsis']]: showEllipsis,
+      },
     )}
     title={title}
   >
@@ -71,6 +70,4 @@ Text.defaultProps = {
   weight: '',
 };
 
-export default CSSModules(Text, styles, {
-  allowMultiple: true,
-});
+export default Text;

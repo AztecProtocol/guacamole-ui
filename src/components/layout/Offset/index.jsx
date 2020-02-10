@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
+import classnames from 'classnames';
 import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import parseCssSizeValues from 'src/utils/parseCssSizeValues';
 import responsiveCssSizes from 'src/shapes/responsiveCssSizes';
@@ -25,12 +25,11 @@ export const Offset = ({
 
   const sizeStyleNames = ['all', 'top', 'right', 'bottom', 'left']
     .filter(size => sizeMap[size])
-    .map(size => generateResponsiveStyleNames(size, sizeMap[size]));
+    .map(size => generateResponsiveStyleNames(size, sizeMap[size]).map((n) => styles[n]));
 
   return (
     <div
-      className={className}
-      styleName={sizeStyleNames.join(' ')}
+      className={classnames(className, sizeStyleNames)}
     >
       {children}
     </div>
@@ -57,6 +56,4 @@ Offset.defaultProps = {
   children: null,
 };
 
-export default CSSModules(Offset, styles, {
-  allowMultiple: true,
-});
+export default Offset;

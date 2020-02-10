@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import responsiveColumns from 'src/shapes/responsiveColumns';
 import responsiveTextAlign from 'src/shapes/responsiveTextAlign';
 import Col from '../../layout/Col';
@@ -25,11 +24,10 @@ const TableCell = ({
       : {
         flex: `1 1 ${width}`,
         maxWidth: width,
-      }
-    }
+      }}
   >
     {isLoading && (placeholder || (
-      <div styleName="placeholder-cell" />
+      <div className={styles['placeholder-cell']} />
     ))}
     {!isLoading && children}
   </Col>
@@ -55,4 +53,4 @@ TableCell.defaultProps = {
   isLoading: false,
 };
 
-export default CSSModules(TableCell, styles);
+export default TableCell;

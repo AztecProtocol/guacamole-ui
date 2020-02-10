@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import classnames from 'classnames';
 import {
   textColorNames,
@@ -21,15 +20,17 @@ export const Icon = ({
   flipVertical,
 }) => (
   <i
-    className={classnames('material-icons cm-icon', className)}
-    styleName={classnames(
-      (size && size !== 'inherit' && generateResponsiveStyleNames('size', size)) || '',
+    className={classnames(
+      className,
+      'material-icons',
+      'cm-icon',
+      (size && size !== 'inherit' && generateResponsiveStyleNames('size', size).map((n) => styles[n])) || '',
       {
-        [`color-${color}`]: color,
-        [`rotate-${rotate}`]: rotate,
-        'flip-horizontal': flipHorizontal,
-        'flip-vertical': flipVertical,
-        spin,
+        [styles[`color-${color}`]]: color,
+        [styles[`rotate-${rotate}`]]: rotate,
+        [styles['flip-horizontal']]: flipHorizontal,
+        [styles['flip-vertical']]: flipVertical,
+        [styles.spin]: spin,
       },
     )}
   >
@@ -58,6 +59,4 @@ Icon.defaultProps = {
   spin: false,
 };
 
-export default CSSModules(Icon, styles, {
-  allowMultiple: true,
-});
+export default Icon;

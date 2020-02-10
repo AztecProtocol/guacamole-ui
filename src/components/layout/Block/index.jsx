@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import parseCssSizeValues from 'src/utils/parseCssSizeValues';
@@ -48,7 +47,7 @@ export const Block = ({
 
   const sizeStyleNames = ['all', 'top', 'right', 'bottom', 'left']
     .filter(size => sizeMap[size])
-    .map(size => generateResponsiveStyleNames(size, sizeMap[size]));
+    .map(size => generateResponsiveStyleNames(size, sizeMap[size]).map((n) => styles[n]));
 
   const hasAnyBorder = hasBorder
     || hasBorderTop
@@ -64,25 +63,25 @@ export const Block = ({
 
   return (
     <div
-      className={className}
-      styleName={classnames(
+      className={classnames(
+        className,
         ...sizeStyleNames,
-        (align && generateResponsiveStyleNames('align', align)) || '',
+        (align && generateResponsiveStyleNames('align', align).map((n) => styles[n])) || '',
         {
-          [`bg-${background}`]: background,
-          [`border-${borderColor}`]: hasAnyBorder && borderColor,
-          'with-border': hasAnyBorder,
-          'full-border': hasBorder,
-          'border-top': hasBorderTop,
-          'border-right': hasBorderRight,
-          'border-bottom': hasBorderBottom,
-          'border-left': hasBorderLeft,
-          [`rounded-${roundedSize}`]: roundedSize,
-          'overflow-hidden': overflowHidden,
-          [`layer-${layer}`]: layer,
-          clickable: onClick,
-          stretch,
-          inline,
+          [styles[`bg-${background}`]]: background,
+          [styles[`border-${borderColor}`]]: hasAnyBorder && borderColor,
+          [styles['with-border']]: hasAnyBorder,
+          [styles['full-border']]: hasBorder,
+          [styles['border-top']]: hasBorderTop,
+          [styles['border-right']]: hasBorderRight,
+          [styles['border-bottom']]: hasBorderBottom,
+          [styles['border-left']]: hasBorderLeft,
+          [styles[`rounded-${roundedSize}`]]: roundedSize,
+          [styles['overflow-hidden']]: overflowHidden,
+          [styles[`layer-${layer}`]]: layer,
+          [styles.clickable]: onClick,
+          [styles.stretch]: stretch,
+          [styles.inline]: inline,
         },
       )}
       style={style}
@@ -143,6 +142,4 @@ Block.defaultProps = {
   onClick: null,
 };
 
-export default CSSModules(Block, styles, {
-  allowMultiple: true,
-});
+export default Block;

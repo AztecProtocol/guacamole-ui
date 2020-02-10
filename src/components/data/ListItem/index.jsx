@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   listItemIconSizeMap,
   listItemAvatarTextSizeMap,
@@ -31,21 +30,21 @@ export const ListItem = ({
   showEllipsis,
 }) => (
   <div
-    className={className}
-    styleName={classnames(
-      'list-item',
-      `size-${size}`,
+    className={classnames(
+      className,
+      styles['list-item'],
+      styles[`size-${size}`],
       {
-        'no-description': !description,
-        'valign-center': valign === 'center',
-        wrap: !nowrap && valign !== 'center',
-        nowrap,
-        showEllipsis,
+        [styles['no-description']]: !description,
+        [styles['valign-center']]: valign === 'center',
+        [styles.wrap]: !nowrap && valign !== 'center',
+        [styles.nowrap]: nowrap,
+        [styles.showEllipsis]: showEllipsis,
       },
     )}
   >
     {(icon || iconName) && (
-      <div styleName="icon">
+      <div className={styles.icon}>
         <Icon
           name={iconName}
           color={iconColor}
@@ -56,14 +55,14 @@ export const ListItem = ({
       </div>
     )}
     {avatar && (
-      <div styleName="avatar">
+      <div className={styles.avatar}>
         <Avatar
           {...avatar}
           size={size}
         />
       </div>
     )}
-    <div styleName="content">
+    <div className={styles.content}>
       {title && (
         <Text
           text={title}
@@ -124,6 +123,4 @@ ListItem.defaultProps = {
   showEllipsis: false,
 };
 
-export default CSSModules(ListItem, styles, {
-  allowMultiple: true,
-});
+export default ListItem;

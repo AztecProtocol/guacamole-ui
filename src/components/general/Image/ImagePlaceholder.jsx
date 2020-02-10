@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import {
   imageRatioNames,
   roundedCornerKeys,
@@ -24,12 +23,15 @@ export const ImagePlaceholder = ({
 }) => {
   const contentNode = (
     <div
-      className={noWrapper ? className : ''}
-      styleName={classnames('placeholder', {
-        isLoading,
-      })}
+      className={classnames(
+        styles.placeholder,
+        {
+          className: noWrapper,
+          [styles.isLoading]: isLoading,
+        },
+      )}
     >
-      <div styleName="placeholder-icon">
+      <div className={styles['placeholder-icon']}>
         <SVG
           width="100%"
           height="100%"
@@ -80,6 +82,4 @@ ImagePlaceholder.defaultProps = {
   isLoading: false,
 };
 
-export default CSSModules(ImagePlaceholder, styles, {
-  allowMultiple: true,
-});
+export default ImagePlaceholder;

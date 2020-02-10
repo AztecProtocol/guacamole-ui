@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import ImageWrapper from './ImageWrapper';
 import ImagePlaceholder from './ImagePlaceholder';
 import isFlexibleImage from './utils/isFlexibleImage';
@@ -100,7 +99,7 @@ class RealImage extends PureComponent {
     if (!loaded && showPlaceholder) {
       return (
         <img
-          styleName="preload-img"
+          className={styles['preload-img']}
           src={src || backgroundUrl}
           alt=""
           onLoad={this.handleImageLoaded}
@@ -111,18 +110,19 @@ class RealImage extends PureComponent {
 
     if (src) {
       const {
-        ratio, width, height,
+        ratio,
+        width,
+        height,
       } = this.props;
-      const styleName = classnames(
-        'img',
-        {
-          free: !ratio && (width === 'auto'),
-        },
-      );
       const isPercentage = !!width && width.match(/.+%$/);
       return (
         <img
-          styleName={styleName}
+          className={classnames(
+            styles.img,
+            {
+              [styles.free]: !ratio && (width === 'auto'),
+            },
+          )}
           src={src}
           alt={alt}
           onLoad={this.handleImageLoaded}
@@ -147,12 +147,12 @@ class RealImage extends PureComponent {
       }
       return (
         <div
-          styleName="bg"
+          className={styles.bg}
           style={imageStyle}
         >
           {!showPlaceholder && !loaded && !error && (
             <img
-              styleName="preload-img"
+              className={styles['preload-img']}
               src={src || backgroundUrl}
               alt=""
               onLoad={this.handleImageLoaded}
@@ -201,7 +201,7 @@ class RealImage extends PureComponent {
         {this.renderImage()}
         {hasPlaceholder && (
           <ImagePlaceholder
-            styleName="mocked-holder"
+            className={styles['mocked-holder']}
             isLoading={!loaded}
             noWrapper
           />
@@ -233,6 +233,4 @@ RealImage.defaultProps = {
   children: null,
 };
 
-export default CSSModules(RealImage, styles, {
-  allowMultiple: true,
-});
+export default RealImage;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CSSModules from 'react-css-modules';
 import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames';
 import responsiveSizes from 'src/shapes/responsiveSizes';
@@ -12,7 +11,9 @@ export const Row = ({
   margin, ...props
 }) => (
   <FlexBox
-    styleName={classnames((margin && margin !== 'none' && generateResponsiveStyleNames('margin', margin)) || '')}
+    className={classnames(
+      (margin && margin !== 'none' && generateResponsiveStyleNames('margin', margin).map((n) => styles[n])) || '',
+    )}
     {...props}
   />
 );
@@ -53,6 +54,4 @@ Row.defaultProps = {
   stretch: false,
 };
 
-export default CSSModules(Row, styles, {
-  allowMultiple: true,
-});
+export default Row;

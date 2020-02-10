@@ -1,7 +1,6 @@
 import React, {
   PureComponent,
 } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import moment from 'moment';
@@ -113,7 +112,7 @@ class CalendarNavigator extends PureComponent {
 
     return (
       <Clickable
-        styleName="nav-prev"
+        className={styles['nav-prev']}
         onClick={disabled ? () => {} : this.handleGoPrev}
         disabled={disabled}
       >
@@ -134,7 +133,7 @@ class CalendarNavigator extends PureComponent {
 
     return (
       <Clickable
-        styleName="nav-next"
+        className={styles['nav-next']}
         onClick={disabled ? () => {} : this.handleGoNext}
         disabled={disabled}
       >
@@ -153,7 +152,7 @@ class CalendarNavigator extends PureComponent {
     } = this.state;
 
     return (
-      <div styleName={`nav-${isVertical ? 'v' : 'h'}`}>
+      <div className={styles[`nav-${isVertical ? 'v' : 'h'}`]}>
         {this.renderPrevButton()}
         {this.renderNextButton()}
       </div>
@@ -173,15 +172,18 @@ class CalendarNavigator extends PureComponent {
 
     return (
       <div
-        className={className}
-        styleName={classnames('nav-holder', {
-          flex: flexWidth,
-          vertical: isVertical,
-        })}
+        className={classnames(
+          className,
+          styles['nav-holder'],
+          {
+            [styles.flex]: flexWidth,
+            [styles.vertical]: isVertical,
+          },
+        )}
       >
         {this.renderNavigators()}
         {isVertical && (
-          <div styleName="calendar-in-nav-v">
+          <div className={styles['calendar-in-nav-v']}>
             {children({
               firstVisibleMonth,
             })}
@@ -220,6 +222,4 @@ CalendarNavigator.defaultProps = {
   onChangeMonth() {},
 };
 
-export default CSSModules(CalendarNavigator, styles, {
-  allowMultiple: true,
-});
+export default CalendarNavigator;

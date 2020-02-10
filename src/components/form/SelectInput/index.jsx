@@ -2,7 +2,7 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
+import classnames from 'classnames';
 import isObjectEmpty from 'utils/isObjectEmpty';
 import {
   inputThemeNames,
@@ -375,8 +375,7 @@ export class SelectInput extends PureComponent {
 
     return (
       <ClickOutsideHandler
-        className={className}
-        styleName="wrapper"
+        className={classnames(className, styles.wrapper)}
         onClickOutside={this.handleCloseMenu}
         disabled={!showMenu}
       >
@@ -432,4 +431,4 @@ SelectInput.defaultProps = {
   MenuComponent: SelectMenu,
 };
 
-export default CSSModules(SelectInput, styles);
+export default SelectInput;
