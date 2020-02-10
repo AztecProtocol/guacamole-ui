@@ -113,9 +113,10 @@ const webpackConfig = (env = 'development', {
             {
               loader: 'css-loader',
               options: {
-                modules: true,
                 importLoaders: 1,
-                localIdentName: '[name]_[local]__[hash:base64:3]',
+                modules: {
+                  localIdentName: '[name]_[local]__[hash:base64:3]',
+                },
               },
             },
             {
