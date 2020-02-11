@@ -43,6 +43,7 @@ class Clickable extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       children,
       onClick,
@@ -59,6 +60,7 @@ class Clickable extends PureComponent {
 
     return (
       <Tag
+        data-testid={testId}
         className={classnames(
           className,
           {
@@ -78,6 +80,7 @@ class Clickable extends PureComponent {
 }
 
 Clickable.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
   href: PropTypes.string,
@@ -102,6 +105,7 @@ Clickable.propTypes = {
 };
 
 Clickable.defaultProps = {
+  testId: undefined,
   className: '',
   href: '',
   target: '',

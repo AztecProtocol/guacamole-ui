@@ -252,6 +252,7 @@ class DatePicker extends PureComponent {
       showNavigator,
     } = this.state;
     const {
+      testId,
       className,
       daysStatus,
       disabledDays,
@@ -290,6 +291,7 @@ class DatePicker extends PureComponent {
       numberOfDays,
     };
     const calendarProps = {
+      testId,
       className,
       numberOfMonths,
       firstVisibleMonth,
@@ -342,6 +344,7 @@ class DatePicker extends PureComponent {
 }
 
 DatePicker.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   currentDayIndex: PropTypes.number,
   initialFirstVisibleMonth: PropTypes.instanceOf(moment),
@@ -376,6 +379,7 @@ DatePicker.propTypes = {
 };
 
 DatePicker.defaultProps = {
+  testId: undefined,
   className: '',
   currentDayIndex: 0,
   initialFirstVisibleMonth: undefined,

@@ -11,6 +11,7 @@ import Icon from '../Icon';
 import styles from './tag.scss';
 
 const Tag = ({
+  testId,
   className,
   size,
   children,
@@ -23,6 +24,7 @@ const Tag = ({
   onClick,
 }) => (
   <Block
+    testId={testId}
     className={classnames(
       className,
       styles.tag,
@@ -55,6 +57,7 @@ const Tag = ({
 );
 
 Tag.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(fontSizeKeys),
   children: PropTypes.node,
@@ -68,6 +71,7 @@ Tag.propTypes = {
 };
 
 Tag.defaultProps = {
+  testId: undefined,
   className: '',
   size: defaultFontSizeKey,
   children: null,

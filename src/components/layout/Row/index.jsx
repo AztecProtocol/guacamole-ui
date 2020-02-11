@@ -8,9 +8,12 @@ import FlexBox from '../FlexBox';
 import styles from './row.scss';
 
 const Row = ({
-  margin, ...props
+  testId,
+  margin,
+  ...props
 }) => (
   <FlexBox
+    testId={testId}
     className={classnames(
       (margin && margin !== 'none' && generateResponsiveStyleNames('margin', margin).map((n) => styles[n])) || '',
     )}
@@ -19,6 +22,7 @@ const Row = ({
 );
 
 Row.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   margin: responsiveSizes,
   direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
@@ -45,6 +49,7 @@ Row.propTypes = {
 };
 
 Row.defaultProps = {
+  testId: undefined,
   className: '',
   margin: 'm',
   direction: 'row',

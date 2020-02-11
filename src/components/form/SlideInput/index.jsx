@@ -150,6 +150,7 @@ class SlideInput extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       size,
       dropzoneLimit,
@@ -173,6 +174,7 @@ class SlideInput extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={classnames(
           className,
           styles.wrapper,
@@ -228,6 +230,7 @@ class SlideInput extends PureComponent {
 }
 
 SlideInput.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(inputSizeKeys),
   value: PropTypes.bool,
@@ -244,6 +247,7 @@ SlideInput.propTypes = {
 };
 
 SlideInput.defaultProps = {
+  testId: undefined,
   className: '',
   size: defaultInputSizeKey,
   value: undefined,

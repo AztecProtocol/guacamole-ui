@@ -9,6 +9,7 @@ import responsiveSizes from 'src/shapes/responsiveSizes';
 import styles from './col.scss';
 
 const Col = ({
+  testId,
   className,
   column,
   shift,
@@ -19,6 +20,7 @@ const Col = ({
   children,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
       className,
       column && generateResponsiveStyleNames('col', column).map((n) => styles[n]),
@@ -40,6 +42,7 @@ const Col = ({
 );
 
 Col.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   column: responsiveColumns,
   shift: generateResponsiveShape([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
@@ -51,6 +54,7 @@ Col.propTypes = {
 };
 
 Col.defaultProps = {
+  testId: undefined,
   className: '',
   column: 'auto',
   shift: 0,

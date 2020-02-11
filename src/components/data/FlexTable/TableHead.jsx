@@ -14,6 +14,8 @@ import TableCell from './TableCell';
 import styles from './table.scss';
 
 const TableHead = ({
+  testId,
+  className,
   align: defaultAlign,
   columns,
   nowrap,
@@ -22,6 +24,8 @@ const TableHead = ({
   onClickColumn,
 }) => (
   <TableRow
+    testId={testId}
+    className={className}
     textAlign={defaultAlign}
     nowrap={nowrap}
     highlight
@@ -72,6 +76,8 @@ const TableHead = ({
 );
 
 TableHead.propTypes = {
+  testId: PropTypes.string,
+  className: PropTypes.string,
   columns: PropTypes.arrayOf(PropTypes.shape({
     fieldName: PropTypes.string,
     width: PropTypes.string,
@@ -87,6 +93,8 @@ TableHead.propTypes = {
 };
 
 TableHead.defaultProps = {
+  testId: undefined,
+  className: '',
   align: '',
   nowrap: false,
   sortBy: '',

@@ -10,6 +10,7 @@ import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import styles from './button.scss';
 
 const Button = ({
+  testId,
   className,
   theme,
   size,
@@ -34,6 +35,7 @@ const Button = ({
 
   return (
     <ButtonTag
+      data-testid={testId}
       className={classnames(
         className,
         styles.button,
@@ -86,6 +88,7 @@ const Button = ({
 };
 
 Button.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(['primary', 'secondary', 'white']),
   size: generateResponsiveShape(buttonSizeKeys),
@@ -110,6 +113,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'primary',
   size: defaultInputSizeKey,

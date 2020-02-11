@@ -144,6 +144,7 @@ class Modal extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       theme,
       children,
@@ -156,6 +157,7 @@ class Modal extends PureComponent {
 
     return (
       <Overlay
+        testId={testId}
         className={className}
         theme={hasBackground ? theme : ''}
         hide={hide}
@@ -199,6 +201,7 @@ class Modal extends PureComponent {
 }
 
 Modal.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(overlayThemeNames),
   headerIcon: iconShape,
@@ -217,6 +220,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'primary',
   headerIcon: null,

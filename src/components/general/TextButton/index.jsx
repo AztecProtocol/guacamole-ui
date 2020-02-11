@@ -11,6 +11,7 @@ import Text from '../Text';
 import styles from './button.scss';
 
 const TextButton = ({
+  testId,
   className,
   theme,
   text,
@@ -26,6 +27,7 @@ const TextButton = ({
   disabled,
 }) => (
   <Clickable
+    testId={testId}
     className={classnames(
       className,
       styles.button,
@@ -53,6 +55,7 @@ const TextButton = ({
 );
 
 TextButton.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf([
     'normal',
@@ -84,6 +87,7 @@ TextButton.propTypes = {
 };
 
 TextButton.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'normal',
   text: '',

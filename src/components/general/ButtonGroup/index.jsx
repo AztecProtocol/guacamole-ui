@@ -4,9 +4,12 @@ import classnames from 'classnames';
 import styles from '../Button/button.scss';
 
 const ButtonGroup = ({
-  className, children,
+  testId,
+  className,
+  children,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(className, styles.group)}
   >
     {children}
@@ -14,6 +17,7 @@ const ButtonGroup = ({
 );
 
 ButtonGroup.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.node,
@@ -22,6 +26,7 @@ ButtonGroup.propTypes = {
 };
 
 ButtonGroup.defaultProps = {
+  testId: undefined,
   className: '',
 };
 

@@ -365,6 +365,7 @@ class SelectInput extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
     } = this.props;
     const {
@@ -373,6 +374,7 @@ class SelectInput extends PureComponent {
 
     return (
       <ClickOutsideHandler
+        testId={testId}
         className={classnames(className, styles.wrapper)}
         onClickOutside={this.handleCloseMenu}
         disabled={!showMenu}
@@ -385,6 +387,7 @@ class SelectInput extends PureComponent {
 }
 
 SelectInput.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(inputThemeNames),
   size: PropTypes.oneOf(inputSizeKeys),
@@ -408,6 +411,7 @@ SelectInput.propTypes = {
 };
 
 SelectInput.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: defaultInputSizeKey,

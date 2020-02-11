@@ -319,6 +319,7 @@ class MaskedNumberInput extends PureComponent {
       error,
     } = this.state;
     const {
+      testId,
       className,
       theme,
       size,
@@ -335,6 +336,7 @@ class MaskedNumberInput extends PureComponent {
 
     return (
       <TextInput
+        testId={testId}
         className={className}
         theme={theme}
         setInputRef={this.setInputRef}
@@ -354,6 +356,7 @@ class MaskedNumberInput extends PureComponent {
 }
 
 MaskedNumberInput.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(['default', 'inline']),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -375,6 +378,7 @@ MaskedNumberInput.propTypes = {
 };
 
 MaskedNumberInput.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   value: undefined,

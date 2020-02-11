@@ -7,6 +7,8 @@ import Row from '../../layout/Row';
 import styles from './table.scss';
 
 const TableRow = ({
+  testId,
+  className,
   verticalPadding,
   margin,
   textAlign,
@@ -21,7 +23,9 @@ const TableRow = ({
 }) => (
   <Block
     {...blockProps}
+    testId={testId}
     className={classnames(
+      className,
       styles['row-wrapper'],
       {
         [styles['row-no-divider']]: noDivider,
@@ -46,6 +50,8 @@ const TableRow = ({
 );
 
 TableRow.propTypes = {
+  testId: PropTypes.string,
+  className: PropTypes.string,
   verticalPadding: PropTypes.string,
   margin: PropTypes.string,
   textAlign: generateResponsiveShape(['', 'left', 'center', 'right']),
@@ -74,6 +80,8 @@ TableRow.propTypes = {
 };
 
 TableRow.defaultProps = {
+  testId: undefined,
+  className: '',
   verticalPadding: 's',
   margin: 's',
   textAlign: '',

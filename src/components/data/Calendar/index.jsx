@@ -89,6 +89,7 @@ class Calendar extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       orientation,
       flexWidth,
@@ -97,6 +98,7 @@ class Calendar extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={classnames(
           className,
           {
@@ -114,6 +116,7 @@ class Calendar extends PureComponent {
 }
 
 Calendar.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   firstVisibleMonth: PropTypes.instanceOf(moment),
   monthNameFormat: PropTypes.string,
@@ -130,6 +133,7 @@ Calendar.propTypes = {
 };
 
 Calendar.defaultProps = {
+  testId: undefined,
   className: '',
   firstVisibleMonth: moment(),
   monthNameFormat: 'YYYY MMMM',

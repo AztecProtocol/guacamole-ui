@@ -10,6 +10,7 @@ import generateResponsiveStyleNames from 'src/utils/generateResponsiveStyleNames
 import styles from './icon.scss';
 
 const Icon = ({
+  testId,
   className,
   name,
   size,
@@ -20,6 +21,7 @@ const Icon = ({
   flipVertical,
 }) => (
   <i
+    data-testid={testId}
     className={classnames(
       className,
       'material-icons',
@@ -39,6 +41,7 @@ const Icon = ({
 );
 
 Icon.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
   size: responsiveTextSizes,
@@ -50,6 +53,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
+  testId: undefined,
   className: '',
   size: 'inherit',
   color: '',

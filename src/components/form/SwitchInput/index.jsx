@@ -71,6 +71,7 @@ class SwitchInput extends PureComponent {
       checked,
     } = this.state;
     const {
+      testId,
       className,
       size,
       disabled,
@@ -80,6 +81,7 @@ class SwitchInput extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={classnames(
           className,
           styles.wrapper,
@@ -112,6 +114,7 @@ class SwitchInput extends PureComponent {
 }
 
 SwitchInput.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(inputSizeKeys),
   checked: PropTypes.bool,
@@ -123,6 +126,7 @@ SwitchInput.propTypes = {
 };
 
 SwitchInput.defaultProps = {
+  testId: undefined,
   className: '',
   size: 's',
   checked: undefined,

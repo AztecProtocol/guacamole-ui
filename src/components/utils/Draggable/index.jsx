@@ -130,6 +130,7 @@ class Draggable extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       children,
       style,
@@ -138,6 +139,7 @@ class Draggable extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={classnames(
           className,
           {
@@ -159,6 +161,7 @@ class Draggable extends PureComponent {
 }
 
 Draggable.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
   style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -168,6 +171,7 @@ Draggable.propTypes = {
 };
 
 Draggable.defaultProps = {
+  testId: undefined,
   className: '',
   children: null,
   style: null,

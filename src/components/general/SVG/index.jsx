@@ -10,6 +10,7 @@ import {
 import extractColorDetail from './utils/extractColorDetail';
 
 const SVG = ({
+  testId,
   className,
   glyph,
   width,
@@ -58,6 +59,7 @@ const SVG = ({
 
   return (
     <svg
+      data-testid={testId}
       className={className}
       dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
         __html: `<use xlink:href="#${glyph.id}" />`,
@@ -68,6 +70,7 @@ const SVG = ({
 };
 
 SVG.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   glyph: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   width: cssLength,
@@ -80,6 +83,7 @@ SVG.propTypes = {
 };
 
 SVG.defaultProps = {
+  testId: undefined,
   className: '',
   width: '',
   height: '',

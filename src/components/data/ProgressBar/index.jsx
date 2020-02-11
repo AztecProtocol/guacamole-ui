@@ -11,6 +11,7 @@ import Text from '../../general/Text';
 import styles from './bar.scss';
 
 const ProgressBar = ({
+  testId,
   className,
   size,
   value,
@@ -25,6 +26,7 @@ const ProgressBar = ({
   formatLabel,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
       className,
       styles.wrapper,
@@ -68,6 +70,7 @@ const ProgressBar = ({
 );
 
 ProgressBar.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(['xxs', 'xs', 's', 'm', 'l']),
   value: PropTypes.number.isRequired,
@@ -83,6 +86,7 @@ ProgressBar.propTypes = {
 };
 
 ProgressBar.defaultProps = {
+  testId: undefined,
   className: '',
   size: 'xs',
   base: 100,

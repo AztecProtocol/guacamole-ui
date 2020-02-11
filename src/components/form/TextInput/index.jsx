@@ -354,6 +354,7 @@ class TextInput extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       theme,
       size,
@@ -386,6 +387,7 @@ class TextInput extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={holderClassName}
       >
         {this.renderInput()}
@@ -421,6 +423,7 @@ class TextInput extends PureComponent {
 }
 
 TextInput.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(inputThemeNames),
   size: PropTypes.oneOf(inputSizeKeys),
@@ -453,6 +456,7 @@ TextInput.propTypes = {
 };
 
 TextInput.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: defaultInputSizeKey,

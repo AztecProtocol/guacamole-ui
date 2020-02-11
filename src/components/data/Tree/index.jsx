@@ -137,7 +137,8 @@ class Tree extends PureComponent {
     } = this.state;
 
     return data.map(({
-      data: childData, ...treeNodeData
+      data: childData,
+      ...treeNodeData
     }) => {
       const {
         value,
@@ -163,6 +164,7 @@ class Tree extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       data,
     } = this.props;
@@ -172,6 +174,7 @@ class Tree extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={classnames(
           className,
           {
@@ -186,10 +189,12 @@ class Tree extends PureComponent {
 }
 
 Tree.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   selectedValues: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
   activeValues: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
   data: PropTypes.arrayOf(PropTypes.shape({
+    testId: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     title: PropTypes.string,
     icon: iconShape,
@@ -212,6 +217,7 @@ Tree.propTypes = {
 };
 
 Tree.defaultProps = {
+  testId: undefined,
   className: '',
   selectedValues: null,
   activeValues: null,

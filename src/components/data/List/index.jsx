@@ -4,12 +4,16 @@ import ListItem from '../ListItem';
 import styles from './list.scss';
 
 const List = ({
+  testId,
+  className,
   size,
   items,
 }) => items.map((item, i) => (
   <div
     key={+i}
+    data-testid={testId}
     className={classnames(
+      className,
       styles.item,
       styles[`size-${size}`],
       {
@@ -25,6 +29,8 @@ const List = ({
 ));
 
 List.propTypes = {
+  testId: PropTypes.string,
+  className: PropTypes.string,
   size: PropTypes.oneOf(['s', 'm', 'l']),
   items: PropTypes.arrayOf(PropTypes.shape({
     iconName: PropTypes.string,
@@ -41,6 +47,8 @@ List.propTypes = {
 };
 
 List.defaultProps = {
+  testId: undefined,
+  className: '',
   size: 's',
   items: [],
 };

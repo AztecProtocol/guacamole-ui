@@ -12,6 +12,7 @@ import ImageWrapper from './ImageWrapper';
 import styles from './image.scss';
 
 const ImagePlaceholder = ({
+  testId,
   className,
   ratio,
   width,
@@ -23,6 +24,7 @@ const ImagePlaceholder = ({
 }) => {
   const contentNode = (
     <div
+      data-testid={noWrapper ? testId : undefined}
       className={classnames(
         styles.placeholder,
         {
@@ -48,6 +50,7 @@ const ImagePlaceholder = ({
 
   return (
     <ImageWrapper
+      testId={testId}
       className={className}
       ratio={ratio}
       width={width}
@@ -61,6 +64,7 @@ const ImagePlaceholder = ({
 };
 
 ImagePlaceholder.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   ratio: PropTypes.oneOf(['', ...imageRatioNames]),
   width: PropTypes.string,
@@ -72,6 +76,7 @@ ImagePlaceholder.propTypes = {
 };
 
 ImagePlaceholder.defaultProps = {
+  testId: undefined,
   className: '',
   ratio: '',
   width: '',

@@ -6,6 +6,7 @@ import FlexPopupMenu from './FlexPopupMenu';
 import styles from './popup.scss';
 
 const PopupMenu = ({
+  testId,
   className,
   children,
   hide,
@@ -15,6 +16,7 @@ const PopupMenu = ({
   flexWidth,
 }) => (
   <ClickOutsideHandler
+    testId={testId}
     className={className}
     onClickOutside={onClickOutside}
     disabled={hide || disabledClickOutside}
@@ -43,6 +45,7 @@ const PopupMenu = ({
 );
 
 PopupMenu.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
   onClickOutside: PropTypes.func,
@@ -53,6 +56,7 @@ PopupMenu.propTypes = {
 };
 
 PopupMenu.defaultProps = {
+  testId: undefined,
   className: '',
   onClickOutside() {},
   hide: false,

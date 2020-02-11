@@ -165,6 +165,7 @@ class AutoComplete extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       theme,
       size,
@@ -192,6 +193,7 @@ class AutoComplete extends PureComponent {
 
     return (
       <SelectInput
+        testId={testId}
         className={className}
         theme={theme}
         size={size}
@@ -213,6 +215,7 @@ class AutoComplete extends PureComponent {
 }
 
 AutoComplete.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(inputThemeNames),
   size: PropTypes.oneOf(inputSizeKeys),
@@ -238,6 +241,7 @@ AutoComplete.propTypes = {
 };
 
 AutoComplete.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: defaultInputSizeKey,

@@ -6,12 +6,16 @@ import Step from './Step';
 import styles from './steps.scss';
 
 const PageSteps = ({
+  testId,
+  className,
   theme,
   steps,
   currentStep,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
+      className,
       styles.steps,
       styles[`theme-${theme}`],
     )}
@@ -35,6 +39,8 @@ const PageSteps = ({
 );
 
 PageSteps.propTypes = {
+  testId: PropTypes.string,
+  className: PropTypes.string,
   theme: PropTypes.oneOf(['white', 'primary']),
   steps: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -50,6 +56,8 @@ PageSteps.propTypes = {
 };
 
 PageSteps.defaultProps = {
+  testId: undefined,
+  className: '',
   theme: 'primary',
   currentStep: 0,
 };

@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 
 export default {
+  testId: PropTypes.string,
+  className: PropTypes.string,
   size: PropTypes.oneOf(['xxs', 'xs', 's', 'm', 'l']),
   iconName: PropTypes.string,
   iconColor: PropTypes.string,

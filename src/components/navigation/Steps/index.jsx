@@ -12,6 +12,7 @@ import Text from '../../general/Text';
 import styles from './steps.scss';
 
 const Steps = ({
+  testId,
   className,
   size,
   totalSteps,
@@ -38,6 +39,7 @@ const Steps = ({
 
   return (
     <FlexBox
+      testId={testId}
       className={classnames(
         className,
         styles.steps,
@@ -98,6 +100,7 @@ const Steps = ({
 };
 
 Steps.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(inputSizeKeys),
   totalSteps: PropTypes.number.isRequired,
@@ -114,6 +117,7 @@ Steps.propTypes = {
 };
 
 Steps.defaultProps = {
+  testId: undefined,
   className: '',
   size: 's',
   currentStep: 0,

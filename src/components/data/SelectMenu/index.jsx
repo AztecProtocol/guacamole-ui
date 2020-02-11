@@ -130,6 +130,7 @@ class SelectMenu extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       size,
       itemGroups,
@@ -146,6 +147,7 @@ class SelectMenu extends PureComponent {
 
     return (
       <Block
+        testId={testId}
         className={className}
         background={background}
         padding={`${paddingV} 0`}
@@ -173,6 +175,7 @@ class SelectMenu extends PureComponent {
 }
 
 SelectMenu.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(shapeSizeKeys),
   itemGroups: PropTypes.arrayOf(itemGroupShape),
@@ -190,6 +193,7 @@ SelectMenu.propTypes = {
 };
 
 SelectMenu.defaultProps = {
+  testId: undefined,
   className: '',
   size: 'xs',
   itemGroups: [],

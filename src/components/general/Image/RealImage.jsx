@@ -168,6 +168,7 @@ class RealImage extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       ratio,
       width,
@@ -194,6 +195,7 @@ class RealImage extends PureComponent {
 
     return (
       <ImageWrapper
+        testId={testId}
         className={className}
         ratio={wrapperRatio}
         width={width}
@@ -215,6 +217,7 @@ class RealImage extends PureComponent {
 }
 
 RealImage.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string.isRequired,
   ratio: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
@@ -232,6 +235,7 @@ RealImage.propTypes = {
 };
 
 RealImage.defaultProps = {
+  testId: undefined,
   children: null,
 };
 

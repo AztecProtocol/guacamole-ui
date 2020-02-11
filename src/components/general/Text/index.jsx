@@ -11,6 +11,7 @@ import {
 import styles from './text.scss';
 
 const Text = ({
+  testId,
   className,
   title,
   text,
@@ -23,6 +24,7 @@ const Text = ({
   showEllipsis,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
       className,
       styles.text,
@@ -45,6 +47,7 @@ const Text = ({
 );
 
 Text.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -58,6 +61,7 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
+  testId: undefined,
   className: '',
   title: '',
   text: '',

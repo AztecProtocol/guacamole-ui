@@ -7,6 +7,7 @@ import Block from '../Block';
 import styles from './wrapper.scss';
 
 const PageContentWrapper = ({
+  testId,
   className,
   background,
   children,
@@ -16,6 +17,7 @@ const PageContentWrapper = ({
   scrollable,
 }) => (
   <Block
+    testId={testId}
     className={classnames(
       className,
       styles.wrapper,
@@ -46,6 +48,7 @@ const PageContentWrapper = ({
 );
 
 PageContentWrapper.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   background: PropTypes.string,
   children: PropTypes.node,
@@ -56,6 +59,7 @@ PageContentWrapper.propTypes = {
 };
 
 PageContentWrapper.defaultProps = {
+  testId: undefined,
   className: '',
   background: '',
   children: null,

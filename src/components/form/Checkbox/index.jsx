@@ -90,6 +90,7 @@ class Checkbox extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       theme,
       type,
@@ -108,6 +109,7 @@ class Checkbox extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={classnames(
           className,
           styles.wrapper,
@@ -150,6 +152,7 @@ class Checkbox extends PureComponent {
 }
 
 Checkbox.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']),
   type: PropTypes.oneOf(['check', 'radio']),
@@ -166,6 +169,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'light',
   type: 'check',

@@ -70,6 +70,7 @@ class Scrollable extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       background,
       children,
@@ -82,6 +83,7 @@ class Scrollable extends PureComponent {
     return (
       <div
         ref={this.setWrapperRef}
+        data-testid={testId}
         className={classnames(
           className,
           styles.wrapper,
@@ -108,6 +110,7 @@ class Scrollable extends PureComponent {
 }
 
 Scrollable.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
   background: PropTypes.string,
@@ -117,6 +120,7 @@ Scrollable.propTypes = {
 };
 
 Scrollable.defaultProps = {
+  testId: undefined,
   className: '',
   children: null,
   background: '',

@@ -14,6 +14,7 @@ import styles from './tree.scss';
 class TreeNode extends PureComponent {
   render() {
     const {
+      testId,
       value,
       title,
       icon,
@@ -37,6 +38,7 @@ class TreeNode extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={classnames(
           styles.node,
           {
@@ -89,6 +91,7 @@ class TreeNode extends PureComponent {
 }
 
 TreeNode.propTypes = {
+  testId: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   title: PropTypes.string,
   icon: iconShape,
@@ -103,6 +106,7 @@ TreeNode.propTypes = {
 };
 
 TreeNode.defaultProps = {
+  testId: undefined,
   title: '',
   icon: null,
   content: null,

@@ -12,6 +12,7 @@ import ImagePlaceholder from './ImagePlaceholder';
 import RealImage from './RealImage';
 
 const Image = ({
+  testId,
   className,
   ratio,
   width,
@@ -32,6 +33,7 @@ const Image = ({
 }) => {
   const content = (
     <RealImage
+      testId={testId}
       className={className}
       ratio={ratio}
       width={width}
@@ -64,6 +66,7 @@ const Image = ({
   const placeholder = showPlaceholder
     ? (
       <ImageWrapper
+        testId={testId}
         className={className}
         ratio={wrapperRatio}
         width={width}
@@ -73,6 +76,7 @@ const Image = ({
     )
     : (
       <ImagePlaceholder
+        testId={testId}
         className={className}
         ratio={wrapperRatio}
         width={width}
@@ -93,6 +97,7 @@ const Image = ({
 };
 
 Image.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   ratio: PropTypes.oneOf(['', ...imageRatioNames]),
   width: PropTypes.string,
@@ -113,6 +118,7 @@ Image.propTypes = {
 };
 
 Image.defaultProps = {
+  testId: undefined,
   className: '',
   ratio: '',
   width: '',

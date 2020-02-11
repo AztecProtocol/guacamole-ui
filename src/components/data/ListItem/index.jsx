@@ -15,6 +15,7 @@ import Avatar from '../Avatar';
 import styles from './item.scss';
 
 const ListItem = ({
+  testId,
   className,
   size,
   icon,
@@ -30,6 +31,7 @@ const ListItem = ({
   showEllipsis,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
       className,
       styles['list-item'],
@@ -84,6 +86,7 @@ const ListItem = ({
 );
 
 ListItem.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(shapeSizeKeys),
   icon: iconShape,
@@ -108,6 +111,7 @@ ListItem.propTypes = {
 };
 
 ListItem.defaultProps = {
+  testId: undefined,
   className: '',
   size: 's',
   icon: null,

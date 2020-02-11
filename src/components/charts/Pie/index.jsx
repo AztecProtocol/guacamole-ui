@@ -99,6 +99,7 @@ class Pie extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       startDeg,
       strokeWidth,
@@ -122,6 +123,7 @@ class Pie extends PureComponent {
     return (
       <div
         ref={this.setWrapperRef}
+        data-testid={testId}
         className={classnames(
           className,
           styles['pie-wrapper'],
@@ -223,6 +225,7 @@ class Pie extends PureComponent {
 }
 
 Pie.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   radius: PropTypes.number,
   value: PropTypes.number.isRequired,
@@ -238,6 +241,7 @@ Pie.propTypes = {
 };
 
 Pie.defaultProps = {
+  testId: undefined,
   className: '',
   radius: null,
   strokeWidth: 24,

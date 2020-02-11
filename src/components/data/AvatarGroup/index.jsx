@@ -12,6 +12,7 @@ import Avatar from '../Avatar';
 import styles from './avatars.scss';
 
 const AvatarGroup = ({
+  testId,
   className,
   size,
   avatars,
@@ -22,6 +23,7 @@ const AvatarGroup = ({
   layer,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
       className,
       styles[`group-${size}`],
@@ -29,6 +31,7 @@ const AvatarGroup = ({
     )}
   >
     {avatars.map(({
+      testId: avatarTestId,
       className: avatarClassName,
       tooltip,
       background: avatarBg,
@@ -43,6 +46,7 @@ const AvatarGroup = ({
     }, i) => (
       <div
         key={+i}
+        data-testid={avatarTestId}
         className={classnames(
           avatarClassName,
           styles.avatar,
@@ -85,9 +89,11 @@ const AvatarGroup = ({
 );
 
 AvatarGroup.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(shapeSizeKeys),
   avatars: PropTypes.arrayOf(PropTypes.shape({
+    testId: PropTypes.string,
     className: PropTypes.string,
     iconName: PropTypes.string,
     iconBackground: PropTypes.oneOf(backgroundNames),
@@ -111,6 +117,7 @@ AvatarGroup.propTypes = {
 };
 
 AvatarGroup.defaultProps = {
+  testId: undefined,
   className: '',
   size: 's',
   canvasBackground: 'white',

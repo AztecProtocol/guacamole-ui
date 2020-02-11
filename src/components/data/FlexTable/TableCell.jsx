@@ -6,6 +6,7 @@ import Col from '../../layout/Col';
 import styles from './table.scss';
 
 const TableCell = ({
+  testId,
   className,
   width,
   column,
@@ -15,6 +16,7 @@ const TableCell = ({
   isLoading,
 }) => (
   <Col
+    testId={testId}
     className={className}
     margin="s"
     align={align}
@@ -34,6 +36,7 @@ const TableCell = ({
 );
 
 TableCell.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   width: PropTypes.string,
   column: responsiveColumns,
@@ -44,6 +47,7 @@ TableCell.propTypes = {
 };
 
 TableCell.defaultProps = {
+  testId: undefined,
   className: '',
   width: '',
   column: '',

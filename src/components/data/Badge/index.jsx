@@ -7,6 +7,7 @@ import {
 import styles from './badge.scss';
 
 const Badge = ({
+  testId,
   className,
   theme,
   size,
@@ -16,6 +17,7 @@ const Badge = ({
   isDot,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
       className,
       styles.badge,
@@ -32,6 +34,7 @@ const Badge = ({
 );
 
 Badge.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(['default', 'label']),
   size: PropTypes.oneOf(shapeSizeKeys),
@@ -42,6 +45,7 @@ Badge.propTypes = {
 };
 
 Badge.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: 'xs',

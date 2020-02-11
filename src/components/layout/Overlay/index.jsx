@@ -7,6 +7,7 @@ import {
 import styles from './overlay.scss';
 
 const Overlay = ({
+  testId,
   className,
   theme,
   children,
@@ -15,6 +16,7 @@ const Overlay = ({
   onKeyDown,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
       className,
       styles.overlay,
@@ -33,6 +35,7 @@ const Overlay = ({
 );
 
 Overlay.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(['', ...overlayThemeNames]),
   children: PropTypes.node,
@@ -42,6 +45,7 @@ Overlay.propTypes = {
 };
 
 Overlay.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'primary',
   children: null,

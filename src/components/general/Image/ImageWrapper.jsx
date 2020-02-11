@@ -5,6 +5,7 @@ import Block from '../../layout/Block';
 import styles from './image.scss';
 
 const ImageWrapper = ({
+  testId,
   className,
   ratio,
   width,
@@ -22,6 +23,7 @@ const ImageWrapper = ({
 
   return (
     <Block
+      testId={testId}
       className={classnames(
         className,
         styles.wrapper,
@@ -38,6 +40,7 @@ const ImageWrapper = ({
 };
 
 ImageWrapper.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   ratio: PropTypes.string,
   width: PropTypes.string,
@@ -47,6 +50,7 @@ ImageWrapper.propTypes = {
 };
 
 ImageWrapper.defaultProps = {
+  testId: undefined,
   className: '',
   ratio: '',
   width: '',

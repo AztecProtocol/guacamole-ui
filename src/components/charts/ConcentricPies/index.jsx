@@ -12,6 +12,7 @@ import styles from './pies.scss';
 class ConcentricPies extends PureComponent {
   render() {
     const {
+      testId,
       className,
       pies,
       startDeg,
@@ -25,6 +26,7 @@ class ConcentricPies extends PureComponent {
 
     return (
       <div
+        data-testid={testId}
         className={classnames(className, styles.wrapper)}
       >
         {pies.map(({
@@ -68,6 +70,7 @@ class ConcentricPies extends PureComponent {
 }
 
 ConcentricPies.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   pies: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.number.isRequired,
@@ -87,6 +90,7 @@ ConcentricPies.propTypes = {
 };
 
 ConcentricPies.defaultProps = {
+  testId: undefined,
   className: '',
   startDeg: 0,
   strokeWidth: 24,

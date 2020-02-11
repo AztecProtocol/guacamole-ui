@@ -461,6 +461,7 @@ class DatePickerInput extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       singleInput,
       mobileMode,
@@ -472,6 +473,7 @@ class DatePickerInput extends PureComponent {
 
     return (
       <ClickOutsideHandler
+        testId={testId}
         className={classnames(className, styles.wrapper)}
         onClickOutside={this.handleCloseMenu}
         disabled={!showMenu}
@@ -484,6 +486,7 @@ class DatePickerInput extends PureComponent {
 }
 
 DatePickerInput.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(inputThemeNames),
   size: PropTypes.oneOf(inputSizeKeys),
@@ -535,6 +538,7 @@ DatePickerInput.propTypes = {
 };
 
 DatePickerInput.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: defaultInputSizeKey,

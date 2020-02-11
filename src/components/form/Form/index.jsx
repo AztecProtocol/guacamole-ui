@@ -373,6 +373,7 @@ class Form extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       fieldsConfig,
       expand,
@@ -383,6 +384,7 @@ class Form extends PureComponent {
 
     return (
       <Offset
+        testId={testId}
         className={classnames(
           className,
           {
@@ -402,6 +404,7 @@ class Form extends PureComponent {
 }
 
 Form.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(inputSizeKeys),
   initialData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -427,6 +430,7 @@ Form.propTypes = {
 };
 
 Form.defaultProps = {
+  testId: undefined,
   className: '',
   size: defaultInputSizeKey,
   initialData: {},

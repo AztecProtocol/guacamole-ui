@@ -2,6 +2,7 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {
   inputThemeNames,
   inputSizeKeys,
@@ -316,12 +317,20 @@ class TreeSelect extends PureComponent {
 
   render() {
     const {
+      testId,
+      className,
+    } = this.props;
+    const {
       showMenu,
     } = this.state;
 
     return (
       <ClickOutsideHandler
-        className={styles.wrapper}
+        testId={testId}
+        className={classnames(
+          className,
+          styles.wrapper,
+        )}
         onClickOutside={this.handleCloseMenu}
         disabled={!showMenu}
       >
@@ -333,6 +342,8 @@ class TreeSelect extends PureComponent {
 }
 
 TreeSelect.propTypes = {
+  testId: PropTypes.string,
+  className: PropTypes.string,
   theme: PropTypes.oneOf(inputThemeNames),
   selectedValues: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.number,
@@ -372,6 +383,8 @@ TreeSelect.propTypes = {
 };
 
 TreeSelect.defaultProps = {
+  testId: undefined,
+  className: '',
   theme: 'default',
   size: defaultInputSizeKey,
   selectedValues: null,

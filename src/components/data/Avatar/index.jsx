@@ -91,6 +91,7 @@ class Avatar extends PureComponent {
 
   render() {
     const {
+      testId,
       className,
       shape,
       src,
@@ -113,8 +114,13 @@ class Avatar extends PureComponent {
       : background;
 
     const TagName = onClick ? Clickable : 'div';
+    const tagProps = {
+      [onClick ? 'testId' : 'data-testid']: testId,
+    };
+
     return (
       <TagName
+        {...tagProps}
         className={classnames(
           className,
           styles.avatar,
@@ -142,6 +148,7 @@ class Avatar extends PureComponent {
 }
 
 Avatar.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   shape: PropTypes.oneOf(['circular', 'square']),
   src: PropTypes.string,
@@ -159,6 +166,7 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
+  testId: undefined,
   className: '',
   shape: 'circular',
   src: '',

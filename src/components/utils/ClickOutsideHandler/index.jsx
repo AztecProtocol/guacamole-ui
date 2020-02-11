@@ -69,12 +69,15 @@ class ClickOutsideHandler extends PureComponent {
 
   render() {
     const {
-      className, children,
+      testId,
+      className,
+      children,
     } = this.props;
 
     return (
       <div
         ref={this.setWrapperRef}
+        data-testid={testId}
         className={className}
       >
         {children}
@@ -84,6 +87,7 @@ class ClickOutsideHandler extends PureComponent {
 }
 
 ClickOutsideHandler.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
   onClickOutside: PropTypes.func.isRequired,
@@ -92,6 +96,7 @@ ClickOutsideHandler.propTypes = {
 };
 
 ClickOutsideHandler.defaultProps = {
+  testId: undefined,
   className: '',
   disabled: false,
   stopPropagation: false,

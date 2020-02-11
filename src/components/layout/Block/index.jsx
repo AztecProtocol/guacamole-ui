@@ -14,6 +14,7 @@ import withEmptyOrDefault from 'src/shapes/withEmptyOrDefault';
 import styles from './block.scss';
 
 const Block = ({
+  testId,
   className,
   style,
   padding,
@@ -64,6 +65,7 @@ const Block = ({
   /* eslint-disable jsx-a11y/no-static-element-interactions */
   return (
     <div
+      data-testid={testId}
       className={classnames(
         className,
         ...sizeStyleNames,
@@ -96,6 +98,7 @@ const Block = ({
 };
 
 Block.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   padding: responsiveCssSizes,
@@ -121,6 +124,7 @@ Block.propTypes = {
 };
 
 Block.defaultProps = {
+  testId: undefined,
   className: '',
   style: {},
   padding: '',

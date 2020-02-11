@@ -7,6 +7,7 @@ import responsiveCssSizes from 'src/shapes/responsiveCssSizes';
 import styles from './offset.scss';
 
 const Offset = ({
+  testId,
   className,
   margin,
   top,
@@ -29,6 +30,7 @@ const Offset = ({
 
   return (
     <div
+      data-testid={testId}
       className={classnames(className, sizeStyleNames)}
     >
       {children}
@@ -37,6 +39,7 @@ const Offset = ({
 };
 
 Offset.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   margin: responsiveCssSizes,
   top: responsiveCssSizes,
@@ -47,6 +50,7 @@ Offset.propTypes = {
 };
 
 Offset.defaultProps = {
+  testId: undefined,
   className: '',
   margin: '',
   top: '',

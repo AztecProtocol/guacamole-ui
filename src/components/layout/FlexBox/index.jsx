@@ -8,6 +8,7 @@ import generateResponsiveShape from 'src/utils/generateResponsiveShape';
 import styles from './flex.scss';
 
 const FlexBox = ({
+  testId,
   className,
   direction,
   align,
@@ -19,6 +20,7 @@ const FlexBox = ({
   children,
 }) => (
   <div
+    data-testid={testId}
     className={classnames(
       className,
       styles['flex-box'],
@@ -38,6 +40,7 @@ const FlexBox = ({
 );
 
 FlexBox.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   direction: generateResponsiveShape([
     '',
@@ -71,6 +74,7 @@ FlexBox.propTypes = {
 };
 
 FlexBox.defaultProps = {
+  testId: undefined,
   className: '',
   direction: 'row',
   align: '',

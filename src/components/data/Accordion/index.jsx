@@ -70,13 +70,17 @@ class Accordion extends PureComponent {
       isOpen,
     } = this.state;
     const {
+      testId,
       className,
       title,
       content,
     } = this.props;
 
     return (
-      <div className={className}>
+      <div
+        data-testid={testId}
+        className={className}
+      >
         <Clickable
           onClick={this.handleToggleContent}
         >
@@ -98,6 +102,7 @@ class Accordion extends PureComponent {
 }
 
 Accordion.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   title: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
@@ -109,6 +114,7 @@ Accordion.propTypes = {
 };
 
 Accordion.defaultProps = {
+  testId: undefined,
   className: '',
   isOpen: null,
   defaultIsOpen: true,

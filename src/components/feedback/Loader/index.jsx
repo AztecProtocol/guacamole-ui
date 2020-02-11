@@ -9,6 +9,7 @@ import Overlay from '../../layout/Overlay';
 import styles from './loader.scss';
 
 const Loader = ({
+  testId,
   className,
   theme,
   size,
@@ -16,6 +17,7 @@ const Loader = ({
   hide,
 }) => (
   <Overlay
+    testId={testId}
     className={classnames(
       className,
       styles.loader,
@@ -31,6 +33,7 @@ const Loader = ({
 );
 
 Loader.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.oneOf(overlayThemeNames),
   size: PropTypes.oneOf(fontSizeKeys),
@@ -39,6 +42,7 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'primary',
   size: 'l',

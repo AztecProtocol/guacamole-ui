@@ -7,6 +7,7 @@ import Calendar from './index';
 function CalendarWithNavigator(props) {
   const {
     className,
+    testId,
     firstVisibleMonth,
     initialFirstVisibleMonth,
     minMonth,
@@ -34,6 +35,7 @@ function CalendarWithNavigator(props) {
         firstVisibleMonth: month,
       }) => (
         <Calendar
+          testId={testId}
           firstVisibleMonth={month}
           numberOfMonths={numberOfMonths}
           orientation={orientation}
@@ -55,6 +57,7 @@ CalendarWithNavigator.propTypes = {
   onChangeMonth: PropTypes.func,
 
   // Props for Calendar
+  testId: PropTypes.string,
   monthNameFormat: PropTypes.string,
   startOfWeek: PropTypes.number,
   showOutsideDays: PropTypes.bool,
@@ -70,6 +73,7 @@ CalendarWithNavigator.propTypes = {
 };
 
 CalendarWithNavigator.defaultProps = {
+  testId: undefined,
   className: '',
   firstVisibleMonth: null,
   initialFirstVisibleMonth: moment(),

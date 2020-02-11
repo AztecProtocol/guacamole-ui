@@ -12,6 +12,7 @@ import Text from '../../general/Text';
 import styles from './progress.scss';
 
 const Progress = ({
+  testId,
   className,
   size,
   totalSteps,
@@ -31,6 +32,7 @@ const Progress = ({
 
   return (
     <FlexBox
+      testId={testId}
       className={classnames(
         className,
         styles.progress,
@@ -101,6 +103,7 @@ const Progress = ({
 };
 
 Progress.propTypes = {
+  testId: PropTypes.string,
   className: PropTypes.string,
   theme: PropTypes.string,
   size: PropTypes.oneOf(inputSizeKeys),
@@ -116,6 +119,7 @@ Progress.propTypes = {
 };
 
 Progress.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'primary',
   size: 's',
