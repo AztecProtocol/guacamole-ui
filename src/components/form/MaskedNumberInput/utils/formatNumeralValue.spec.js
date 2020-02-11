@@ -43,4 +43,11 @@ describe('formatNumeralValue', () => {
       allowNegative,
     })).toBe('-000,000');
   });
+
+  it('can process large numbers', () => {
+    expect(formatNumeralValue('12345678987654321')).toBe('12,345,678,987,654,321');
+    expect(formatNumeralValue('12345678900000.87654321', {
+      allowDecimal: true,
+    })).toBe('12,345,678,900,000.87654321');
+  });
 });

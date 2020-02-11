@@ -186,3 +186,24 @@ initialState = { value: '' };
   </Col>
 </Row>
 ```
+
+#### Allow Big Numbers
+
+```js
+import Row from '../../layout/Row';
+import Col from '../../layout/Col';
+
+initialState = { value: '1000000000000000000.001' };
+
+<Row>
+  <Col column={6}>
+    <MaskedNumberInput
+      value={state.value}
+      onChange={value => setState({ value })}
+      maxValue="1000000000000000000000000"
+      minValue="0"
+      allowDecimal
+    />
+  </Col>
+</Row>
+```

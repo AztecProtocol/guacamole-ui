@@ -12,6 +12,7 @@ import formatNumeralValue from './utils/formatNumeralValue';
 import escapeRegExp from './utils/escapeRegExp';
 import getPositionBoundaries from './utils/getPositionBoundaries';
 import handleKeyDown from './utils/handleKeyDown';
+import isGreaterThan from './utils/isGreaterThan';
 
 class MaskedNumberInput extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -172,7 +173,7 @@ class MaskedNumberInput extends PureComponent {
       end: prevStart,
     } = this.getSelection();
 
-    if (+numeralValue > maxValue || +numeralValue < minValue) {
+    if (isGreaterThan(numeralValue, maxValue) || isGreaterThan(minValue, numeralValue)) {
       return {
         formatedValue: prevValue,
         start: prevStart - 1,
@@ -369,8 +370,8 @@ MaskedNumberInput.propTypes = {
   validate: PropTypes.func,
   setInputRef: PropTypes.func,
   readingSpeed: PropTypes.number,
-  maxValue: PropTypes.number,
-  minValue: PropTypes.number,
+  maxValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  minValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 MaskedNumberInput.defaultProps = {
