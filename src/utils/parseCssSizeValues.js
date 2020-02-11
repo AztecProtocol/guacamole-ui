@@ -23,8 +23,28 @@ function parseCssSizeString(sizeStr) {
   }
 
   const sizeMap = {};
+  if (values.every((v, i) => !i || v === values[i - 1])) {
+    [sizeMap.all] = values;
+    values.forEach((v, i) => {
+      values[i] = '';
+    });
+  } else {
+    if (values[0] === values[2]) {
+      [sizeMap.v] = values;
+      values[0] = '';
+      values[2] = '';
+    }
+    if (values[1] === values[3]) {
+      [, sizeMap.h] = values;
+      values[1] = '';
+      values[3] = '';
+    }
+  }
+
   directions.forEach((dir, i) => {
-    sizeMap[dir] = values[i];
+    if (values[i] !== '') {
+      sizeMap[dir] = values[i];
+    }
   });
 
   return sizeMap;
@@ -41,9 +61,9 @@ function containSimpleValueOnly(values) {
 
 export default function parseCssSizeValues(values) {
   if (typeof values === 'string') {
-    return isSimpleValue(values) ? {
-      all: values,
-    } : parseCssSizeString(values);
+    return isSimpleValue(values)
+      ? { all: values }
+      : parseCssSizeString(values);
   }
 
   if (containSimpleValueOnly(values)) {
@@ -57,7 +77,7 @@ export default function parseCssSizeValues(values) {
     .filter((key) => values[key])
     .forEach((key) => {
       const sizes = parseCssSizeString(values[key]);
-      directions.forEach((dir) => {
+      Object.keys(sizes).forEach((dir) => {
         if (!sizeMap[dir]) {
           sizeMap[dir] = {};
         }

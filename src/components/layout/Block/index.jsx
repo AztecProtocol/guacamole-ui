@@ -46,7 +46,7 @@ const Block = ({
     ...parseCssSizeValues(padding),
   };
 
-  const sizeStyleNames = ['all', 'top', 'right', 'bottom', 'left']
+  const sizeStyleNames = ['all', 'top', 'right', 'bottom', 'left', 'v', 'h']
     .filter((size) => sizeMap[size])
     .map((size) => generateResponsiveStyleNames(size, sizeMap[size]).map((n) => styles[n]));
 

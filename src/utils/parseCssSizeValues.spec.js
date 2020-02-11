@@ -16,21 +16,42 @@ describe('parseCssSizeValues test', () => {
     });
   });
 
+  it('parse a string with 4 symmetric values', () => {
+    expect(parseCssSizeValues('s xs s xs')).toEqual({
+      v: 's',
+      h: 'xs',
+    });
+
+    expect(parseCssSizeValues('s l s xs')).toEqual({
+      v: 's',
+      right: 'l',
+      left: 'xs',
+    });
+  });
+
+  it('parse a string with 4 identical values', () => {
+    expect(parseCssSizeValues('s s s s')).toEqual({
+      all: 's',
+    });
+  });
+
   it('parse a string with 3 values', () => {
     expect(parseCssSizeValues('s xs l')).toEqual({
       top: 's',
-      right: 'xs',
       bottom: 'l',
-      left: 'xs',
+      h: 'xs',
+    });
+
+    expect(parseCssSizeValues('s xs s')).toEqual({
+      v: 's',
+      h: 'xs',
     });
   });
 
   it('parse a string with 2 values', () => {
     expect(parseCssSizeValues('s xs')).toEqual({
-      top: 's',
-      right: 'xs',
-      bottom: 's',
-      left: 'xs',
+      v: 's',
+      h: 'xs',
     });
   });
 
@@ -39,14 +60,13 @@ describe('parseCssSizeValues test', () => {
       m: 's',
       s: 'l',
       xs: 'xl',
-    }))
-      .toEqual({
-        all: {
-          m: 's',
-          s: 'l',
-          xs: 'xl',
-        },
-      });
+    })).toEqual({
+      all: {
+        m: 's',
+        s: 'l',
+        xs: 'xl',
+      },
+    });
   });
 
   it('parse a responsive value array with more than one value', () => {
@@ -55,24 +75,20 @@ describe('parseCssSizeValues test', () => {
       s: '0 m l',
       xs: 'xxs',
     })).toEqual({
-      top: {
+      v: {
         m: 's',
-        s: '0',
-        xs: 'xxs',
       },
-      right: {
+      h: {
         m: 'xl',
         s: 'm',
-        xs: 'xxs',
+      },
+      top: {
+        s: '0',
       },
       bottom: {
-        m: 's',
         s: 'l',
-        xs: 'xxs',
       },
-      left: {
-        m: 'xl',
-        s: 'm',
+      all: {
         xs: 'xxs',
       },
     });
