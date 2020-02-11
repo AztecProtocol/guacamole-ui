@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.SelectMenu = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -19,11 +19,13 @@ var _Block = _interopRequireDefault(require("../../layout/Block"));
 
 var _Group = _interopRequireDefault(require("./Group"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -31,7 +33,7 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -168,6 +170,7 @@ function (_PureComponent) {
       var _this2 = this;
 
       var _this$props = this.props,
+          testId = _this$props.testId,
           className = _this$props.className,
           size = _this$props.size,
           itemGroups = _this$props.itemGroups,
@@ -185,7 +188,8 @@ function (_PureComponent) {
           paddingV = _padding$split2[0],
           paddingH = _padding$split2[1];
 
-      return _react.default.createElement(_Block.default, {
+      return _react["default"].createElement(_Block["default"], {
+        testId: testId,
         className: className,
         background: background,
         padding: "".concat(paddingV, " 0"),
@@ -193,7 +197,7 @@ function (_PureComponent) {
         layer: layer,
         hasBorder: hasBorder
       }, itemGroups.map(function (group, i) {
-        return _react.default.createElement(_Group.default, _extends({
+        return _react["default"].createElement(_Group["default"], _extends({
           key: +i
         }, group, {
           size: size,
@@ -212,24 +216,25 @@ function (_PureComponent) {
   return SelectMenu;
 }(_react.PureComponent);
 
-exports.SelectMenu = SelectMenu;
 SelectMenu.propTypes = {
-  className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys),
-  itemGroups: _propTypes.default.arrayOf(_itemGroupShape.default),
-  background: _propTypes.default.string,
-  padding: _responsiveCssSizes.default,
-  borderRadius: _propTypes.default.string,
-  layer: _propTypes.default.number,
-  hasBorder: _propTypes.default.bool,
-  hasDivider: _propTypes.default.bool,
-  selectedValue: _propTypes.default.string,
-  hoveredValue: _propTypes.default.string,
-  onSelect: _propTypes.default.func,
-  onHover: _propTypes.default.func,
-  onBlur: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  size: _propTypes["default"].oneOf(_styleConstants.shapeSizeKeys),
+  itemGroups: _propTypes["default"].arrayOf(_itemGroupShape["default"]),
+  background: _propTypes["default"].string,
+  padding: _responsiveCssSizes["default"],
+  borderRadius: _propTypes["default"].string,
+  layer: _propTypes["default"].number,
+  hasBorder: _propTypes["default"].bool,
+  hasDivider: _propTypes["default"].bool,
+  selectedValue: _propTypes["default"].string,
+  hoveredValue: _propTypes["default"].string,
+  onSelect: _propTypes["default"].func,
+  onHover: _propTypes["default"].func,
+  onBlur: _propTypes["default"].func
 };
 SelectMenu.defaultProps = {
+  testId: undefined,
   className: '',
   size: 'xs',
   itemGroups: [],
@@ -246,4 +251,4 @@ SelectMenu.defaultProps = {
   onBlur: function onBlur() {}
 };
 var _default = SelectMenu;
-exports.default = _default;
+exports["default"] = _default;

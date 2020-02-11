@@ -3,17 +3,17 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = handleKeyDown;
+exports["default"] = handleKeyDown;
 
 var _getPositionBoundaries = _interopRequireDefault(require("./getPositionBoundaries"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -33,7 +33,7 @@ function handleKeyDown(e, selection, updateCursorPosition) {
   var value = target.value;
   var start = selection.start,
       end = selection.end;
-  var boundaries = (0, _getPositionBoundaries.default)(e, {
+  var boundaries = (0, _getPositionBoundaries["default"])(e, {
     allowNegative: allowNegative,
     prefix: prefix,
     suffix: suffix
@@ -140,12 +140,12 @@ function handleKeyDown(e, selection, updateCursorPosition) {
 
     default:
       {
-        var char = e.key;
+        var _char = e.key;
 
-        if (start === end && char.length === 1 && !e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey) {
-          var isValidDigit = char.match(/[0-9]/) && (start !== 0 || !value.startsWith("-".concat(prefix)));
-          var isValidSign = char === '-' && allowNegative && !value.startsWith("-".concat(prefix));
-          var isValidDecimal = char === '.' && allowDecimal && value.indexOf('.') === -1; // will always be false if prefix or suffix has a dot
+        if (start === end && _char.length === 1 && !e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey) {
+          var isValidDigit = _char.match(/[0-9]/) && (start !== 0 || !value.startsWith("-".concat(prefix)));
+          var isValidSign = _char === '-' && allowNegative && !value.startsWith("-".concat(prefix));
+          var isValidDecimal = _char === '.' && allowDecimal && value.indexOf('.') === -1; // will always be false if prefix or suffix has a dot
 
           if (!isValidDigit && !isValidSign && !isValidDecimal) {
             e.preventDefault();

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getDefaultData;
+exports["default"] = getDefaultData;
 
 var _dataModifier = require("./dataModifier");
 

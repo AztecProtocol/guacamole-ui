@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getScaleByPosition;
+exports["default"] = getScaleByPosition;
 
 function getScaleByPosition(position, left, right) {
   var _ref = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {},

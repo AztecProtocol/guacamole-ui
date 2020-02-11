@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Col = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _generateResponsiveStyleNames = _interopRequireDefault(require("../../../utils/generateResponsiveStyleNames"));
 
@@ -23,7 +21,7 @@ var _responsiveTextAlign = _interopRequireDefault(require("../../../shapes/respo
 
 var _responsiveSizes = _interopRequireDefault(require("../../../shapes/responsiveSizes"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -325,7 +323,8 @@ var styles = {
 };
 
 var Col = function Col(_ref) {
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       column = _ref.column,
       shift = _ref.shift,
       margin = _ref.margin,
@@ -333,25 +332,34 @@ var Col = function Col(_ref) {
       align = _ref.align,
       style = _ref.style,
       children = _ref.children;
-  return _react.default.createElement("div", {
-    className: className,
-    styleName: (0, _classnames2.default)(column && (0, _generateResponsiveStyleNames.default)('col', column), shift && shift !== 0 ? (0, _generateResponsiveStyleNames.default)('shift', shift) : '', margin && margin !== 'none' ? (0, _generateResponsiveStyleNames.default)('margin', margin) : '', align && (0, _generateResponsiveStyleNames.default)('align', align) || '', _defineProperty({}, "bg-".concat(background), background)),
+  return _react["default"].createElement("div", {
+    "data-testid": testId,
+    className: (0, _classnames2["default"])(className, column && (0, _generateResponsiveStyleNames["default"])('col', column).map(function (n) {
+      return styles[n];
+    }), shift && shift !== 0 ? (0, _generateResponsiveStyleNames["default"])('shift', shift).map(function (n) {
+      return styles[n];
+    }) : '', margin && margin !== 'none' ? (0, _generateResponsiveStyleNames["default"])('margin', margin).map(function (n) {
+      return styles[n];
+    }) : '', align && (0, _generateResponsiveStyleNames["default"])('align', align).map(function (n) {
+      return styles[n];
+    }) || '', _defineProperty({}, styles["bg-".concat(background)], background)),
     style: style
   }, children);
 };
 
-exports.Col = Col;
 Col.propTypes = {
-  className: _propTypes.default.string,
-  column: _responsiveColumns.default,
-  shift: (0, _generateResponsiveShape.default)([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  margin: _responsiveSizes.default,
-  background: _propTypes.default.string,
-  align: _responsiveTextAlign.default,
-  style: _propTypes.default.objectOf(_propTypes.default.string),
-  children: _propTypes.default.node
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  column: _responsiveColumns["default"],
+  shift: (0, _generateResponsiveShape["default"])([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  margin: _responsiveSizes["default"],
+  background: _propTypes["default"].string,
+  align: _responsiveTextAlign["default"],
+  style: _propTypes["default"].objectOf(_propTypes["default"].string),
+  children: _propTypes["default"].node
 };
 Col.defaultProps = {
+  testId: undefined,
   className: '',
   column: 'auto',
   shift: 0,
@@ -361,9 +369,5 @@ Col.defaultProps = {
   style: null,
   children: null
 };
-
-var _default = (0, _reactCssModules.default)(Col, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Col;
+exports["default"] = _default;

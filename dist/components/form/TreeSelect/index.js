@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.TreeSelect = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -29,11 +29,13 @@ var _getTreeNodeByValue = _interopRequireDefault(require("./utils/getTreeNodeByV
 
 var _treeNodesFilter = _interopRequireDefault(require("./utils/treeNodesFilter"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -43,7 +45,9 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -99,7 +103,7 @@ function (_PureComponent) {
       if (isControlled || data !== prevData) {
         var values = isControlled ? selectedValues : prevState.selectedValues;
         nextState.selectedNodes = values.map(function (value) {
-          return (0, _getTreeNodeByValue.default)(data, value);
+          return (0, _getTreeNodeByValue["default"])(data, value);
         }).filter(function (n) {
           return n;
         });
@@ -107,7 +111,7 @@ function (_PureComponent) {
       }
 
       if (data !== prevData) {
-        nextState.filteredData = (0, _treeNodesFilter.default)(data, filterKeyword);
+        nextState.filteredData = (0, _treeNodesFilter["default"])(data, filterKeyword);
         nextState.activeValues = [];
       }
 
@@ -255,7 +259,7 @@ function (_PureComponent) {
     key: "handleChangeFilterKeyword",
     value: function handleChangeFilterKeyword(value) {
       var data = this.props.data;
-      var filteredData = (0, _treeNodesFilter.default)(data, value);
+      var filteredData = (0, _treeNodesFilter["default"])(data, value);
       this.setState({
         filteredData: filteredData,
         filterKeyword: value,
@@ -274,25 +278,25 @@ function (_PureComponent) {
           selectedValues = _this$state2.selectedValues,
           showMenu = _this$state2.showMenu,
           filterKeyword = _this$state2.filterKeyword;
-      return _react.default.createElement(_PopupMenu.default, {
+      return _react["default"].createElement(_PopupMenu["default"], {
         hide: !showMenu,
         disabledClickOutside: true
-      }, _react.default.createElement("div", {
-        styleName: "menu"
-      }, !disableFilter && _react.default.createElement(_Block.default, {
+      }, _react["default"].createElement("div", {
+        className: styles.menu
+      }, !disableFilter && _react["default"].createElement(_Block["default"], {
         className: "flex-fixed",
         padding: "m s s"
-      }, _react.default.createElement(_TextInput.default, {
+      }, _react["default"].createElement(_TextInput["default"], {
         ref: this.setFilterInputRef,
         value: filterKeyword,
         placeholder: filterPlaceholder,
         onChange: this.handleChangeFilterKeyword
-      })), _react.default.createElement(_Block.default, {
-        styleName: "tree-data",
+      })), _react["default"].createElement(_Block["default"], {
+        className: styles['tree-data'],
         right: "s",
         left: "xs",
         bottom: "xs"
-      }, _react.default.createElement(_Tree.default, {
+      }, _react["default"].createElement(_Tree["default"], {
         data: filteredData,
         activeValues: activeValues,
         selectedValues: selectedValues,
@@ -335,7 +339,7 @@ function (_PureComponent) {
         };
       }
 
-      return _react.default.createElement(InputComponent, {
+      return _react["default"].createElement(InputComponent, {
         theme: theme,
         status: showMenu ? 'focus' : '',
         size: size,
@@ -353,9 +357,13 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
+      var _this$props4 = this.props,
+          testId = _this$props4.testId,
+          className = _this$props4.className;
       var showMenu = this.state.showMenu;
-      return _react.default.createElement(_ClickOutsideHandler.default, {
-        styleName: "wrapper",
+      return _react["default"].createElement(_ClickOutsideHandler["default"], {
+        testId: testId,
+        className: (0, _classnames["default"])(className, styles.wrapper),
         onClickOutside: this.handleCloseMenu,
         disabled: !showMenu
       }, this.renderInput(), this.renderTreeMenu());
@@ -365,37 +373,40 @@ function (_PureComponent) {
   return TreeSelect;
 }(_react.PureComponent);
 
-exports.TreeSelect = TreeSelect;
 TreeSelect.propTypes = {
-  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
-  selectedValues: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])),
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  data: _propTypes.default.arrayOf(_propTypes.default.shape({
-    value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]).isRequired,
-    title: _propTypes.default.string,
-    icon: _iconShape.default,
-    content: _propTypes.default.node,
-    selectable: _propTypes.default.bool,
-    data: _propTypes.default.arrayOf(_propTypes.default.shape({
-      value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]).isRequired,
-      title: _propTypes.default.string,
-      icon: _iconShape.default,
-      content: _propTypes.default.node,
-      selectable: _propTypes.default.bool,
-      data: _propTypes.default.array
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(_styleConstants.inputThemeNames),
+  selectedValues: _propTypes["default"].arrayOf(_propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string])),
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  data: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    value: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]).isRequired,
+    title: _propTypes["default"].string,
+    icon: _iconShape["default"],
+    content: _propTypes["default"].node,
+    selectable: _propTypes["default"].bool,
+    data: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+      value: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]).isRequired,
+      title: _propTypes["default"].string,
+      icon: _iconShape["default"],
+      content: _propTypes["default"].node,
+      selectable: _propTypes["default"].bool,
+      data: _propTypes["default"].array
     }))
   })).isRequired,
-  placeholder: _propTypes.default.string,
-  filterPlaceholder: _propTypes.default.string,
-  allowMultiple: _propTypes.default.bool,
-  disableFilter: _propTypes.default.bool,
-  disableClearAll: _propTypes.default.bool,
-  autoCloseOnSelect: _propTypes.default.bool,
-  onSelect: _propTypes.default.func,
-  onClearSelectedValues: _propTypes.default.func,
-  InputComponent: _propTypes.default.func
+  placeholder: _propTypes["default"].string,
+  filterPlaceholder: _propTypes["default"].string,
+  allowMultiple: _propTypes["default"].bool,
+  disableFilter: _propTypes["default"].bool,
+  disableClearAll: _propTypes["default"].bool,
+  autoCloseOnSelect: _propTypes["default"].bool,
+  onSelect: _propTypes["default"].func,
+  onClearSelectedValues: _propTypes["default"].func,
+  InputComponent: _propTypes["default"].func
 };
 TreeSelect.defaultProps = {
+  testId: undefined,
+  className: '',
   theme: 'default',
   size: _styleConstants.defaultInputSizeKey,
   selectedValues: null,
@@ -407,9 +418,7 @@ TreeSelect.defaultProps = {
   autoCloseOnSelect: true,
   onSelect: function onSelect() {},
   onClearSelectedValues: function onClearSelectedValues() {},
-  InputComponent: _TextInput.default
+  InputComponent: _TextInput["default"]
 };
-
-var _default = (0, _reactCssModules.default)(TreeSelect, styles);
-
-exports.default = _default;
+var _default = TreeSelect;
+exports["default"] = _default;

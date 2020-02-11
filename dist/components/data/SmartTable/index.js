@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.SmartTable = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -21,11 +21,13 @@ var _sortRowValuesWithDefault = _interopRequireDefault(require("./utils/sortRowV
 
 var _TableRow = _interopRequireDefault(require("./TableRow"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -82,7 +84,7 @@ function (_PureComponent) {
 
       if (!isEditing) {
         var fields = tableConfig.fields;
-        sortedData = (0, _sortRowValuesWithDefault.default)(rowsData, sortBy, sortOrder, getRowKey, fields);
+        sortedData = (0, _sortRowValuesWithDefault["default"])(rowsData, sortBy, sortOrder, getRowKey, fields);
       } else {
         var newDataMap = new Map();
         rowsData.forEach(function (row) {
@@ -94,7 +96,7 @@ function (_PureComponent) {
 
           if (newDataMap.has(key)) {
             orderedData.push(newDataMap.get(key));
-            newDataMap.delete(key);
+            newDataMap["delete"](key);
           }
         });
         sortedData = [].concat(orderedData, _toConsumableArray(newDataMap.values()));
@@ -160,7 +162,7 @@ function (_PureComponent) {
         this.setState({
           sortBy: sortBy,
           sortOrder: sortOrder,
-          sortedData: (0, _sortRowValuesWithDefault.default)(prevSortedData, sortBy, sortOrder, getRowKey, fields)
+          sortedData: (0, _sortRowValuesWithDefault["default"])(prevSortedData, sortBy, sortOrder, getRowKey, fields)
         });
       }
     }
@@ -183,7 +185,7 @@ function (_PureComponent) {
         return Array.from({
           length: numberOfPlaceholderRows
         }, function (_, i) {
-          return _react.default.createElement(_TableRow.default, {
+          return _react["default"].createElement(_TableRow["default"], {
             key: +i,
             align: defaultAlign,
             fieldsConfig: fields,
@@ -202,7 +204,7 @@ function (_PureComponent) {
           onTriggerEdit = _this$props3.onTriggerEdit,
           onDeleteRow = _this$props3.onDeleteRow;
       return rows.map(function (row) {
-        return _react.default.createElement(_TableRow.default, {
+        return _react["default"].createElement(_TableRow["default"], {
           key: getRowKey(row),
           align: defaultAlign,
           fieldsConfig: fields,
@@ -238,7 +240,7 @@ function (_PureComponent) {
           formData: formData
         }));
       });
-      return [_react.default.createElement(_TableHead.default, {
+      return [_react["default"].createElement(_TableHead["default"], {
         key: "head",
         columns: fields.length === visibleFields.length ? fields : visibleFields,
         align: defaultAlign,
@@ -253,26 +255,26 @@ function (_PureComponent) {
   return SmartTable;
 }(_react.PureComponent);
 
-exports.SmartTable = SmartTable;
 SmartTable.propTypes = {
-  tableConfig: _propTypes.default.shape({
-    align: _responsiveTextAlign.default,
-    defaultSortBy: _propTypes.default.string,
-    isRowDeletable: _propTypes.default.oneOfType([_propTypes.default.bool, _propTypes.default.func]),
-    fields: _propTypes.default.arrayOf(_propTypes.default.shape(_fieldShape.default)).isRequired
+  tableConfig: _propTypes["default"].shape({
+    align: _responsiveTextAlign["default"],
+    defaultSortBy: _propTypes["default"].string,
+    isRowDeletable: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].func]),
+    fields: _propTypes["default"].arrayOf(_propTypes["default"].shape(_fieldShape["default"])).isRequired
   }).isRequired,
-  rowsData: _propTypes.default.arrayOf(_propTypes.default.object),
-  formData: _propTypes.default.object,
-  getRowKey: _propTypes.default.func,
-  numberOfPlaceholderRows: _propTypes.default.number,
-  onChange: _propTypes.default.func,
-  onTriggerEdit: _propTypes.default.func,
-  onDeleteRow: _propTypes.default.func,
-  sortable: _propTypes.default.bool,
-  readOnly: _propTypes.default.bool,
-  isLoading: _propTypes.default.bool,
-  isEditing: _propTypes.default.bool,
-  isUpdating: _propTypes.default.bool
+  rowsData: _propTypes["default"].arrayOf(_propTypes["default"].object),
+  formData: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  getRowKey: _propTypes["default"].func,
+  numberOfPlaceholderRows: _propTypes["default"].number,
+  onChange: _propTypes["default"].func,
+  onTriggerEdit: _propTypes["default"].func,
+  onDeleteRow: _propTypes["default"].func,
+  sortable: _propTypes["default"].bool,
+  readOnly: _propTypes["default"].bool,
+  isLoading: _propTypes["default"].bool,
+  isEditing: _propTypes["default"].bool,
+  isUpdating: _propTypes["default"].bool
 };
 SmartTable.defaultProps = {
   rowsData: [],
@@ -292,4 +294,4 @@ SmartTable.defaultProps = {
   isUpdating: false
 };
 var _default = SmartTable;
-exports.default = _default;
+exports["default"] = _default;

@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Modal = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -29,11 +27,15 @@ var _ModalHeader = _interopRequireDefault(require("./ModalHeader"));
 
 var _ModalFooter = _interopRequireDefault(require("./ModalFooter"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -168,8 +170,8 @@ function (_PureComponent) {
         return null;
       }
 
-      return _react.default.createElement(_ModalHeader.default, {
-        styleName: "header",
+      return _react["default"].createElement(_ModalHeader["default"], {
+        className: styles.header,
         icon: headerIcon,
         hasCloseIcon: hasCloseIcon,
         onClose: onClose
@@ -184,12 +186,15 @@ function (_PureComponent) {
         return null;
       }
 
-      return _react.default.createElement(_ModalFooter.default, null, footer);
+      return _react["default"].createElement(_ModalFooter["default"], null, footer);
     }
   }, {
     key: "render",
     value: function render() {
+      var _classnames;
+
       var _this$props5 = this.props,
+          testId = _this$props5.testId,
           className = _this$props5.className,
           theme = _this$props5.theme,
           children = _this$props5.children,
@@ -198,24 +203,22 @@ function (_PureComponent) {
           hasBackground = _this$props5.hasBackground,
           autoWidth = _this$props5.autoWidth,
           stretch = _this$props5.stretch;
-      return _react.default.createElement(_Overlay.default, {
+      return _react["default"].createElement(_Overlay["default"], {
+        testId: testId,
         className: className,
         theme: hasBackground ? theme : '',
         hide: hide,
         onClick: this.handleClickOverlay
-      }, _react.default.createElement(_PageContentWrapper.default, {
-        styleName: (0, _classnames.default)('modal', {
-          hide: hide,
-          'auto-width': autoWidth
-        }),
+      }, _react["default"].createElement(_PageContentWrapper["default"], {
+        className: (0, _classnames2["default"])(styles.modal, (_classnames = {}, _defineProperty(_classnames, styles.hide, hide), _defineProperty(_classnames, styles['auto-width'], autoWidth), _classnames)),
         alignCenter: true,
         stretch: true
-      }, _react.default.createElement(_FlexBox.default, {
-        styleName: "wrapper",
+      }, _react["default"].createElement(_FlexBox["default"], {
+        className: styles.wrapper,
         align: "center",
         valign: valignMap[valign]
-      }, _react.default.createElement(_Block.default, {
-        styleName: "container",
+      }, _react["default"].createElement(_Block["default"], {
+        className: styles.container,
         background: "white",
         layer: 2,
         borderRadius: "default",
@@ -223,8 +226,8 @@ function (_PureComponent) {
           return e.stopPropagation();
         },
         stretch: stretch
-      }, this.renderHeader(), _react.default.createElement("div", {
-        styleName: "content"
+      }, this.renderHeader(), _react["default"].createElement("div", {
+        className: styles.content
       }, !hide && children), this.renderFooter()))));
     }
   }]);
@@ -232,25 +235,26 @@ function (_PureComponent) {
   return Modal;
 }(_react.PureComponent);
 
-exports.Modal = Modal;
 Modal.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_styleConstants.overlayThemeNames),
-  headerIcon: _iconShape.default,
-  header: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.node]),
-  children: _propTypes.default.node,
-  footer: _propTypes.default.node,
-  hide: _propTypes.default.bool,
-  valign: _propTypes.default.oneOf(['top', 'center', 'bottom']),
-  autoWidth: _propTypes.default.bool,
-  stretch: _propTypes.default.bool,
-  hasCloseIcon: _propTypes.default.bool,
-  hasBackground: _propTypes.default.bool,
-  clickOverlayToClose: _propTypes.default.bool,
-  pressEscToClose: _propTypes.default.bool,
-  onClose: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(_styleConstants.overlayThemeNames),
+  headerIcon: _iconShape["default"],
+  header: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].node]),
+  children: _propTypes["default"].node,
+  footer: _propTypes["default"].node,
+  hide: _propTypes["default"].bool,
+  valign: _propTypes["default"].oneOf(['top', 'center', 'bottom']),
+  autoWidth: _propTypes["default"].bool,
+  stretch: _propTypes["default"].bool,
+  hasCloseIcon: _propTypes["default"].bool,
+  hasBackground: _propTypes["default"].bool,
+  clickOverlayToClose: _propTypes["default"].bool,
+  pressEscToClose: _propTypes["default"].bool,
+  onClose: _propTypes["default"].func
 };
 Modal.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'primary',
   headerIcon: null,
@@ -267,9 +271,5 @@ Modal.defaultProps = {
   pressEscToClose: false,
   onClose: function onClose() {}
 };
-
-var _default = (0, _reactCssModules.default)(Modal, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Modal;
+exports["default"] = _default;

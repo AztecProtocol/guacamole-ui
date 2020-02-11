@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = require("react");
 
@@ -15,9 +15,9 @@ var _styleConstants = require("../../../config/styleConstants");
 
 var _deviceWidthDetector = _interopRequireDefault(require("./deviceWidthDetector"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -89,10 +89,10 @@ function (_PureComponent) {
     var _lte = {};
     var breakpointSizeMap = props.breakpointSizeMap,
         _breakpoints = props.breakpoints;
-    _this.orderedKeys = _deviceWidthDetector.default.register(breakpointSizeMap);
+    _this.orderedKeys = _deviceWidthDetector["default"].register(breakpointSizeMap);
 
     _breakpoints.forEach(function (breakpoint) {
-      var applied = _deviceWidthDetector.default.subscribe(breakpoint, _this.handleChangeDeviceWidth);
+      var applied = _deviceWidthDetector["default"].subscribe(breakpoint, _this.handleChangeDeviceWidth);
 
       _gt[breakpoint] = applied.gt;
       _gte[breakpoint] = applied.gte;
@@ -116,7 +116,7 @@ function (_PureComponent) {
 
       var breakpoints = this.props.breakpoints;
       breakpoints.forEach(function (breakpoint) {
-        _deviceWidthDetector.default.unsubscribe(breakpoint, _this2.handleChangeDeviceWidth);
+        _deviceWidthDetector["default"].unsubscribe(breakpoint, _this2.handleChangeDeviceWidth);
       });
     }
   }, {
@@ -133,16 +133,16 @@ function (_PureComponent) {
 var breakpointSizeMapShape = {};
 
 _styleConstants.deviceBreakpointKeys.forEach(function (key) {
-  breakpointSizeMapShape[key] = _propTypes.default.string;
+  breakpointSizeMapShape[key] = _propTypes["default"].string;
 });
 
 DeviceWidthListener.propTypes = {
-  breakpointSizeMap: _propTypes.default.shape(breakpointSizeMapShape),
-  breakpoints: _propTypes.default.arrayOf(_propTypes.default.oneOf(_styleConstants.deviceBreakpointKeys)).isRequired,
-  children: _propTypes.default.func.isRequired
+  breakpointSizeMap: _propTypes["default"].shape(breakpointSizeMapShape),
+  breakpoints: _propTypes["default"].arrayOf(_propTypes["default"].oneOf(_styleConstants.deviceBreakpointKeys)).isRequired,
+  children: _propTypes["default"].func.isRequired
 };
 DeviceWidthListener.defaultProps = {
   breakpointSizeMap: _layout.deviceBreakpointMap
 };
 var _default = DeviceWidthListener;
-exports.default = _default;
+exports["default"] = _default;

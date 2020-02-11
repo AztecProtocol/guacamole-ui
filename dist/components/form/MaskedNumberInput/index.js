@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -25,17 +25,21 @@ var _getPositionBoundaries = _interopRequireDefault(require("./utils/getPosition
 
 var _handleKeyDown2 = _interopRequireDefault(require("./utils/handleKeyDown"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _isGreaterThan = _interopRequireDefault(require("./utils/isGreaterThan"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -82,7 +86,7 @@ function (_PureComponent) {
       }
 
       return {
-        formatedValue: (0, _formatNumeralValue.default)(value, {
+        formatedValue: (0, _formatNumeralValue["default"])(value, {
           allowDecimal: allowDecimal,
           allowNegative: allowNegative
         }),
@@ -109,7 +113,7 @@ function (_PureComponent) {
     _this.state = {
       isControlled: isControlled,
       error: '',
-      formatedValue: (0, _formatNumeralValue.default)(defaultValue, {
+      formatedValue: (0, _formatNumeralValue["default"])(defaultValue, {
         allowDecimal: allowDecimal,
         allowNegative: allowNegative
       }),
@@ -189,7 +193,7 @@ function (_PureComponent) {
           suffix = _this$props.suffix,
           maxValue = _this$props.maxValue,
           minValue = _this$props.minValue;
-      var pattern = new RegExp("^(".concat(allowNegative ? '-?[0-9]?' : '', ")?").concat((0, _escapeRegExp.default)(prefix), "(.{0,})").concat((0, _escapeRegExp.default)(suffix), "$"));
+      var pattern = new RegExp("^(".concat(allowNegative ? '-?[0-9]?' : '', ")?").concat((0, _escapeRegExp["default"])(prefix), "(.{0,})").concat((0, _escapeRegExp["default"])(suffix), "$"));
 
       var _ref = decoratedValue.match(pattern) || [],
           _ref2 = _slicedToArray(_ref, 3),
@@ -214,7 +218,7 @@ function (_PureComponent) {
         value = "".concat(sign).concat(value.substr(-1));
       }
 
-      var numeralValue = (0, _getNumeralValue.default)(value, {
+      var numeralValue = (0, _getNumeralValue["default"])(value, {
         allowDecimal: allowDecimal,
         allowNegative: allowNegative
       });
@@ -222,20 +226,20 @@ function (_PureComponent) {
       var _this$getSelection = this.getSelection(),
           prevStart = _this$getSelection.end;
 
-      if (+numeralValue > maxValue || +numeralValue < minValue) {
+      if ((0, _isGreaterThan["default"])(numeralValue, maxValue) || (0, _isGreaterThan["default"])(minValue, numeralValue)) {
         return {
           formatedValue: prevValue,
           start: prevStart - 1
         };
       }
 
-      var formatedValue = (0, _formatNumeralValue.default)(value, {
+      var formatedValue = (0, _formatNumeralValue["default"])(value, {
         allowDecimal: allowDecimal,
         allowNegative: allowNegative
       });
       var positionOffset = match && prevStart <= sign_.length ? 0 : prefix.length;
       var prevPosition = Math.max(0, prevStart - positionOffset);
-      var nextPosition = !match ? formatedValue.length : (0, _getNextCursorPosition.default)(value, prevValue, prevPosition, {
+      var nextPosition = !match ? formatedValue.length : (0, _getNextCursorPosition["default"])(value, prevValue, prevPosition, {
         allowDecimal: allowDecimal,
         allowNegative: allowNegative
       });
@@ -282,7 +286,7 @@ function (_PureComponent) {
           allowDecimal = _this$props2.allowDecimal,
           allowNegative = _this$props2.allowNegative,
           onChange = _this$props2.onChange;
-      var numeralValue = (0, _getNumeralValue.default)(formatedValue, {
+      var numeralValue = (0, _getNumeralValue["default"])(formatedValue, {
         allowDecimal: allowDecimal,
         allowNegative: allowNegative
       });
@@ -323,7 +327,7 @@ function (_PureComponent) {
   }, {
     key: "handleKeyDown",
     value: function handleKeyDown(e) {
-      (0, _handleKeyDown2.default)(e, this.getSelection(), this.updateCursorPosition, this.props);
+      (0, _handleKeyDown2["default"])(e, this.getSelection(), this.updateCursorPosition, this.props);
     }
   }, {
     key: "handleClick",
@@ -331,7 +335,7 @@ function (_PureComponent) {
       var _this$getSelection2 = this.getSelection(),
           clickAt = _this$getSelection2.start;
 
-      var boundaries = (0, _getPositionBoundaries.default)(e, this.props);
+      var boundaries = (0, _getPositionBoundaries["default"])(e, this.props);
 
       var _boundaries$find = boundaries.find(function (_ref3, i) {
         var _ref4 = _slicedToArray(_ref3, 1),
@@ -363,6 +367,7 @@ function (_PureComponent) {
           formatedValue = _this$state2.formatedValue,
           error = _this$state2.error;
       var _this$props3 = this.props,
+          testId = _this$props3.testId,
           className = _this$props3.className,
           theme = _this$props3.theme,
           size = _this$props3.size,
@@ -380,7 +385,8 @@ function (_PureComponent) {
           unsignedValue = _formatedValue$match4 === void 0 ? '' : _formatedValue$match4;
 
       var decoratedValue = placeholder && !formatedValue.length ? '' : "".concat(sign).concat(prefix).concat(unsignedValue).concat(suffix);
-      return _react.default.createElement(_TextInput.default, {
+      return _react["default"].createElement(_TextInput["default"], {
+        testId: testId,
         className: className,
         theme: theme,
         setInputRef: this.setInputRef,
@@ -402,26 +408,28 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 MaskedNumberInput.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(['default', 'inline']),
-  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  defaultValue: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
-  placeholder: _propTypes.default.string,
-  status: _propTypes.default.oneOf(['', 'focus', 'error', 'warning']),
-  prefix: _propTypes.default.string,
-  suffix: _propTypes.default.string,
-  allowDecimal: _propTypes.default.bool,
-  allowNegative: _propTypes.default.bool,
-  disabled: _propTypes.default.bool,
-  onChange: _propTypes.default.func,
-  validate: _propTypes.default.func,
-  setInputRef: _propTypes.default.func,
-  readingSpeed: _propTypes.default.number,
-  maxValue: _propTypes.default.number,
-  minValue: _propTypes.default.number
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(['default', 'inline']),
+  value: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].number]),
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  defaultValue: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].number]),
+  placeholder: _propTypes["default"].string,
+  status: _propTypes["default"].oneOf(['', 'focus', 'error', 'warning']),
+  prefix: _propTypes["default"].string,
+  suffix: _propTypes["default"].string,
+  allowDecimal: _propTypes["default"].bool,
+  allowNegative: _propTypes["default"].bool,
+  disabled: _propTypes["default"].bool,
+  onChange: _propTypes["default"].func,
+  validate: _propTypes["default"].func,
+  setInputRef: _propTypes["default"].func,
+  readingSpeed: _propTypes["default"].number,
+  maxValue: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].number]),
+  minValue: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].number])
 };
 MaskedNumberInput.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   value: undefined,
@@ -443,4 +451,4 @@ MaskedNumberInput.defaultProps = {
   minValue: -10000000000
 };
 var _default = MaskedNumberInput;
-exports.default = _default;
+exports["default"] = _default;

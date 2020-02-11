@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.TextInput = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames4 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -23,11 +21,13 @@ var _Text = _interopRequireDefault(require("../../general/Text"));
 
 var _Icon = _interopRequireDefault(require("../../general/Icon"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -347,8 +347,8 @@ function (_PureComponent) {
         props.defaultValue = defaultValue;
       }
 
-      return _react.default.createElement(TagName, _extends({}, props, {
-        styleName: "input",
+      return _react["default"].createElement(TagName, _extends({}, props, {
+        className: styles.input,
         ref: this.setInputRef,
         type: type,
         name: name,
@@ -380,25 +380,35 @@ function (_PureComponent) {
       }
 
       var onClickCallback = onClickIcon || onClick;
-      return _react.default.createElement("div", {
-        styleName: (0, _classnames2.default)('status-icon', {
-          clickable: onClickCallback
-        }),
+      return _react["default"].createElement("div", {
+        className: (0, _classnames4["default"])(styles['status-icon'], _defineProperty({}, styles.clickable, onClickCallback)),
+        role: "button",
+        tabIndex: "0",
         onClick: function onClick(e) {
           if (onClickCallback) {
             e.stopPropagation(); // prevent triggering onClick twice
 
             onClickCallback();
           }
+        },
+        onKeyDown: function onKeyDown(e) {
+          var keyCode = e.keyCode;
+
+          if (onClickCallback && [13, 32].indexOf(keyCode) >= 0) {
+            e.stopPropagation();
+            e.preventDefault();
+            onClickCallback();
+          }
         }
-      }, _react.default.createElement(_Icon.default, icon));
+      }, _react["default"].createElement(_Icon["default"], icon));
     }
   }, {
     key: "render",
     value: function render() {
-      var _classnames;
+      var _classnames2;
 
       var _this$props8 = this.props,
+          testId = _this$props8.testId,
           className = _this$props8.className,
           theme = _this$props8.theme,
           size = _this$props8.size,
@@ -411,27 +421,19 @@ function (_PureComponent) {
           shakeInput = _this$state2.shakeInput,
           showErrorStatus = _this$state2.showErrorStatus,
           error = _this$state2.error;
-      var holderStyleName = (0, _classnames2.default)('holder', "size-".concat(size), (_classnames = {
-        disabled: disabled,
-        clickable: readOnly && onClick,
-        'flash-error': shakeInput,
-        'status-error': showErrorStatus,
-        'with-icon': icon
-      }, _defineProperty(_classnames, "status-".concat(status), status), _defineProperty(_classnames, "theme-".concat(theme), theme), _classnames));
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: holderStyleName
-      }, this.renderInput(), !!error && _react.default.createElement("div", {
-        styleName: (0, _classnames2.default)('error', {
-          hide: !showErrorStatus
-        })
-      }, _react.default.createElement(_Block.default, {
-        styleName: "error-content",
+      var holderClassName = (0, _classnames4["default"])(className, styles.holder, styles["size-".concat(size)], (_classnames2 = {}, _defineProperty(_classnames2, styles.disabled, disabled), _defineProperty(_classnames2, styles.clickable, readOnly && onClick), _defineProperty(_classnames2, styles['flash-error'], shakeInput), _defineProperty(_classnames2, styles['status-error'], showErrorStatus), _defineProperty(_classnames2, styles['with-icon'], icon), _defineProperty(_classnames2, styles["status-".concat(status)], status), _defineProperty(_classnames2, styles["theme-".concat(theme)], theme), _classnames2));
+      return _react["default"].createElement("div", {
+        "data-testid": testId,
+        className: holderClassName
+      }, this.renderInput(), !!error && _react["default"].createElement("div", {
+        className: (0, _classnames4["default"])(styles.error, _defineProperty({}, styles.hide, !showErrorStatus))
+      }, _react["default"].createElement(_Block["default"], {
+        className: styles['error-content'],
         padding: "m",
         background: "white",
         borderRadius: "default",
         layer: 2
-      }, _react.default.createElement(_Text.default, {
+      }, _react["default"].createElement(_Text["default"], {
         size: "xxs",
         color: "red",
         weight: "bold",
@@ -443,39 +445,40 @@ function (_PureComponent) {
   return TextInput;
 }(_react.PureComponent);
 
-exports.TextInput = TextInput;
 TextInput.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  type: _propTypes.default.string,
-  name: _propTypes.default.string,
-  value: _propTypes.default.string,
-  defaultValue: _propTypes.default.string,
-  placeholder: _propTypes.default.string,
-  icon: _iconShape.default,
-  error: _propTypes.default.string,
-  rows: _propTypes.default.number,
-  tabIndex: _propTypes.default.number,
-  disabled: _propTypes.default.bool,
-  readOnly: _propTypes.default.bool,
-  selectAllOnFocus: _propTypes.default.bool,
-  status: _propTypes.default.oneOf(['', 'focus', 'error', 'warning']),
-  autoCapitalize: _propTypes.default.oneOf(['none', 'sentences', 'words', 'characters']),
-  autoComplete: _propTypes.default.string,
-  autoCorrect: _propTypes.default.oneOf(['on', 'off']),
-  spellCheck: _propTypes.default.bool,
-  onClick: _propTypes.default.func,
-  onFocus: _propTypes.default.func,
-  onKeyDown: _propTypes.default.func,
-  onChange: _propTypes.default.func,
-  onSubmit: _propTypes.default.func,
-  onClickIcon: _propTypes.default.func,
-  setInputRef: _propTypes.default.func,
-  validate: _propTypes.default.func,
-  withErrorShakeEffect: _propTypes.default.bool
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(_styleConstants.inputThemeNames),
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  type: _propTypes["default"].string,
+  name: _propTypes["default"].string,
+  value: _propTypes["default"].string,
+  defaultValue: _propTypes["default"].string,
+  placeholder: _propTypes["default"].string,
+  icon: _iconShape["default"],
+  error: _propTypes["default"].string,
+  rows: _propTypes["default"].number,
+  tabIndex: _propTypes["default"].number,
+  disabled: _propTypes["default"].bool,
+  readOnly: _propTypes["default"].bool,
+  selectAllOnFocus: _propTypes["default"].bool,
+  status: _propTypes["default"].oneOf(['', 'focus', 'error', 'warning']),
+  autoCapitalize: _propTypes["default"].oneOf(['none', 'sentences', 'words', 'characters']),
+  autoComplete: _propTypes["default"].string,
+  autoCorrect: _propTypes["default"].oneOf(['on', 'off']),
+  spellCheck: _propTypes["default"].bool,
+  onClick: _propTypes["default"].func,
+  onFocus: _propTypes["default"].func,
+  onKeyDown: _propTypes["default"].func,
+  onChange: _propTypes["default"].func,
+  onSubmit: _propTypes["default"].func,
+  onClickIcon: _propTypes["default"].func,
+  setInputRef: _propTypes["default"].func,
+  validate: _propTypes["default"].func,
+  withErrorShakeEffect: _propTypes["default"].bool
 };
 TextInput.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: _styleConstants.defaultInputSizeKey,
@@ -511,9 +514,5 @@ TextInput.defaultProps = {
   },
   withErrorShakeEffect: false
 };
-
-var _default = (0, _reactCssModules.default)(TextInput, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = TextInput;
+exports["default"] = _default;

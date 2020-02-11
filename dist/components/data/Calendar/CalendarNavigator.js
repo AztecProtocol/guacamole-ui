@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _moment = _interopRequireDefault(require("moment"));
 
@@ -19,11 +17,15 @@ var _Icon = _interopRequireDefault(require("../../general/Icon"));
 
 var _Clickable = _interopRequireDefault(require("../../utils/Clickable"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -167,11 +169,11 @@ function (_PureComponent) {
     value: function renderPrevButton() {
       var disabled = !this.canGoPrev();
       var isVertical = this.state.isVertical;
-      return _react.default.createElement(_Clickable.default, {
-        styleName: "nav-prev",
+      return _react["default"].createElement(_Clickable["default"], {
+        className: styles['nav-prev'],
         onClick: disabled ? function () {} : this.handleGoPrev,
         disabled: disabled
-      }, _react.default.createElement(_Icon.default, {
+      }, _react["default"].createElement(_Icon["default"], {
         name: isVertical ? 'expand_less' : 'navigate_before',
         size: isVertical ? 'xl' : 'l',
         color: disabled ? 'primary-lightest' : 'primary'
@@ -182,11 +184,11 @@ function (_PureComponent) {
     value: function renderNextButton() {
       var disabled = !this.canGoNext();
       var isVertical = this.state.isVertical;
-      return _react.default.createElement(_Clickable.default, {
-        styleName: "nav-next",
+      return _react["default"].createElement(_Clickable["default"], {
+        className: styles['nav-next'],
         onClick: disabled ? function () {} : this.handleGoNext,
         disabled: disabled
-      }, _react.default.createElement(_Icon.default, {
+      }, _react["default"].createElement(_Icon["default"], {
         name: isVertical ? 'expand_more' : 'navigate_next',
         size: isVertical ? 'xl' : 'l',
         color: disabled ? 'primary-lightest' : 'primary'
@@ -196,27 +198,25 @@ function (_PureComponent) {
     key: "renderNavigators",
     value: function renderNavigators() {
       var isVertical = this.state.isVertical;
-      return _react.default.createElement("div", {
-        styleName: "nav-".concat(isVertical ? 'v' : 'h')
+      return _react["default"].createElement("div", {
+        className: styles["nav-".concat(isVertical ? 'v' : 'h')]
       }, this.renderPrevButton(), this.renderNextButton());
     }
   }, {
     key: "render",
     value: function render() {
+      var _classnames;
+
       var _this$props = this.props,
           className = _this$props.className,
           flexWidth = _this$props.flexWidth,
           children = _this$props.children;
       var isVertical = this.state.isVertical;
       var firstVisibleMonth = this.getFirstVisibleMonth();
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: (0, _classnames.default)('nav-holder', {
-          flex: flexWidth,
-          vertical: isVertical
-        })
-      }, this.renderNavigators(), isVertical && _react.default.createElement("div", {
-        styleName: "calendar-in-nav-v"
+      return _react["default"].createElement("div", {
+        className: (0, _classnames2["default"])(className, styles['nav-holder'], (_classnames = {}, _defineProperty(_classnames, styles.flex, flexWidth), _defineProperty(_classnames, styles.vertical, isVertical), _classnames))
+      }, this.renderNavigators(), isVertical && _react["default"].createElement("div", {
+        className: styles['calendar-in-nav-v']
       }, children({
         firstVisibleMonth: firstVisibleMonth
       })), !isVertical && children({
@@ -229,20 +229,20 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 CalendarNavigator.propTypes = {
-  className: _propTypes.default.string,
-  initialFirstVisibleMonth: _propTypes.default.instanceOf(_moment.default),
-  firstVisibleMonth: _propTypes.default.instanceOf(_moment.default),
-  minMonth: _propTypes.default.instanceOf(_moment.default),
-  maxMonth: _propTypes.default.instanceOf(_moment.default),
-  numberOfMonths: _propTypes.default.number,
-  orientation: _propTypes.default.oneOf(['horizontal', 'vertical']),
-  flexWidth: _propTypes.default.bool,
-  children: _propTypes.default.func.isRequired,
-  onChangeMonth: _propTypes.default.func
+  className: _propTypes["default"].string,
+  initialFirstVisibleMonth: _propTypes["default"].instanceOf(_moment["default"]),
+  firstVisibleMonth: _propTypes["default"].instanceOf(_moment["default"]),
+  minMonth: _propTypes["default"].instanceOf(_moment["default"]),
+  maxMonth: _propTypes["default"].instanceOf(_moment["default"]),
+  numberOfMonths: _propTypes["default"].number,
+  orientation: _propTypes["default"].oneOf(['horizontal', 'vertical']),
+  flexWidth: _propTypes["default"].bool,
+  children: _propTypes["default"].func.isRequired,
+  onChangeMonth: _propTypes["default"].func
 };
 CalendarNavigator.defaultProps = {
   className: '',
-  initialFirstVisibleMonth: (0, _moment.default)(),
+  initialFirstVisibleMonth: (0, _moment["default"])(),
   firstVisibleMonth: null,
   minMonth: null,
   maxMonth: null,
@@ -251,9 +251,5 @@ CalendarNavigator.defaultProps = {
   flexWidth: false,
   onChangeMonth: function onChangeMonth() {}
 };
-
-var _default = (0, _reactCssModules.default)(CalendarNavigator, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = CalendarNavigator;
+exports["default"] = _default;

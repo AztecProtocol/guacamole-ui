@@ -3,19 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _FlexBox = _interopRequireDefault(require("../../layout/FlexBox"));
 
 var _Step = _interopRequireDefault(require("./Step"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -34,18 +34,21 @@ var styles = {
 };
 
 var PageSteps = function PageSteps(_ref) {
-  var theme = _ref.theme,
+  var testId = _ref.testId,
+      className = _ref.className,
+      theme = _ref.theme,
       steps = _ref.steps,
       currentStep = _ref.currentStep;
-  return _react.default.createElement("div", {
-    styleName: "steps theme-".concat(theme)
-  }, _react.default.createElement(_FlexBox.default, {
+  return _react["default"].createElement("div", {
+    "data-testid": testId,
+    className: (0, _classnames["default"])(className, styles.steps, styles["theme-".concat(theme)])
+  }, _react["default"].createElement(_FlexBox["default"], {
     align: "center"
   }, steps.map(function (_ref2, i) {
     var title = _ref2.title,
         step = _objectWithoutProperties(_ref2, ["title"]);
 
-    return _react.default.createElement(_Step.default, _extends({}, step, {
+    return _react["default"].createElement(_Step["default"], _extends({}, step, {
       key: "".concat(+i),
       title: "".concat(i + 1, ". ").concat(title),
       active: i + 1 === currentStep
@@ -54,22 +57,22 @@ var PageSteps = function PageSteps(_ref) {
 };
 
 PageSteps.propTypes = {
-  theme: _propTypes.default.oneOf(['white', 'primary']),
-  steps: _propTypes.default.arrayOf(_propTypes.default.shape({
-    title: _propTypes.default.string.isRequired,
-    href: _propTypes.default.string,
-    onClick: _propTypes.default.func,
-    Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object])
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(['white', 'primary']),
+  steps: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    title: _propTypes["default"].string.isRequired,
+    href: _propTypes["default"].string,
+    onClick: _propTypes["default"].func,
+    Link: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].func, _propTypes["default"].object])
   })).isRequired,
-  currentStep: _propTypes.default.number
+  currentStep: _propTypes["default"].number
 };
 PageSteps.defaultProps = {
+  testId: undefined,
+  className: '',
   theme: 'primary',
   currentStep: 0
 };
-
-var _default = (0, _reactCssModules.default)(PageSteps, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = PageSteps;
+exports["default"] = _default;

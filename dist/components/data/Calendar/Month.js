@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _moment = _interopRequireDefault(require("moment"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _date = require("../../../utils/date");
 
@@ -23,11 +21,13 @@ var _Block = _interopRequireDefault(require("../../layout/Block"));
 
 var _Day = _interopRequireDefault(require("./Day"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -87,7 +87,7 @@ function (_PureComponent) {
     var month = props.month,
         startOfWeek = props.startOfWeek;
     _this.state = {
-      days: (0, _getVisibleDaysOfMonth.default)({
+      days: (0, _getVisibleDaysOfMonth["default"])({
         month: month,
         startOfWeek: startOfWeek
       }),
@@ -112,7 +112,7 @@ function (_PureComponent) {
       var days = this.state.days;
       var thisMonth = month.month();
       return days.map(function (day, i) {
-        return _react.default.createElement(_Day.default, {
+        return _react["default"].createElement(_Day["default"], {
           key: +i,
           day: day,
           isOutside: day.month() !== thisMonth,
@@ -120,7 +120,7 @@ function (_PureComponent) {
           onSelect: onSelectDay,
           onHover: onHoverDay,
           onBlur: onBlurDay,
-          status: daysStatus[(0, _toDayKey.default)(day)]
+          status: daysStatus[(0, _toDayKey["default"])(day)]
         });
       });
     }
@@ -130,8 +130,8 @@ function (_PureComponent) {
       var _this$props2 = this.props,
           month = _this$props2.month,
           monthNameFormat = _this$props2.monthNameFormat;
-      return _react.default.createElement("div", {
-        styleName: "month-name"
+      return _react["default"].createElement("div", {
+        className: styles['month-name']
       }, month.format(monthNameFormat));
     }
   }, {
@@ -139,14 +139,14 @@ function (_PureComponent) {
     value: function renderWeekdayNames() {
       var weekdayNodes = [];
 
-      var weekdayNames = _moment.default.localeData().weekdaysMin();
+      var weekdayNames = _moment["default"].localeData().weekdaysMin();
 
       var startOfWeek = this.props.startOfWeek;
 
       for (var i = 0; i < 7; i += 1) {
-        weekdayNodes.push(_react.default.createElement("div", {
+        weekdayNodes.push(_react["default"].createElement("div", {
           key: i,
-          styleName: "weekday"
+          className: styles.weekday
         }, weekdayNames[(startOfWeek + i) % 7]));
       }
 
@@ -155,12 +155,12 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
-        styleName: "month"
-      }, _react.default.createElement(_Block.default, {
+      return _react["default"].createElement("div", {
+        className: styles.month
+      }, _react["default"].createElement(_Block["default"], {
         bottom: "m",
         align: "center"
-      }, this.renderMonthName()), _react.default.createElement(_Block.default, {
+      }, this.renderMonthName()), _react["default"].createElement(_Block["default"], {
         padding: "xs 0"
       }, this.renderWeekdayNames()), this.renderDays());
     }
@@ -178,7 +178,7 @@ function (_PureComponent) {
       }
 
       return {
-        days: (0, _getVisibleDaysOfMonth.default)({
+        days: (0, _getVisibleDaysOfMonth["default"])({
           month: month,
           startOfWeek: startOfWeek
         }),
@@ -194,14 +194,15 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 Month.propTypes = {
-  month: _propTypes.default.instanceOf(_moment.default).isRequired,
-  monthNameFormat: _propTypes.default.string.isRequired,
-  startOfWeek: _propTypes.default.number.isRequired,
-  showOutsideDays: _propTypes.default.bool,
-  daysStatus: _propTypes.default.object,
-  onSelectDay: _propTypes.default.func,
-  onHoverDay: _propTypes.default.func,
-  onBlurDay: _propTypes.default.func
+  month: _propTypes["default"].instanceOf(_moment["default"]).isRequired,
+  monthNameFormat: _propTypes["default"].string.isRequired,
+  startOfWeek: _propTypes["default"].number.isRequired,
+  showOutsideDays: _propTypes["default"].bool,
+  daysStatus: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  onSelectDay: _propTypes["default"].func,
+  onHoverDay: _propTypes["default"].func,
+  onBlurDay: _propTypes["default"].func
 };
 Month.defaultProps = {
   showOutsideDays: false,
@@ -210,7 +211,5 @@ Month.defaultProps = {
   onHoverDay: null,
   onBlurDay: null
 };
-
-var _default = (0, _reactCssModules.default)(Month, styles);
-
-exports.default = _default;
+var _default = Month;
+exports["default"] = _default;

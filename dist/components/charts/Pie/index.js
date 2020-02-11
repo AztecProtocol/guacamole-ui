@@ -3,25 +3,23 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Pie = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames3 = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames4 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
 var _calculateArcValuePosition = _interopRequireDefault(require("./utils/calculateArcValuePosition"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -30,6 +28,8 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -238,7 +238,10 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
+      var _classnames;
+
       var _this$props = this.props,
+          testId = _this$props.testId,
           className = _this$props.className,
           startDeg = _this$props.startDeg,
           strokeWidth = _this$props.strokeWidth,
@@ -256,30 +259,28 @@ function (_PureComponent) {
       var restrictedValue = Math.min(100, Math.max(0, value || 0));
       var valueLen = perimeter * (restrictedValue / 100);
       var startOffset = perimeter * (startDeg / 360);
-      return _react.default.createElement("div", {
+      return _react["default"].createElement("div", {
         ref: this.setWrapperRef,
-        className: className,
-        styleName: (0, _classnames3.default)('pie-wrapper', "stroke-".concat(strokeColor), _defineProperty({
-          'has-own-size': this.hasOwnSize
-        }, "fill-".concat(fill), fill), {}),
+        "data-testid": testId,
+        className: (0, _classnames4["default"])(className, styles['pie-wrapper'], styles["stroke-".concat(strokeColor)], (_classnames = {}, _defineProperty(_classnames, styles['has-own-size'], this.hasOwnSize), _defineProperty(_classnames, styles["fill-".concat(fill)], fill), _classnames), {}),
         style: !this.hasOwnSize ? null : {
           width: "".concat(radius * 2, "px"),
           height: "".concat(radius * 2, "px")
         }
-      }, circleRadius > 0 && _react.default.createElement("svg", {
-        styleName: "pie-svg",
+      }, circleRadius > 0 && _react["default"].createElement("svg", {
+        className: styles['pie-svg'],
         width: radius * 2,
         height: radius * 2
-      }, showTrack && _react.default.createElement("circle", {
-        styleName: (0, _classnames3.default)('pie', 'track', _defineProperty({}, "track-".concat(trackColor), trackColor)),
+      }, showTrack && _react["default"].createElement("circle", {
+        className: (0, _classnames4["default"])(styles.pie, styles.track, _defineProperty({}, styles["track-".concat(trackColor)], trackColor)),
         cx: radius,
         cy: radius,
         r: circleRadius,
         style: {
           strokeWidth: "".concat(strokeWidth, "px")
         }
-      }), _react.default.createElement("circle", {
-        styleName: "pie",
+      }), _react["default"].createElement("circle", {
+        className: styles.pie,
         cx: radius,
         cy: radius,
         r: circleRadius,
@@ -288,13 +289,13 @@ function (_PureComponent) {
           strokeDasharray: "".concat(valueLen, "px ").concat(perimeter - valueLen, "px"),
           strokeDashoffset: valueLen - perimeter + startOffset
         }
-      })), children && _react.default.createElement("div", {
-        styleName: "content"
+      })), children && _react["default"].createElement("div", {
+        className: styles.content
       }, children), showArcValue && circleRadius > 0 && value !== null && function () {
         var MIN_FONT_SIZE = 10;
         var fontSize = Math.max(strokeWidth * 0.42, MIN_FONT_SIZE);
 
-        var _calculateArcValuePos = (0, _calculateArcValuePosition.default)({
+        var _calculateArcValuePos = (0, _calculateArcValuePosition["default"])({
           radius: radius,
           strokeWidth: strokeWidth,
           startDeg: startDeg,
@@ -305,16 +306,14 @@ function (_PureComponent) {
             y = _calculateArcValuePos.y,
             inset = _calculateArcValuePos.inset;
 
-        return _react.default.createElement("div", {
-          styleName: "arc-value",
+        return _react["default"].createElement("div", {
+          className: styles['arc-value'],
           style: {
             top: "".concat(y, "px"),
             left: "".concat(x, "px")
           }
-        }, _react.default.createElement("div", {
-          styleName: (0, _classnames3.default)('value', {
-            inset: inset
-          }),
+        }, _react["default"].createElement("div", {
+          className: (0, _classnames4["default"])(styles.value, _defineProperty({}, styles.inset, inset)),
           style: {
             fontSize: "".concat(fontSize, "px")
           }
@@ -326,22 +325,23 @@ function (_PureComponent) {
   return Pie;
 }(_react.PureComponent);
 
-exports.Pie = Pie;
 Pie.propTypes = {
-  className: _propTypes.default.string,
-  radius: _propTypes.default.number,
-  value: _propTypes.default.number.isRequired,
-  startDeg: _propTypes.default.number,
-  strokeWidth: _propTypes.default.number,
-  strokeColor: _propTypes.default.oneOf(_styleConstants.colorNames),
-  trackColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
-  fill: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
-  children: _propTypes.default.node,
-  showArcValue: _propTypes.default.bool,
-  showTrack: _propTypes.default.bool,
-  delay: _propTypes.default.number
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  radius: _propTypes["default"].number,
+  value: _propTypes["default"].number.isRequired,
+  startDeg: _propTypes["default"].number,
+  strokeWidth: _propTypes["default"].number,
+  strokeColor: _propTypes["default"].oneOf(_styleConstants.colorNames),
+  trackColor: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+  fill: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+  children: _propTypes["default"].node,
+  showArcValue: _propTypes["default"].bool,
+  showTrack: _propTypes["default"].bool,
+  delay: _propTypes["default"].number
 };
 Pie.defaultProps = {
+  testId: undefined,
   className: '',
   radius: null,
   strokeWidth: 24,
@@ -354,9 +354,5 @@ Pie.defaultProps = {
   showTrack: false,
   delay: 1000
 };
-
-var _default = (0, _reactCssModules.default)(Pie, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Pie;
+exports["default"] = _default;

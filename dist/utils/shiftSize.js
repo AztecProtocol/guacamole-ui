@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = shiftSize;
+exports["default"] = shiftSize;
 
 var _styleConstants = require("../config/styleConstants");
 

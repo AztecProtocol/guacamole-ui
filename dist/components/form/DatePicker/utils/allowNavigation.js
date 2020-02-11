@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = allowNavigation;
+exports["default"] = allowNavigation;
 
 var _date = require("../../../../utils/date");
 

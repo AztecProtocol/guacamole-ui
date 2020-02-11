@@ -3,25 +3,25 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Checkbox = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames3 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
 var _Icon = _interopRequireDefault(require("../../general/Icon"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -127,10 +127,10 @@ function (_PureComponent) {
           iconName = value ? indeterminate ? 'remove' : 'check' : '';
       }
 
-      return _react.default.createElement("div", {
-        styleName: "tick-box"
-      }, _react.default.createElement(_Icon.default, {
-        styleName: "check-icon",
+      return _react["default"].createElement("div", {
+        className: styles['tick-box']
+      }, _react["default"].createElement(_Icon["default"], {
+        className: styles['check-icon'],
         type: "mi",
         name: iconName
       }));
@@ -138,9 +138,11 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
-      var _classnames;
+      var _classnames,
+          _this2 = this;
 
       var _this$props3 = this.props,
+          testId = _this$props3.testId,
           className = _this$props3.className,
           theme = _this$props3.theme,
           type = _this$props3.type,
@@ -151,18 +153,28 @@ function (_PureComponent) {
           disabled = _this$props3.disabled;
       var value = this.isChecked();
 
-      var labelNode = !!label && _react.default.createElement("div", {
-        styleName: "label"
+      var labelNode = !!label && _react["default"].createElement("div", {
+        className: styles.label
       }, label);
 
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: (0, _classnames2.default)('wrapper', "size-".concat(size), (_classnames = {}, _defineProperty(_classnames, "type-".concat(type), type !== 'check'), _defineProperty(_classnames, "theme-".concat(theme), theme !== 'light'), _defineProperty(_classnames, "align-".concat(align), align === 'right'), _defineProperty(_classnames, "checked", value), _defineProperty(_classnames, "inline", inline), _classnames))
-      }, _react.default.createElement("div", {
-        styleName: (0, _classnames2.default)('checkbox', {
-          disabled: disabled
-        }),
-        onClick: this.handleClick
+      return _react["default"].createElement("div", {
+        "data-testid": testId,
+        className: (0, _classnames3["default"])(className, styles.wrapper, styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles["type-".concat(type)], type !== 'check'), _defineProperty(_classnames, styles["theme-".concat(theme)], theme !== 'light'), _defineProperty(_classnames, styles["align-".concat(align)], align === 'right'), _defineProperty(_classnames, styles.checked, value), _defineProperty(_classnames, styles.inline, inline), _classnames))
+      }, _react["default"].createElement("div", {
+        className: (0, _classnames3["default"])(styles.checkbox, _defineProperty({}, styles.disabled, disabled)),
+        role: "checkbox",
+        tabIndex: "0",
+        "aria-checked": value,
+        onClick: this.handleClick,
+        onKeyDown: function onKeyDown(e) {
+          var keyCode = e.keyCode;
+
+          if ([13, 32].indexOf(keyCode) >= 0) {
+            e.preventDefault();
+
+            _this2.handleClick();
+          }
+        }
       }, align === 'right' && labelNode, this.renderBox(), align === 'left' && labelNode));
     }
   }]);
@@ -170,23 +182,24 @@ function (_PureComponent) {
   return Checkbox;
 }(_react.PureComponent);
 
-exports.Checkbox = Checkbox;
 Checkbox.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(['dark', 'light']),
-  type: _propTypes.default.oneOf(['check', 'radio']),
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.node]),
-  defaultValue: _propTypes.default.bool,
-  value: _propTypes.default.bool,
-  indeterminate: _propTypes.default.bool,
-  align: _propTypes.default.oneOf(['left', 'right']),
-  inline: _propTypes.default.bool,
-  disabled: _propTypes.default.bool,
-  onChange: _propTypes.default.func,
-  onClick: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(['dark', 'light']),
+  type: _propTypes["default"].oneOf(['check', 'radio']),
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  label: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].node]),
+  defaultValue: _propTypes["default"].bool,
+  value: _propTypes["default"].bool,
+  indeterminate: _propTypes["default"].bool,
+  align: _propTypes["default"].oneOf(['left', 'right']),
+  inline: _propTypes["default"].bool,
+  disabled: _propTypes["default"].bool,
+  onChange: _propTypes["default"].func,
+  onClick: _propTypes["default"].func
 };
 Checkbox.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'light',
   type: 'check',
@@ -201,9 +214,5 @@ Checkbox.defaultProps = {
   onChange: function onChange() {},
   onClick: function onClick() {}
 };
-
-var _default = (0, _reactCssModules.default)(Checkbox, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Checkbox;
+exports["default"] = _default;

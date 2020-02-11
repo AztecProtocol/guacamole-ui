@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Calendar = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _moment = _interopRequireDefault(require("moment"));
 
@@ -23,13 +21,17 @@ var _getVisibleMonthsOfCalendar = _interopRequireDefault(require("../../../utils
 
 var _Month = _interopRequireDefault(require("./Month"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -117,14 +119,14 @@ function (_PureComponent) {
           monthNameFormat: monthNameFormat,
           startOfWeek: startOfWeek,
           showOutsideDays: doShowOutsideDays,
-          daysStatus: daysStatus[(0, _toMonthKey.default)(month)],
+          daysStatus: daysStatus[(0, _toMonthKey["default"])(month)],
           onSelectDay: onSelectDay,
           onHoverDay: onHoverDay,
           onBlurDay: onBlurDay
         };
 
-        var monthNode = _react.default.createElement(_Month.default, _extends({
-          key: (0, _toMonthKey.default)(month)
+        var monthNode = _react["default"].createElement(_Month["default"], _extends({
+          key: (0, _toMonthKey["default"])(month)
         }, monthProps));
 
         return renderMonth(_objectSpread({}, monthProps, {
@@ -135,19 +137,17 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
+      var _classnames;
+
       var _this$props2 = this.props,
+          testId = _this$props2.testId,
           className = _this$props2.className,
           orientation = _this$props2.orientation,
           flexWidth = _this$props2.flexWidth,
           onSelectDay = _this$props2.onSelectDay;
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: (0, _classnames.default)({
-          'calendar-v': !flexWidth && orientation === 'vertical',
-          'calendar-h': !flexWidth && orientation === 'horizontal',
-          'calendar-flex': flexWidth,
-          interactive: onSelectDay
-        })
+      return _react["default"].createElement("div", {
+        "data-testid": testId,
+        className: (0, _classnames2["default"])(className, (_classnames = {}, _defineProperty(_classnames, styles['calendar-v'], !flexWidth && orientation === 'vertical'), _defineProperty(_classnames, styles['calendar-h'], !flexWidth && orientation === 'horizontal'), _defineProperty(_classnames, styles['calendar-flex'], flexWidth), _defineProperty(_classnames, styles.interactive, onSelectDay), _classnames))
       }, this.renderMonths());
     }
   }], [{
@@ -162,7 +162,7 @@ function (_PureComponent) {
       }
 
       return {
-        months: (0, _getVisibleMonthsOfCalendar.default)({
+        months: (0, _getVisibleMonthsOfCalendar["default"])({
           firstVisibleMonth: firstVisibleMonth,
           numberOfMonths: numberOfMonths
         })
@@ -173,25 +173,27 @@ function (_PureComponent) {
   return Calendar;
 }(_react.PureComponent);
 
-exports.Calendar = Calendar;
 Calendar.propTypes = {
-  className: _propTypes.default.string,
-  firstVisibleMonth: _propTypes.default.instanceOf(_moment.default),
-  monthNameFormat: _propTypes.default.string,
-  numberOfMonths: _propTypes.default.number,
-  startOfWeek: _propTypes.default.number,
-  showOutsideDays: _propTypes.default.bool,
-  flexWidth: _propTypes.default.bool,
-  orientation: _propTypes.default.oneOf(['horizontal', 'vertical']),
-  daysStatus: _propTypes.default.object,
-  onSelectDay: _propTypes.default.func,
-  onHoverDay: _propTypes.default.func,
-  onBlurDay: _propTypes.default.func,
-  renderMonth: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  firstVisibleMonth: _propTypes["default"].instanceOf(_moment["default"]),
+  monthNameFormat: _propTypes["default"].string,
+  numberOfMonths: _propTypes["default"].number,
+  startOfWeek: _propTypes["default"].number,
+  showOutsideDays: _propTypes["default"].bool,
+  flexWidth: _propTypes["default"].bool,
+  orientation: _propTypes["default"].oneOf(['horizontal', 'vertical']),
+  daysStatus: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  onSelectDay: _propTypes["default"].func,
+  onHoverDay: _propTypes["default"].func,
+  onBlurDay: _propTypes["default"].func,
+  renderMonth: _propTypes["default"].func
 };
 Calendar.defaultProps = {
+  testId: undefined,
   className: '',
-  firstVisibleMonth: (0, _moment.default)(),
+  firstVisibleMonth: (0, _moment["default"])(),
   monthNameFormat: 'YYYY MMMM',
   numberOfMonths: 1,
   startOfWeek: 0,
@@ -207,9 +209,5 @@ Calendar.defaultProps = {
     return children;
   }
 };
-
-var _default = (0, _reactCssModules.default)(Calendar, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Calendar;
+exports["default"] = _default;

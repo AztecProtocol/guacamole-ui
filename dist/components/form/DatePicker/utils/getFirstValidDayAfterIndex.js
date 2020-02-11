@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getFirstValidDayAfterIndex;
+exports["default"] = getFirstValidDayAfterIndex;
 
 function getFirstValidDayAfterIndex(selectedDays, index) {
   var day;

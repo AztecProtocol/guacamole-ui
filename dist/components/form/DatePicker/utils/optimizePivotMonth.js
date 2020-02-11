@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = optimizePivotMonth;
+exports["default"] = optimizePivotMonth;
 
 function optimizePivotMonth(pivotMonth, numberOfMonths, minMonth, maxMonth) {
   var newPivotMonth = pivotMonth;

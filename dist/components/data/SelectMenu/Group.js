@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames5 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -21,17 +19,21 @@ var _Icon = _interopRequireDefault(require("../../general/Icon"));
 
 var _ListItem = _interopRequireDefault(require("../ListItem"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -126,6 +128,8 @@ function (_PureComponent) {
           onHover = _this$props.onHover,
           onBlur = _this$props.onBlur;
       return items.map(function (item) {
+        var _classnames;
+
         var value = item.value,
             href = item.href,
             Link = item.Link,
@@ -134,13 +138,9 @@ function (_PureComponent) {
 
         var Tag = !href ? 'div' : Link || 'a';
         var itemSize = listItem.size || size;
-        return _react.default.createElement(Tag, {
+        return _react["default"].createElement(Tag, {
           key: value,
-          styleName: (0, _classnames2.default)('item', "size-".concat(itemSize), {
-            selected: value === selectedValue,
-            hovered: value === hoveredValue,
-            disabled: disabled
-          }),
+          className: (0, _classnames5["default"])(styles.item, styles["size-".concat(itemSize)], (_classnames = {}, _defineProperty(_classnames, styles.selected, value === selectedValue), _defineProperty(_classnames, styles.hovered, value === hoveredValue), _defineProperty(_classnames, styles.disabled, disabled), _classnames)),
           to: href,
           href: href,
           onClick: function onClick() {
@@ -152,7 +152,7 @@ function (_PureComponent) {
           onMouseLeave: function onMouseLeave() {
             return onBlur(value, item);
           }
-        }, _react.default.createElement(_ListItem.default, _extends({}, listItem, {
+        }, _react["default"].createElement(_ListItem["default"], _extends({}, listItem, {
           size: itemSize
         })));
       });
@@ -166,22 +166,27 @@ function (_PureComponent) {
           toggleable = _this$props2.toggleable;
       var hide = this.state.hide;
       var captionSize = caption.size || size;
-      return _react.default.createElement("div", {
-        styleName: (0, _classnames2.default)('caption', "size-".concat(captionSize), {
-          toggleable: toggleable
-        }),
+      /* eslint-disable jsx-a11y/no-static-element-interactions */
+
+      return _react["default"].createElement("div", {
+        role: toggleable ? 'menuitem' : '',
+        className: (0, _classnames5["default"])(styles.caption, styles["size-".concat(captionSize)], _defineProperty({}, styles.toggleable, toggleable)),
+        onKeyDown: toggleable ? this.handleToggleItems : undefined,
         onClick: toggleable ? this.handleToggleItems : undefined
-      }, _react.default.createElement(_ListItem.default, _extends({}, caption, {
+      }, _react["default"].createElement(_ListItem["default"], _extends({}, caption, {
         size: captionSize
-      })), toggleable && _react.default.createElement(_Icon.default, {
-        styleName: "expand-button",
+      })), toggleable && _react["default"].createElement(_Icon["default"], {
+        className: styles['expand-button'],
         name: hide ? 'expand_more' : 'expand_less',
         size: captionSize
       }));
+      /* eslint-enable */
     }
   }, {
     key: "render",
     value: function render() {
+      var _classnames4;
+
       var _this$props3 = this.props,
           size = _this$props3.size,
           padding = _this$props3.padding,
@@ -189,13 +194,10 @@ function (_PureComponent) {
           hasDivider = _this$props3.hasDivider;
       var hide = this.state.hide;
       var groupSize = caption && caption.size || size;
-      return _react.default.createElement("div", {
-        styleName: (0, _classnames2.default)("group-".concat(groupSize), _defineProperty({}, "pad-".concat(padding), padding && padding !== '0'))
-      }, caption && this.renderCaption() || null, _react.default.createElement("div", {
-        styleName: (0, _classnames2.default)('items', {
-          hide: hide,
-          'has-divider': hasDivider
-        })
+      return _react["default"].createElement("div", {
+        className: (0, _classnames5["default"])(styles["group-".concat(groupSize)], _defineProperty({}, styles["pad-".concat(padding)], padding && padding !== '0'))
+      }, caption && this.renderCaption() || null, _react["default"].createElement("div", {
+        className: (0, _classnames5["default"])(styles.items, (_classnames4 = {}, _defineProperty(_classnames4, styles.hide, hide), _defineProperty(_classnames4, styles['has-divider'], hasDivider), _classnames4))
       }, this.renderItems()));
     }
   }]);
@@ -204,22 +206,22 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 Group.propTypes = {
-  size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys).isRequired,
-  padding: _propTypes.default.string,
-  caption: _propTypes.default.shape(_listItemShape.default),
-  toggleable: _propTypes.default.bool,
-  items: _propTypes.default.arrayOf(_propTypes.default.shape(_objectSpread({}, _listItemShape.default, {
-    value: _propTypes.default.string.isRequired,
-    href: _propTypes.default.string,
-    Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
-    disabled: _propTypes.default.bool
+  size: _propTypes["default"].oneOf(_styleConstants.shapeSizeKeys).isRequired,
+  padding: _propTypes["default"].string,
+  caption: _propTypes["default"].shape(_listItemShape["default"]),
+  toggleable: _propTypes["default"].bool,
+  items: _propTypes["default"].arrayOf(_propTypes["default"].shape(_objectSpread({}, _listItemShape["default"], {
+    value: _propTypes["default"].string.isRequired,
+    href: _propTypes["default"].string,
+    Link: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].func, _propTypes["default"].object]),
+    disabled: _propTypes["default"].bool
   }))),
-  selectedValue: _propTypes.default.string.isRequired,
-  hoveredValue: _propTypes.default.string.isRequired,
-  onSelect: _propTypes.default.func.isRequired,
-  onHover: _propTypes.default.func.isRequired,
-  onBlur: _propTypes.default.func.isRequired,
-  hasDivider: _propTypes.default.bool
+  selectedValue: _propTypes["default"].string.isRequired,
+  hoveredValue: _propTypes["default"].string.isRequired,
+  onSelect: _propTypes["default"].func.isRequired,
+  onHover: _propTypes["default"].func.isRequired,
+  onBlur: _propTypes["default"].func.isRequired,
+  hasDivider: _propTypes["default"].bool
 };
 Group.defaultProps = {
   caption: null,
@@ -228,9 +230,5 @@ Group.defaultProps = {
   toggleable: false,
   hasDivider: false
 };
-
-var _default = (0, _reactCssModules.default)(Group, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Group;
+exports["default"] = _default;

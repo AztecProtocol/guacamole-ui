@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _isObjectEmpty = _interopRequireDefault(require("../../../utils/isObjectEmpty"));
 
@@ -41,11 +41,13 @@ var _dataModifier = require("./utils/dataModifier");
 
 var _errorsModifier = require("./utils/errorsModifier");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -104,8 +106,8 @@ function (_PureComponent) {
       if (isControlled && data !== prevData) {
         nextState.data = data;
 
-        if (!isErrorControlled && !(0, _isObjectEmpty.default)(prevErrors)) {
-          nextState.errors = (0, _validateFormData.default)(data, fieldsConfig);
+        if (!isErrorControlled && !(0, _isObjectEmpty["default"])(prevErrors)) {
+          nextState.errors = (0, _validateFormData["default"])(data, fieldsConfig);
         }
       }
 
@@ -128,7 +130,7 @@ function (_PureComponent) {
       var formIndex = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
       var fieldsConfig = _this.props.fieldsConfig;
       var data = _this.state.data;
-      return (0, _validateFormData.default)(data, fieldsConfig.slice(0, formIndex + 1));
+      return (0, _validateFormData["default"])(data, fieldsConfig.slice(0, formIndex + 1));
     });
 
     var initialData = props.initialData,
@@ -139,7 +141,7 @@ function (_PureComponent) {
     _this.state = {
       isControlled: isControlled,
       isErrorControlled: errors !== undefined,
-      data: !isControlled ? (0, _getDefaultData.default)(initialData, _fieldsConfig) : {},
+      data: !isControlled ? (0, _getDefaultData["default"])(initialData, _fieldsConfig) : {},
       errors: {},
       prevProps: {
         // eslint-disable-line react/no-unused-state
@@ -200,7 +202,7 @@ function (_PureComponent) {
       if (!isErrorControlled) {
         var errors = this.validate(formIndex);
 
-        if (!(0, _isObjectEmpty.default)(errors)) {
+        if (!(0, _isObjectEmpty["default"])(errors)) {
           this.setState({
             errors: errors
           });
@@ -249,24 +251,24 @@ function (_PureComponent) {
           colGroups.push([]);
         }
 
-        colGroups[colGroups.length - 1].push(_react.default.createElement(_Col.default, {
+        colGroups[colGroups.length - 1].push(_react["default"].createElement(_Col["default"], {
           key: fieldName,
           shift: shift,
           column: hasErrorCol ? 12 : column
-        }, _react.default.createElement(_Block.default, {
+        }, _react["default"].createElement(_Block["default"], {
           padding: "m 0"
-        }, label && _react.default.createElement(_Block.default, {
+        }, label && _react["default"].createElement(_Block["default"], {
           padding: "xs 0"
-        }, _react.default.createElement(_Text.default, {
-          styleName: isRequired ? 'label-required' : '',
+        }, _react["default"].createElement(_Text["default"], {
+          className: isRequired ? styles['label-required'] : '',
           text: label,
           color: "label",
           size: "xxs"
-        })), inputType && _react.default.createElement(_Block.default, {
+        })), inputType && _react["default"].createElement(_Block["default"], {
           padding: "xs 0"
-        }, _react.default.createElement(_Row.default, null, _react.default.createElement(_Col.default, {
+        }, _react["default"].createElement(_Row["default"], null, _react["default"].createElement(_Col["default"], {
           column: hasErrorCol ? column : 12
-        }, _react.default.createElement(_FieldInput.default, _extends({
+        }, _react["default"].createElement(_FieldInput["default"], _extends({
           inputSize: size
         }, fieldConfig, {
           key: fieldName,
@@ -277,15 +279,15 @@ function (_PureComponent) {
           formData: formData,
           onChange: _this2.handleChange,
           isEditing: true
-        }))), hasErrorCol && _react.default.createElement(_Col.default, {
+        }))), hasErrorCol && _react["default"].createElement(_Col["default"], {
           column: 12 - column
-        }, _react.default.createElement(_Text.default, {
+        }, _react["default"].createElement(_Text["default"], {
           text: error,
           color: "red",
           size: "xxs"
-        }))), errorPosition === 'bottom' && error && _react.default.createElement(_Block.default, {
+        }))), errorPosition === 'bottom' && error && _react["default"].createElement(_Block["default"], {
           padding: "xs 0"
-        }, _react.default.createElement(_Text.default, {
+        }, _react["default"].createElement(_Text["default"], {
           text: error,
           color: "red",
           size: "xxs"
@@ -300,7 +302,7 @@ function (_PureComponent) {
       return colGroups.filter(function (group) {
         return group.length;
       }).map(function (colNodes, i) {
-        return _react.default.createElement(_Row.default, {
+        return _react["default"].createElement(_Row["default"], {
           key: "".concat(+i)
         }, colNodes);
       });
@@ -324,9 +326,9 @@ function (_PureComponent) {
       var fieldNodes = this.renderFields(fields, formConfig);
 
       if (renderForm) {
-        return _react.default.createElement(_Block.default, {
+        return _react["default"].createElement(_Block["default"], {
           key: formIndex,
-          styleName: "form",
+          className: styles.form,
           padding: "m 0"
         }, renderForm({
           formConfig: formConfig,
@@ -335,22 +337,22 @@ function (_PureComponent) {
         }));
       }
 
-      return _react.default.createElement(_Block.default, {
+      return _react["default"].createElement(_Block["default"], {
         key: formIndex,
-        styleName: "form",
+        className: styles.form,
         padding: "m 0"
-      }, (label || description) && _react.default.createElement(_Block.default, {
+      }, (label || description) && _react["default"].createElement(_Block["default"], {
         top: label ? '' : 'xs',
         bottom: "xl"
-      }, label && _react.default.createElement(_Block.default, {
+      }, label && _react["default"].createElement(_Block["default"], {
         top: "l"
-      }, _react.default.createElement(_Text.default, {
+      }, _react["default"].createElement(_Text["default"], {
         text: label,
         size: "s",
         weight: "semibold"
-      })), description && _react.default.createElement(_Block.default, {
+      })), description && _react["default"].createElement(_Block["default"], {
         top: "m"
-      }, _react.default.createElement(_Text.default, {
+      }, _react["default"].createElement(_Text["default"], {
         text: description
       }))), fieldNodes, formExtraContent, extraContent, renderFooter && renderFooter({
         formIndex: formIndex,
@@ -358,11 +360,11 @@ function (_PureComponent) {
           return _this3.handleSubmit(formIndex);
         },
         isLoading: isLoading
-      }), !renderFooter && buttonText && _react.default.createElement(_Block.default, {
+      }), !renderFooter && buttonText && _react["default"].createElement(_Block["default"], {
         padding: "l 0",
         align: buttonAlign
-      }, _react.default.createElement(_Button.default, {
-        size: (0, _shiftSize.default)(size, 1),
+      }, _react["default"].createElement(_Button["default"], {
+        size: (0, _shiftSize["default"])(size, 1),
         text: buttonText,
         onSubmit: function onSubmit() {
           return _this3.handleSubmit(formIndex);
@@ -376,14 +378,15 @@ function (_PureComponent) {
       var _this4 = this;
 
       var _this$props4 = this.props,
+          testId = _this$props4.testId,
           className = _this$props4.className,
           fieldsConfig = _this$props4.fieldsConfig,
           expand = _this$props4.expand,
           extraContent = _this$props4.extraContent;
       var totalForms = fieldsConfig.length;
-      return _react.default.createElement(_Offset.default, {
-        className: className,
-        styleName: !expand ? 'wrapper' : '',
+      return _react["default"].createElement(_Offset["default"], {
+        testId: testId,
+        className: (0, _classnames2["default"])(className, _defineProperty({}, styles.wrapper, !expand)),
         margin: "m 0"
       }, fieldsConfig.map(function (formConfig, i) {
         return _this4.renderForm(formConfig, i, i === totalForms - 1 ? extraContent : null);
@@ -395,30 +398,36 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 Form.propTypes = {
-  className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  initialData: _propTypes.default.object,
-  data: _propTypes.default.object,
-  formData: _propTypes.default.object,
-  errors: _propTypes.default.object,
-  fieldsConfig: _propTypes.default.arrayOf(_propTypes.default.shape({
-    label: _propTypes.default.string,
-    description: _propTypes.default.string,
-    errorPosition: _propTypes.default.oneOf(['bottom', 'right']),
-    buttonText: _propTypes.default.string,
-    buttonAlign: _propTypes.default.oneOf(['left', 'right']),
-    fields: _propTypes.default.arrayOf(_propTypes.default.shape(_fieldShape.default)).isRequired,
-    extraContent: _propTypes.default.node
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  initialData: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  data: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  formData: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  errors: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  fieldsConfig: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    label: _propTypes["default"].string,
+    description: _propTypes["default"].string,
+    errorPosition: _propTypes["default"].oneOf(['bottom', 'right']),
+    buttonText: _propTypes["default"].string,
+    buttonAlign: _propTypes["default"].oneOf(['left', 'right']),
+    fields: _propTypes["default"].arrayOf(_propTypes["default"].shape(_fieldShape["default"])).isRequired,
+    extraContent: _propTypes["default"].node
   })).isRequired,
-  extraContent: _propTypes.default.node,
-  expand: _propTypes.default.bool,
-  isLoading: _propTypes.default.bool,
-  renderForm: _propTypes.default.func,
-  renderFooter: _propTypes.default.func,
-  onChange: _propTypes.default.func,
-  onSubmit: _propTypes.default.func
+  extraContent: _propTypes["default"].node,
+  expand: _propTypes["default"].bool,
+  isLoading: _propTypes["default"].bool,
+  renderForm: _propTypes["default"].func,
+  renderFooter: _propTypes["default"].func,
+  onChange: _propTypes["default"].func,
+  onSubmit: _propTypes["default"].func
 };
 Form.defaultProps = {
+  testId: undefined,
   className: '',
   size: _styleConstants.defaultInputSizeKey,
   initialData: {},
@@ -433,7 +442,5 @@ Form.defaultProps = {
   onChange: function onChange() {},
   onSubmit: function onSubmit() {}
 };
-
-var _default = (0, _reactCssModules.default)(Form, styles);
-
-exports.default = _default;
+var _default = Form;
+exports["default"] = _default;

@@ -3,13 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Icon = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
 
@@ -19,7 +17,7 @@ var _responsiveTextSizes = _interopRequireDefault(require("../../../shapes/respo
 
 var _generateResponsiveStyleNames = _interopRequireDefault(require("../../../utils/generateResponsiveStyleNames"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -124,7 +122,8 @@ var styles = {
 var Icon = function Icon(_ref) {
   var _classnames;
 
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       name = _ref.name,
       size = _ref.size,
       color = _ref.color,
@@ -132,24 +131,27 @@ var Icon = function Icon(_ref) {
       spin = _ref.spin,
       flipHorizontal = _ref.flipHorizontal,
       flipVertical = _ref.flipVertical;
-  return _react.default.createElement("i", {
-    className: (0, _classnames2.default)('material-icons cm-icon', className),
-    styleName: (0, _classnames2.default)(size && size !== 'inherit' && (0, _generateResponsiveStyleNames.default)('size', size) || '', (_classnames = {}, _defineProperty(_classnames, "color-".concat(color), color), _defineProperty(_classnames, "rotate-".concat(rotate), rotate), _defineProperty(_classnames, 'flip-horizontal', flipHorizontal), _defineProperty(_classnames, 'flip-vertical', flipVertical), _defineProperty(_classnames, "spin", spin), _classnames))
+  return _react["default"].createElement("i", {
+    "data-testid": testId,
+    className: (0, _classnames2["default"])(className, 'material-icons', 'cm-icon', size && size !== 'inherit' && (0, _generateResponsiveStyleNames["default"])('size', size).map(function (n) {
+      return styles[n];
+    }) || '', (_classnames = {}, _defineProperty(_classnames, styles["color-".concat(color)], color), _defineProperty(_classnames, styles["rotate-".concat(rotate)], rotate), _defineProperty(_classnames, styles['flip-horizontal'], flipHorizontal), _defineProperty(_classnames, styles['flip-vertical'], flipVertical), _defineProperty(_classnames, styles.spin, spin), _classnames))
   }, name);
 };
 
-exports.Icon = Icon;
 Icon.propTypes = {
-  className: _propTypes.default.string,
-  name: _propTypes.default.string.isRequired,
-  size: _responsiveTextSizes.default,
-  color: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.textColorNames))),
-  rotate: _propTypes.default.oneOf(_styleConstants.iconRotateDegrees),
-  flipHorizontal: _propTypes.default.bool,
-  flipVertical: _propTypes.default.bool,
-  spin: _propTypes.default.bool
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  name: _propTypes["default"].string.isRequired,
+  size: _responsiveTextSizes["default"],
+  color: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.textColorNames))),
+  rotate: _propTypes["default"].oneOf(_styleConstants.iconRotateDegrees),
+  flipHorizontal: _propTypes["default"].bool,
+  flipVertical: _propTypes["default"].bool,
+  spin: _propTypes["default"].bool
 };
 Icon.defaultProps = {
+  testId: undefined,
   className: '',
   size: 'inherit',
   color: '',
@@ -158,9 +160,5 @@ Icon.defaultProps = {
   flipVertical: false,
   spin: false
 };
-
-var _default = (0, _reactCssModules.default)(Icon, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Icon;
+exports["default"] = _default;

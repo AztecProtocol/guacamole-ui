@@ -3,13 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _sort = require("../../../utils/sort");
 
@@ -27,7 +25,7 @@ var _TableRow = _interopRequireDefault(require("./TableRow"));
 
 var _TableCell = _interopRequireDefault(require("./TableCell"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var styles = {
   "row-wrapper": "table-14d566be",
@@ -62,13 +60,17 @@ var styles = {
 };
 
 var TableHead = function TableHead(_ref) {
-  var defaultAlign = _ref.align,
+  var testId = _ref.testId,
+      className = _ref.className,
+      defaultAlign = _ref.align,
       columns = _ref.columns,
       nowrap = _ref.nowrap,
       sortBy = _ref.sortBy,
       sortOrder = _ref.sortOrder,
       onClickColumn = _ref.onClickColumn;
-  return _react.default.createElement(_TableRow.default, {
+  return _react["default"].createElement(_TableRow["default"], {
+    testId: testId,
+    className: className,
     textAlign: defaultAlign,
     nowrap: nowrap,
     highlight: true
@@ -78,26 +80,26 @@ var TableHead = function TableHead(_ref) {
         align = _ref2.align,
         width = _ref2.width,
         defaultSortingOrder = _ref2.defaultSortingOrder;
-    return _react.default.createElement(_TableCell.default, {
+    return _react["default"].createElement(_TableCell["default"], {
       key: +i,
-      styleName: "table-head-cell",
+      className: styles['table-head-cell'],
       width: width,
       align: align
-    }, (!sortBy || defaultSortingOrder === undefined) && _react.default.createElement(_Text.default, {
+    }, (!sortBy || defaultSortingOrder === undefined) && _react["default"].createElement(_Text["default"], {
       text: label.toUpperCase(),
       color: "label",
       size: "xxs"
-    }) || _react.default.createElement(_TextButton.default, {
-      styleName: "sort-button",
+    }) || _react["default"].createElement(_TextButton["default"], {
+      className: styles['sort-button'],
       color: "label",
       size: "xxs",
       onClick: function onClick() {
         return onClickColumn(fieldName);
       }
-    }, _react.default.createElement("span", null, label.toUpperCase()), fieldName === sortBy && _react.default.createElement(_Block.default, {
+    }, _react["default"].createElement("span", null, label.toUpperCase()), fieldName === sortBy && _react["default"].createElement(_Block["default"], {
       className: "lh0",
       left: "xs"
-    }, _react.default.createElement(_Icon.default, {
+    }, _react["default"].createElement(_Icon["default"], {
       name: sortOrder === _sort.ASC ? 'arrow_upward' : 'arrow_downward',
       size: "xs"
     }))));
@@ -105,27 +107,29 @@ var TableHead = function TableHead(_ref) {
 };
 
 TableHead.propTypes = {
-  columns: _propTypes.default.arrayOf(_propTypes.default.shape({
-    fieldName: _propTypes.default.string,
-    width: _propTypes.default.string,
-    align: (0, _generateResponsiveShape.default)(['', 'left', 'center', 'right']),
-    label: _propTypes.default.string.isRequired,
-    defaultSortingOrder: _propTypes.default.oneOf([_sort.DESC, _sort.ASC])
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  columns: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    fieldName: _propTypes["default"].string,
+    width: _propTypes["default"].string,
+    align: (0, _generateResponsiveShape["default"])(['', 'left', 'center', 'right']),
+    label: _propTypes["default"].string.isRequired,
+    defaultSortingOrder: _propTypes["default"].oneOf([_sort.DESC, _sort.ASC])
   })).isRequired,
-  sortBy: _propTypes.default.string,
-  sortOrder: _propTypes.default.oneOf([_sort.DESC, _sort.ASC]),
-  align: (0, _generateResponsiveShape.default)(['', 'left', 'center', 'right']),
-  nowrap: (0, _generateResponsiveShape.default)([true, false]),
-  onClickColumn: _propTypes.default.func
+  sortBy: _propTypes["default"].string,
+  sortOrder: _propTypes["default"].oneOf([_sort.DESC, _sort.ASC]),
+  align: (0, _generateResponsiveShape["default"])(['', 'left', 'center', 'right']),
+  nowrap: (0, _generateResponsiveShape["default"])([true, false]),
+  onClickColumn: _propTypes["default"].func
 };
 TableHead.defaultProps = {
+  testId: undefined,
+  className: '',
   align: '',
   nowrap: false,
   sortBy: '',
   sortOrder: _sort.DESC,
   onClickColumn: function onClickColumn() {}
 };
-
-var _default = (0, _reactCssModules.default)(TableHead, styles);
-
-exports.default = _default;
+var _default = TableHead;
+exports["default"] = _default;

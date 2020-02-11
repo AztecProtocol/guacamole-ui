@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = generateCssWebpackConfig;
+exports["default"] = generateCssWebpackConfig;
 
 var _webpack = _interopRequireDefault(require("webpack"));
 
@@ -15,11 +15,11 @@ var _optimizeCssAssetsWebpackPlugin = _interopRequireDefault(require("optimize-c
 
 var _generateCssName = _interopRequireDefault(require("./utils/generateCssName"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var projectRoot = _path.default.resolve(__dirname, '../../');
+var projectRoot = _path["default"].resolve(__dirname, '../../');
 
-var srcPath = _path.default.resolve(projectRoot, 'src');
+var srcPath = _path["default"].resolve(projectRoot, 'src');
 
 function generateCssWebpackConfig() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
@@ -27,7 +27,7 @@ function generateCssWebpackConfig() {
 
   _ref$output = _ref$output === void 0 ? {} : _ref$output;
   var _ref$output$path = _ref$output.path,
-      outputPath = _ref$output$path === void 0 ? _path.default.resolve(__dirname, '../../dist') : _ref$output$path,
+      outputPath = _ref$output$path === void 0 ? _path["default"].resolve(__dirname, '../../dist') : _ref$output$path,
       _ref$output$filename = _ref$output.filename,
       filename = _ref$output$filename === void 0 ? 'guacamole.css' : _ref$output$filename,
       _ref$output$variables = _ref$output.variablesFilename,
@@ -40,12 +40,12 @@ function generateCssWebpackConfig() {
       extensions: ['*', '.js', '.jsx', '.json'],
       alias: {
         src: srcPath,
-        utils: _path.default.resolve(srcPath, 'utils'),
+        utils: _path["default"].resolve(srcPath, 'utils'),
         outputStyles: outputPath
       }
     },
     resolveLoader: {
-      modules: [_path.default.resolve(__dirname, '../modules'), _path.default.resolve(projectRoot, 'node_modules'), 'node_modules']
+      modules: [_path["default"].resolve(__dirname, '../modules'), _path["default"].resolve(projectRoot, 'node_modules'), 'node_modules']
     },
     mode: 'production',
     node: {
@@ -53,7 +53,7 @@ function generateCssWebpackConfig() {
       net: 'empty',
       tls: 'empty'
     },
-    entry: [_path.default.resolve(srcPath, 'index.js')],
+    entry: [_path["default"].resolve(srcPath, 'index.js')],
     target: 'web',
     output: {
       path: outputPath,
@@ -64,11 +64,11 @@ function generateCssWebpackConfig() {
       maxAssetSize: 10000000,
       maxEntrypointSize: 10000000
     },
-    plugins: [new _webpack.default.DefinePlugin({
+    plugins: [new _webpack["default"].DefinePlugin({
       'process.env.NODE_ENV': 'production'
-    }), new _webpack.default.NoEmitOnErrorsPlugin(), new _miniCssExtractPlugin.default({
+    }), new _webpack["default"].NoEmitOnErrorsPlugin(), new _miniCssExtractPlugin["default"]({
       filename: filename
-    }), new _optimizeCssAssetsWebpackPlugin.default({
+    }), new _optimizeCssAssetsWebpackPlugin["default"]({
       assetNameRegExp: new RegExp(filename)
     })],
     module: {
@@ -118,7 +118,7 @@ function generateCssWebpackConfig() {
       }, {
         test: /\.(sa|sc)ss$/,
         use: [{
-          loader: _miniCssExtractPlugin.default.loader
+          loader: _miniCssExtractPlugin["default"].loader
         }, {
           loader: 'css-loader',
           options: {
@@ -126,7 +126,7 @@ function generateCssWebpackConfig() {
             modules: {
               getLocalIdent: function getLocalIdent(context, localIdentName, localName) {
                 var resourcePath = context.resourcePath;
-                return (0, _generateCssName.default)(resourcePath, localName);
+                return (0, _generateCssName["default"])(resourcePath, localName);
               }
             }
           }
@@ -147,7 +147,7 @@ function generateCssWebpackConfig() {
       }, {
         test: /\.css$/,
         use: [{
-          loader: _miniCssExtractPlugin.default.loader
+          loader: _miniCssExtractPlugin["default"].loader
         }, 'css-loader']
       }]
     }

@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.SelectInput = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _isObjectEmpty = _interopRequireDefault(require("../../../utils/isObjectEmpty"));
 
@@ -31,13 +31,17 @@ var _TextInput = _interopRequireDefault(require("../TextInput"));
 
 var _getFlattenItemValues = _interopRequireDefault(require("./utils/getFlattenItemValues"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -81,11 +85,11 @@ function (_PureComponent) {
       }
 
       if (itemGroups !== prevItemGroups) {
-        nextState.flattenValues = (0, _getFlattenItemValues.default)(itemGroups);
+        nextState.flattenValues = (0, _getFlattenItemValues["default"])(itemGroups);
         nextState.hoveredIndex = -1;
       }
 
-      if ((0, _isObjectEmpty.default)(nextState)) {
+      if ((0, _isObjectEmpty["default"])(nextState)) {
         return null;
       }
 
@@ -177,7 +181,7 @@ function (_PureComponent) {
               e.preventDefault();
               var itemGroups = _this.props.itemGroups;
               var value = flattenValues[hoveredIndex];
-              var item = (0, _getItemByValue.default)(itemGroups, value);
+              var item = (0, _getItemByValue["default"])(itemGroups, value);
 
               _this.handleSelect(value, item);
             }
@@ -324,10 +328,10 @@ function (_PureComponent) {
           value = _this$state4.value,
           flattenValues = _this$state4.flattenValues,
           hoveredIndex = _this$state4.hoveredIndex;
-      return _react.default.createElement(_PopupMenu.default, {
+      return _react["default"].createElement(_PopupMenu["default"], {
         hide: !showMenu,
         disabledClickOutside: true
-      }, _react.default.createElement(MenuComponent, {
+      }, _react["default"].createElement(MenuComponent, {
         selectedValue: highlightSelected ? value : '',
         hoveredValue: hoveredIndex >= 0 ? flattenValues[hoveredIndex] : '',
         itemGroups: itemGroups,
@@ -367,8 +371,8 @@ function (_PureComponent) {
         };
       }
 
-      var item = (0, _getItemByValue.default)(itemGroups, value);
-      return _react.default.createElement(InputComponent, {
+      var item = (0, _getItemByValue["default"])(itemGroups, value);
+      return _react["default"].createElement(InputComponent, {
         theme: theme,
         status: showMenu ? 'focus' : '',
         size: size,
@@ -386,11 +390,13 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
-      var className = this.props.className;
+      var _this$props4 = this.props,
+          testId = _this$props4.testId,
+          className = _this$props4.className;
       var showMenu = this.state.showMenu;
-      return _react.default.createElement(_ClickOutsideHandler.default, {
-        className: className,
-        styleName: "wrapper",
+      return _react["default"].createElement(_ClickOutsideHandler["default"], {
+        testId: testId,
+        className: (0, _classnames["default"])(className, styles.wrapper),
         onClickOutside: this.handleCloseMenu,
         disabled: !showMenu
       }, this.renderInput(), this.renderMenu());
@@ -400,30 +406,31 @@ function (_PureComponent) {
   return SelectInput;
 }(_react.PureComponent);
 
-exports.SelectInput = SelectInput;
 SelectInput.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
-  itemGroups: _propTypes.default.arrayOf(_itemGroupShape.default).isRequired,
-  placeholder: _propTypes.default.string,
-  tabIndex: _propTypes.default.number,
-  hasItemDivider: _propTypes.default.bool,
-  enableClearSelected: _propTypes.default.bool,
-  highlightSelected: _propTypes.default.bool,
-  autoCloseOnSelect: _propTypes.default.bool,
-  editable: _propTypes.default.bool,
-  onClick: _propTypes.default.func,
-  onClickIcon: _propTypes.default.func,
-  onSelect: _propTypes.default.func,
-  onClearSelectedValues: _propTypes.default.func,
-  onChange: _propTypes.default.func,
-  icon: _iconShape.default,
-  InputComponent: _propTypes.default.func,
-  MenuComponent: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(_styleConstants.inputThemeNames),
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  value: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]),
+  itemGroups: _propTypes["default"].arrayOf(_itemGroupShape["default"]).isRequired,
+  placeholder: _propTypes["default"].string,
+  tabIndex: _propTypes["default"].number,
+  hasItemDivider: _propTypes["default"].bool,
+  enableClearSelected: _propTypes["default"].bool,
+  highlightSelected: _propTypes["default"].bool,
+  autoCloseOnSelect: _propTypes["default"].bool,
+  editable: _propTypes["default"].bool,
+  onClick: _propTypes["default"].func,
+  onClickIcon: _propTypes["default"].func,
+  onSelect: _propTypes["default"].func,
+  onClearSelectedValues: _propTypes["default"].func,
+  onChange: _propTypes["default"].func,
+  icon: _iconShape["default"],
+  InputComponent: _propTypes["default"].func,
+  MenuComponent: _propTypes["default"].func
 };
 SelectInput.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: _styleConstants.defaultInputSizeKey,
@@ -441,10 +448,8 @@ SelectInput.defaultProps = {
   onClearSelectedValues: function onClearSelectedValues() {},
   onChange: function onChange() {},
   icon: null,
-  InputComponent: _TextInput.default,
-  MenuComponent: _SelectMenu.default
+  InputComponent: _TextInput["default"],
+  MenuComponent: _SelectMenu["default"]
 };
-
-var _default = (0, _reactCssModules.default)(SelectInput, styles);
-
-exports.default = _default;
+var _default = SelectInput;
+exports["default"] = _default;

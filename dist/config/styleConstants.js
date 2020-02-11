@@ -68,7 +68,8 @@ var imageRatioNames = ['square', // 1 * 1
 'classic', // 3 * 2
 'golden', // 16.18 * 10
 'landscape', // 16 * 9
-'ultra'];
+'ultra' // 2.76 * 1
+];
 exports.imageRatioNames = imageRatioNames;
 var shapeSizeKeys = sizeKeys; // icons
 

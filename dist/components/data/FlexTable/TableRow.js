@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -11,15 +11,13 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
-
 var _generateResponsiveShape = _interopRequireDefault(require("../../../utils/generateResponsiveShape"));
 
 var _Block = _interopRequireDefault(require("../../layout/Block"));
 
 var _Row = _interopRequireDefault(require("../../layout/Row"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -64,7 +62,9 @@ var styles = {
 var TableRow = function TableRow(_ref) {
   var _classnames;
 
-  var verticalPadding = _ref.verticalPadding,
+  var testId = _ref.testId,
+      className = _ref.className,
+      verticalPadding = _ref.verticalPadding,
       margin = _ref.margin,
       textAlign = _ref.textAlign,
       align = _ref.align,
@@ -74,17 +74,16 @@ var TableRow = function TableRow(_ref) {
       noDivider = _ref.noDivider,
       nowrap = _ref.nowrap,
       border = _ref.border,
-      blockProps = _objectWithoutProperties(_ref, ["verticalPadding", "margin", "textAlign", "align", "valign", "children", "highlight", "noDivider", "nowrap", "border"]);
+      blockProps = _objectWithoutProperties(_ref, ["testId", "className", "verticalPadding", "margin", "textAlign", "align", "valign", "children", "highlight", "noDivider", "nowrap", "border"]);
 
-  return _react.default.createElement(_Block.default, _extends({}, blockProps, {
-    styleName: (0, _classnames2.default)('row-wrapper', (_classnames = {
-      'row-no-divider': noDivider
-    }, _defineProperty(_classnames, "v-".concat(verticalPadding), verticalPadding), _defineProperty(_classnames, "highlight", highlight), _classnames)),
+  return _react["default"].createElement(_Block["default"], _extends({}, blockProps, {
+    testId: testId,
+    className: (0, _classnames2["default"])(className, styles['row-wrapper'], (_classnames = {}, _defineProperty(_classnames, styles['row-no-divider'], noDivider), _defineProperty(_classnames, styles["v-".concat(verticalPadding)], verticalPadding), _defineProperty(_classnames, styles.highlight, highlight), _classnames)),
     hasBorder: border,
     align: textAlign,
     background: highlight ? 'grey-lightest' : 'white'
-  }), _react.default.createElement(_Row.default, {
-    styleName: "row",
+  }), _react["default"].createElement(_Row["default"], {
+    className: styles.row,
     margin: margin,
     valign: valign,
     align: align,
@@ -93,18 +92,22 @@ var TableRow = function TableRow(_ref) {
 };
 
 TableRow.propTypes = {
-  verticalPadding: _propTypes.default.string,
-  margin: _propTypes.default.string,
-  textAlign: (0, _generateResponsiveShape.default)(['', 'left', 'center', 'right']),
-  align: (0, _generateResponsiveShape.default)(['', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
-  valign: (0, _generateResponsiveShape.default)(['', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline']),
-  nowrap: (0, _generateResponsiveShape.default)([true, false]),
-  children: _propTypes.default.node.isRequired,
-  highlight: _propTypes.default.bool,
-  noDivider: _propTypes.default.bool,
-  border: _propTypes.default.bool
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  verticalPadding: _propTypes["default"].string,
+  margin: _propTypes["default"].string,
+  textAlign: (0, _generateResponsiveShape["default"])(['', 'left', 'center', 'right']),
+  align: (0, _generateResponsiveShape["default"])(['', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
+  valign: (0, _generateResponsiveShape["default"])(['', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline']),
+  nowrap: (0, _generateResponsiveShape["default"])([true, false]),
+  children: _propTypes["default"].node.isRequired,
+  highlight: _propTypes["default"].bool,
+  noDivider: _propTypes["default"].bool,
+  border: _propTypes["default"].bool
 };
 TableRow.defaultProps = {
+  testId: undefined,
+  className: '',
   verticalPadding: 's',
   margin: 's',
   textAlign: '',
@@ -115,9 +118,5 @@ TableRow.defaultProps = {
   noDivider: false,
   border: false
 };
-
-var _default = (0, _reactCssModules.default)(TableRow, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = TableRow;
+exports["default"] = _default;

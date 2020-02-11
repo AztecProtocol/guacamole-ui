@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Row = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _generateResponsiveShape = _interopRequireDefault(require("../../../utils/generateResponsiveShape"));
 
@@ -21,7 +19,7 @@ var _responsiveSizes = _interopRequireDefault(require("../../../shapes/responsiv
 
 var _FlexBox = _interopRequireDefault(require("../FlexBox"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -89,26 +87,31 @@ var styles = {
 };
 
 var Row = function Row(_ref) {
-  var margin = _ref.margin,
-      props = _objectWithoutProperties(_ref, ["margin"]);
+  var testId = _ref.testId,
+      margin = _ref.margin,
+      props = _objectWithoutProperties(_ref, ["testId", "margin"]);
 
-  return _react.default.createElement(_FlexBox.default, _extends({
-    styleName: (0, _classnames.default)(margin && margin !== 'none' && (0, _generateResponsiveStyleNames.default)('margin', margin) || '')
+  return _react["default"].createElement(_FlexBox["default"], _extends({
+    testId: testId,
+    className: (0, _classnames["default"])(margin && margin !== 'none' && (0, _generateResponsiveStyleNames["default"])('margin', margin).map(function (n) {
+      return styles[n];
+    }) || '')
   }, props));
 };
 
-exports.Row = Row;
 Row.propTypes = {
-  className: _propTypes.default.string,
-  margin: _responsiveSizes.default,
-  direction: _propTypes.default.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
-  align: (0, _generateResponsiveShape.default)(['', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
-  valign: (0, _generateResponsiveShape.default)(['', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline']),
-  nowrap: (0, _generateResponsiveShape.default)([true, false]),
-  stretch: _propTypes.default.bool,
-  children: _propTypes.default.node.isRequired
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  margin: _responsiveSizes["default"],
+  direction: _propTypes["default"].oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+  align: (0, _generateResponsiveShape["default"])(['', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
+  valign: (0, _generateResponsiveShape["default"])(['', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline']),
+  nowrap: (0, _generateResponsiveShape["default"])([true, false]),
+  stretch: _propTypes["default"].bool,
+  children: _propTypes["default"].node.isRequired
 };
 Row.defaultProps = {
+  testId: undefined,
   className: '',
   margin: 'm',
   direction: 'row',
@@ -117,9 +120,5 @@ Row.defaultProps = {
   nowrap: false,
   stretch: false
 };
-
-var _default = (0, _reactCssModules.default)(Row, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Row;
+exports["default"] = _default;

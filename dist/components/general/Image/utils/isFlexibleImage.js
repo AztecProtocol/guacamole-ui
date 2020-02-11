@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = isFlexibleImage;
+exports["default"] = isFlexibleImage;
 
 function isFlexibleImage(_ref) {
   var ratio = _ref.ratio,

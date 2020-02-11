@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -37,9 +37,11 @@ var _Button = _interopRequireDefault(require("../../general/Button"));
 
 var _getItemByValue = _interopRequireDefault(require("../../data/SelectMenu/utils/getItemByValue"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -87,7 +89,7 @@ var FieldInput = function FieldInput(_ref) {
   };
 
   if (Component) {
-    return _react.default.createElement(Component, _extends({}, fieldProps, {
+    return _react["default"].createElement(Component, _extends({}, fieldProps, {
       label: label,
       placeholder: placeholder,
       onChange: handleChange
@@ -100,17 +102,17 @@ var FieldInput = function FieldInput(_ref) {
   var itemGroupsArray = typeof itemGroups !== 'function' ? itemGroups : itemGroups(fieldProps);
 
   if (!isEditable || isReadOnly) {
-    var formatedValue = formatValue ? formatValue(fieldProps) : inputType !== 'select' ? value : ((0, _getItemByValue.default)(itemGroupsArray, value) || {}).title || '';
+    var formatedValue = formatValue ? formatValue(fieldProps) : inputType !== 'select' ? value : ((0, _getItemByValue["default"])(itemGroupsArray, value) || {}).title || '';
 
     if (!isReadOnly && !isUpdating && onTriggerEdit) {
-      return _react.default.createElement(_EditableValueHolder.default, {
+      return _react["default"].createElement(_EditableValueHolder["default"], {
         inputType: inputType,
         value: formatedValue,
         onClick: onTriggerEdit
       });
     }
 
-    return _react.default.createElement(_StaticValue.default, {
+    return _react["default"].createElement(_StaticValue["default"], {
       inputType: inputType,
       value: formatedValue
     });
@@ -121,10 +123,10 @@ var FieldInput = function FieldInput(_ref) {
   switch (inputType) {
     case 'switch':
       {
-        return _react.default.createElement("div", {
+        return _react["default"].createElement("div", {
           className: "lh0"
-        }, _react.default.createElement(_SwitchInput.default, _extends({
-          size: (0, _shiftSize.default)(inputSize, -1),
+        }, _react["default"].createElement(_SwitchInput["default"], _extends({
+          size: (0, _shiftSize["default"])(inputSize, -1),
           checked: value,
           onChange: handleChange,
           disabled: isDisabled
@@ -133,7 +135,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'checkbox':
       {
-        return _react.default.createElement(_Checkbox.default, _extends({
+        return _react["default"].createElement(_Checkbox["default"], _extends({
           size: inputSize,
           value: value,
           onChange: handleChange,
@@ -142,7 +144,7 @@ var FieldInput = function FieldInput(_ref) {
       }
 
     case 'text':
-      return _react.default.createElement(_TextInput.default, _extends({
+      return _react["default"].createElement(_TextInput["default"], _extends({
         theme: inputTheme,
         status: inputStatus,
         value: "".concat(value),
@@ -154,7 +156,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'number':
       {
-        return _react.default.createElement(_MaskedNumberInput.default, _extends({
+        return _react["default"].createElement(_MaskedNumberInput["default"], _extends({
           theme: inputTheme,
           status: inputStatus,
           value: "".concat(value),
@@ -172,7 +174,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'select':
       {
-        return _react.default.createElement(_SelectInput.default, {
+        return _react["default"].createElement(_SelectInput["default"], {
           theme: inputTheme,
           value: value,
           itemGroups: itemGroupsArray,
@@ -184,7 +186,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'date':
       {
-        return _react.default.createElement(_DatePickerInput.default, _extends({
+        return _react["default"].createElement(_DatePickerInput["default"], _extends({
           theme: inputTheme,
           size: inputSize,
           placeholder: placeholder,
@@ -195,10 +197,10 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'button':
       {
-        return _react.default.createElement(_Button.default, _extends({
+        return _react["default"].createElement(_Button["default"], _extends({
           theme: "secondary",
           text: label,
-          size: (0, _shiftSize.default)(inputSize, -2),
+          size: (0, _shiftSize["default"])(inputSize, -2),
           disabled: isDisabled,
           outlined: true,
           rounded: true,
@@ -213,35 +215,40 @@ var FieldInput = function FieldInput(_ref) {
 };
 
 FieldInput.propTypes = {
-  data: _propTypes.default.object,
-  formData: _propTypes.default.object,
-  value: _propTypes.default.any,
-  fieldName: _propTypes.default.string.isRequired,
-  inputType: _propTypes.default.oneOf(['', 'switch', 'checkbox', 'text', 'number', 'select', 'date', 'button']),
-  inputTheme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
-  inputSize: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  inputStatus: _propTypes.default.oneOf(['', 'error', 'loading']),
-  extraProps: _propTypes.default.object,
-  label: _propTypes.default.string,
-  placeholder: _propTypes.default.string,
-  width: _propTypes.default.string,
-  column: _responsiveColumns.default,
-  align: _propTypes.default.string,
-  defaultValue: _propTypes.default.any,
-  itemGroups: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_itemGroupShape.default), _propTypes.default.func]),
-  mask: _propTypes.default.oneOfType([_propTypes.default.object, _propTypes.default.func]),
-  formatValue: _propTypes.default.func,
-  validate: _propTypes.default.func,
-  loading: _propTypes.default.oneOfType([_propTypes.default.bool, _propTypes.default.func]),
-  editing: _propTypes.default.oneOfType([_propTypes.default.bool, _propTypes.default.func]),
-  readOnly: _propTypes.default.oneOfType([_propTypes.default.bool, _propTypes.default.func]),
-  disabled: _propTypes.default.oneOfType([_propTypes.default.bool, _propTypes.default.func]),
-  isLoading: _propTypes.default.bool,
-  isEditing: _propTypes.default.bool,
-  isUpdating: _propTypes.default.bool,
-  Component: _propTypes.default.func,
-  onChange: _propTypes.default.func,
-  onTriggerEdit: _propTypes.default.func
+  data: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  formData: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  value: _propTypes["default"].any,
+  // eslint-disable-line react/forbid-prop-types
+  fieldName: _propTypes["default"].string.isRequired,
+  inputType: _propTypes["default"].oneOf(['', 'switch', 'checkbox', 'text', 'number', 'select', 'date', 'button']),
+  inputTheme: _propTypes["default"].oneOf(_styleConstants.inputThemeNames),
+  inputSize: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  inputStatus: _propTypes["default"].oneOf(['', 'error', 'loading']),
+  extraProps: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  label: _propTypes["default"].string,
+  placeholder: _propTypes["default"].string,
+  width: _propTypes["default"].string,
+  column: _responsiveColumns["default"],
+  align: _propTypes["default"].string,
+  defaultValue: _propTypes["default"].any,
+  // eslint-disable-line react/forbid-prop-types
+  itemGroups: _propTypes["default"].oneOfType([_propTypes["default"].arrayOf(_itemGroupShape["default"]), _propTypes["default"].func]),
+  mask: _propTypes["default"].oneOfType([_propTypes["default"].object, _propTypes["default"].func]),
+  formatValue: _propTypes["default"].func,
+  validate: _propTypes["default"].func,
+  loading: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].func]),
+  editing: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].func]),
+  readOnly: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].func]),
+  disabled: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].func]),
+  isLoading: _propTypes["default"].bool,
+  isEditing: _propTypes["default"].bool,
+  isUpdating: _propTypes["default"].bool,
+  Component: _propTypes["default"].func,
+  onChange: _propTypes["default"].func,
+  onTriggerEdit: _propTypes["default"].func
 };
 FieldInput.defaultProps = {
   data: {},
@@ -274,4 +281,4 @@ FieldInput.defaultProps = {
   onTriggerEdit: function onTriggerEdit() {}
 };
 var _default = FieldInput;
-exports.default = _default;
+exports["default"] = _default;

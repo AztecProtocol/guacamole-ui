@@ -3,13 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
 
@@ -27,7 +25,7 @@ var _Icon = _interopRequireDefault(require("../../general/Icon"));
 
 var _Clickable = _interopRequireDefault(require("../../utils/Clickable"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -66,12 +64,14 @@ var SmartTableRow = function SmartTableRow(_ref) {
     isEditing: isEditing,
     isUpdating: isUpdating
   });
-  return _react.default.createElement(_FlexTable.TableRow, {
-    styleName: "row",
+  return _react["default"].createElement(_FlexTable.TableRow, {
+    className: styles.row,
     verticalPadding: "m",
     textAlign: defaultAlign,
     nowrap: true
   }, fieldsConfig.map(function (_ref2) {
+    var _classnames;
+
     var width = _ref2.width,
         column = _ref2.column,
         align = _ref2.align,
@@ -81,7 +81,7 @@ var SmartTableRow = function SmartTableRow(_ref) {
     var inputType = field.inputType,
         fieldName = field.fieldName,
         loading = field.loading;
-    var value = (0, _getFormFieldValue.default)(fieldName, data, fieldsConfig);
+    var value = (0, _getFormFieldValue["default"])(fieldName, data, fieldsConfig);
     var fieldProps = {
       value: value,
       data: data,
@@ -106,17 +106,16 @@ var SmartTableRow = function SmartTableRow(_ref) {
       }
     }
 
-    return _react.default.createElement(_FlexTable.TableCell, {
-      className: inputType === 'button' ? 'lh0' : '',
-      styleName: (0, _classnames2.default)(_defineProperty({
-        shift: shouldShiftInputWrapper
-      }, "".concat(align || defaultAlign), ['left', 'right'].indexOf(align || defaultAlign) >= 0)),
+    return _react["default"].createElement(_FlexTable.TableCell, {
+      className: (0, _classnames2["default"])((_classnames = {
+        lh0: inputType === 'button'
+      }, _defineProperty(_classnames, styles.shift, shouldShiftInputWrapper), _defineProperty(_classnames, styles["".concat(align || defaultAlign)], ['left', 'right'].indexOf(align || defaultAlign) >= 0), _classnames)),
       key: fieldName,
       width: width,
       column: column,
       align: align,
       isLoading: isValueLoading
-    }, _react.default.createElement(_FieldInput.default, _extends({}, field, {
+    }, _react["default"].createElement(_FieldInput["default"], _extends({}, field, {
       inputTheme: "inline",
       value: value,
       data: data,
@@ -127,18 +126,18 @@ var SmartTableRow = function SmartTableRow(_ref) {
       onChange: onChange,
       onTriggerEdit: onTriggerEdit
     })));
-  }), isDeletable && _react.default.createElement(_Clickable.default, {
-    styleName: "delete-button",
+  }), isDeletable && _react["default"].createElement(_Clickable["default"], {
+    className: styles['delete-button'],
     onClick: function onClick() {
       return onDelete(data);
     }
-  }, _react.default.createElement(_Icon.default, {
-    styleName: "delete-hint",
+  }, _react["default"].createElement(_Icon["default"], {
+    className: styles['delete-hint'],
     name: "remove",
     size: "xs",
     color: "label"
-  }), _react.default.createElement(_Icon.default, {
-    styleName: "delete-active",
+  }), _react["default"].createElement(_Icon["default"], {
+    className: styles['delete-active'],
     name: "remove_circle",
     size: "xs",
     color: "red"
@@ -146,17 +145,19 @@ var SmartTableRow = function SmartTableRow(_ref) {
 };
 
 SmartTableRow.propTypes = {
-  align: _responsiveTextAlign.default,
-  fieldsConfig: _propTypes.default.arrayOf(_propTypes.default.shape(_fieldShape.default)).isRequired,
-  data: _propTypes.default.object,
-  formData: _propTypes.default.object,
-  isEditing: _propTypes.default.bool,
-  isLoading: _propTypes.default.bool,
-  isUpdating: _propTypes.default.bool,
-  deletable: _propTypes.default.oneOfType([_propTypes.default.bool, _propTypes.default.func]),
-  onChange: _propTypes.default.func,
-  onTriggerEdit: _propTypes.default.func,
-  onDelete: _propTypes.default.func
+  align: _responsiveTextAlign["default"],
+  fieldsConfig: _propTypes["default"].arrayOf(_propTypes["default"].shape(_fieldShape["default"])).isRequired,
+  data: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  formData: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  isEditing: _propTypes["default"].bool,
+  isLoading: _propTypes["default"].bool,
+  isUpdating: _propTypes["default"].bool,
+  deletable: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].func]),
+  onChange: _propTypes["default"].func,
+  onTriggerEdit: _propTypes["default"].func,
+  onDelete: _propTypes["default"].func
 };
 SmartTableRow.defaultProps = {
   align: '',
@@ -170,9 +171,5 @@ SmartTableRow.defaultProps = {
   onDelete: function onDelete() {},
   onTriggerEdit: null
 };
-
-var _default = (0, _reactCssModules.default)(SmartTableRow, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = SmartTableRow;
+exports["default"] = _default;

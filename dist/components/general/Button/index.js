@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Button = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -11,15 +11,13 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
-
 var _styleConstants = require("../../../config/styleConstants");
 
 var _generateResponsiveStyleNames = _interopRequireDefault(require("../../../utils/generateResponsiveStyleNames"));
 
 var _generateResponsiveShape = _interopRequireDefault(require("../../../utils/generateResponsiveShape"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -107,7 +105,8 @@ var styles = {
 var Button = function Button(_ref) {
   var _classnames;
 
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       theme = _ref.theme,
       size = _ref.size,
       expand = _ref.expand,
@@ -125,9 +124,13 @@ var Button = function Button(_ref) {
       _onClick = _ref.onClick,
       onSubmit = _ref.onSubmit;
   var ButtonTag = href && !disabled ? Link : 'button';
-  return _react.default.createElement(ButtonTag, {
-    className: className,
-    styleName: (0, _classnames2.default)('button', (0, _generateResponsiveStyleNames.default)('size', size), (0, _generateResponsiveStyleNames.default)('expand', expand), (_classnames = {}, _defineProperty(_classnames, "theme-".concat(theme), theme), _defineProperty(_classnames, 'disabled-hover', isLoading || disabled), _defineProperty(_classnames, "outlined", outlined), _defineProperty(_classnames, "rounded", rounded), _defineProperty(_classnames, "isLoading", isLoading), _defineProperty(_classnames, "disabled", disabled), _classnames)),
+  return _react["default"].createElement(ButtonTag, {
+    "data-testid": testId,
+    className: (0, _classnames2["default"])(className, styles.button, (0, _generateResponsiveStyleNames["default"])('size', size).map(function (n) {
+      return styles[n];
+    }), (0, _generateResponsiveStyleNames["default"])('expand', expand).map(function (n) {
+      return styles[n];
+    }), (_classnames = {}, _defineProperty(_classnames, styles["theme-".concat(theme)], theme), _defineProperty(_classnames, styles['disabled-hover'], isLoading || disabled), _defineProperty(_classnames, styles.outlined, outlined), _defineProperty(_classnames, styles.rounded, rounded), _defineProperty(_classnames, styles.isLoading, isLoading), _defineProperty(_classnames, styles.disabled, disabled), _classnames)),
     to: href,
     href: href,
     onClick: function onClick(e) {
@@ -150,34 +153,35 @@ var Button = function Button(_ref) {
         }
       }
     }
-  }, alignIcon === 'left' && icon && _react.default.createElement("div", {
-    styleName: "icon-left"
-  }, icon), children || text, alignIcon === 'right' && icon && _react.default.createElement("div", {
-    styleName: "icon-right"
+  }, alignIcon === 'left' && icon && _react["default"].createElement("div", {
+    className: styles['icon-left']
+  }, icon), children || text, alignIcon === 'right' && icon && _react["default"].createElement("div", {
+    className: styles['icon-right']
   }, icon));
 };
 
-exports.Button = Button;
 Button.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(['primary', 'secondary', 'white']),
-  size: (0, _generateResponsiveShape.default)(_styleConstants.buttonSizeKeys),
-  text: _propTypes.default.string,
-  icon: _propTypes.default.element,
-  alignIcon: _propTypes.default.oneOf(['left', 'right']),
-  children: _propTypes.default.node,
-  outlined: _propTypes.default.bool,
-  expand: (0, _generateResponsiveShape.default)([true, false]),
-  rounded: _propTypes.default.bool,
-  isLoading: _propTypes.default.bool,
-  disabled: _propTypes.default.bool,
-  href: _propTypes.default.string,
-  Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
-  stopPropagation: _propTypes.default.bool,
-  onClick: _propTypes.default.func,
-  onSubmit: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(['primary', 'secondary', 'white']),
+  size: (0, _generateResponsiveShape["default"])(_styleConstants.buttonSizeKeys),
+  text: _propTypes["default"].string,
+  icon: _propTypes["default"].element,
+  alignIcon: _propTypes["default"].oneOf(['left', 'right']),
+  children: _propTypes["default"].node,
+  outlined: _propTypes["default"].bool,
+  expand: (0, _generateResponsiveShape["default"])([true, false]),
+  rounded: _propTypes["default"].bool,
+  isLoading: _propTypes["default"].bool,
+  disabled: _propTypes["default"].bool,
+  href: _propTypes["default"].string,
+  Link: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].func, _propTypes["default"].object]),
+  stopPropagation: _propTypes["default"].bool,
+  onClick: _propTypes["default"].func,
+  onSubmit: _propTypes["default"].func
 };
 Button.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'primary',
   size: _styleConstants.defaultInputSizeKey,
@@ -196,9 +200,5 @@ Button.defaultProps = {
   onClick: null,
   onSubmit: null
 };
-
-var _default = (0, _reactCssModules.default)(Button, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Button;
+exports["default"] = _default;

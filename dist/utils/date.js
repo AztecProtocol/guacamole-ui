@@ -18,7 +18,7 @@ var _moment = _interopRequireDefault(require("moment"));
 
 var _date = require("../config/date");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -35,7 +35,7 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function isSameDay(day1, day2) {
-  if (!_moment.default.isMoment(day1) || !_moment.default.isMoment(day2)) {
+  if (!_moment["default"].isMoment(day1) || !_moment["default"].isMoment(day2)) {
     return false;
   }
 
@@ -49,7 +49,7 @@ function isSameDay(day1, day2) {
 function isSameMonth(month1, month2) {
   var compareYear = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-  if (!_moment.default.isMoment(month1) || !_moment.default.isMoment(month2)) {
+  if (!_moment["default"].isMoment(month1) || !_moment["default"].isMoment(month2)) {
     return false;
   }
 
@@ -62,7 +62,7 @@ function isSameMonth(month1, month2) {
 
 function toMoment(date) {
   var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _date.systemDateFormat;
-  var day = (0, _moment.default)(date, format);
+  var day = (0, _moment["default"])(date, format);
   return day.isValid() ? day : null;
 }
 
@@ -132,7 +132,7 @@ function dayMin() {
     days[_key] = arguments[_key];
   }
 
-  var _ref2 = _moment.default.isMoment(days[0]) ? days : _toConsumableArray(days[0]),
+  var _ref2 = _moment["default"].isMoment(days[0]) ? days : _toConsumableArray(days[0]),
       _ref3 = _toArray(_ref2),
       firstDay = _ref3[0],
       restDays = _ref3.slice(1);
@@ -147,7 +147,7 @@ function dayMax() {
     days[_key2] = arguments[_key2];
   }
 
-  var _ref4 = _moment.default.isMoment(days[0]) ? days : _toConsumableArray(days[0]),
+  var _ref4 = _moment["default"].isMoment(days[0]) ? days : _toConsumableArray(days[0]),
       _ref5 = _toArray(_ref4),
       firstDay = _ref5[0],
       restDays = _ref5.slice(1);

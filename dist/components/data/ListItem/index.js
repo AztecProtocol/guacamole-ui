@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.ListItem = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _listItem = require("../../../config/listItem");
 
@@ -25,9 +23,11 @@ var _Text = _interopRequireDefault(require("../../general/Text"));
 
 var _Avatar = _interopRequireDefault(require("../Avatar"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "list-item": "item-497ea20e",
@@ -49,7 +49,10 @@ var styles = {
 };
 
 var ListItem = function ListItem(_ref) {
-  var className = _ref.className,
+  var _classnames;
+
+  var testId = _ref.testId,
+      className = _ref.className,
       size = _ref.size,
       icon = _ref.icon,
       iconName = _ref.iconName,
@@ -62,57 +65,52 @@ var ListItem = function ListItem(_ref) {
       valign = _ref.valign,
       nowrap = _ref.nowrap,
       showEllipsis = _ref.showEllipsis;
-  return _react.default.createElement("div", {
-    className: className,
-    styleName: (0, _classnames.default)('list-item', "size-".concat(size), {
-      'no-description': !description,
-      'valign-center': valign === 'center',
-      wrap: !nowrap && valign !== 'center',
-      nowrap: nowrap,
-      showEllipsis: showEllipsis
-    })
-  }, (icon || iconName) && _react.default.createElement("div", {
-    styleName: "icon"
-  }, _react.default.createElement(_Icon.default, _extends({
+  return _react["default"].createElement("div", {
+    "data-testid": testId,
+    className: (0, _classnames2["default"])(className, styles['list-item'], styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles['no-description'], !description), _defineProperty(_classnames, styles['valign-center'], valign === 'center'), _defineProperty(_classnames, styles.wrap, !nowrap && valign !== 'center'), _defineProperty(_classnames, styles.nowrap, nowrap), _defineProperty(_classnames, styles.showEllipsis, showEllipsis), _classnames))
+  }, (icon || iconName) && _react["default"].createElement("div", {
+    className: styles.icon
+  }, _react["default"].createElement(_Icon["default"], _extends({
     name: iconName,
     color: iconColor,
     size: _listItem.listItemIconSizeMap[size],
     rotate: iconRotate
-  }, icon))), avatar && _react.default.createElement("div", {
-    styleName: "avatar"
-  }, _react.default.createElement(_Avatar.default, _extends({}, avatar, {
+  }, icon))), avatar && _react["default"].createElement("div", {
+    className: styles.avatar
+  }, _react["default"].createElement(_Avatar["default"], _extends({}, avatar, {
     size: size
-  }))), _react.default.createElement("div", {
-    styleName: "content"
-  }, title && _react.default.createElement(_Text.default, {
+  }))), _react["default"].createElement("div", {
+    className: styles.content
+  }, title && _react["default"].createElement(_Text["default"], {
     text: title,
     size: avatar ? _listItem.listItemAvatarTextSizeMap[size] : size
-  }), description && _react.default.createElement("div", null, _react.default.createElement(_Text.default, {
+  }), description && _react["default"].createElement("div", null, _react["default"].createElement(_Text["default"], {
     text: description,
     size: size === 'l' ? 'xs' : 'xxs',
     color: "primary-lighter"
   })), children));
 };
 
-exports.ListItem = ListItem;
 ListItem.propTypes = {
-  className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys),
-  icon: _iconShape.default,
-  iconName: _propTypes.default.string,
-  iconColor: _propTypes.default.string,
-  iconRotate: _propTypes.default.oneOf([0, 90, 180, 270]),
-  avatar: _propTypes.default.shape({
-    src: _propTypes.default.string
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  size: _propTypes["default"].oneOf(_styleConstants.shapeSizeKeys),
+  icon: _iconShape["default"],
+  iconName: _propTypes["default"].string,
+  iconColor: _propTypes["default"].string,
+  iconRotate: _propTypes["default"].oneOf([0, 90, 180, 270]),
+  avatar: _propTypes["default"].shape({
+    src: _propTypes["default"].string
   }),
-  title: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.element]),
-  description: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.element]),
-  children: _propTypes.default.node,
-  valign: _propTypes.default.oneOf(['top', 'center']),
-  nowrap: _propTypes.default.bool,
-  showEllipsis: _propTypes.default.bool
+  title: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  description: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  children: _propTypes["default"].node,
+  valign: _propTypes["default"].oneOf(['top', 'center']),
+  nowrap: _propTypes["default"].bool,
+  showEllipsis: _propTypes["default"].bool
 };
 ListItem.defaultProps = {
+  testId: undefined,
   className: '',
   size: 's',
   icon: null,
@@ -127,9 +125,5 @@ ListItem.defaultProps = {
   nowrap: false,
   showEllipsis: false
 };
-
-var _default = (0, _reactCssModules.default)(ListItem, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = ListItem;
+exports["default"] = _default;

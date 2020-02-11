@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getDaysFromPreviousMonth;
+exports["default"] = getDaysFromPreviousMonth;
 
 function getDaysFromPreviousMonth(currentMonth) {
   var startOfWeek = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;

@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = removeSelectedStatus;
+exports["default"] = removeSelectedStatus;
 
 var _statusModifier = require("../../../../utils/calendar/statusModifier");
 
 var _getCurrentSelectedRange = _interopRequireDefault(require("./getCurrentSelectedRange"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function removeSelectedStatus(prevDaysStatus, selectedDays) {
   var daysStatus = prevDaysStatus;
@@ -20,7 +20,7 @@ function removeSelectedStatus(prevDaysStatus, selectedDays) {
   });
 
   if (selectedDays.length > 1) {
-    var _getCurrentSelectedRa = (0, _getCurrentSelectedRange.default)(selectedDays),
+    var _getCurrentSelectedRa = (0, _getCurrentSelectedRange["default"])(selectedDays),
         startDay = _getCurrentSelectedRa.startDay,
         endDay = _getCurrentSelectedRa.endDay;
 

@@ -7,7 +7,7 @@ exports.toggleStatus = exports.removeStatus = exports.addStatus = exports.getMod
 
 var _replaceValue = _interopRequireDefault(require("../../../../utils/replaceValue"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var hasStatus = function hasStatus(modifier, status) {
   return modifier && modifier.has(status) || false;
@@ -30,7 +30,7 @@ var addStatus = function addStatus(modifiers, value, status) {
 
   var modifier = new Set(prevModifier);
   modifier.add(status);
-  return (0, _replaceValue.default)(modifiers || {}, value, modifier, true);
+  return (0, _replaceValue["default"])(modifiers || {}, value, modifier, true);
 };
 
 exports.addStatus = addStatus;
@@ -43,13 +43,13 @@ var removeStatus = function removeStatus(modifiers, value, status) {
   }
 
   var modifier = new Set(prevModifier);
-  modifier.delete(status);
+  modifier["delete"](status);
 
   if (!modifier.size) {
     modifier = null;
   }
 
-  return (0, _replaceValue.default)(modifiers, value, modifier);
+  return (0, _replaceValue["default"])(modifiers, value, modifier);
 };
 
 exports.removeStatus = removeStatus;

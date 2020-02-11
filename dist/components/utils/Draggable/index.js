@@ -3,19 +3,21 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -170,17 +172,23 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
+          testId = _this$props.testId,
           className = _this$props.className,
           children = _this$props.children,
           style = _this$props.style,
           disabled = _this$props.disabled;
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: !disabled ? 'draggable' : '',
+      return _react["default"].createElement("div", {
+        "data-testid": testId,
+        className: (0, _classnames2["default"])(className, _defineProperty({}, styles.draggable, !disabled)),
+        role: "button",
+        tabIndex: "-1",
         style: style,
         onMouseDown: this.handleMouseDown,
         onTouchStart: this.handleTouchStart,
         onClick: function onClick(e) {
+          return e.stopPropagation();
+        },
+        onKeyDown: function onKeyDown(e) {
           return e.stopPropagation();
         }
       }, children);
@@ -191,21 +199,22 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 Draggable.propTypes = {
-  className: _propTypes.default.string,
-  children: _propTypes.default.node,
-  style: _propTypes.default.object,
-  onDrag: _propTypes.default.func.isRequired,
-  onDragStop: _propTypes.default.func,
-  disabled: _propTypes.default.bool
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  children: _propTypes["default"].node,
+  style: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  onDrag: _propTypes["default"].func.isRequired,
+  onDragStop: _propTypes["default"].func,
+  disabled: _propTypes["default"].bool
 };
 Draggable.defaultProps = {
+  testId: undefined,
   className: '',
   children: null,
   style: null,
   onDragStop: function onDragStop() {},
   disabled: false
 };
-
-var _default = (0, _reactCssModules.default)(Draggable, styles);
-
-exports.default = _default;
+var _default = Draggable;
+exports["default"] = _default;

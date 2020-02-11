@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.DatePickerInput = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _moment = _interopRequireDefault(require("moment"));
 
@@ -39,11 +39,13 @@ var _InputButtonWrapper = _interopRequireDefault(require("./InputButtonWrapper")
 
 var _castToArray = _interopRequireDefault(require("./utils/castToArray"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -190,13 +192,13 @@ function (_PureComponent) {
         return children;
       }
 
-      var key = (0, _toMonthKey.default)(month);
-      return _react.default.createElement("div", {
+      var key = (0, _toMonthKey["default"])(month);
+      return _react["default"].createElement("div", {
         key: key,
         ref: function ref(_ref2) {
           return _this.setMonthRef(key, _ref2);
         }
-      }, _react.default.createElement(_Block.default, {
+      }, _react["default"].createElement(_Block["default"], {
         padding: "0 l"
       }, children));
     });
@@ -227,9 +229,9 @@ function (_PureComponent) {
       var initialFirstVisibleMonth = this.props.initialFirstVisibleMonth;
       var selectedDays = this.getSelectedDays();
       var currentDayIndex = this.getCurrentDayIndex();
-      var pivotDay = selectedDays[currentDayIndex] || (0, _getFirstValidDayBeforeIndex.default)(selectedDays, currentDayIndex) || initialFirstVisibleMonth;
+      var pivotDay = selectedDays[currentDayIndex] || (0, _getFirstValidDayBeforeIndex["default"])(selectedDays, currentDayIndex) || initialFirstVisibleMonth;
       if (!pivotDay) return;
-      var monthKey = (0, _toMonthKey.default)(pivotDay);
+      var monthKey = (0, _toMonthKey["default"])(pivotDay);
       var monthRef = this.monthRefs[monthKey];
       if (!monthRef) return;
 
@@ -322,11 +324,11 @@ function (_PureComponent) {
       var currentDayIndex = this.getCurrentDayIndex();
       var selectedDays = this.getSelectedDays();
 
-      var datepickerNode = _react.default.createElement(_PopupMenu.default, {
+      var datepickerNode = _react["default"].createElement(_PopupMenu["default"], {
         hide: !showMenu,
         disabledClickOutside: true,
         flexWidth: true
-      }, _react.default.createElement(_DatePicker.default, {
+      }, _react["default"].createElement(_DatePicker["default"], {
         currentDayIndex: currentDayIndex,
         selectedDays: selectedDays,
         daysStatus: daysStatus,
@@ -359,7 +361,7 @@ function (_PureComponent) {
         return datepickerNode;
       }
 
-      return _react.default.createElement("div", {
+      return _react["default"].createElement("div", {
         ref: this.setCalendarRef,
         className: "calendar-container"
       }, datepickerNode);
@@ -376,13 +378,13 @@ function (_PureComponent) {
           errorMessage = _this$props5.errorMessage,
           mobileMode = _this$props5.mobileMode;
       var showMenu = this.state.showMenu;
-      var labelArr = (0, _castToArray.default)(label);
+      var labelArr = (0, _castToArray["default"])(label);
       var labelStr = unifiedLabel || labelArr[0] || mobileMode && showMenu && placeholder || '';
-      return _react.default.createElement(_InputButtonWrapper.default, {
+      return _react["default"].createElement(_InputButtonWrapper["default"], {
         showMenu: showMenu,
         mobileMode: mobileMode,
         onOpenMenu: this.handleOpenMenu
-      }, _react.default.createElement(_TextInput.default, {
+      }, _react["default"].createElement(_TextInput["default"], {
         theme: theme,
         size: size,
         label: labelStr && errorMessage || labelStr,
@@ -412,9 +414,9 @@ function (_PureComponent) {
       var showMenu = this.state.showMenu;
       var selectedDays = this.getSelectedDays();
       var currentDayIndex = this.getCurrentDayIndex();
-      var labelArr = (0, _castToArray.default)(label);
-      var placeholderArr = (0, _castToArray.default)(placeholder);
-      var errorArr = (0, _castToArray.default)(errorMessage);
+      var labelArr = (0, _castToArray["default"])(label);
+      var placeholderArr = (0, _castToArray["default"])(placeholder);
+      var errorArr = (0, _castToArray["default"])(errorMessage);
       var buttonNodes = [];
 
       var _loop = function _loop(i) {
@@ -432,18 +434,18 @@ function (_PureComponent) {
 
         var labelStr = labelArr[i] || mobileMode && showMenu && placeholderArr[i] || '';
         var showPlaceholder = !mobileMode || !showMenu || labelArr[i] || errorArr[i];
-        buttonNodes.push(_react.default.createElement(_Col.default, {
+        buttonNodes.push(_react["default"].createElement(_Col["default"], {
           key: i,
           size: {
             m: 'm',
             s: 's'
           },
           column: 12 / numberOfDays
-        }, _react.default.createElement(_InputButtonWrapper.default, {
+        }, _react["default"].createElement(_InputButtonWrapper["default"], {
           showMenu: showMenu,
           mobileMode: mobileMode,
           onOpenMenu: openMenuAtIndex
-        }, _react.default.createElement(_TextInput.default, {
+        }, _react["default"].createElement(_TextInput["default"], {
           theme: theme,
           size: size,
           label: labelStr && errorArr[i] || labelStr,
@@ -462,7 +464,7 @@ function (_PureComponent) {
         _loop(i);
       }
 
-      return _react.default.createElement(_Row.default, {
+      return _react["default"].createElement(_Row["default"], {
         offset: {
           m: 'm',
           s: 's'
@@ -474,14 +476,15 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var _this$props7 = this.props,
+          testId = _this$props7.testId,
           className = _this$props7.className,
           singleInput = _this$props7.singleInput,
           mobileMode = _this$props7.mobileMode;
       var showMenu = this.state.showMenu;
       var shouldUseUnifiedButton = singleInput && (!mobileMode || !showMenu);
-      return _react.default.createElement(_ClickOutsideHandler.default, {
-        className: className,
-        styleName: "wrapper",
+      return _react["default"].createElement(_ClickOutsideHandler["default"], {
+        testId: testId,
+        className: (0, _classnames["default"])(className, styles.wrapper),
         onClickOutside: this.handleCloseMenu,
         disabled: !showMenu
       }, shouldUseUnifiedButton ? this.renderUnifiedButton() : this.renderButtons(), this.renderMenu());
@@ -491,50 +494,52 @@ function (_PureComponent) {
   return DatePickerInput;
 }(_react.PureComponent);
 
-exports.DatePickerInput = DatePickerInput;
 DatePickerInput.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.string)]),
-  unifiedLabel: _propTypes.default.string,
-  placeholder: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.string)]),
-  errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.string)]),
-  currentDayIndex: _propTypes.default.number,
-  initialSelectedDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)),
-  selectedDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)),
-  numberOfDays: _propTypes.default.number,
-  onSelectDay: _propTypes.default.func,
-  onChangeDayIndex: _propTypes.default.func,
-  onChangeDays: _propTypes.default.func,
-  onChangeMonth: _propTypes.default.func,
-  refineInputValue: _propTypes.default.func,
-  inputDateFormat: _propTypes.default.string,
-  singleInput: _propTypes.default.bool,
-  autoCloseAfterSelect: _propTypes.default.bool,
-  mobileMode: _propTypes.default.bool,
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(_styleConstants.inputThemeNames),
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  label: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].arrayOf(_propTypes["default"].string)]),
+  unifiedLabel: _propTypes["default"].string,
+  placeholder: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].arrayOf(_propTypes["default"].string)]),
+  errorMessage: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].arrayOf(_propTypes["default"].string)]),
+  currentDayIndex: _propTypes["default"].number,
+  initialSelectedDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])),
+  selectedDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])),
+  numberOfDays: _propTypes["default"].number,
+  onSelectDay: _propTypes["default"].func,
+  onChangeDayIndex: _propTypes["default"].func,
+  onChangeDays: _propTypes["default"].func,
+  onChangeMonth: _propTypes["default"].func,
+  refineInputValue: _propTypes["default"].func,
+  inputDateFormat: _propTypes["default"].string,
+  singleInput: _propTypes["default"].bool,
+  autoCloseAfterSelect: _propTypes["default"].bool,
+  mobileMode: _propTypes["default"].bool,
   // props for DatePicker
 
   /* eslint-disable react/require-default-props */
-  daysStatus: _propTypes.default.object,
-  disabledDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)),
-  highlightedDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)),
-  initialFirstVisibleMonth: _propTypes.default.instanceOf(_moment.default),
-  minDay: _propTypes.default.instanceOf(_moment.default),
-  maxDay: _propTypes.default.instanceOf(_moment.default),
-  minNights: _propTypes.default.number,
-  numberOfMonths: _propTypes.default.number,
-  monthNameFormat: _propTypes.default.string,
-  startOfWeek: _propTypes.default.number,
-  showOutsideDays: _propTypes.default.bool,
-  isDayDisabled: _propTypes.default.func,
-  isDayHighlighted: _propTypes.default.func,
-  onHoverDay: _propTypes.default.func,
-  onBlurDay: _propTypes.default.func
+  daysStatus: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  disabledDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])),
+  highlightedDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])),
+  initialFirstVisibleMonth: _propTypes["default"].instanceOf(_moment["default"]),
+  minDay: _propTypes["default"].instanceOf(_moment["default"]),
+  maxDay: _propTypes["default"].instanceOf(_moment["default"]),
+  minNights: _propTypes["default"].number,
+  numberOfMonths: _propTypes["default"].number,
+  monthNameFormat: _propTypes["default"].string,
+  startOfWeek: _propTypes["default"].number,
+  showOutsideDays: _propTypes["default"].bool,
+  isDayDisabled: _propTypes["default"].func,
+  isDayHighlighted: _propTypes["default"].func,
+  onHoverDay: _propTypes["default"].func,
+  onBlurDay: _propTypes["default"].func
   /* eslint-enable */
 
 };
 DatePickerInput.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: _styleConstants.defaultInputSizeKey,
@@ -557,7 +562,5 @@ DatePickerInput.defaultProps = {
   onChangeDays: function onChangeDays() {},
   onChangeMonth: function onChangeMonth() {}
 };
-
-var _default = (0, _reactCssModules.default)(DatePickerInput, styles);
-
-exports.default = _default;
+var _default = DatePickerInput;
+exports["default"] = _default;

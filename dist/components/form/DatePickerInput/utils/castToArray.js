@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = castToArray;
+exports["default"] = castToArray;
 
 function castToArray(strOrArr) {
   if (!strOrArr) {

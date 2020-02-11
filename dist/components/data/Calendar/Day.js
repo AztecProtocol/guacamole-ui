@@ -3,19 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _moment = _interopRequireDefault(require("moment"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "calendar-h": "calendar-8b209562",
@@ -46,6 +46,8 @@ var styles = {
 };
 
 function Day(_ref) {
+  var _classnames;
+
   var day = _ref.day,
       isOutside = _ref.isOutside,
       showOutsideDays = _ref.showOutsideDays,
@@ -57,24 +59,22 @@ function Day(_ref) {
   var empty = isOutside && !showOutsideDays;
 
   if (empty) {
-    return _react.default.createElement("div", {
-      styleName: "day empty"
+    return _react["default"].createElement("div", {
+      className: "".concat(styles.day, " ").concat(styles.empty)
     }, date);
   }
 
   var disabled = status.has('disabled');
-  var styleName = (0, _classnames.default)('day', {
-    selected: status.has('isSelected'),
-    hovered: !disabled && status.has('isHovered'),
-    ranged: status.has('isInRange'),
-    trailing: status.has('isTrailing'),
-    highlighted: status.has('isHighlighted'),
-    outside: isOutside,
-    disabled: disabled
-  });
-  return _react.default.createElement("div", {
-    styleName: styleName,
+  /* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-tabindex */
+
+  return _react["default"].createElement("div", {
+    role: onSelect ? 'button' : '',
+    tabIndex: onSelect ? 0 : -1,
+    className: (0, _classnames2["default"])(styles.day, (_classnames = {}, _defineProperty(_classnames, styles.selected, status.has('isSelected')), _defineProperty(_classnames, styles.hovered, !disabled && status.has('isHovered')), _defineProperty(_classnames, styles.ranged, status.has('isInRange')), _defineProperty(_classnames, styles.trailing, status.has('isTrailing')), _defineProperty(_classnames, styles.highlighted, status.has('isHighlighted')), _defineProperty(_classnames, styles.outside, isOutside), _defineProperty(_classnames, styles.disabled, disabled), _classnames)),
     onClick: function onClick() {
+      return onSelect && onSelect(day, status);
+    },
+    onKeyDown: function onKeyDown() {
       return onSelect && onSelect(day, status);
     },
     onMouseEnter: function onMouseEnter() {
@@ -84,16 +84,17 @@ function Day(_ref) {
       return onBlur && onBlur(day, status);
     }
   }, date);
+  /* eslint-enable */
 }
 
 Day.propTypes = {
-  day: _propTypes.default.instanceOf(_moment.default).isRequired,
-  isOutside: _propTypes.default.bool,
-  showOutsideDays: _propTypes.default.bool,
-  status: _propTypes.default.instanceOf(Set),
-  onSelect: _propTypes.default.func,
-  onHover: _propTypes.default.func,
-  onBlur: _propTypes.default.func
+  day: _propTypes["default"].instanceOf(_moment["default"]).isRequired,
+  isOutside: _propTypes["default"].bool,
+  showOutsideDays: _propTypes["default"].bool,
+  status: _propTypes["default"].instanceOf(Set),
+  onSelect: _propTypes["default"].func,
+  onHover: _propTypes["default"].func,
+  onBlur: _propTypes["default"].func
 };
 Day.defaultProps = {
   status: new Set(),
@@ -103,9 +104,5 @@ Day.defaultProps = {
   onHover: null,
   onBlur: null
 };
-
-var _default = (0, _reactCssModules.default)(Day, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Day;
+exports["default"] = _default;

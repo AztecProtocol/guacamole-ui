@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.SlideInput = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -25,11 +23,13 @@ var _Icon = _interopRequireDefault(require("../../general/Icon"));
 
 var _Text = _interopRequireDefault(require("../../general/Text"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -121,7 +121,7 @@ function (_PureComponent) {
           left = _this$trackRect.left,
           right = _this$trackRect.right;
       _this.prevX = Math.min(right, Math.max(left, x));
-      var scale = (0, _getScaleByPosition.default)(x, left, right);
+      var scale = (0, _getScaleByPosition["default"])(x, left, right);
 
       _this.setState({
         scale: scale,
@@ -137,7 +137,7 @@ function (_PureComponent) {
       var _this$state = _this.state,
           isControlled = _this$state.isControlled,
           prevValue = _this$state.value;
-      var exactScale = (0, _getScaleByPosition.default)(_this.prevX, left, right);
+      var exactScale = (0, _getScaleByPosition["default"])(_this.prevX, left, right);
       var value = exactScale >= dropzoneLimit;
       var scale = value ? 100 : 0;
 
@@ -196,7 +196,10 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
+      var _classnames;
+
       var _this$props = this.props,
+          testId = _this$props.testId,
           className = _this$props.className,
           size = _this$props.size,
           dropzoneLimit = _this$props.dropzoneLimit,
@@ -212,38 +215,33 @@ function (_PureComponent) {
           value = _this$state2.value,
           scale = _this$state2.scale;
       var placeholder = value && !isLoading && !isDragging ? message : hint;
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: (0, _classnames.default)('wrapper', "size-".concat(size), {
-          dragging: isDragging,
-          loading: isLoading,
-          active: value,
-          'should-drop': isDragging && scale >= dropzoneLimit
-        })
-      }, _react.default.createElement("div", {
+      return _react["default"].createElement("div", {
+        "data-testid": testId,
+        className: (0, _classnames2["default"])(className, styles.wrapper, styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles.dragging, isDragging), _defineProperty(_classnames, styles.loading, isLoading), _defineProperty(_classnames, styles.active, value), _defineProperty(_classnames, styles['should-drop'], isDragging && scale >= dropzoneLimit), _classnames))
+      }, _react["default"].createElement("div", {
         ref: this.setTrackRef,
-        styleName: "track"
-      }, !!placeholder && _react.default.createElement(_Text.default, {
-        styleName: "placeholder",
-        size: (0, _shiftSize.default)(size, -2),
+        className: styles.track
+      }, !!placeholder && _react["default"].createElement(_Text["default"], {
+        className: styles.placeholder,
+        size: (0, _shiftSize["default"])(size, -2),
         text: placeholder
-      }), isDragging && _react.default.createElement("div", {
-        styleName: "target-position"
-      }, _react.default.createElement(_Icon.default, {
-        styleName: "handle-icon",
+      }), isDragging && _react["default"].createElement("div", {
+        className: styles['target-position']
+      }, _react["default"].createElement(_Icon["default"], {
+        className: styles['handle-icon'],
         name: placeholderIconName
-      })), _react.default.createElement(_Draggable.default, {
-        styleName: "handle",
+      })), _react["default"].createElement(_Draggable["default"], {
+        className: styles.handle,
         style: {
           left: "".concat(scale, "%")
         },
         onDrag: this.handleChangeHandlePosition,
         onDragStop: this.handleDragStop,
         disabled: disabled || isLoading
-      }, isLoading && _react.default.createElement("div", {
-        styleName: "spinner"
-      }), _react.default.createElement(_Icon.default, {
-        styleName: "handle-icon",
+      }, isLoading && _react["default"].createElement("div", {
+        className: styles.spinner
+      }), _react["default"].createElement(_Icon["default"], {
+        className: styles['handle-icon'],
         name: isLoading ? loadingIconName : value ? iconName : 'navigate_next'
       }))));
     }
@@ -252,23 +250,24 @@ function (_PureComponent) {
   return SlideInput;
 }(_react.PureComponent);
 
-exports.SlideInput = SlideInput;
 SlideInput.propTypes = {
-  className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  value: _propTypes.default.bool,
-  initialValue: _propTypes.default.bool,
-  dropzoneLimit: _propTypes.default.number,
-  hint: _propTypes.default.string,
-  message: _propTypes.default.string,
-  iconName: _propTypes.default.string,
-  loadingIconName: _propTypes.default.string,
-  placeholderIconName: _propTypes.default.string,
-  isLoading: _propTypes.default.bool,
-  disabled: _propTypes.default.bool,
-  onChange: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  value: _propTypes["default"].bool,
+  initialValue: _propTypes["default"].bool,
+  dropzoneLimit: _propTypes["default"].number,
+  hint: _propTypes["default"].string,
+  message: _propTypes["default"].string,
+  iconName: _propTypes["default"].string,
+  loadingIconName: _propTypes["default"].string,
+  placeholderIconName: _propTypes["default"].string,
+  isLoading: _propTypes["default"].bool,
+  disabled: _propTypes["default"].bool,
+  onChange: _propTypes["default"].func
 };
 SlideInput.defaultProps = {
+  testId: undefined,
   className: '',
   size: _styleConstants.defaultInputSizeKey,
   value: undefined,
@@ -283,9 +282,5 @@ SlideInput.defaultProps = {
   disabled: false,
   onChange: function onChange() {}
 };
-
-var _default = (0, _reactCssModules.default)(SlideInput, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = SlideInput;
+exports["default"] = _default;

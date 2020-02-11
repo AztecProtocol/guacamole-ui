@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getPositionBoundaries;
+exports["default"] = getPositionBoundaries;
 
 function getPositionBoundaries(e) {
   var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},

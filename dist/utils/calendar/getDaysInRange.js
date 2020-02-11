@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getDaysInRange;
+exports["default"] = getDaysInRange;
 
 var _date = require("../date");
 

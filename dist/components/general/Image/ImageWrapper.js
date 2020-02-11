@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -11,11 +11,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
-
 var _Block = _interopRequireDefault(require("../../layout/Block"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -38,13 +36,13 @@ var styles = {
 };
 
 var ImageWrapper = function ImageWrapper(_ref) {
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       ratio = _ref.ratio,
       width = _ref.width,
       height = _ref.height,
       borderRadius = _ref.borderRadius,
       children = _ref.children;
-  var styleName = (0, _classnames2.default)('wrapper', _defineProperty({}, "ratio-".concat(ratio), ratio));
   var divStyle = {};
 
   if (width) {
@@ -55,23 +53,25 @@ var ImageWrapper = function ImageWrapper(_ref) {
     divStyle.height = height;
   }
 
-  return _react.default.createElement(_Block.default, {
-    className: className,
-    styleName: styleName,
+  return _react["default"].createElement(_Block["default"], {
+    testId: testId,
+    className: (0, _classnames2["default"])(className, styles.wrapper, _defineProperty({}, styles["ratio-".concat(ratio)], ratio)),
     borderRadius: borderRadius,
     style: divStyle
   }, children);
 };
 
 ImageWrapper.propTypes = {
-  className: _propTypes.default.string,
-  ratio: _propTypes.default.string,
-  width: _propTypes.default.string,
-  height: _propTypes.default.string,
-  borderRadius: _propTypes.default.string,
-  children: _propTypes.default.node
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  ratio: _propTypes["default"].string,
+  width: _propTypes["default"].string,
+  height: _propTypes["default"].string,
+  borderRadius: _propTypes["default"].string,
+  children: _propTypes["default"].node
 };
 ImageWrapper.defaultProps = {
+  testId: undefined,
   className: '',
   ratio: '',
   width: '',
@@ -79,9 +79,5 @@ ImageWrapper.defaultProps = {
   borderRadius: '',
   children: null
 };
-
-var _default = (0, _reactCssModules.default)(ImageWrapper, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = ImageWrapper;
+exports["default"] = _default;

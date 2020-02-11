@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = bundleCss;
+exports["default"] = bundleCss;
 
 var _webpack = _interopRequireDefault(require("webpack"));
 
@@ -23,7 +23,7 @@ var _fs2 = require("./utils/fs");
 
 var _log = require("./utils/log");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 process.env.NODE_ENV = 'production';
 
@@ -31,13 +31,13 @@ var copyFilesFromMemory = function copyFilesFromMemory(mfs, outputPath) {
   mfs.readdirSync(outputPath).forEach(function (filename) {
     if (filename.endsWith('.js')) return;
 
-    var filepath = _path.default.join(outputPath, filename);
+    var filepath = _path["default"].join(outputPath, filename);
 
     if (mfs.statSync(filepath).isDirectory()) {
       (0, _fs2.ensureDirectory)(filepath);
       copyFilesFromMemory(mfs, filepath);
     } else {
-      _fs.default.writeFileSync(filepath, mfs.readFileSync(filepath));
+      _fs["default"].writeFileSync(filepath, mfs.readFileSync(filepath));
     }
   });
 };
@@ -45,12 +45,12 @@ var copyFilesFromMemory = function copyFilesFromMemory(mfs, outputPath) {
 function bundleCss() {
   var webpackOptions = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   (0, _log.log)('Generating minified css. This will take a moment...');
-  var config = (0, _generateCssWebpackConfig.default)(webpackOptions);
-  var compiler = (0, _webpack.default)(config);
-  var mfs = new _memoryFs.default();
+  var config = (0, _generateCssWebpackConfig["default"])(webpackOptions);
+  var compiler = (0, _webpack["default"])(config);
+  var mfs = new _memoryFs["default"]();
   compiler.outputFileSystem = mfs;
   compiler.run(function (err, stats) {
-    var messages = (0, _formatWebpackMessages.default)(stats.toJson({}, true));
+    var messages = (0, _formatWebpackMessages["default"])(stats.toJson({}, true));
 
     if (messages.errors.length) {
       throw new Error(messages.errors.join('\n\n'));
@@ -72,7 +72,7 @@ function bundleCss() {
         outputFiles.push('fonts/');
       }
 
-      (0, _log.logEntries)([].concat(outputFiles, ['', _chalk.default.grey("path: ".concat(outputPath))]));
+      (0, _log.logEntries)([].concat(outputFiles, ['', _chalk["default"].grey("path: ".concat(outputPath))]));
     }
   });
 }

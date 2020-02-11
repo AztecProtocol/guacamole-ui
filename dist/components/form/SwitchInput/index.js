@@ -3,23 +3,25 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.SwitchInput = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -116,26 +118,37 @@ function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
+      var _classnames,
+          _this2 = this;
+
       var checked = this.state.checked;
       var _this$props2 = this.props,
+          testId = _this$props2.testId,
           className = _this$props2.className,
           size = _this$props2.size,
           disabled = _this$props2.disabled,
           isLoading = _this$props2.isLoading,
           outlined = _this$props2.outlined;
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: (0, _classnames.default)('wrapper', "size-".concat(size), {
-          checked: checked,
-          disabled: disabled,
-          outlined: outlined,
-          loading: isLoading
-        }),
-        onClick: this.handleClick
-      }, _react.default.createElement("div", {
-        styleName: "switch-button"
-      }, isLoading && _react.default.createElement("div", {
-        styleName: "spinner"
+      return _react["default"].createElement("div", {
+        "data-testid": testId,
+        className: (0, _classnames2["default"])(className, styles.wrapper, styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles.checked, checked), _defineProperty(_classnames, styles.disabled, disabled), _defineProperty(_classnames, styles.outlined, outlined), _defineProperty(_classnames, styles.loading, isLoading), _classnames)),
+        role: "switch",
+        tabIndex: "0",
+        "aria-checked": checked,
+        onClick: this.handleClick,
+        onKeyDown: function onKeyDown(e) {
+          var keyCode = e.keyCode;
+
+          if ([13, 32].indexOf(keyCode) >= 0) {
+            e.preventDefault();
+
+            _this2.handleClick();
+          }
+        }
+      }, _react["default"].createElement("div", {
+        className: styles['switch-button']
+      }, isLoading && _react["default"].createElement("div", {
+        className: styles.spinner
       })));
     }
   }]);
@@ -143,18 +156,19 @@ function (_PureComponent) {
   return SwitchInput;
 }(_react.PureComponent);
 
-exports.SwitchInput = SwitchInput;
 SwitchInput.propTypes = {
-  className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  checked: _propTypes.default.bool,
-  disabled: _propTypes.default.bool,
-  isLoading: _propTypes.default.bool,
-  outlined: _propTypes.default.bool,
-  onClick: _propTypes.default.func,
-  onChange: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  checked: _propTypes["default"].bool,
+  disabled: _propTypes["default"].bool,
+  isLoading: _propTypes["default"].bool,
+  outlined: _propTypes["default"].bool,
+  onClick: _propTypes["default"].func,
+  onChange: _propTypes["default"].func
 };
 SwitchInput.defaultProps = {
+  testId: undefined,
   className: '',
   size: 's',
   checked: undefined,
@@ -164,9 +178,5 @@ SwitchInput.defaultProps = {
   onClick: function onClick() {},
   onChange: function onChange() {}
 };
-
-var _default = (0, _reactCssModules.default)(SwitchInput, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = SwitchInput;
+exports["default"] = _default;

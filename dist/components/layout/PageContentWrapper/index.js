@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames3 = _interopRequireDefault(require("classnames"));
 
 var _generateResponsiveShape = _interopRequireDefault(require("../../../utils/generateResponsiveShape"));
 
@@ -19,7 +17,9 @@ var _generateResponsiveStyleNames = _interopRequireDefault(require("../../../uti
 
 var _Block = _interopRequireDefault(require("../Block"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "wrapper": "wrapper-3282c3c2",
@@ -56,37 +56,40 @@ var styles = {
 };
 
 var PageContentWrapper = function PageContentWrapper(_ref) {
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       background = _ref.background,
       children = _ref.children,
       alignCenter = _ref.alignCenter,
       expand = _ref.expand,
       stretch = _ref.stretch,
       scrollable = _ref.scrollable;
-  return _react.default.createElement(_Block.default, {
-    className: className,
-    styleName: (0, _classnames.default)('wrapper', {
-      scrollable: scrollable
-    }),
+  return _react["default"].createElement(_Block["default"], {
+    testId: testId,
+    className: (0, _classnames3["default"])(className, styles.wrapper, _defineProperty({}, styles.scrollable, scrollable)),
     background: background,
     stretch: stretch || scrollable
-  }, _react.default.createElement("div", {
-    styleName: (0, _classnames.default)('content', alignCenter && (0, _generateResponsiveStyleNames.default)('align-center', alignCenter) || '', expand && (0, _generateResponsiveStyleNames.default)('expand', expand) || '', {
-      stretch: stretch
-    })
+  }, _react["default"].createElement("div", {
+    className: (0, _classnames3["default"])(styles.content, alignCenter && (0, _generateResponsiveStyleNames["default"])('align-center', alignCenter).map(function (n) {
+      return styles[n];
+    }) || '', expand && (0, _generateResponsiveStyleNames["default"])('expand', expand).map(function (n) {
+      return styles[n];
+    }) || '', _defineProperty({}, styles.stretch, stretch))
   }, children));
 };
 
 PageContentWrapper.propTypes = {
-  className: _propTypes.default.string,
-  background: _propTypes.default.string,
-  children: _propTypes.default.node,
-  alignCenter: (0, _generateResponsiveShape.default)([true, false]),
-  expand: (0, _generateResponsiveShape.default)([true, false]),
-  stretch: _propTypes.default.bool,
-  scrollable: _propTypes.default.bool
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  background: _propTypes["default"].string,
+  children: _propTypes["default"].node,
+  alignCenter: (0, _generateResponsiveShape["default"])([true, false]),
+  expand: (0, _generateResponsiveShape["default"])([true, false]),
+  stretch: _propTypes["default"].bool,
+  scrollable: _propTypes["default"].bool
 };
 PageContentWrapper.defaultProps = {
+  testId: undefined,
   className: '',
   background: '',
   children: null,
@@ -95,9 +98,5 @@ PageContentWrapper.defaultProps = {
   stretch: false,
   scrollable: false
 };
-
-var _default = (0, _reactCssModules.default)(PageContentWrapper, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = PageContentWrapper;
+exports["default"] = _default;

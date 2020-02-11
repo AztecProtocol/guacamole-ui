@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -11,11 +11,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
-
 var _styleConstants = require("../../../config/styleConstants");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -39,35 +37,40 @@ var styles = {
 var Overlay = function Overlay(_ref) {
   var _classnames;
 
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       theme = _ref.theme,
       children = _ref.children,
       hide = _ref.hide,
-      onClick = _ref.onClick;
-  return _react.default.createElement("div", {
-    className: className,
-    styleName: (0, _classnames2.default)('overlay', (_classnames = {}, _defineProperty(_classnames, "theme-".concat(theme), theme), _defineProperty(_classnames, "hide", hide), _classnames)),
-    onClick: onClick
+      onClick = _ref.onClick,
+      onKeyDown = _ref.onKeyDown;
+  return _react["default"].createElement("div", {
+    "data-testid": testId,
+    className: (0, _classnames2["default"])(className, styles.overlay, (_classnames = {}, _defineProperty(_classnames, styles["theme-".concat(theme)], theme), _defineProperty(_classnames, styles.hide, hide), _classnames)),
+    role: "menu",
+    tabIndex: "-1",
+    onClick: onClick,
+    onKeyDown: onKeyDown
   }, children);
 };
 
 Overlay.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.overlayThemeNames))),
-  children: _propTypes.default.node,
-  hide: _propTypes.default.bool,
-  onClick: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.overlayThemeNames))),
+  children: _propTypes["default"].node,
+  hide: _propTypes["default"].bool,
+  onClick: _propTypes["default"].func,
+  onKeyDown: _propTypes["default"].func
 };
 Overlay.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'primary',
   children: null,
   hide: false,
-  onClick: function onClick() {}
+  onClick: function onClick() {},
+  onKeyDown: null
 };
-
-var _default = (0, _reactCssModules.default)(Overlay, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Overlay;
+exports["default"] = _default;

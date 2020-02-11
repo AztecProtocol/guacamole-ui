@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getVisibleMonthsOfCalendar;
+exports["default"] = getVisibleMonthsOfCalendar;
 
 function getVisibleMonthsOfCalendar(_ref) {
   var firstVisibleMonth = _ref.firstVisibleMonth,

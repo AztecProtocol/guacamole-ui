@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -27,13 +27,17 @@ var _itemGroupsFilter = require("./utils/itemGroupsFilter");
 
 var _defaultGetMatchingDistance = _interopRequireDefault(require("./utils/defaultGetMatchingDistance"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -94,7 +98,7 @@ function (_PureComponent) {
         nextState.itemGroups = itemGroupsFilter(isControlled ? value : uncontrolledValue);
       }
 
-      if ((0, _isObjectEmpty.default)(nextState)) {
+      if ((0, _isObjectEmpty["default"])(nextState)) {
         return null;
       }
 
@@ -193,6 +197,7 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var _this$props2 = this.props,
+          testId = _this$props2.testId,
           className = _this$props2.className,
           theme = _this$props2.theme,
           size = _this$props2.size,
@@ -217,7 +222,8 @@ function (_PureComponent) {
         }];
       }
 
-      return _react.default.createElement(_SelectInput.default, {
+      return _react["default"].createElement(_SelectInput["default"], {
+        testId: testId,
         className: className,
         theme: theme,
         size: size,
@@ -241,34 +247,36 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 AutoComplete.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(_styleConstants.inputThemeNames),
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  placeholder: _propTypes.default.string,
-  value: _propTypes.default.string,
-  defaultValue: _propTypes.default.string,
-  itemGroups: _propTypes.default.arrayOf(_itemGroupShape.default),
-  defaultItemGroups: _propTypes.default.arrayOf(_itemGroupShape.default),
-  itemGroupsSource: _propTypes.default.arrayOf(_itemGroupShape.default),
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(_styleConstants.inputThemeNames),
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  placeholder: _propTypes["default"].string,
+  value: _propTypes["default"].string,
+  defaultValue: _propTypes["default"].string,
+  itemGroups: _propTypes["default"].arrayOf(_itemGroupShape["default"]),
+  defaultItemGroups: _propTypes["default"].arrayOf(_itemGroupShape["default"]),
+  itemGroupsSource: _propTypes["default"].arrayOf(_itemGroupShape["default"]),
   // eslint-disable-line react/no-unused-prop-types
-  formatSelectedItem: _propTypes.default.func,
-  getMatchingDistance: _propTypes.default.func,
+  formatSelectedItem: _propTypes["default"].func,
+  getMatchingDistance: _propTypes["default"].func,
   // eslint-disable-line react/no-unused-prop-types
-  maxVisibleItems: _propTypes.default.number,
+  maxVisibleItems: _propTypes["default"].number,
   // eslint-disable-line react/no-unused-prop-types
-  showZeroMatch: _propTypes.default.bool,
+  showZeroMatch: _propTypes["default"].bool,
   // eslint-disable-line react/no-unused-prop-types
-  enableClearSelected: _propTypes.default.bool,
-  hasItemDivider: _propTypes.default.bool,
-  icon: _iconShape.default,
-  noResultsMessage: _propTypes.default.string,
-  tabIndex: _propTypes.default.number,
-  InputComponent: _propTypes.default.func,
-  MenuComponent: _propTypes.default.func,
-  onSelect: _propTypes.default.func,
-  onChange: _propTypes.default.func
+  enableClearSelected: _propTypes["default"].bool,
+  hasItemDivider: _propTypes["default"].bool,
+  icon: _iconShape["default"],
+  noResultsMessage: _propTypes["default"].string,
+  tabIndex: _propTypes["default"].number,
+  InputComponent: _propTypes["default"].func,
+  MenuComponent: _propTypes["default"].func,
+  onSelect: _propTypes["default"].func,
+  onChange: _propTypes["default"].func
 };
 AutoComplete.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'default',
   size: _styleConstants.defaultInputSizeKey,
@@ -281,7 +289,7 @@ AutoComplete.defaultProps = {
   formatSelectedItem: function formatSelectedItem(item) {
     return item.title;
   },
-  getMatchingDistance: _defaultGetMatchingDistance.default,
+  getMatchingDistance: _defaultGetMatchingDistance["default"],
   maxVisibleItems: -1,
   showZeroMatch: false,
   enableClearSelected: false,
@@ -291,10 +299,10 @@ AutoComplete.defaultProps = {
   },
   noResultsMessage: '',
   tabIndex: 0,
-  InputComponent: _TextInput.default,
-  MenuComponent: _SelectMenu.default,
+  InputComponent: _TextInput["default"],
+  MenuComponent: _SelectMenu["default"],
   onSelect: function onSelect() {},
   onChange: function onChange() {}
 };
 var _default = AutoComplete;
-exports.default = _default;
+exports["default"] = _default;

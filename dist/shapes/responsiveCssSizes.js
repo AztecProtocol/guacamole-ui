@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.cssSizeValue = cssSizeValue;
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -12,7 +12,7 @@ var _errorPropDefinition = _interopRequireDefault(require("./utils/errorPropDefi
 
 var _styleConstants = require("../config/styleConstants");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -34,11 +34,13 @@ function cssSizeValue(props, propName, componentName, location, propFullName) {
   var value = props[propName];
 
   if (value !== undefined && (typeof value !== 'string' || !isCssValue(value))) {
-    return (0, _errorPropDefinition.default)(value, propFullName || propName, componentName);
+    return (0, _errorPropDefinition["default"])(value, propFullName || propName, componentName);
   }
+
+  return null;
 }
 
-var _default = _propTypes.default.oneOfType([cssSizeValue, _propTypes.default.shape({
+var _default = _propTypes["default"].oneOfType([cssSizeValue, _propTypes["default"].shape({
   xxl: cssSizeValue,
   xl: cssSizeValue,
   l: cssSizeValue,
@@ -48,4 +50,4 @@ var _default = _propTypes.default.oneOfType([cssSizeValue, _propTypes.default.sh
   xxs: cssSizeValue
 })]);
 
-exports.default = _default;
+exports["default"] = _default;

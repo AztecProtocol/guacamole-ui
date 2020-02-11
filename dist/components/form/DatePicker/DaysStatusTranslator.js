@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = require("react");
 
@@ -27,9 +27,9 @@ var _applyModifiersToVisibleDays = _interopRequireDefault(require("./utils/apply
 
 var _getFirstValidDayBeforeIndex = _interopRequireDefault(require("./utils/getFirstValidDayBeforeIndex"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -116,7 +116,8 @@ function (_PureComponent) {
         }
 
         if (maxDay) {
-          var disableEnd = (0, _date.dayMax)([maxDay.clone().endOf('month'), firstVisibleMonth.clone().add(numberOfMonths - 1, 'months').endOf('month')]);
+          var disableEnd = (0, _date.dayMax)([maxDay.clone().endOf('month'), firstVisibleMonth.clone().add(numberOfMonths - 1, 'months').endOf('month') // eslint-disable-line  newline-per-chained-call
+          ]);
 
           if (enableOutsideDays) {
             disableEnd.endOf('week');
@@ -147,7 +148,7 @@ function (_PureComponent) {
       var visibleDays = prevVisibleDays;
 
       if (firstVisibleMonth !== prevFirstVisibleMonth || numberOfMonths !== prevNumberOfMonths || enableOutsideDays !== prevEnableOutsideDays) {
-        visibleDays = (0, _getVisibleDays.default)(firstVisibleMonth, numberOfMonths, enableOutsideDays);
+        visibleDays = (0, _getVisibleDays["default"])(firstVisibleMonth, numberOfMonths, enableOutsideDays);
       }
 
       var hasDisabledModifierReApplied = false;
@@ -157,15 +158,15 @@ function (_PureComponent) {
           hasDisabledModifierReApplied = true;
         }
 
-        daysStatus = (0, _applyModifiersToVisibleDays.default)(daysStatus, visibleDays, modifiers, !hasDaysStatusReset);
+        daysStatus = (0, _applyModifiersToVisibleDays["default"])(daysStatus, visibleDays, modifiers, !hasDaysStatusReset);
       }
 
       if (selectedDays !== prevSelectedDays || hasDaysStatusReset) {
         if (!hasDaysStatusReset) {
-          daysStatus = (0, _removeSelectedStatus.default)(daysStatus, prevSelectedDays);
+          daysStatus = (0, _removeSelectedStatus["default"])(daysStatus, prevSelectedDays);
         }
 
-        daysStatus = (0, _addSelectedStatus.default)(daysStatus, selectedDays);
+        daysStatus = (0, _addSelectedStatus["default"])(daysStatus, selectedDays);
       }
 
       if (selectedDays !== prevSelectedDays || currentDayIndex !== prevDayIndex || minNights !== prevMinNights || hasDaysStatusReset || hasDisabledModifierReApplied) {
@@ -181,7 +182,7 @@ function (_PureComponent) {
             });
           }
 
-          var days = (0, _getSoftDisabledDays.default)(prevSelectedDays, prevDayIndex, prevMinNights);
+          var days = (0, _getSoftDisabledDays["default"])(prevSelectedDays, prevDayIndex, prevMinNights);
           days.forEach(function (day) {
             if ((0, _statusModifier.hasStatus)(daysStatus, day, 'softDisabled')) {
               daysStatus = (0, _statusModifier.deleteStatus)(daysStatus, day, new Set(['softDisabled', 'disabled']));
@@ -190,7 +191,7 @@ function (_PureComponent) {
         }
 
         if (numberOfDays > 1) {
-          var _days = (0, _getSoftDisabledDays.default)(selectedDays, currentDayIndex, minNights);
+          var _days = (0, _getSoftDisabledDays["default"])(selectedDays, currentDayIndex, minNights);
 
           _days.forEach(function (day) {
             if (!(0, _statusModifier.hasStatus)(daysStatus, day, 'disabled')) {
@@ -217,7 +218,7 @@ function (_PureComponent) {
 
         if (hoveredDay) {
           daysStatus = (0, _statusModifier.addStatus)(daysStatus, hoveredDay, 'isHovered');
-          var prevDay = (0, _getFirstValidDayBeforeIndex.default)(selectedDays, currentDayIndex);
+          var prevDay = (0, _getFirstValidDayBeforeIndex["default"])(selectedDays, currentDayIndex);
 
           if (prevDay) {
             var _startDay = firstVisibleMonth.clone().startOf('month');
@@ -290,24 +291,25 @@ function (_PureComponent) {
 
 DaysStatusTranslator.propTypes = {
   /* eslint-disable react/no-unused-prop-types */
-  firstVisibleMonth: _propTypes.default.instanceOf(_moment.default).isRequired,
-  currentDayIndex: _propTypes.default.number.isRequired,
-  selectedDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)).isRequired,
-  hoveredDay: _propTypes.default.instanceOf(_moment.default),
-  fixedDaysStatus: _propTypes.default.object.isRequired,
-  disabledDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)).isRequired,
-  highlightedDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)).isRequired,
-  isDayDisabled: _propTypes.default.func,
-  isDayHighlighted: _propTypes.default.func,
-  numberOfMonths: _propTypes.default.number.isRequired,
-  numberOfDays: _propTypes.default.number.isRequired,
-  minDay: _propTypes.default.instanceOf(_moment.default),
-  maxDay: _propTypes.default.instanceOf(_moment.default),
-  minNights: _propTypes.default.number.isRequired,
-  showOutsideDays: _propTypes.default.bool,
+  firstVisibleMonth: _propTypes["default"].instanceOf(_moment["default"]).isRequired,
+  currentDayIndex: _propTypes["default"].number.isRequired,
+  selectedDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])).isRequired,
+  hoveredDay: _propTypes["default"].instanceOf(_moment["default"]),
+  fixedDaysStatus: _propTypes["default"].object.isRequired,
+  // eslint-disable-line react/forbid-prop-types
+  disabledDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])).isRequired,
+  highlightedDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])).isRequired,
+  isDayDisabled: _propTypes["default"].func,
+  isDayHighlighted: _propTypes["default"].func,
+  numberOfMonths: _propTypes["default"].number.isRequired,
+  numberOfDays: _propTypes["default"].number.isRequired,
+  minDay: _propTypes["default"].instanceOf(_moment["default"]),
+  maxDay: _propTypes["default"].instanceOf(_moment["default"]),
+  minNights: _propTypes["default"].number.isRequired,
+  showOutsideDays: _propTypes["default"].bool,
 
   /* eslint-enable */
-  children: _propTypes.default.func.isRequired
+  children: _propTypes["default"].func.isRequired
 };
 DaysStatusTranslator.defaultProps = {
   isDayDisabled: null,
@@ -318,4 +320,4 @@ DaysStatusTranslator.defaultProps = {
   showOutsideDays: false
 };
 var _default = DaysStatusTranslator;
-exports.default = _default;
+exports["default"] = _default;

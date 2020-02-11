@@ -3,13 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.TextButton = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
 
@@ -21,7 +19,7 @@ var _Clickable = _interopRequireDefault(require("../../utils/Clickable"));
 
 var _Text = _interopRequireDefault(require("../Text"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -74,7 +72,8 @@ var styles = {
 var TextButton = function TextButton(_ref) {
   var _classnames;
 
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       theme = _ref.theme,
       text = _ref.text,
       children = _ref.children,
@@ -87,39 +86,40 @@ var TextButton = function TextButton(_ref) {
       Link = _ref.Link,
       stopPropagation = _ref.stopPropagation,
       disabled = _ref.disabled;
-  return _react.default.createElement(_Clickable.default, {
-    className: className,
-    styleName: (0, _classnames2.default)('button', (_classnames = {}, _defineProperty(_classnames, "theme-".concat(theme), theme !== 'normal'), _defineProperty(_classnames, "color-".concat(color), color), _defineProperty(_classnames, "disabled", disabled), _classnames)),
+  return _react["default"].createElement(_Clickable["default"], {
+    testId: testId,
+    className: (0, _classnames2["default"])(className, styles.button, (_classnames = {}, _defineProperty(_classnames, styles["theme-".concat(theme)], theme !== 'normal'), _defineProperty(_classnames, styles["color-".concat(color)], color), _defineProperty(_classnames, styles.disabled, disabled), _classnames)),
     href: href,
     target: target,
     onClick: onClick,
     Link: Link,
     stopPropagation: stopPropagation,
     disabled: disabled
-  }, _react.default.createElement(_Text.default, {
+  }, _react["default"].createElement(_Text["default"], {
     text: text,
     size: size,
     weight: weight
   }, children));
 };
 
-exports.TextButton = TextButton;
 TextButton.propTypes = {
-  className: _propTypes.default.string,
-  theme: _propTypes.default.oneOf(['normal', 'implicit', 'underline', 'uppercase']),
-  text: _propTypes.default.string,
-  children: _propTypes.default.node,
-  size: _responsiveTextSizes.default,
-  weight: _propTypes.default.oneOf(_styleConstants.fontWeightKeys),
-  color: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.textColorNames))),
-  href: _propTypes.default.string,
-  target: _propTypes.default.oneOf(['', '_self', '_blank', '_parent', '_top']),
-  onClick: _propTypes.default.func,
-  Link: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
-  stopPropagation: _propTypes.default.bool,
-  disabled: _propTypes.default.bool
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(['normal', 'implicit', 'underline', 'uppercase']),
+  text: _propTypes["default"].string,
+  children: _propTypes["default"].node,
+  size: _responsiveTextSizes["default"],
+  weight: _propTypes["default"].oneOf(_styleConstants.fontWeightKeys),
+  color: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.textColorNames))),
+  href: _propTypes["default"].string,
+  target: _propTypes["default"].oneOf(['', '_self', '_blank', '_parent', '_top']),
+  onClick: _propTypes["default"].func,
+  Link: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].func, _propTypes["default"].object]),
+  stopPropagation: _propTypes["default"].bool,
+  disabled: _propTypes["default"].bool
 };
 TextButton.defaultProps = {
+  testId: undefined,
   className: '',
   theme: 'normal',
   text: '',
@@ -134,9 +134,5 @@ TextButton.defaultProps = {
   stopPropagation: false,
   disabled: false
 };
-
-var _default = (0, _reactCssModules.default)(TextButton, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = TextButton;
+exports["default"] = _default;

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getVisibleDays;
+exports["default"] = getVisibleDays;
 
 var _date = require("../../../../utils/date");
 

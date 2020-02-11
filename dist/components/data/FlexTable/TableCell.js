@@ -3,13 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _responsiveColumns = _interopRequireDefault(require("../../../shapes/responsiveColumns"));
 
@@ -17,7 +15,7 @@ var _responsiveTextAlign = _interopRequireDefault(require("../../../shapes/respo
 
 var _Col = _interopRequireDefault(require("../../layout/Col"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var styles = {
   "row-wrapper": "table-14d566be",
@@ -52,14 +50,16 @@ var styles = {
 };
 
 var TableCell = function TableCell(_ref) {
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       width = _ref.width,
       column = _ref.column,
       align = _ref.align,
       children = _ref.children,
       placeholder = _ref.placeholder,
       isLoading = _ref.isLoading;
-  return _react.default.createElement(_Col.default, {
+  return _react["default"].createElement(_Col["default"], {
+    testId: testId,
     className: className,
     margin: "s",
     align: align,
@@ -68,21 +68,23 @@ var TableCell = function TableCell(_ref) {
       flex: "1 1 ".concat(width),
       maxWidth: width
     }
-  }, isLoading && (placeholder || _react.default.createElement("div", {
-    styleName: "placeholder-cell"
+  }, isLoading && (placeholder || _react["default"].createElement("div", {
+    className: styles['placeholder-cell']
   })), !isLoading && children);
 };
 
 TableCell.propTypes = {
-  className: _propTypes.default.string,
-  width: _propTypes.default.string,
-  column: _responsiveColumns.default,
-  align: _responsiveTextAlign.default,
-  children: _propTypes.default.node,
-  placeholder: _propTypes.default.node,
-  isLoading: _propTypes.default.bool
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  width: _propTypes["default"].string,
+  column: _responsiveColumns["default"],
+  align: _responsiveTextAlign["default"],
+  children: _propTypes["default"].node,
+  placeholder: _propTypes["default"].node,
+  isLoading: _propTypes["default"].bool
 };
 TableCell.defaultProps = {
+  testId: undefined,
   className: '',
   width: '',
   column: '',
@@ -91,7 +93,5 @@ TableCell.defaultProps = {
   placeholder: null,
   isLoading: false
 };
-
-var _default = (0, _reactCssModules.default)(TableCell, styles);
-
-exports.default = _default;
+var _default = TableCell;
+exports["default"] = _default;

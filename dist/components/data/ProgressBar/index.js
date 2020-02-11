@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.ProgressBar = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
-
-var _classnames3 = _interopRequireDefault(require("classnames"));
+var _classnames4 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -19,7 +17,7 @@ var _responsiveTextSizes = _interopRequireDefault(require("../../../shapes/respo
 
 var _Text = _interopRequireDefault(require("../../general/Text"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -102,7 +100,8 @@ var styles = {
 };
 
 var ProgressBar = function ProgressBar(_ref) {
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       size = _ref.size,
       value = _ref.value,
       base = _ref.base,
@@ -114,21 +113,19 @@ var ProgressBar = function ProgressBar(_ref) {
       labelWeight = _ref.labelWeight,
       showLabel = _ref.showLabel,
       formatLabel = _ref.formatLabel;
-  return _react.default.createElement("div", {
-    className: className,
-    styleName: (0, _classnames3.default)('wrapper', "size-".concat(size), {
-      rounded: rounded
-    })
-  }, _react.default.createElement("div", {
-    styleName: (0, _classnames3.default)('bar-base', _defineProperty({}, "base-".concat(baseColor), baseColor))
-  }, _react.default.createElement("div", {
-    styleName: (0, _classnames3.default)('bar-progress', _defineProperty({}, "active-".concat(activeColor), activeColor)),
+  return _react["default"].createElement("div", {
+    "data-testid": testId,
+    className: (0, _classnames4["default"])(className, styles.wrapper, styles["size-".concat(size)], _defineProperty({}, styles.rounded, rounded))
+  }, _react["default"].createElement("div", {
+    className: (0, _classnames4["default"])(styles['bar-base'], _defineProperty({}, styles["base-".concat(baseColor)], baseColor))
+  }, _react["default"].createElement("div", {
+    className: (0, _classnames4["default"])(styles['bar-progress'], _defineProperty({}, styles["active-".concat(activeColor)], activeColor)),
     style: {
       transform: "scaleX(".concat(base ? value / base : 0, ")"),
       WebkitTransform: "scaleX(".concat(base ? value / base : 0, ")")
     }
-  })), showLabel && _react.default.createElement(_Text.default, {
-    styleName: "label",
+  })), showLabel && _react["default"].createElement(_Text["default"], {
+    className: styles.label,
     color: labelColor,
     size: labelSize,
     weight: labelWeight,
@@ -136,22 +133,23 @@ var ProgressBar = function ProgressBar(_ref) {
   }));
 };
 
-exports.ProgressBar = ProgressBar;
 ProgressBar.propTypes = {
-  className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(['xxs', 'xs', 's', 'm', 'l']),
-  value: _propTypes.default.number.isRequired,
-  base: _propTypes.default.number,
-  baseColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
-  activeColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
-  labelColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.textColorNames))),
-  labelSize: _responsiveTextSizes.default,
-  labelWeight: _propTypes.default.oneOf(_styleConstants.fontWeightKeys),
-  rounded: _propTypes.default.bool,
-  showLabel: _propTypes.default.bool,
-  formatLabel: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  size: _propTypes["default"].oneOf(['xxs', 'xs', 's', 'm', 'l']),
+  value: _propTypes["default"].number.isRequired,
+  base: _propTypes["default"].number,
+  baseColor: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  activeColor: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  labelColor: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.textColorNames))),
+  labelSize: _responsiveTextSizes["default"],
+  labelWeight: _propTypes["default"].oneOf(_styleConstants.fontWeightKeys),
+  rounded: _propTypes["default"].bool,
+  showLabel: _propTypes["default"].bool,
+  formatLabel: _propTypes["default"].func
 };
 ProgressBar.defaultProps = {
+  testId: undefined,
   className: '',
   size: 'xs',
   base: 100,
@@ -166,9 +164,5 @@ ProgressBar.defaultProps = {
     return "".concat(base ? Math.round(value / base * 100) : 0, "%");
   }
 };
-
-var _default = (0, _reactCssModules.default)(ProgressBar, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = ProgressBar;
+exports["default"] = _default;

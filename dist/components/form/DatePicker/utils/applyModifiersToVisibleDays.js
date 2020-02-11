@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = applyModifiersToVisibleDays;
+exports["default"] = applyModifiersToVisibleDays;
 
 var _difference = _interopRequireDefault(require("lodash/difference"));
 
 var _statusModifier = require("../../../../utils/calendar/statusModifier");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function applyModifiersToVisibleDays(prevDaysStatus, visibleDays, modifiers) {
   var shouldToggle = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
@@ -33,7 +33,7 @@ function applyModifiersToVisibleDays(prevDaysStatus, visibleDays, modifiers) {
       }
 
       if (shouldToggle && status.length < modifierNames.length) {
-        var excludedStatus = (0, _difference.default)(modifierNames, status);
+        var excludedStatus = (0, _difference["default"])(modifierNames, status);
         daysStatus = (0, _statusModifier.deleteStatus)(daysStatus, day, new Set(excludedStatus), month);
       }
     });

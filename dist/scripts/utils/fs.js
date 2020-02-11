@@ -9,7 +9,7 @@ var _path = _interopRequireDefault(require("path"));
 
 var _fs = _interopRequireDefault(require("fs"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -17,7 +17,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var isDirectory = function isDirectory(dest) {
   try {
-    var stats = _fs.default.statSync(dest);
+    var stats = _fs["default"].statSync(dest);
 
     return stats.isDirectory();
   } catch (err) {
@@ -29,7 +29,7 @@ exports.isDirectory = isDirectory;
 
 var isFile = function isFile(dest) {
   try {
-    var stats = _fs.default.statSync(dest);
+    var stats = _fs["default"].statSync(dest);
 
     return stats.isFile();
   } catch (err) {
@@ -41,7 +41,7 @@ exports.isFile = isFile;
 
 var ensureDirectory = function ensureDirectory(dest) {
   if (!isDirectory(dest)) {
-    _fs.default.mkdirSync(dest);
+    _fs["default"].mkdirSync(dest);
   }
 };
 
@@ -49,7 +49,7 @@ exports.ensureDirectory = ensureDirectory;
 
 var copyFile = function copyFile(src, dest) {
   return new Promise(function (resolve) {
-    var readStream = _fs.default.createReadStream(src);
+    var readStream = _fs["default"].createReadStream(src);
 
     readStream.on('error', function (err) {
       return resolve({
@@ -64,7 +64,7 @@ var copyFile = function copyFile(src, dest) {
         dest: dest
       });
     });
-    readStream.pipe(_fs.default.createWriteStream(dest));
+    readStream.pipe(_fs["default"].createWriteStream(dest));
   });
 };
 
@@ -81,12 +81,13 @@ var copyFolder = function copyFolder(src, dest) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              // eslint-disable-line no-async-promise-executor
               ensureDirectory(dest);
               _context.next = 3;
-              return Promise.all(_fs.default.readdirSync(src).map(function (name) {
-                var srcPath = _path.default.join(src, name);
+              return Promise.all(_fs["default"].readdirSync(src).map(function (name) {
+                var srcPath = _path["default"].join(src, name);
 
-                var destPath = _path.default.join(dest, name);
+                var destPath = _path["default"].join(dest, name);
 
                 if (isDirectory(srcPath)) {
                   return copyFolder(srcPath, destPath);
@@ -119,7 +120,7 @@ exports.copyFolder = copyFolder;
 
 var safeReaddirSync = function safeReaddirSync(dir) {
   try {
-    var files = _fs.default.readdirSync(dir);
+    var files = _fs["default"].readdirSync(dir);
 
     return files || [];
   } catch (err) {

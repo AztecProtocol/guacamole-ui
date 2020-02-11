@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -25,11 +25,13 @@ var _CalendarWithNavigator = _interopRequireDefault(require("../../data/Calendar
 
 var _DaysStatusTranslator = _interopRequireDefault(require("./DaysStatusTranslator"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -41,7 +43,9 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -92,7 +96,7 @@ function (_PureComponent) {
 
       if (minDay !== prevMinDay || maxDay !== prevMaxDay || numberOfMonths !== prevNumberOfMonths) {
         var firstVisibleMonth = prevState.firstVisibleMonth;
-        var showNavigator = (0, _allowNavigation.default)(firstVisibleMonth, numberOfMonths, minDay, maxDay);
+        var showNavigator = (0, _allowNavigation["default"])(firstVisibleMonth, numberOfMonths, minDay, maxDay);
         nextState = _objectSpread({}, nextState, {
           showNavigator: showNavigator
         });
@@ -123,10 +127,10 @@ function (_PureComponent) {
     _this.isControlled = !!selectedDays;
 
     var getPrevDay = function getPrevDay(days) {
-      return (0, _getFirstValidDayBeforeIndex.default)(days, currentDayIndex + 1);
+      return (0, _getFirstValidDayBeforeIndex["default"])(days, currentDayIndex + 1);
     };
 
-    var firstVisibleMonth = initialFirstVisibleMonth || selectedDays && getPrevDay(selectedDays) || !_this.isControlled && initialSelectedDays && getPrevDay(initialSelectedDays) || minDay || (0, _moment.default)();
+    var firstVisibleMonth = initialFirstVisibleMonth || selectedDays && getPrevDay(selectedDays) || !_this.isControlled && initialSelectedDays && getPrevDay(initialSelectedDays) || minDay || (0, _moment["default"])();
     _this.state = {
       selectedDays: _this.isControlled ? undefined : initialSelectedDays,
       hoveredDay: null,
@@ -191,7 +195,7 @@ function (_PureComponent) {
           return minNights === 0 ? day2.isBefore(day1, 'day') : !day2.isAfter(day1, 'day');
         };
 
-        var dayBefore = (0, _getFirstValidDayBeforeIndex.default)(prevSelectedDays, currentDayIndex);
+        var dayBefore = (0, _getFirstValidDayBeforeIndex["default"])(prevSelectedDays, currentDayIndex);
         var startOver = currentDayIndex > 0 && (!dayBefore || isOrderInvalid(dayBefore, day));
 
         if (startOver) {
@@ -201,7 +205,7 @@ function (_PureComponent) {
         } else {
           selectedDays = _toConsumableArray(prevSelectedDays.slice(0, currentDayIndex));
           selectedDays[currentDayIndex] = day;
-          var nextDay = (0, _getFirstValidDayAfterIndex.default)(prevSelectedDays, currentDayIndex);
+          var nextDay = (0, _getFirstValidDayAfterIndex["default"])(prevSelectedDays, currentDayIndex);
           var cutOffTail = nextDay && isOrderInvalid(day, nextDay);
 
           if (!cutOffTail) {
@@ -269,6 +273,7 @@ function (_PureComponent) {
           hoveredDay = _this$state.hoveredDay,
           showNavigator = _this$state.showNavigator;
       var _this$props2 = this.props,
+          testId = _this$props2.testId,
           className = _this$props2.className,
           daysStatus = _this$props2.daysStatus,
           disabledDays = _this$props2.disabledDays,
@@ -305,6 +310,7 @@ function (_PureComponent) {
         numberOfDays: numberOfDays
       };
       var calendarProps = {
+        testId: testId,
         className: className,
         numberOfMonths: numberOfMonths,
         firstVisibleMonth: firstVisibleMonth,
@@ -320,17 +326,17 @@ function (_PureComponent) {
       };
 
       if (!showNavigator) {
-        return _react.default.createElement(_DaysStatusTranslator.default, translatorProps, function (_ref) {
+        return _react["default"].createElement(_DaysStatusTranslator["default"], translatorProps, function (_ref) {
           var nextDaysStatus = _ref.daysStatus;
-          return _react.default.createElement(_Calendar.default, _extends({}, calendarProps, {
+          return _react["default"].createElement(_Calendar["default"], _extends({}, calendarProps, {
             daysStatus: nextDaysStatus
           }));
         });
       }
 
-      return _react.default.createElement(_DaysStatusTranslator.default, translatorProps, function (_ref2) {
+      return _react["default"].createElement(_DaysStatusTranslator["default"], translatorProps, function (_ref2) {
         var nextDaysStatus = _ref2.daysStatus;
-        return _react.default.createElement(_CalendarWithNavigator.default, _extends({}, calendarProps, {
+        return _react["default"].createElement(_CalendarWithNavigator["default"], _extends({}, calendarProps, {
           daysStatus: nextDaysStatus,
           minMonth: minDay,
           maxMonth: maxDay,
@@ -344,40 +350,43 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 DatePicker.propTypes = {
-  className: _propTypes.default.string,
-  currentDayIndex: _propTypes.default.number,
-  initialFirstVisibleMonth: _propTypes.default.instanceOf(_moment.default),
-  initialSelectedDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)),
-  selectedDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)),
-  daysStatus: _propTypes.default.object,
-  disabledDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)),
-  highlightedDays: _propTypes.default.arrayOf(_propTypes.default.instanceOf(_moment.default)),
-  minDay: _propTypes.default.instanceOf(_moment.default),
-  maxDay: _propTypes.default.instanceOf(_moment.default),
-  minNights: _propTypes.default.number,
-  numberOfDays: _propTypes.default.number,
-  numberOfMonths: _propTypes.default.number,
-  showOutsideDays: _propTypes.default.bool,
-  isDayDisabled: _propTypes.default.func,
-  isDayHighlighted: _propTypes.default.func,
-  onSelectDay: _propTypes.default.func,
-  onHoverDay: _propTypes.default.func,
-  onBlurDay: _propTypes.default.func,
-  onChangeDayIndex: _propTypes.default.func,
-  onChangeDays: _propTypes.default.func,
-  onChangeMonth: _propTypes.default.func,
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  currentDayIndex: _propTypes["default"].number,
+  initialFirstVisibleMonth: _propTypes["default"].instanceOf(_moment["default"]),
+  initialSelectedDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])),
+  selectedDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])),
+  daysStatus: _propTypes["default"].object,
+  // eslint-disable-line react/forbid-prop-types
+  disabledDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])),
+  highlightedDays: _propTypes["default"].arrayOf(_propTypes["default"].instanceOf(_moment["default"])),
+  minDay: _propTypes["default"].instanceOf(_moment["default"]),
+  maxDay: _propTypes["default"].instanceOf(_moment["default"]),
+  minNights: _propTypes["default"].number,
+  numberOfDays: _propTypes["default"].number,
+  numberOfMonths: _propTypes["default"].number,
+  showOutsideDays: _propTypes["default"].bool,
+  isDayDisabled: _propTypes["default"].func,
+  isDayHighlighted: _propTypes["default"].func,
+  onSelectDay: _propTypes["default"].func,
+  onHoverDay: _propTypes["default"].func,
+  onBlurDay: _propTypes["default"].func,
+  onChangeDayIndex: _propTypes["default"].func,
+  onChangeDays: _propTypes["default"].func,
+  onChangeMonth: _propTypes["default"].func,
   // props for Calendar
 
   /* eslint-disable react/require-default-props */
-  monthNameFormat: _propTypes.default.string,
-  startOfWeek: _propTypes.default.number,
-  renderMonth: _propTypes.default.func,
+  monthNameFormat: _propTypes["default"].string,
+  startOfWeek: _propTypes["default"].number,
+  renderMonth: _propTypes["default"].func,
 
   /* eslint-enable */
-  flexWidth: _propTypes.default.bool,
-  orientation: _propTypes.default.oneOf(['horizontal', 'vertical'])
+  flexWidth: _propTypes["default"].bool,
+  orientation: _propTypes["default"].oneOf(['horizontal', 'vertical'])
 };
 DatePicker.defaultProps = {
+  testId: undefined,
   className: '',
   currentDayIndex: 0,
   initialFirstVisibleMonth: undefined,
@@ -404,4 +413,4 @@ DatePicker.defaultProps = {
   onChangeMonth: function onChangeMonth() {}
 };
 var _default = DatePicker;
-exports.default = _default;
+exports["default"] = _default;

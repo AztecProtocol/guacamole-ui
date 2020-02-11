@@ -3,15 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.ButtonGroup = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var styles = {
   "button": "button-d4953c4c",
@@ -95,23 +95,23 @@ var styles = {
 };
 
 var ButtonGroup = function ButtonGroup(_ref) {
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       children = _ref.children;
-  return _react.default.createElement("div", {
-    className: className,
-    styleName: "group"
+  return _react["default"].createElement("div", {
+    "data-testid": testId,
+    className: (0, _classnames["default"])(className, styles.group)
   }, children);
 };
 
-exports.ButtonGroup = ButtonGroup;
 ButtonGroup.propTypes = {
-  className: _propTypes.default.string,
-  children: _propTypes.default.oneOfType([_propTypes.default.node, _propTypes.default.arrayOf(_propTypes.default.node)]).isRequired
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  children: _propTypes["default"].oneOfType([_propTypes["default"].node, _propTypes["default"].arrayOf(_propTypes["default"].node)]).isRequired
 };
 ButtonGroup.defaultProps = {
+  testId: undefined,
   className: ''
 };
-
-var _default = (0, _reactCssModules.default)(ButtonGroup, styles);
-
-exports.default = _default;
+var _default = ButtonGroup;
+exports["default"] = _default;

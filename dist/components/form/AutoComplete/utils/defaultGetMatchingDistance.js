@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = defaultGetMatchingDistance;
+exports["default"] = defaultGetMatchingDistance;
 
 function defaultGetMatchingDistance(value, item) {
   var formatedValue = value.trim().toLowerCase();

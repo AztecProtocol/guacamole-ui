@@ -3,23 +3,23 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.ConcentricPies = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
 var _Pie = _interopRequireDefault(require("../Pie"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -28,6 +28,8 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -65,6 +67,7 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
+          testId = _this$props.testId,
           className = _this$props.className,
           pies = _this$props.pies,
           startDeg = _this$props.startDeg,
@@ -73,9 +76,9 @@ function (_PureComponent) {
           children = _this$props.children;
       var numberOfPies = pies.length;
       var accumRadius = 0;
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: "wrapper"
+      return _react["default"].createElement("div", {
+        "data-testid": testId,
+        className: (0, _classnames["default"])(className, styles.wrapper)
       }, pies.map(function (_ref, i) {
         var value = _ref.value,
             _ref$spacing = _ref.spacing,
@@ -90,9 +93,9 @@ function (_PureComponent) {
             showTrack = _ref.showTrack,
             delay = _ref.delay;
         accumRadius += spacing + strokeWidth;
-        return _react.default.createElement(_Pie.default, {
+        return _react["default"].createElement(_Pie["default"], {
           key: +i,
-          styleName: i === numberOfPies - 1 ? '' : 'centered',
+          className: i === numberOfPies - 1 ? '' : styles.centered,
           value: value,
           radius: accumRadius,
           startDeg: startDeg,
@@ -104,8 +107,8 @@ function (_PureComponent) {
           showTrack: showTrack,
           delay: delay
         });
-      }).reverse(), children && _react.default.createElement("div", {
-        styleName: "centered"
+      }).reverse(), children && _react["default"].createElement("div", {
+        className: styles.centered
       }, children));
     }
   }]);
@@ -113,33 +116,32 @@ function (_PureComponent) {
   return ConcentricPies;
 }(_react.PureComponent);
 
-exports.ConcentricPies = ConcentricPies;
 ConcentricPies.propTypes = {
-  className: _propTypes.default.string,
-  pies: _propTypes.default.arrayOf(_propTypes.default.shape({
-    value: _propTypes.default.number.isRequired,
-    spacing: _propTypes.default.number,
-    strokeWidth: _propTypes.default.number,
-    strokeColor: _propTypes.default.oneOf(_styleConstants.colorNames),
-    trackColor: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
-    fill: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
-    showArcValue: _propTypes.default.bool,
-    showTrack: _propTypes.default.bool,
-    delay: _propTypes.default.number
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  pies: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    value: _propTypes["default"].number.isRequired,
+    spacing: _propTypes["default"].number,
+    strokeWidth: _propTypes["default"].number,
+    strokeColor: _propTypes["default"].oneOf(_styleConstants.colorNames),
+    trackColor: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+    fill: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+    showArcValue: _propTypes["default"].bool,
+    showTrack: _propTypes["default"].bool,
+    delay: _propTypes["default"].number
   })).isRequired,
-  startDeg: _propTypes.default.number,
-  strokeWidth: _propTypes.default.number,
-  strokeColor: _propTypes.default.oneOf(_styleConstants.colorNames),
-  children: _propTypes.default.node
+  startDeg: _propTypes["default"].number,
+  strokeWidth: _propTypes["default"].number,
+  strokeColor: _propTypes["default"].oneOf(_styleConstants.colorNames),
+  children: _propTypes["default"].node
 };
 ConcentricPies.defaultProps = {
+  testId: undefined,
   className: '',
   startDeg: 0,
   strokeWidth: 24,
   strokeColor: 'secondary',
   children: null
 };
-
-var _default = (0, _reactCssModules.default)(ConcentricPies, styles);
-
-exports.default = _default;
+var _default = ConcentricPies;
+exports["default"] = _default;

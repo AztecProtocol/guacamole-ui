@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = getItemByValue;
+exports["default"] = getItemByValue;
 
 function getItemByValue(itemGroups, value) {
   var item = null;

@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Avatar = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -23,11 +21,11 @@ var _Text = _interopRequireDefault(require("../../general/Text"));
 
 var _Clickable = _interopRequireDefault(require("../../utils/Clickable"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -36,6 +34,10 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -150,8 +152,8 @@ function (_PureComponent) {
       var isSrcBroken = this.state.isSrcBroken;
 
       if (src && !isSrcBroken) {
-        return _react.default.createElement(_Image.default, {
-          styleName: "img",
+        return _react["default"].createElement(_Image["default"], {
+          className: styles.img,
           backgroundUrl: src,
           width: "100%",
           height: "100%",
@@ -164,15 +166,15 @@ function (_PureComponent) {
       }
 
       if (alt) {
-        return _react.default.createElement(_Text.default, {
-          styleName: "img",
+        return _react["default"].createElement(_Text["default"], {
+          className: styles.img,
           text: alt,
           color: color
         });
       }
 
-      return _react.default.createElement(_Icon.default, {
-        styleName: "img",
+      return _react["default"].createElement(_Icon["default"], {
+        className: styles.img,
         name: iconName,
         size: size,
         color: color
@@ -184,6 +186,7 @@ function (_PureComponent) {
       var _classnames;
 
       var _this$props2 = this.props,
+          testId = _this$props2.testId,
           className = _this$props2.className,
           shape = _this$props2.shape,
           src = _this$props2.src,
@@ -200,15 +203,15 @@ function (_PureComponent) {
       var isSrcAvailable = !!src && isSrcLoaded && !isSrcBroken;
       var useIconBackground = !!iconBackground && (!isSrcAvailable || !background);
       var backgroundColor = useIconBackground ? iconBackground : background;
-      var TagName = onClick ? _Clickable.default : 'div';
-      return _react.default.createElement(TagName, {
-        className: className,
-        styleName: (0, _classnames2.default)('avatar', "shape-".concat(shape), "size-".concat(size), (_classnames = {
-          inactive: inactive
-        }, _defineProperty(_classnames, "bg-".concat(backgroundColor), backgroundColor), _defineProperty(_classnames, 'bg-white', backgroundColor === 'white' || !backgroundColor && isSrcAvailable && inactive), _defineProperty(_classnames, "layer-".concat(layer), layer), _classnames)),
+      var TagName = onClick ? _Clickable["default"] : 'div';
+
+      var tagProps = _defineProperty({}, onClick ? 'testId' : 'data-testid', testId);
+
+      return _react["default"].createElement(TagName, _extends({}, tagProps, {
+        className: (0, _classnames2["default"])(className, styles.avatar, styles["shape-".concat(shape)], styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles.inactive, inactive), _defineProperty(_classnames, styles["bg-".concat(backgroundColor)], backgroundColor), _defineProperty(_classnames, styles['bg-white'], backgroundColor === 'white' || !backgroundColor && isSrcAvailable && inactive), _defineProperty(_classnames, styles["layer-".concat(layer)], layer), _classnames)),
         onClick: onClick
-      }, this.renderContent(), status && _react.default.createElement("div", {
-        styleName: "status-".concat(status)
+      }), this.renderContent(), status && _react["default"].createElement("div", {
+        className: styles["status-".concat(status)]
       }));
     }
   }]);
@@ -216,24 +219,25 @@ function (_PureComponent) {
   return Avatar;
 }(_react.PureComponent);
 
-exports.Avatar = Avatar;
 Avatar.propTypes = {
-  className: _propTypes.default.string,
-  shape: _propTypes.default.oneOf(['circular', 'square']),
-  src: _propTypes.default.string,
-  alt: _propTypes.default.string,
-  iconName: _propTypes.default.string,
-  iconBackground: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
-  color: _propTypes.default.oneOf(_styleConstants.textColorNames),
-  background: _propTypes.default.oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
-  layer: _propTypes.default.oneOf(_styleConstants.shadowLayerKeys),
-  size: _propTypes.default.oneOf(_styleConstants.shapeSizeKeys),
-  status: _propTypes.default.oneOf(['', 'online', 'offline']),
-  inactive: _propTypes.default.bool,
-  lazyLoad: _propTypes.default.bool,
-  onClick: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  shape: _propTypes["default"].oneOf(['circular', 'square']),
+  src: _propTypes["default"].string,
+  alt: _propTypes["default"].string,
+  iconName: _propTypes["default"].string,
+  iconBackground: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  color: _propTypes["default"].oneOf(_styleConstants.textColorNames),
+  background: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  layer: _propTypes["default"].oneOf(_styleConstants.shadowLayerKeys),
+  size: _propTypes["default"].oneOf(_styleConstants.shapeSizeKeys),
+  status: _propTypes["default"].oneOf(['', 'online', 'offline']),
+  inactive: _propTypes["default"].bool,
+  lazyLoad: _propTypes["default"].bool,
+  onClick: _propTypes["default"].func
 };
 Avatar.defaultProps = {
+  testId: undefined,
   className: '',
   shape: 'circular',
   src: '',
@@ -249,9 +253,5 @@ Avatar.defaultProps = {
   lazyLoad: false,
   onClick: null
 };
-
-var _default = (0, _reactCssModules.default)(Avatar, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Avatar;
+exports["default"] = _default;

@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Offset = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _generateResponsiveStyleNames = _interopRequireDefault(require("../../../utils/generateResponsiveStyleNames"));
 
@@ -17,9 +17,11 @@ var _parseCssSizeValues = _interopRequireDefault(require("../../../utils/parseCs
 
 var _responsiveCssSizes = _interopRequireDefault(require("../../../shapes/responsiveCssSizes"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -307,7 +309,8 @@ var styles = {
 };
 
 var Offset = function Offset(_ref) {
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       margin = _ref.margin,
       top = _ref.top,
       right = _ref.right,
@@ -320,30 +323,33 @@ var Offset = function Offset(_ref) {
     right: right,
     bottom: bottom,
     left: left
-  }, (0, _parseCssSizeValues.default)(margin));
+  }, (0, _parseCssSizeValues["default"])(margin));
 
   var sizeStyleNames = ['all', 'top', 'right', 'bottom', 'left'].filter(function (size) {
     return sizeMap[size];
   }).map(function (size) {
-    return (0, _generateResponsiveStyleNames.default)(size, sizeMap[size]);
+    return (0, _generateResponsiveStyleNames["default"])(size, sizeMap[size]).map(function (n) {
+      return styles[n];
+    });
   });
-  return _react.default.createElement("div", {
-    className: className,
-    styleName: sizeStyleNames.join(' ')
+  return _react["default"].createElement("div", {
+    "data-testid": testId,
+    className: (0, _classnames["default"])(className, sizeStyleNames)
   }, children);
 };
 
-exports.Offset = Offset;
 Offset.propTypes = {
-  className: _propTypes.default.string,
-  margin: _responsiveCssSizes.default,
-  top: _responsiveCssSizes.default,
-  right: _responsiveCssSizes.default,
-  bottom: _responsiveCssSizes.default,
-  left: _responsiveCssSizes.default,
-  children: _propTypes.default.node
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  margin: _responsiveCssSizes["default"],
+  top: _responsiveCssSizes["default"],
+  right: _responsiveCssSizes["default"],
+  bottom: _responsiveCssSizes["default"],
+  left: _responsiveCssSizes["default"],
+  children: _propTypes["default"].node
 };
 Offset.defaultProps = {
+  testId: undefined,
   className: '',
   margin: '',
   top: '',
@@ -352,9 +358,5 @@ Offset.defaultProps = {
   left: '',
   children: null
 };
-
-var _default = (0, _reactCssModules.default)(Offset, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Offset;
+exports["default"] = _default;

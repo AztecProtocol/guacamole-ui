@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Tag = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
@@ -21,7 +19,9 @@ var _Text = _interopRequireDefault(require("../Text"));
 
 var _Icon = _interopRequireDefault(require("../Icon"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "size-xxs": "tag-cf14140a",
@@ -39,7 +39,10 @@ var styles = {
 };
 
 var Tag = function Tag(_ref) {
-  var className = _ref.className,
+  var _classnames;
+
+  var testId = _ref.testId,
+      className = _ref.className,
       size = _ref.size,
       children = _ref.children,
       text = _ref.text,
@@ -49,42 +52,40 @@ var Tag = function Tag(_ref) {
       outlined = _ref.outlined,
       rounded = _ref.rounded,
       onClick = _ref.onClick;
-  return _react.default.createElement(_Block.default, {
-    className: className,
-    styleName: (0, _classnames.default)('tag', "size-".concat(size), {
-      'align-reverse': alignIcon === 'left',
-      rounded: rounded
-    }),
+  return _react["default"].createElement(_Block["default"], {
+    testId: testId,
+    className: (0, _classnames2["default"])(className, styles.tag, styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles['align-reverse'], alignIcon === 'left'), _defineProperty(_classnames, styles.rounded, rounded), _classnames)),
     background: outlined ? 'white-light' : color,
     hasBorder: outlined,
     borderColor: color,
     onClick: onClick,
     inline: true
-  }, _react.default.createElement(_Text.default, {
-    styleName: "text",
+  }, _react["default"].createElement(_Text["default"], {
+    className: styles.text,
     text: text,
     color: outlined ? color : ''
-  }), !!iconName && _react.default.createElement(_Icon.default, {
-    styleName: "icon",
+  }), !!iconName && _react["default"].createElement(_Icon["default"], {
+    className: styles.icon,
     name: iconName,
     color: outlined ? color : ''
   }), children);
 };
 
-exports.Tag = Tag;
 Tag.propTypes = {
-  className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_styleConstants.fontSizeKeys),
-  children: _propTypes.default.node,
-  text: _propTypes.default.string.isRequired,
-  iconName: _propTypes.default.string,
-  alignIcon: _propTypes.default.oneOf(['left', 'right']),
-  color: _propTypes.default.string,
-  outlined: _propTypes.default.bool,
-  rounded: _propTypes.default.bool,
-  onClick: _propTypes.default.func
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  size: _propTypes["default"].oneOf(_styleConstants.fontSizeKeys),
+  children: _propTypes["default"].node,
+  text: _propTypes["default"].string.isRequired,
+  iconName: _propTypes["default"].string,
+  alignIcon: _propTypes["default"].oneOf(['left', 'right']),
+  color: _propTypes["default"].string,
+  outlined: _propTypes["default"].bool,
+  rounded: _propTypes["default"].bool,
+  onClick: _propTypes["default"].func
 };
 Tag.defaultProps = {
+  testId: undefined,
   className: '',
   size: _styleConstants.defaultFontSizeKey,
   children: null,
@@ -95,9 +96,5 @@ Tag.defaultProps = {
   rounded: false,
   onClick: null
 };
-
-var _default = (0, _reactCssModules.default)(Tag, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Tag;
+exports["default"] = _default;

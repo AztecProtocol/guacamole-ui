@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Tree = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
@@ -19,11 +17,15 @@ var _statusModifiers = require("./utils/statusModifiers");
 
 var _TreeNode = _interopRequireDefault(require("./TreeNode"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -182,7 +184,7 @@ function (_PureComponent) {
 
         var value = treeNodeData.value;
         var childrenBranchNode = childData ? _this2.renderBranches(childData) : null;
-        return _react.default.createElement(_TreeNode.default, _extends({}, treeNodeData, {
+        return _react["default"].createElement(_TreeNode["default"], _extends({}, treeNodeData, {
           key: value,
           modifier: (0, _statusModifiers.getModifier)(modifiers, value),
           onSelect: _this2.handleSelect,
@@ -195,17 +197,16 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
+          testId = _this$props.testId,
           className = _this$props.className,
           data = _this$props.data;
       var couldExpand = data.some(function (_ref2) {
         var childData = _ref2.data;
         return childData;
       });
-      return _react.default.createElement("div", {
-        className: className,
-        styleName: (0, _classnames.default)({
-          subset: couldExpand
-        })
+      return _react["default"].createElement("div", {
+        "data-testid": testId,
+        className: (0, _classnames2["default"])(className, _defineProperty({}, styles.subset, couldExpand))
       }, this.renderBranches(data));
     }
   }]);
@@ -213,33 +214,35 @@ function (_PureComponent) {
   return Tree;
 }(_react.PureComponent);
 
-exports.Tree = Tree;
 Tree.propTypes = {
-  className: _propTypes.default.string,
-  selectedValues: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])),
-  activeValues: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])),
-  data: _propTypes.default.arrayOf(_propTypes.default.shape({
-    value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]).isRequired,
-    title: _propTypes.default.string,
-    icon: _iconShape.default,
-    content: _propTypes.default.node,
-    selectable: _propTypes.default.bool,
-    highlight: _propTypes.default.bool,
-    data: _propTypes.default.arrayOf(_propTypes.default.shape({
-      value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]).isRequired,
-      title: _propTypes.default.string,
-      icon: _iconShape.default,
-      content: _propTypes.default.node,
-      selectable: _propTypes.default.bool,
-      highlight: _propTypes.default.bool,
-      data: _propTypes.default.array
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  selectedValues: _propTypes["default"].arrayOf(_propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string])),
+  activeValues: _propTypes["default"].arrayOf(_propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string])),
+  data: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    testId: _propTypes["default"].string,
+    value: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]).isRequired,
+    title: _propTypes["default"].string,
+    icon: _iconShape["default"],
+    content: _propTypes["default"].node,
+    selectable: _propTypes["default"].bool,
+    highlight: _propTypes["default"].bool,
+    data: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+      value: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]).isRequired,
+      title: _propTypes["default"].string,
+      icon: _iconShape["default"],
+      content: _propTypes["default"].node,
+      selectable: _propTypes["default"].bool,
+      highlight: _propTypes["default"].bool,
+      data: _propTypes["default"].array
     }))
   })),
-  defaultExpandAll: _propTypes.default.bool,
-  onSelect: _propTypes.default.func,
-  onToggleActive: _propTypes.default.func
+  defaultExpandAll: _propTypes["default"].bool,
+  onSelect: _propTypes["default"].func,
+  onToggleActive: _propTypes["default"].func
 };
 Tree.defaultProps = {
+  testId: undefined,
   className: '',
   selectedValues: null,
   activeValues: null,
@@ -248,7 +251,5 @@ Tree.defaultProps = {
   onSelect: function onSelect() {},
   onToggleActive: function onToggleActive() {}
 };
-
-var _default = (0, _reactCssModules.default)(Tree, styles);
-
-exports.default = _default;
+var _default = Tree;
+exports["default"] = _default;

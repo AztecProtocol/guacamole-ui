@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = calculateArcValuePosition;
+exports["default"] = calculateArcValuePosition;
 
 function calculateArcValuePosition(_ref) {
   var radius = _ref.radius,

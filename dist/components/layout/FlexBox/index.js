@@ -1,25 +1,29 @@
 "use strict";
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.FlexBox = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames2 = _interopRequireDefault(require("classnames"));
 
 var _generateResponsiveStyleNames = _interopRequireWildcard(require("../../../utils/generateResponsiveStyleNames"));
 
 var _generateResponsiveShape = _interopRequireDefault(require("../../../utils/generateResponsiveShape"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "flex-box": "flex-a66edbb4",
@@ -148,7 +152,10 @@ var styles = {
 };
 
 var FlexBox = function FlexBox(_ref) {
-  var className = _ref.className,
+  var _classnames;
+
+  var testId = _ref.testId,
+      className = _ref.className,
       direction = _ref.direction,
       align = _ref.align,
       valign = _ref.valign,
@@ -157,29 +164,34 @@ var FlexBox = function FlexBox(_ref) {
       stretch = _ref.stretch,
       nowrap = _ref.nowrap,
       children = _ref.children;
-  return _react.default.createElement("div", {
-    className: className,
-    styleName: (0, _classnames.default)('flex-box', (0, _generateResponsiveStyleNames.default)('direction', direction, _generateResponsiveStyleNames.notEmptyString), (0, _generateResponsiveStyleNames.default)('align', align, _generateResponsiveStyleNames.notEmptyString), (0, _generateResponsiveStyleNames.default)('valign', valign, _generateResponsiveStyleNames.notEmptyString), (0, _generateResponsiveStyleNames.default)('nowrap', nowrap), {
-      expand: expand,
-      fixedWidth: fixedWidth,
-      stretch: stretch
-    })
+  return _react["default"].createElement("div", {
+    "data-testid": testId,
+    className: (0, _classnames2["default"])(className, styles['flex-box'], (0, _generateResponsiveStyleNames["default"])('direction', direction, _generateResponsiveStyleNames.notEmptyString).map(function (n) {
+      return styles[n];
+    }), (0, _generateResponsiveStyleNames["default"])('align', align, _generateResponsiveStyleNames.notEmptyString).map(function (n) {
+      return styles[n];
+    }), (0, _generateResponsiveStyleNames["default"])('valign', valign, _generateResponsiveStyleNames.notEmptyString).map(function (n) {
+      return styles[n];
+    }), (0, _generateResponsiveStyleNames["default"])('nowrap', nowrap).map(function (n) {
+      return styles[n];
+    }), (_classnames = {}, _defineProperty(_classnames, styles.expand, expand), _defineProperty(_classnames, styles.fixedWidth, fixedWidth), _defineProperty(_classnames, styles.stretch, stretch), _classnames))
   }, children);
 };
 
-exports.FlexBox = FlexBox;
 FlexBox.propTypes = {
-  className: _propTypes.default.string,
-  direction: (0, _generateResponsiveShape.default)(['', 'row', 'row-reverse', 'column', 'column-reverse']),
-  align: (0, _generateResponsiveShape.default)(['', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
-  valign: (0, _generateResponsiveShape.default)(['', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline']),
-  nowrap: (0, _generateResponsiveShape.default)([true, false]),
-  expand: _propTypes.default.bool,
-  fixedWidth: _propTypes.default.bool,
-  stretch: _propTypes.default.bool,
-  children: _propTypes.default.node.isRequired
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  direction: (0, _generateResponsiveShape["default"])(['', 'row', 'row-reverse', 'column', 'column-reverse']),
+  align: (0, _generateResponsiveShape["default"])(['', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
+  valign: (0, _generateResponsiveShape["default"])(['', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline']),
+  nowrap: (0, _generateResponsiveShape["default"])([true, false]),
+  expand: _propTypes["default"].bool,
+  fixedWidth: _propTypes["default"].bool,
+  stretch: _propTypes["default"].bool,
+  children: _propTypes["default"].node.isRequired
 };
 FlexBox.defaultProps = {
+  testId: undefined,
   className: '',
   direction: 'row',
   align: '',
@@ -189,9 +201,5 @@ FlexBox.defaultProps = {
   stretch: false,
   nowrap: false
 };
-
-var _default = (0, _reactCssModules.default)(FlexBox, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = FlexBox;
+exports["default"] = _default;

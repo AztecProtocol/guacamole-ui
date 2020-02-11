@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _generateResponsiveShape = _interopRequireDefault(require("../utils/generateResponsiveShape"));
 
 var _styleConstants = require("../config/styleConstants");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -21,6 +21,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 var sizeNames = ['', 'inherit'].concat(_toConsumableArray(_styleConstants.fontSizeKeys));
 
-var _default = (0, _generateResponsiveShape.default)(sizeNames);
+var _default = (0, _generateResponsiveShape["default"])(sizeNames);
 
-exports.default = _default;
+exports["default"] = _default;

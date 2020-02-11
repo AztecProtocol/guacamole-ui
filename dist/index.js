@@ -6,313 +6,307 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "ConcentricPies", {
   enumerable: true,
   get: function get() {
-    return _ConcentricPies.default;
+    return _ConcentricPies["default"];
   }
 });
 Object.defineProperty(exports, "Pie", {
   enumerable: true,
   get: function get() {
-    return _Pie.default;
+    return _Pie["default"];
   }
 });
 Object.defineProperty(exports, "Accordion", {
   enumerable: true,
   get: function get() {
-    return _Accordion.default;
+    return _Accordion["default"];
   }
 });
 Object.defineProperty(exports, "Avatar", {
   enumerable: true,
   get: function get() {
-    return _Avatar.default;
+    return _Avatar["default"];
   }
 });
 Object.defineProperty(exports, "AvatarGroup", {
   enumerable: true,
   get: function get() {
-    return _AvatarGroup.default;
+    return _AvatarGroup["default"];
   }
 });
 Object.defineProperty(exports, "Badge", {
   enumerable: true,
   get: function get() {
-    return _Badge.default;
+    return _Badge["default"];
   }
 });
 Object.defineProperty(exports, "Calendar", {
   enumerable: true,
   get: function get() {
-    return _Calendar.default;
+    return _Calendar["default"];
   }
 });
 Object.defineProperty(exports, "TableRow", {
   enumerable: true,
   get: function get() {
-    return _TableRow.default;
+    return _TableRow["default"];
   }
 });
 Object.defineProperty(exports, "TableCell", {
   enumerable: true,
   get: function get() {
-    return _TableCell.default;
+    return _TableCell["default"];
   }
 });
 Object.defineProperty(exports, "List", {
   enumerable: true,
   get: function get() {
-    return _List.default;
+    return _List["default"];
   }
 });
 Object.defineProperty(exports, "ListItem", {
   enumerable: true,
   get: function get() {
-    return _ListItem.default;
+    return _ListItem["default"];
   }
 });
 Object.defineProperty(exports, "ProgressBar", {
   enumerable: true,
   get: function get() {
-    return _ProgressBar.default;
+    return _ProgressBar["default"];
   }
 });
 Object.defineProperty(exports, "SelectMenu", {
   enumerable: true,
   get: function get() {
-    return _SelectMenu.default;
+    return _SelectMenu["default"];
   }
 });
 Object.defineProperty(exports, "SmartTable", {
   enumerable: true,
   get: function get() {
-    return _SmartTable.default;
-  }
-});
-Object.defineProperty(exports, "Time", {
-  enumerable: true,
-  get: function get() {
-    return _Time.default;
+    return _SmartTable["default"];
   }
 });
 Object.defineProperty(exports, "Tree", {
   enumerable: true,
   get: function get() {
-    return _Tree.default;
+    return _Tree["default"];
   }
 });
 Object.defineProperty(exports, "Loader", {
   enumerable: true,
   get: function get() {
-    return _Loader.default;
+    return _Loader["default"];
   }
 });
 Object.defineProperty(exports, "Modal", {
   enumerable: true,
   get: function get() {
-    return _Modal.default;
+    return _Modal["default"];
   }
 });
 Object.defineProperty(exports, "AutoComplete", {
   enumerable: true,
   get: function get() {
-    return _AutoComplete.default;
+    return _AutoComplete["default"];
   }
 });
 Object.defineProperty(exports, "Checkbox", {
   enumerable: true,
   get: function get() {
-    return _Checkbox.default;
+    return _Checkbox["default"];
   }
 });
 Object.defineProperty(exports, "DatePicker", {
   enumerable: true,
   get: function get() {
-    return _DatePicker.default;
+    return _DatePicker["default"];
   }
 });
 Object.defineProperty(exports, "DatePickerInput", {
   enumerable: true,
   get: function get() {
-    return _DatePickerInput.default;
+    return _DatePickerInput["default"];
   }
 });
 Object.defineProperty(exports, "Form", {
   enumerable: true,
   get: function get() {
-    return _Form.default;
+    return _Form["default"];
   }
 });
 Object.defineProperty(exports, "MaskedNumberInput", {
   enumerable: true,
   get: function get() {
-    return _MaskedNumberInput.default;
+    return _MaskedNumberInput["default"];
   }
 });
 Object.defineProperty(exports, "SelectInput", {
   enumerable: true,
   get: function get() {
-    return _SelectInput.default;
+    return _SelectInput["default"];
   }
 });
 Object.defineProperty(exports, "SlideInput", {
   enumerable: true,
   get: function get() {
-    return _SlideInput.default;
+    return _SlideInput["default"];
   }
 });
 Object.defineProperty(exports, "SwitchInput", {
   enumerable: true,
   get: function get() {
-    return _SwitchInput.default;
+    return _SwitchInput["default"];
   }
 });
 Object.defineProperty(exports, "TextInput", {
   enumerable: true,
   get: function get() {
-    return _TextInput.default;
+    return _TextInput["default"];
   }
 });
 Object.defineProperty(exports, "TreeSelect", {
   enumerable: true,
   get: function get() {
-    return _TreeSelect.default;
+    return _TreeSelect["default"];
   }
 });
 Object.defineProperty(exports, "Button", {
   enumerable: true,
   get: function get() {
-    return _Button.default;
+    return _Button["default"];
   }
 });
 Object.defineProperty(exports, "ButtonGroup", {
   enumerable: true,
   get: function get() {
-    return _ButtonGroup.default;
+    return _ButtonGroup["default"];
   }
 });
 Object.defineProperty(exports, "Icon", {
   enumerable: true,
   get: function get() {
-    return _Icon.default;
+    return _Icon["default"];
   }
 });
 Object.defineProperty(exports, "Image", {
   enumerable: true,
   get: function get() {
-    return _Image.default;
+    return _Image["default"];
   }
 });
 Object.defineProperty(exports, "SVG", {
   enumerable: true,
   get: function get() {
-    return _SVG.default;
+    return _SVG["default"];
   }
 });
 Object.defineProperty(exports, "Tag", {
   enumerable: true,
   get: function get() {
-    return _Tag.default;
+    return _Tag["default"];
   }
 });
 Object.defineProperty(exports, "Text", {
   enumerable: true,
   get: function get() {
-    return _Text.default;
+    return _Text["default"];
   }
 });
 Object.defineProperty(exports, "TextButton", {
   enumerable: true,
   get: function get() {
-    return _TextButton.default;
+    return _TextButton["default"];
   }
 });
 Object.defineProperty(exports, "Block", {
   enumerable: true,
   get: function get() {
-    return _Block.default;
+    return _Block["default"];
   }
 });
 Object.defineProperty(exports, "Col", {
   enumerable: true,
   get: function get() {
-    return _Col.default;
+    return _Col["default"];
   }
 });
 Object.defineProperty(exports, "FlexBox", {
   enumerable: true,
   get: function get() {
-    return _FlexBox.default;
+    return _FlexBox["default"];
   }
 });
 Object.defineProperty(exports, "Offset", {
   enumerable: true,
   get: function get() {
-    return _Offset.default;
+    return _Offset["default"];
   }
 });
 Object.defineProperty(exports, "PageContentWrapper", {
   enumerable: true,
   get: function get() {
-    return _PageContentWrapper.default;
+    return _PageContentWrapper["default"];
   }
 });
 Object.defineProperty(exports, "Overlay", {
   enumerable: true,
   get: function get() {
-    return _Overlay.default;
+    return _Overlay["default"];
   }
 });
 Object.defineProperty(exports, "Row", {
   enumerable: true,
   get: function get() {
-    return _Row.default;
+    return _Row["default"];
   }
 });
 Object.defineProperty(exports, "PageSteps", {
   enumerable: true,
   get: function get() {
-    return _PageSteps.default;
+    return _PageSteps["default"];
   }
 });
 Object.defineProperty(exports, "Progress", {
   enumerable: true,
   get: function get() {
-    return _Progress.default;
+    return _Progress["default"];
   }
 });
 Object.defineProperty(exports, "Steps", {
   enumerable: true,
   get: function get() {
-    return _Steps.default;
+    return _Steps["default"];
   }
 });
 Object.defineProperty(exports, "Clickable", {
   enumerable: true,
   get: function get() {
-    return _Clickable.default;
+    return _Clickable["default"];
   }
 });
 Object.defineProperty(exports, "ClickOutsideHandler", {
   enumerable: true,
   get: function get() {
-    return _ClickOutsideHandler.default;
+    return _ClickOutsideHandler["default"];
   }
 });
 Object.defineProperty(exports, "DeviceWidthListener", {
   enumerable: true,
   get: function get() {
-    return _DeviceWidthListener.default;
+    return _DeviceWidthListener["default"];
   }
 });
 Object.defineProperty(exports, "Draggable", {
   enumerable: true,
   get: function get() {
-    return _Draggable.default;
+    return _Draggable["default"];
   }
 });
 Object.defineProperty(exports, "LazyLoad", {
   enumerable: true,
   get: function get() {
-    return _LazyLoad.default;
+    return _LazyLoad["default"];
   }
 });
 
@@ -343,8 +337,6 @@ var _ProgressBar = _interopRequireDefault(require("./components/data/ProgressBar
 var _SelectMenu = _interopRequireDefault(require("./components/data/SelectMenu"));
 
 var _SmartTable = _interopRequireDefault(require("./components/data/SmartTable"));
-
-var _Time = _interopRequireDefault(require("./components/data/Time"));
 
 var _Tree = _interopRequireDefault(require("./components/data/Tree"));
 
@@ -420,4 +412,4 @@ var _Draggable = _interopRequireDefault(require("./components/utils/Draggable"))
 
 var _LazyLoad = _interopRequireDefault(require("./components/utils/LazyLoad"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

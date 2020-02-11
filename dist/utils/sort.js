@@ -3,11 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.sortBySortedArray = exports.makeSort = exports.DESC = exports.ASC = exports.default = void 0;
+exports.sortBySortedArray = exports.makeSort = exports.DESC = exports.ASC = exports["default"] = void 0;
 
 var _get = _interopRequireDefault(require("lodash/get"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -23,7 +23,7 @@ var DESC = false;
 exports.DESC = DESC;
 
 var sort = function sort(data, sortBy, asc) {
-  var sortGet = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : _get.default;
+  var sortGet = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : _get["default"];
   return _toConsumableArray(data).sort(function (a, b) {
     var vA = sortGet(a, sortBy);
     var vB = sortGet(b, sortBy);
@@ -37,7 +37,7 @@ var sort = function sort(data, sortBy, asc) {
 };
 
 var sortBySortedArray = function sortBySortedArray(data, sortedArray, sortBy) {
-  var sortGet = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : _get.default;
+  var sortGet = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : _get["default"];
   var indexMap = {};
   sortedArray.forEach(function (value, index) {
     indexMap[value] = index;
@@ -60,4 +60,4 @@ var makeSort = function makeSort(sortBy, defaultAsc) {
 
 exports.makeSort = makeSort;
 var _default = sort;
-exports.default = _default;
+exports["default"] = _default;

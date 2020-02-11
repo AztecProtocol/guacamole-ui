@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = generateEsModuleEntryFile;
+exports["default"] = generateEsModuleEntryFile;
 
 var _path = _interopRequireDefault(require("path"));
 
@@ -13,7 +13,7 @@ var _fs2 = require("./utils/fs");
 
 var _log = require("./utils/log");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -32,18 +32,18 @@ function _generateEsModuleEntryFile() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            entryFilePath = _path.default.resolve(__dirname, '../index.js');
-            destFilePath = _path.default.resolve(__dirname, '../../dist/guacamole.js');
+            entryFilePath = _path["default"].resolve(__dirname, '../index.js');
+            destFilePath = _path["default"].resolve(__dirname, '../../dist/guacamole.js');
             modules = [];
-            fileContent = _fs.default.readFileSync(entryFilePath, 'utf8');
+            fileContent = _fs["default"].readFileSync(entryFilePath, 'utf8');
             fileContent = fileContent.replace(/\s{1,}/g, ' ');
             fileContent.replace(/import ([a-z]{1,}) from '\.((\/[a-z]+){1,})';/ig, function (_, $0, $1) {
-              var isJsFile = (0, _fs2.isFile)(_path.default.resolve(__dirname, "..".concat($1, ".jsx")));
+              var isJsFile = (0, _fs2.isFile)(_path["default"].resolve(__dirname, "..".concat($1, ".jsx")));
               modules.push("export { default as ".concat($0, " } from '.").concat($1).concat(!isJsFile ? '/index' : '', ".js';"));
             });
             esModuleFileContent = "".concat(modules.join('\n'), "\n");
             _context.next = 9;
-            return _fs.default.writeFile(destFilePath, esModuleFileContent, function (error) {
+            return _fs["default"].writeFile(destFilePath, esModuleFileContent, function (error) {
               if (error) {
                 (0, _log.errorLog)(error);
                 process.exit(1);

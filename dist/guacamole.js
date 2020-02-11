@@ -12,7 +12,6 @@ export { default as ListItem } from './components/data/ListItem/index.js';
 export { default as ProgressBar } from './components/data/ProgressBar/index.js';
 export { default as SelectMenu } from './components/data/SelectMenu/index.js';
 export { default as SmartTable } from './components/data/SmartTable/index.js';
-export { default as Time } from './components/data/Time/index.js';
 export { default as Tree } from './components/data/Tree/index.js';
 export { default as Loader } from './components/feedback/Loader/index.js';
 export { default as Modal } from './components/feedback/Modal/index.js';

@@ -3,19 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames3 = _interopRequireDefault(require("classnames"));
 
 var _Clickable = _interopRequireDefault(require("../../utils/Clickable"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "steps": "steps-a6ee89e7",
@@ -35,29 +35,25 @@ var PageSteps = function PageSteps(_ref) {
       isRouterLink = _ref.isRouterLink;
 
   if (href || onClick) {
-    return _react.default.createElement(_Clickable.default, {
-      styleName: (0, _classnames.default)('step', 'button', {
-        active: active
-      }),
+    return _react["default"].createElement(_Clickable["default"], {
+      className: (0, _classnames3["default"])(styles.step, styles.button, _defineProperty({}, styles.active, active)),
       onClick: onClick,
       href: href,
       isRouterLink: isRouterLink
     }, title);
   }
 
-  return _react.default.createElement("div", {
-    styleName: (0, _classnames.default)('step', {
-      active: active
-    })
+  return _react["default"].createElement("div", {
+    className: (0, _classnames3["default"])(styles.step, _defineProperty({}, styles.active, active))
   }, title);
 };
 
 PageSteps.propTypes = {
-  title: _propTypes.default.string.isRequired,
-  active: _propTypes.default.bool,
-  href: _propTypes.default.string,
-  onClick: _propTypes.default.func,
-  isRouterLink: _propTypes.default.bool
+  title: _propTypes["default"].string.isRequired,
+  active: _propTypes["default"].bool,
+  href: _propTypes["default"].string,
+  onClick: _propTypes["default"].func,
+  isRouterLink: _propTypes["default"].bool
 };
 PageSteps.defaultProps = {
   active: false,
@@ -65,9 +61,5 @@ PageSteps.defaultProps = {
   onClick: null,
   isRouterLink: false
 };
-
-var _default = (0, _reactCssModules.default)(PageSteps, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = PageSteps;
+exports["default"] = _default;

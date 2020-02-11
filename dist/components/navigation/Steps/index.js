@@ -3,15 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.Steps = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
+var _classnames4 = _interopRequireDefault(require("classnames"));
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
@@ -25,7 +23,9 @@ var _Icon = _interopRequireDefault(require("../../general/Icon"));
 
 var _Text = _interopRequireDefault(require("../../general/Text"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "steps": "steps-b68e0d71",
@@ -44,7 +44,8 @@ var styles = {
 };
 
 var Steps = function Steps(_ref) {
-  var className = _ref.className,
+  var testId = _ref.testId,
+      className = _ref.className,
       size = _ref.size,
       totalSteps = _ref.totalSteps,
       currentStep = _ref.currentStep,
@@ -67,59 +68,53 @@ var Steps = function Steps(_ref) {
     return title || description;
   });
   var numberOfSteps = stepArr.length;
-  return _react.default.createElement(_FlexBox.default, {
-    className: className,
-    styleName: (0, _classnames.default)('steps', "size-".concat(size), {
-      'with-dot-content': withDotContent
-    })
+  return _react["default"].createElement(_FlexBox["default"], {
+    testId: testId,
+    className: (0, _classnames4["default"])(className, styles.steps, styles["size-".concat(size)], _defineProperty({}, styles['with-dot-content'], withDotContent))
   }, stepArr.map(function (_ref4, i) {
+    var _classnames2;
+
     var id = _ref4.id,
         title = _ref4.title,
         icon = _ref4.icon;
     var isClickable = i < currentIndex && allowToGoBack;
-    var DotWrapper = isClickable ? _Clickable.default : 'div';
-    return _react.default.createElement("div", {
+    var DotWrapper = isClickable ? _Clickable["default"] : 'div';
+    return _react["default"].createElement("div", {
       key: id,
-      className: i === numberOfSteps - 1 ? 'flex-fixed' : 'flex-free-expand',
-      styleName: (0, _classnames.default)('step', {
-        finished: i < currentIndex,
-        current: i === currentIndex,
-        waiting: i > currentIndex
-      })
-    }, _react.default.createElement(DotWrapper, {
-      styleName: (0, _classnames.default)('dot', {
-        static: !isClickable
-      }),
+      className: (0, _classnames4["default"])(i === numberOfSteps - 1 ? 'flex-fixed' : 'flex-free-expand', styles.step, (_classnames2 = {}, _defineProperty(_classnames2, styles.finished, i < currentIndex), _defineProperty(_classnames2, styles.current, i === currentIndex), _defineProperty(_classnames2, styles.waiting, i > currentIndex), _classnames2))
+    }, _react["default"].createElement(DotWrapper, {
+      className: (0, _classnames4["default"])(styles.dot, _defineProperty({}, styles["static"], !isClickable)),
       onClick: isClickable ? function () {
         return onChange(i + 1);
       } : undefined
-    }, !!icon && _react.default.createElement(_Icon.default, icon), !icon && _react.default.createElement(_Text.default, {
+    }, !!icon && _react["default"].createElement(_Icon["default"], icon), !icon && _react["default"].createElement(_Text["default"], {
       text: "".concat(i + 1)
-    })), i < numberOfSteps - 1 && _react.default.createElement("div", {
-      styleName: "line"
-    }), !!title && _react.default.createElement(_Text.default, {
+    })), i < numberOfSteps - 1 && _react["default"].createElement("div", {
+      className: styles.line
+    }), !!title && _react["default"].createElement(_Text["default"], {
       text: title
     }));
   }));
 };
 
-exports.Steps = Steps;
 Steps.propTypes = {
-  className: _propTypes.default.string,
-  size: _propTypes.default.oneOf(_styleConstants.inputSizeKeys),
-  totalSteps: _propTypes.default.number.isRequired,
-  currentStep: _propTypes.default.number,
-  currentId: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
-  steps: _propTypes.default.arrayOf(_propTypes.default.shape({
-    id: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]).isRequired,
-    title: _propTypes.default.string,
-    description: _propTypes.default.string,
-    icon: _iconShape.default
+  testId: _propTypes["default"].string,
+  className: _propTypes["default"].string,
+  size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
+  totalSteps: _propTypes["default"].number.isRequired,
+  currentStep: _propTypes["default"].number,
+  currentId: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]),
+  steps: _propTypes["default"].arrayOf(_propTypes["default"].shape({
+    id: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]).isRequired,
+    title: _propTypes["default"].string,
+    description: _propTypes["default"].string,
+    icon: _iconShape["default"]
   })),
-  allowToGoBack: _propTypes.default.bool,
-  onChange: _propTypes.default.func
+  allowToGoBack: _propTypes["default"].bool,
+  onChange: _propTypes["default"].func
 };
 Steps.defaultProps = {
+  testId: undefined,
   className: '',
   size: 's',
   currentStep: 0,
@@ -128,9 +123,5 @@ Steps.defaultProps = {
   allowToGoBack: false,
   onChange: function onChange() {}
 };
-
-var _default = (0, _reactCssModules.default)(Steps, styles, {
-  allowMultiple: true
-});
-
-exports.default = _default;
+var _default = Steps;
+exports["default"] = _default;

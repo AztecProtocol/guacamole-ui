@@ -8,11 +8,11 @@ exports.warnLog = warnLog;
 exports.errorLog = errorLog;
 exports.log = log;
 exports.logEntries = logEntries;
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _chalk = _interopRequireDefault(require("chalk"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -33,7 +33,7 @@ function formatLog(title) {
     var _console;
 
     (_console = console).log.apply(_console, _toConsumableArray(rest.map(function (msg) {
-      return _chalk.default.gray(msg);
+      return _chalk["default"].gray(msg);
     })));
   }
 
@@ -47,7 +47,7 @@ function successLog() {
 
   var message = args[0],
       rest = args.slice(1);
-  formatLog.apply(void 0, [_chalk.default.green(message)].concat(_toConsumableArray(rest)));
+  formatLog.apply(void 0, [_chalk["default"].green(message)].concat(_toConsumableArray(rest)));
 }
 
 function warnLog() {
@@ -57,7 +57,7 @@ function warnLog() {
 
   var message = args[0],
       rest = args.slice(1);
-  formatLog.apply(void 0, [_chalk.default.yellow.bold(" ".concat(message, " "))].concat(_toConsumableArray(rest)));
+  formatLog.apply(void 0, [_chalk["default"].yellow.bold(" ".concat(message, " "))].concat(_toConsumableArray(rest)));
 }
 
 function errorLog() {
@@ -67,7 +67,7 @@ function errorLog() {
 
   var message = args[0],
       rest = args.slice(1);
-  formatLog.apply(void 0, [_chalk.default.white.bgRed.bold(" ".concat(message, " "))].concat(_toConsumableArray(rest)));
+  formatLog.apply(void 0, [_chalk["default"].white.bgRed.bold(" ".concat(message, " "))].concat(_toConsumableArray(rest)));
 }
 
 function log() {
@@ -81,4 +81,4 @@ function logEntries(files) {
 }
 
 var _default = log;
-exports.default = _default;
+exports["default"] = _default;
