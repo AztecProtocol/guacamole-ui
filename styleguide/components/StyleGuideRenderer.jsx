@@ -74,6 +74,9 @@ const styles = ({
     padding: space[2],
     background: colorMap['grey-lightest'],
     overflowY: 'scroll',
+    [mq.small]: {
+      display: 'none',
+    }
   },
   content: {
     width: '100%',
@@ -91,7 +94,9 @@ const styles = ({
     padding: [[0, space[4], 0, space[6]]],
     overflow: 'auto',
     [mq.small]: {
+      marginLeft: 0,
       padding: 16,
+      width: '100%',
     },
   },
   senctions: {
