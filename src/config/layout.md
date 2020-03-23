@@ -160,6 +160,60 @@ There are some css class names in guacamole.css for hiding content larger/less t
 
 Try changing device width to see what texts are hidden in the following example:
 
+1) Less than (or equal to) sizes
+
+```js
+import Row from '../components/layout/Row';
+import Col from '../components/layout/Col';
+
+<Row>
+  <Col column={3} className="hide-lt-xxs">
+    hide-lt-xxs
+  </Col>
+  <Col column={3} className="hide-lte-xxs">
+    hide-lte-xxs
+  </Col>
+  <Col column={3} className="hide-lt-xs">
+    hide-lt-xs
+  </Col>
+  <Col column={3} className="hide-lte-xs">
+    hide-lte-xs
+  </Col>
+  <Col column={3} className="hide-lt-s">
+    hide-lt-s
+  </Col>
+  <Col column={3} className="hide-lte-s">
+    hide-lte-s
+  </Col>
+  <Col column={3} className="hide-lt-m">
+    hide-lt-m
+  </Col>
+  <Col column={3} className="hide-lte-m">
+    hide-lte-m
+  </Col>
+  <Col column={3} className="hide-lt-l">
+    hide-lt-l
+  </Col>
+  <Col column={3} className="hide-lte-l">
+    hide-lte-l
+  </Col>
+  <Col column={3} className="hide-lt-xl">
+    hide-lt-xl
+  </Col>
+  <Col column={3} className="hide-lte-xl">
+    hide-lte-xl
+  </Col>
+  <Col column={3} className="hide-lt-xxl">
+    hide-lt-xxl
+  </Col>
+  <Col column={3} className="hide-lte-xxl">
+    hide-lte-xxl
+  </Col>
+</Row>
+```
+
+2) Greater than (or equal to) sizes
+
 ```js
 import Row from '../components/layout/Row';
 import Col from '../components/layout/Col';
@@ -168,44 +222,44 @@ import Col from '../components/layout/Col';
   <Col column={3} className="hide-gte-xxs">
     hide-gte-xxs
   </Col>
+  <Col column={3} className="hide-gt-xxs">
+    hide-gt-xxs
+  </Col>
   <Col column={3} className="hide-gte-xs">
     hide-gte-xs
+  </Col>
+  <Col column={3} className="hide-gt-xs">
+    hide-gt-xs
   </Col>
   <Col column={3} className="hide-gte-s">
     hide-gte-s
   </Col>
+  <Col column={3} className="hide-gt-s">
+    hide-gt-s
+  </Col>
   <Col column={3} className="hide-gte-m">
     hide-gte-m
+  </Col>
+  <Col column={3} className="hide-gt-m">
+    hide-gt-m
   </Col>
   <Col column={3} className="hide-gte-l">
     hide-gte-l
   </Col>
+  <Col column={3} className="hide-gt-l">
+    hide-gt-l
+  </Col>
   <Col column={3} className="hide-gte-xl">
     hide-gte-xl
+  </Col>
+  <Col column={3} className="hide-gt-xl">
+    hide-gt-xl
   </Col>
   <Col column={3} className="hide-gte-xxl">
     hide-gte-xxl
   </Col>
-  <Col column={3} className="hide-lte-xxs">
-    hide-lte-xxs
-  </Col>
-  <Col column={3} className="hide-lte-xs">
-    hide-lte-xs
-  </Col>
-  <Col column={3} className="hide-lte-s">
-    hide-lte-s
-  </Col>
-  <Col column={3} className="hide-lte-m">
-    hide-lte-m
-  </Col>
-  <Col column={3} className="hide-lte-l">
-    hide-lte-l
-  </Col>
-  <Col column={3} className="hide-lte-xl">
-    hide-lte-xl
-  </Col>
-  <Col column={3} className="hide-lte-xxl">
-    hide-lte-xxl
+  <Col column={3} className="hide-gt-xxl">
+    hide-gt-xxl
   </Col>
 </Row>
 ```

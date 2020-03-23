@@ -17,17 +17,30 @@
 @each $key in $device-breakpoint-keys {
   $i: index($device-breakpoint-keys, $key);
   $width: map-get($device-breakpoint-map, $key);
+  $next-key: '';
+  @if $i != length($device-breakpoint-keys) {
+    $next-key: nth($device-breakpoint-keys, $i + 1);
+  }
 
   @media all and (min-width: $width) {
     :global(.hide-gte-#{$key}) {
       display: none !important;
     }
+
+    @if $next-key != '' {
+      :global(.hide-gt-#{$next-key}) {
+        display: none !important;
+      }
+    }
   }
 
-  @if $i != length($device-breakpoint-keys) {
-    $next-key: nth($device-breakpoint-keys, $i + 1);
+  @if $width > 0 {
     @media all and (max-width: $width - 1) {
       :global(.hide-lte-#{$next-key}) {
+        display: none !important;
+      }
+
+      :global(.hide-lt-#{$key}) {
         display: none !important;
       }
     }
