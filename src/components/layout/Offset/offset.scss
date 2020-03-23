@@ -5,6 +5,16 @@
     margin: -$spacing;
   }
 
+  .v#{$suffix} {
+    margin-top: -$spacing;
+    margin-bottom: -$spacing;
+  }
+
+  .h#{$suffix} {
+    margin-left: -$spacing;
+    margin-right: -$spacing;
+  }
+
   .top#{$suffix} {
     margin-top: -$spacing;
   }
