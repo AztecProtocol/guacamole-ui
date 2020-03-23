@@ -28,7 +28,7 @@ const ImagePlaceholder = ({
       className={classnames(
         styles.placeholder,
         {
-          className: noWrapper,
+          [className]: noWrapper,
           [styles.isLoading]: isLoading,
         },
       )}
