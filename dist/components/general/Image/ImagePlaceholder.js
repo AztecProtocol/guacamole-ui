@@ -52,6 +52,8 @@ var styles = {
 };
 
 var ImagePlaceholder = function ImagePlaceholder(_ref) {
+  var _classnames;
+
   var testId = _ref.testId,
       className = _ref.className,
       ratio = _ref.ratio,
@@ -64,9 +66,7 @@ var ImagePlaceholder = function ImagePlaceholder(_ref) {
 
   var contentNode = _react["default"].createElement("div", {
     "data-testid": noWrapper ? testId : undefined,
-    className: (0, _classnames2["default"])(styles.placeholder, _defineProperty({
-      className: noWrapper
-    }, styles.isLoading, isLoading))
+    className: (0, _classnames2["default"])(styles.placeholder, (_classnames = {}, _defineProperty(_classnames, className, noWrapper), _defineProperty(_classnames, styles.isLoading, isLoading), _classnames))
   }, _react["default"].createElement("div", {
     className: styles['placeholder-icon']
   }, _react["default"].createElement(_SVG["default"], {

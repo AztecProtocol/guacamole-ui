@@ -25,8 +25,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
@@ -42,6 +40,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "ratio-square": "image-8aa5f9de",
@@ -97,9 +97,15 @@ function (_PureComponent) {
     _classCallCheck(this, RealImage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(RealImage).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "setImgRef", function (ref) {
+      _this.img = ref;
+    });
+
     var src = props.src,
         backgroundUrl = props.backgroundUrl;
     var isEmptyImage = !src && !backgroundUrl;
+    _this.img = isEmptyImage ? null : (0, _react.createRef)();
     _this.state = {
       loaded: isEmptyImage,
       error: false,
@@ -115,8 +121,31 @@ function (_PureComponent) {
   }
 
   _createClass(RealImage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.checkImgStatus();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.checkImgStatus();
+    }
+  }, {
+    key: "checkImgStatus",
+    value: function checkImgStatus() {
+      if (!this.img) return;
+      var img = this.img.current;
+      this.img = null;
+
+      if (img && img.complete) {
+        this.handleImageLoaded();
+      }
+    }
+  }, {
     key: "handleImageLoaded",
     value: function handleImageLoaded() {
+      if (this.img) return; // should be call from checkImgStatus
+
       var onLoad = this.props.onLoad;
       this.setState({
         loaded: true
@@ -152,6 +181,7 @@ function (_PureComponent) {
       if (!loaded && showPlaceholder) {
         return _react["default"].createElement("img", {
           className: styles['preload-img'],
+          ref: this.img,
           src: src || backgroundUrl,
           alt: "",
           onLoad: this.handleImageLoaded,
@@ -167,6 +197,7 @@ function (_PureComponent) {
         var isPercentage = !!width && width.match(/.+%$/);
         return _react["default"].createElement("img", {
           className: (0, _classnames2["default"])(styles.img, _defineProperty({}, styles.free, !ratio && width === 'auto')),
+          ref: this.img,
           src: src,
           alt: alt,
           onLoad: this.handleImageLoaded,
@@ -196,6 +227,7 @@ function (_PureComponent) {
           style: imageStyle
         }, !showPlaceholder && !loaded && !error && _react["default"].createElement("img", {
           className: styles['preload-img'],
+          ref: this.img,
           src: src || backgroundUrl,
           alt: "",
           onLoad: this.handleImageLoaded,

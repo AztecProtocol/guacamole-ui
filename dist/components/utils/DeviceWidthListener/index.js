@@ -83,22 +83,21 @@ function (_PureComponent) {
       });
     });
 
-    var _gt = {};
-    var _gte = {};
-    var _lt = {};
-    var _lte = {};
     var breakpointSizeMap = props.breakpointSizeMap,
-        _breakpoints = props.breakpoints;
-    _this.orderedKeys = _deviceWidthDetector["default"].register(breakpointSizeMap);
+        _breakpoints = props.breakpoints,
+        ssr = props.ssr;
+    _this.orderedKeys = _deviceWidthDetector["default"].orderedKeys;
 
-    _breakpoints.forEach(function (breakpoint) {
-      var applied = _deviceWidthDetector["default"].subscribe(breakpoint, _this.handleChangeDeviceWidth);
-
-      _gt[breakpoint] = applied.gt;
-      _gte[breakpoint] = applied.gte;
-      _lt[breakpoint] = applied.lt;
-      _lte[breakpoint] = applied.lte;
-    });
+    var _deviceWidthDetector$ = _deviceWidthDetector["default"].register({
+      breakpointSizeMap: breakpointSizeMap,
+      breakpoints: _breakpoints,
+      listener: _this.handleChangeDeviceWidth,
+      ssr: ssr
+    }),
+        _gt = _deviceWidthDetector$.gt,
+        _gte = _deviceWidthDetector$.gte,
+        _lt = _deviceWidthDetector$.lt,
+        _lte = _deviceWidthDetector$.lte;
 
     _this.state = {
       gt: _gt,
@@ -110,6 +109,15 @@ function (_PureComponent) {
   }
 
   _createClass(DeviceWidthListener, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var ssr = this.props.ssr;
+
+      if (ssr) {
+        this.registerToDetector();
+      }
+    }
+  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       var _this2 = this;
@@ -117,6 +125,32 @@ function (_PureComponent) {
       var breakpoints = this.props.breakpoints;
       breakpoints.forEach(function (breakpoint) {
         _deviceWidthDetector["default"].unsubscribe(breakpoint, _this2.handleChangeDeviceWidth);
+      });
+    }
+  }, {
+    key: "registerToDetector",
+    value: function registerToDetector() {
+      var _this$props = this.props,
+          breakpointSizeMap = _this$props.breakpointSizeMap,
+          breakpoints = _this$props.breakpoints;
+
+      var _deviceWidthDetector$2 = _deviceWidthDetector["default"].register({
+        breakpointSizeMap: breakpointSizeMap,
+        breakpoints: breakpoints,
+        listener: this.handleChangeDeviceWidth
+      }),
+          gt = _deviceWidthDetector$2.gt,
+          gte = _deviceWidthDetector$2.gte,
+          lt = _deviceWidthDetector$2.lt,
+          lte = _deviceWidthDetector$2.lte;
+
+      _deviceWidthDetector["default"].updateByWindowSize();
+
+      this.setState({
+        gt: gt,
+        gte: gte,
+        lt: lt,
+        lte: lte
       });
     }
   }, {
@@ -139,10 +173,12 @@ _styleConstants.deviceBreakpointKeys.forEach(function (key) {
 DeviceWidthListener.propTypes = {
   breakpointSizeMap: _propTypes["default"].shape(breakpointSizeMapShape),
   breakpoints: _propTypes["default"].arrayOf(_propTypes["default"].oneOf(_styleConstants.deviceBreakpointKeys)).isRequired,
-  children: _propTypes["default"].func.isRequired
+  children: _propTypes["default"].func.isRequired,
+  ssr: _propTypes["default"].bool
 };
 DeviceWidthListener.defaultProps = {
-  breakpointSizeMap: _layout.deviceBreakpointMap
+  breakpointSizeMap: _layout.deviceBreakpointMap,
+  ssr: false
 };
 var _default = DeviceWidthListener;
 exports["default"] = _default;

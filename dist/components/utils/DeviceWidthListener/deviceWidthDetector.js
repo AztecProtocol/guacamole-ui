@@ -35,31 +35,34 @@ function () {
 
     _classCallCheck(this, DeviceWidthDetector);
 
-    _defineProperty(this, "register", function (breakpointSizeMap) {
-      var isSameMap = breakpointSizeMap === _this.breakpointSizeMap || _styleConstants.deviceBreakpointKeys.every(function (key) {
-        return breakpointSizeMap[key] === _this.breakpointSizeMap[key];
+    _defineProperty(this, "register", function (_ref) {
+      var breakpointSizeMap = _ref.breakpointSizeMap,
+          breakpoints = _ref.breakpoints,
+          listener = _ref.listener,
+          ssr = _ref.ssr;
+
+      var prevSubscribers = _objectSpread({}, _this.subscribers);
+
+      _styleConstants.deviceBreakpointKeys.forEach(function (key) {
+        if (breakpointSizeMap[key] === _this.breakpointSizeMap[key]) return;
+        _this.subscribers[key] = [];
+        _this.sizeKeyToWidth[key] = parseInt(breakpointSizeMap[key], 10);
       });
 
-      if (!isSameMap) {
-        _this.unbindActions();
-
-        var prevSubscribers = _objectSpread({}, _this.subscribers);
-
-        _styleConstants.deviceBreakpointKeys.forEach(function (key) {
-          if (breakpointSizeMap[key] === _this.breakpointSizeMap[key]) return;
-          _this.subscribers[key] = [];
-          _this.sizeKeyToWidth[key] = parseInt(breakpointSizeMap[key], 10);
+      _this.breakpointSizeMap = breakpointSizeMap;
+      Object.keys(prevSubscribers).forEach(function (key) {
+        prevSubscribers[key].forEach(function (cb) {
+          return _this.subscribe(key, cb);
         });
+      });
+      var gt = {};
+      var gte = {};
+      var lt = {};
+      var lte = {};
 
-        _this.breakpointSizeMap = breakpointSizeMap;
-        Object.keys(prevSubscribers).forEach(function (key) {
-          prevSubscribers[key].forEach(function (cb) {
-            return _this.subscribe(key, cb);
-          });
-        });
-
-        var _ref = document || {},
-            readyState = _ref.readyState;
+      if (!ssr && typeof window !== 'undefined') {
+        var _ref2 = document || {},
+            readyState = _ref2.readyState;
 
         if (readyState === 'interactive' || readyState === 'complete') {
           _this.updateByWindowSize();
@@ -69,10 +72,24 @@ function () {
           });
         }
 
+        breakpoints.forEach(function (breakpoint) {
+          var applied = _this.subscribe(breakpoint, listener);
+
+          gt[breakpoint] = applied.gt;
+          gte[breakpoint] = applied.gte;
+          lt[breakpoint] = applied.lt;
+          lte[breakpoint] = applied.lte;
+        });
+
         _this.bindActions();
       }
 
-      return _this.orderedKeys;
+      return {
+        gt: gt,
+        gte: gte,
+        lt: lt,
+        lte: lte
+      };
     });
 
     _defineProperty(this, "updateByWindowSize", function () {
