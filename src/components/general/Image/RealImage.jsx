@@ -1,5 +1,6 @@
 import React, {
   PureComponent,
+  createRef,
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -45,6 +46,9 @@ class RealImage extends PureComponent {
     } = props;
 
     const isEmptyImage = !src && !backgroundUrl;
+    this.img = isEmptyImage
+      ? null
+      : createRef();
 
     this.state = {
       loaded: isEmptyImage,
@@ -59,7 +63,31 @@ class RealImage extends PureComponent {
     this.handleImageError = this.handleImageError.bind(this);
   }
 
+  componentDidMount() {
+    this.checkImgStatus();
+  }
+
+  componentDidUpdate() {
+    this.checkImgStatus();
+  }
+
+  setImgRef = (ref) => {
+    this.img = ref;
+  };
+
+  checkImgStatus() {
+    if (!this.img) return;
+
+    const img = this.img.current;
+    this.img = null;
+    if (img && img.complete) {
+      this.handleImageLoaded();
+    }
+  }
+
   handleImageLoaded() {
+    if (this.img) return; // should be call from checkImgStatus
+
     const {
       onLoad,
     } = this.props;
@@ -100,6 +128,7 @@ class RealImage extends PureComponent {
       return (
         <img
           className={styles['preload-img']}
+          ref={this.img}
           src={src || backgroundUrl}
           alt=""
           onLoad={this.handleImageLoaded}
@@ -123,6 +152,7 @@ class RealImage extends PureComponent {
               [styles.free]: !ratio && (width === 'auto'),
             },
           )}
+          ref={this.img}
           src={src}
           alt={alt}
           onLoad={this.handleImageLoaded}
@@ -153,6 +183,7 @@ class RealImage extends PureComponent {
           {!showPlaceholder && !loaded && !error && (
             <img
               className={styles['preload-img']}
+              ref={this.img}
               src={src || backgroundUrl}
               alt=""
               onLoad={this.handleImageLoaded}
