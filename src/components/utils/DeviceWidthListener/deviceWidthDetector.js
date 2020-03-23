@@ -14,30 +14,33 @@ class DeviceWidthDetector {
     this.sizeKeyToWidth = {};
   }
 
-  register = (breakpointSizeMap) => {
-    const isSameMap = breakpointSizeMap === this.breakpointSizeMap
-      || deviceBreakpointKeys.every(
-        (key) => breakpointSizeMap[key] === this.breakpointSizeMap[key],
-      );
+  register = ({
+    breakpointSizeMap,
+    breakpoints,
+    listener,
+    ssr,
+  }) => {
+    const prevSubscribers = {
+      ...this.subscribers,
+    };
+    deviceBreakpointKeys.forEach((key) => {
+      if (breakpointSizeMap[key] === this.breakpointSizeMap[key]) return;
 
-    if (!isSameMap) {
-      this.unbindActions();
+      this.subscribers[key] = [];
+      this.sizeKeyToWidth[key] = parseInt(breakpointSizeMap[key], 10);
+    });
 
-      const prevSubscribers = {
-        ...this.subscribers,
-      };
-      deviceBreakpointKeys.forEach((key) => {
-        if (breakpointSizeMap[key] === this.breakpointSizeMap[key]) return;
+    this.breakpointSizeMap = breakpointSizeMap;
+    Object.keys(prevSubscribers).forEach((key) => {
+      prevSubscribers[key].forEach((cb) => this.subscribe(key, cb));
+    });
 
-        this.subscribers[key] = [];
-        this.sizeKeyToWidth[key] = parseInt(breakpointSizeMap[key], 10);
-      });
+    const gt = {};
+    const gte = {};
+    const lt = {};
+    const lte = {};
 
-      this.breakpointSizeMap = breakpointSizeMap;
-      Object.keys(prevSubscribers).forEach((key) => {
-        prevSubscribers[key].forEach((cb) => this.subscribe(key, cb));
-      });
-
+    if (!ssr && typeof window !== 'undefined') {
       const {
         readyState,
       } = document || {};
@@ -49,10 +52,23 @@ class DeviceWidthDetector {
         });
       }
 
+      breakpoints.forEach((breakpoint) => {
+        const applied = this.subscribe(breakpoint, listener);
+        gt[breakpoint] = applied.gt;
+        gte[breakpoint] = applied.gte;
+        lt[breakpoint] = applied.lt;
+        lte[breakpoint] = applied.lte;
+      });
+
       this.bindActions();
     }
 
-    return this.orderedKeys;
+    return {
+      gt,
+      gte,
+      lt,
+      lte,
+    };
   };
 
   setCurrentSize(size) {

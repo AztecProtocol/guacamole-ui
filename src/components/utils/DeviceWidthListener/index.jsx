@@ -14,22 +14,23 @@ class DeviceWidthListener extends PureComponent {
   constructor(props, context) {
     super(props, context);
 
-    const gt = {};
-    const gte = {};
-    const lt = {};
-    const lte = {};
     const {
       breakpointSizeMap,
       breakpoints,
+      ssr,
     } = props;
 
-    this.orderedKeys = deviceWidthDetector.register(breakpointSizeMap);
-    breakpoints.forEach((breakpoint) => {
-      const applied = deviceWidthDetector.subscribe(breakpoint, this.handleChangeDeviceWidth);
-      gt[breakpoint] = applied.gt;
-      gte[breakpoint] = applied.gte;
-      lt[breakpoint] = applied.lt;
-      lte[breakpoint] = applied.lte;
+    this.orderedKeys = deviceWidthDetector.orderedKeys;
+    const {
+      gt,
+      gte,
+      lt,
+      lte,
+    } = deviceWidthDetector.register({
+      breakpointSizeMap,
+      breakpoints,
+      listener: this.handleChangeDeviceWidth,
+      ssr,
     });
 
     this.state = {
@@ -38,6 +39,16 @@ class DeviceWidthListener extends PureComponent {
       lt,
       lte,
     };
+  }
+
+  componentDidMount() {
+    const {
+      ssr,
+    } = this.props;
+
+    if (ssr) {
+      this.registerToDetector();
+    }
   }
 
   componentWillUnmount() {
@@ -81,6 +92,30 @@ class DeviceWidthListener extends PureComponent {
     });
   };
 
+  registerToDetector() {
+    const {
+      breakpointSizeMap,
+      breakpoints,
+    } = this.props;
+    const {
+      gt,
+      gte,
+      lt,
+      lte,
+    } = deviceWidthDetector.register({
+      breakpointSizeMap,
+      breakpoints,
+      listener: this.handleChangeDeviceWidth,
+    });
+    deviceWidthDetector.updateByWindowSize();
+    this.setState({
+      gt,
+      gte,
+      lt,
+      lte,
+    });
+  }
+
   render() {
     const {
       children,
@@ -99,10 +134,12 @@ DeviceWidthListener.propTypes = {
   breakpointSizeMap: PropTypes.shape(breakpointSizeMapShape),
   breakpoints: PropTypes.arrayOf(PropTypes.oneOf(deviceBreakpointKeys)).isRequired,
   children: PropTypes.func.isRequired,
+  ssr: PropTypes.bool,
 };
 
 DeviceWidthListener.defaultProps = {
   breakpointSizeMap: deviceBreakpointMap,
+  ssr: false,
 };
 
 export default DeviceWidthListener;
