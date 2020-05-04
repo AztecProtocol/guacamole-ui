@@ -156,7 +156,9 @@ class SelectInput extends PureComponent {
           hoveredIndex,
           flattenValues,
         } = this.state;
-        if (hoveredIndex >= 0) {
+        if (!showMenu) {
+          this.handleOpenMenu();
+        } else if (hoveredIndex >= 0) {
           e.preventDefault();
           const {
             itemGroups,
@@ -164,6 +166,8 @@ class SelectInput extends PureComponent {
           const value = flattenValues[hoveredIndex];
           const item = getItemByValue(itemGroups, value);
           this.handleSelect(value, item);
+        } else {
+          this.handleCloseMenu();
         }
         break;
       }
@@ -175,16 +179,21 @@ class SelectInput extends PureComponent {
         break;
       case 38:
       case 40: {
-        const {
-          itemGroups,
-        } = this.props;
-        const hasItem = itemGroups.some(({
-          items,
-        }) => items && items.length);
-        if (hasItem) {
+        if (!showMenu) {
           e.preventDefault();
-          const offset = keyCode === 38 ? -1 : 1;
-          this.moveHoveredValue(offset);
+          this.handleOpenMenu();
+        } else {
+          const {
+            itemGroups,
+          } = this.props;
+          const hasItem = itemGroups.some(({
+            items,
+          }) => items && items.length);
+          if (hasItem) {
+            e.preventDefault();
+            const offset = keyCode === 38 ? -1 : 1;
+            this.moveHoveredValue(offset);
+          }
         }
         break;
       }
