@@ -123,6 +123,7 @@ input::-webkit-inner-spin-button {
   transform: translateY(-50%);
   color: get-color('secondary-light');
   line-height: 0;
+  user-select: none;
 
   &.clickable {
     cursor: pointer;
