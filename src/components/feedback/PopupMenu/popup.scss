@@ -1,5 +1,4 @@
 @import '../../../styles/layout';
-@import '../../../styles/backgrounds';
 @import '../../../styles/shapes';
 
 %popup-wrapper {
@@ -21,9 +20,6 @@
 }
 
 %popup-menu {
-  @include background('white');
-  @include shadow-layer(2);
-  border-radius: 0 0 map-get($rounded-corner-map, 'default') map-get($rounded-corner-map, 'default');
   margin-bottom: get-spacing(map-get($page-spacing-key-map, 'm'));
 }
 
@@ -41,4 +37,11 @@
 .tether-content {
   @extend %popup-menu;
   display: inline-block;
+  overflow: hidden;
+}
+
+@each $key, $size in $spacing-map {
+  .top-#{$key} {
+    margin-top: $size;
+  }
 }

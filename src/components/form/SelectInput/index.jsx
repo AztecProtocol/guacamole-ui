@@ -9,8 +9,18 @@ import {
   inputSizeKeys,
   defaultInputSizeKey,
   backgroundNames,
+  colorNames,
   roundedCornerKeys,
+  sizeKeys,
+  shadowLayerKeys,
 } from 'src/config/styleConstants';
+import {
+  inputMenuDefaultBackground,
+  inputMenuBorderColor,
+  inputMenuBorderRadius,
+  inputMenuOffsetTop,
+  inputMenuLayer,
+} from 'src/config/inputs';
 import itemGroupShape from 'src/shapes/itemGroupShape';
 import iconShape from 'src/shapes/iconShape';
 import getItemByValue from '../../data/SelectMenu/utils/getItemByValue';
@@ -299,7 +309,10 @@ class SelectInput extends PureComponent {
       hasItemDivider,
       highlightSelected,
       menuBackground,
+      menuBorderColor,
       menuBorderRadius,
+      menuLayer,
+      menuOffsetTop,
     } = this.props;
     const {
       showMenu,
@@ -311,12 +324,18 @@ class SelectInput extends PureComponent {
     return (
       <PopupMenu
         hide={!showMenu}
+        background="white"
+        borderRadius={menuBorderRadius}
+        layer={menuLayer}
+        offsetTop={menuOffsetTop}
         disabledClickOutside
       >
         <MenuComponent
           theme={theme === 'dark' ? 'dark' : 'light'}
-          background={menuBackground}
+          background={menuBackground || (theme === 'dark' ? 'grey-darker' : inputMenuDefaultBackground)}
           borderRadius={menuBorderRadius}
+          borderColor={menuBorderColor}
+          hasBorder={!!menuBorderColor}
           selectedValue={highlightSelected ? value : ''}
           hoveredValue={hoveredIndex >= 0 ? flattenValues[hoveredIndex] : ''}
           itemGroups={itemGroups}
@@ -426,8 +445,11 @@ SelectInput.propTypes = {
   icon: iconShape,
   InputComponent: PropTypes.func,
   MenuComponent: PropTypes.func,
-  menuBackground: PropTypes.oneOf(backgroundNames),
+  menuBackground: PropTypes.oneOf(['', ...backgroundNames]),
+  menuBorderColor: PropTypes.oneOf(['', ...colorNames]),
   menuBorderRadius: PropTypes.oneOf(roundedCornerKeys),
+  menuLayer: PropTypes.oneOf(shadowLayerKeys),
+  menuOffsetTop: PropTypes.oneOf(['', ...sizeKeys]),
 };
 
 SelectInput.defaultProps = {
@@ -452,7 +474,10 @@ SelectInput.defaultProps = {
   InputComponent: TextInput,
   MenuComponent: SelectMenu,
   menuBackground: '',
-  menuBorderRadius: '',
+  menuBorderColor: inputMenuBorderColor,
+  menuBorderRadius: inputMenuBorderRadius,
+  menuLayer: inputMenuLayer,
+  menuOffsetTop: inputMenuOffsetTop,
 };
 
 export default SelectInput;

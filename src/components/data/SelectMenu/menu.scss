@@ -12,6 +12,10 @@ $menu-item-spacing-map: (
     'xxl': 'l',
 );
 
+.menu {
+  overflow: hidden;
+}
+
 .item {
   display: block;
   line-height: 0;

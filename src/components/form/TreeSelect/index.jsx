@@ -7,7 +7,19 @@ import {
   inputThemeNames,
   inputSizeKeys,
   defaultInputSizeKey,
+  sizeKeys,
+  colorNames,
+  backgroundNames,
+  shadowLayerKeys,
+  roundedCornerKeys,
 } from 'src/config/styleConstants';
+import {
+  inputMenuDefaultBackground,
+  inputMenuBorderColor,
+  inputMenuBorderRadius,
+  inputMenuLayer,
+  inputMenuOffsetTop,
+} from 'src/config/inputs';
 import iconShape from 'src/shapes/iconShape';
 import ClickOutsideHandler from '../../utils/ClickOutsideHandler';
 import PopupMenu from '../../feedback/PopupMenu';
@@ -216,6 +228,11 @@ class TreeSelect extends PureComponent {
     const {
       disableFilter,
       filterPlaceholder,
+      menuBackground,
+      menuBorderColor,
+      menuBorderRadius,
+      menuOffsetTop,
+      menuLayer,
     } = this.props;
     const {
       filteredData,
@@ -227,6 +244,11 @@ class TreeSelect extends PureComponent {
 
     return (
       <PopupMenu
+        background={menuBackground}
+        borderColor={menuBorderColor}
+        borderRadius={menuBorderRadius}
+        layer={menuLayer}
+        offsetTop={menuOffsetTop}
         hide={!showMenu}
         disabledClickOutside
       >
@@ -380,6 +402,11 @@ TreeSelect.propTypes = {
   onSelect: PropTypes.func,
   onClearSelectedValues: PropTypes.func,
   InputComponent: PropTypes.func,
+  menuBackground: PropTypes.oneOf(['', ...backgroundNames]),
+  menuBorderColor: PropTypes.oneOf(['', ...colorNames]),
+  menuBorderRadius: PropTypes.oneOf(roundedCornerKeys),
+  menuLayer: PropTypes.oneOf(shadowLayerKeys),
+  menuOffsetTop: PropTypes.oneOf(['', ...sizeKeys]),
 };
 
 TreeSelect.defaultProps = {
@@ -397,6 +424,11 @@ TreeSelect.defaultProps = {
   onSelect() {},
   onClearSelectedValues() {},
   InputComponent: TextInput,
+  menuBackground: inputMenuDefaultBackground,
+  menuBorderColor: inputMenuBorderColor,
+  menuBorderRadius: inputMenuBorderRadius,
+  menuLayer: inputMenuLayer,
+  menuOffsetTop: inputMenuOffsetTop,
 };
 
 export default TreeSelect;

@@ -3,6 +3,21 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {
+  backgroundNames,
+  shadowLayerKeys,
+  roundedCornerKeys,
+  sizeKeys,
+  colorNames,
+} from 'src/config/styleConstants';
+import {
+  inputMenuDefaultBackground,
+  inputMenuBorderColor,
+  inputMenuBorderRadius,
+  inputMenuOffsetTop,
+  inputMenuLayer,
+} from 'src/config/inputs';
+import Block from '../../layout/Block';
 import styles from './popup.scss';
 
 class FlexPopupMenu extends PureComponent {
@@ -53,6 +68,11 @@ class FlexPopupMenu extends PureComponent {
   render() {
     const {
       className,
+      background,
+      borderColor,
+      borderRadius,
+      layer,
+      offsetTop,
       children,
       hide,
     } = this.props;
@@ -71,14 +91,23 @@ class FlexPopupMenu extends PureComponent {
           },
         )}
       >
-        <div
-          className={styles['tether-content']}
+        <Block
+          className={classnames(
+            styles['tether-content'],
+            {
+              [styles[`top-${offsetTop}`]]: offsetTop,
+            },
+          )}
           style={{
             marginLeft: `${offsetLeft}px`,
           }}
+          background={background}
+          borderColor={borderColor}
+          borderRadius={borderRadius}
+          layer={layer}
         >
           {children}
-        </div>
+        </Block>
       </div>
     );
   }
@@ -86,12 +115,22 @@ class FlexPopupMenu extends PureComponent {
 
 FlexPopupMenu.propTypes = {
   className: PropTypes.string,
+  background: PropTypes.oneOf(backgroundNames),
+  borderColor: PropTypes.oneOf(['', ...colorNames]),
+  borderRadius: PropTypes.oneOf(roundedCornerKeys),
+  layer: PropTypes.oneOf(shadowLayerKeys),
+  offsetTop: PropTypes.oneOf(['', ...sizeKeys]),
   children: PropTypes.node.isRequired,
   hide: PropTypes.bool,
 };
 
 FlexPopupMenu.defaultProps = {
   className: '',
+  background: inputMenuDefaultBackground,
+  borderColor: inputMenuBorderColor,
+  borderRadius: inputMenuBorderRadius,
+  layer: inputMenuLayer,
+  offsetTop: inputMenuOffsetTop,
   hide: false,
 };
 

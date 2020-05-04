@@ -9,7 +9,19 @@ import {
   inputThemeNames,
   inputSizeKeys,
   defaultInputSizeKey,
+  sizeKeys,
+  colorNames,
+  backgroundNames,
+  shadowLayerKeys,
+  roundedCornerKeys,
 } from 'src/config/styleConstants';
+import {
+  inputMenuDefaultBackground,
+  inputMenuBorderColor,
+  inputMenuBorderRadius,
+  inputMenuLayer,
+  inputMenuOffsetTop,
+} from 'src/config/inputs';
 import {
   toDateString,
 } from 'utils/date';
@@ -289,6 +301,11 @@ class DatePickerInput extends PureComponent {
       onHoverDay,
       onBlurDay,
       onChangeMonth,
+      menuBackground,
+      menuBorderColor,
+      menuBorderRadius,
+      menuOffsetTop,
+      menuLayer,
     } = this.props;
     const currentDayIndex = this.getCurrentDayIndex();
     const selectedDays = this.getSelectedDays();
@@ -296,6 +313,11 @@ class DatePickerInput extends PureComponent {
     const datepickerNode = (
       <PopupMenu
         hide={!showMenu}
+        background={menuBackground}
+        borderColor={menuBorderColor}
+        borderRadius={menuBorderRadius}
+        layer={menuLayer}
+        offsetTop={menuOffsetTop}
         disabledClickOutside
         flexWidth
       >
@@ -517,6 +539,13 @@ DatePickerInput.propTypes = {
   autoCloseAfterSelect: PropTypes.bool,
   mobileMode: PropTypes.bool,
 
+  // props for PopupMenu
+  menuBackground: PropTypes.oneOf(['', ...backgroundNames]),
+  menuBorderColor: PropTypes.oneOf(['', ...colorNames]),
+  menuBorderRadius: PropTypes.oneOf(roundedCornerKeys),
+  menuLayer: PropTypes.oneOf(shadowLayerKeys),
+  menuOffsetTop: PropTypes.oneOf(['', ...sizeKeys]),
+
   // props for DatePicker
   /* eslint-disable react/require-default-props */
   daysStatus: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -560,6 +589,11 @@ DatePickerInput.defaultProps = {
   onChangeDayIndex() {},
   onChangeDays() {},
   onChangeMonth() {},
+  menuBackground: inputMenuDefaultBackground,
+  menuBorderColor: inputMenuBorderColor,
+  menuBorderRadius: inputMenuBorderRadius,
+  menuLayer: inputMenuLayer,
+  menuOffsetTop: inputMenuOffsetTop,
 };
 
 export default DatePickerInput;
