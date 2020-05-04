@@ -15,6 +15,8 @@ var _isObjectEmpty = _interopRequireDefault(require("../../../utils/isObjectEmpt
 
 var _styleConstants = require("../../../config/styleConstants");
 
+var _inputs = require("../../../config/inputs");
+
 var _itemGroupShape = _interopRequireDefault(require("../../../shapes/itemGroupShape"));
 
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
@@ -37,6 +39,18 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -44,12 +58,6 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -59,16 +67,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var styles = {
   "wrapper": "select-2415101d"
 };
 
-var SelectInput =
-/*#__PURE__*/
-function (_PureComponent) {
+var SelectInput = /*#__PURE__*/function (_PureComponent) {
   _inherits(SelectInput, _PureComponent);
+
+  var _super = _createSuper(SelectInput);
 
   _createClass(SelectInput, null, [{
     key: "getDerivedStateFromProps",
@@ -106,7 +124,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, SelectInput);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SelectInput).call(this, props));
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "handleClick", function () {
       var onClick = _this.props.onClick;
@@ -177,13 +195,17 @@ function (_PureComponent) {
                 hoveredIndex = _this$state.hoveredIndex,
                 flattenValues = _this$state.flattenValues;
 
-            if (hoveredIndex >= 0) {
+            if (!showMenu) {
+              _this.handleOpenMenu();
+            } else if (hoveredIndex >= 0) {
               e.preventDefault();
               var itemGroups = _this.props.itemGroups;
               var value = flattenValues[hoveredIndex];
               var item = (0, _getItemByValue["default"])(itemGroups, value);
 
               _this.handleSelect(value, item);
+            } else {
+              _this.handleCloseMenu();
             }
 
             break;
@@ -201,18 +223,24 @@ function (_PureComponent) {
         case 38:
         case 40:
           {
-            var _itemGroups = _this.props.itemGroups;
-
-            var hasItem = _itemGroups.some(function (_ref) {
-              var items = _ref.items;
-              return items && items.length;
-            });
-
-            if (hasItem) {
+            if (!showMenu) {
               e.preventDefault();
-              var offset = keyCode === 38 ? -1 : 1;
 
-              _this.moveHoveredValue(offset);
+              _this.handleOpenMenu();
+            } else {
+              var _itemGroups = _this.props.itemGroups;
+
+              var hasItem = _itemGroups.some(function (_ref) {
+                var items = _ref.items;
+                return items && items.length;
+              });
+
+              if (hasItem) {
+                e.preventDefault();
+                var offset = keyCode === 38 ? -1 : 1;
+
+                _this.moveHoveredValue(offset);
+              }
             }
 
             break;
@@ -319,19 +347,34 @@ function (_PureComponent) {
     key: "renderMenu",
     value: function renderMenu() {
       var _this$props2 = this.props,
+          theme = _this$props2.theme,
           itemGroups = _this$props2.itemGroups,
           MenuComponent = _this$props2.MenuComponent,
           hasItemDivider = _this$props2.hasItemDivider,
-          highlightSelected = _this$props2.highlightSelected;
+          highlightSelected = _this$props2.highlightSelected,
+          menuBackground = _this$props2.menuBackground,
+          menuBorderColor = _this$props2.menuBorderColor,
+          menuBorderRadius = _this$props2.menuBorderRadius,
+          menuLayer = _this$props2.menuLayer,
+          menuOffsetTop = _this$props2.menuOffsetTop;
       var _this$state4 = this.state,
           showMenu = _this$state4.showMenu,
           value = _this$state4.value,
           flattenValues = _this$state4.flattenValues,
           hoveredIndex = _this$state4.hoveredIndex;
-      return _react["default"].createElement(_PopupMenu["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_PopupMenu["default"], {
         hide: !showMenu,
+        background: "white",
+        borderRadius: menuBorderRadius,
+        layer: menuLayer,
+        offsetTop: menuOffsetTop,
         disabledClickOutside: true
-      }, _react["default"].createElement(MenuComponent, {
+      }, /*#__PURE__*/_react["default"].createElement(MenuComponent, {
+        theme: theme === 'dark' ? 'dark' : 'light',
+        background: menuBackground || (theme === 'dark' ? 'grey-darker' : _inputs.inputMenuDefaultBackground),
+        borderRadius: menuBorderRadius,
+        borderColor: menuBorderColor,
+        hasBorder: !!menuBorderColor,
         selectedValue: highlightSelected ? value : '',
         hoveredValue: hoveredIndex >= 0 ? flattenValues[hoveredIndex] : '',
         itemGroups: itemGroups,
@@ -362,17 +405,18 @@ function (_PureComponent) {
         inputIcon = {
           name: 'cancel',
           size: 's',
-          color: 'grey-light'
+          color: theme === 'dark' ? 'white' : 'grey-light'
         };
       } else {
         inputIcon = icon || {
           name: showMenu ? 'expand_less' : 'expand_more',
-          size: 'l'
+          size: 'l',
+          color: theme === 'dark' ? 'white' : 'secondary'
         };
       }
 
       var item = (0, _getItemByValue["default"])(itemGroups, value);
-      return _react["default"].createElement(InputComponent, {
+      return /*#__PURE__*/_react["default"].createElement(InputComponent, {
         theme: theme,
         status: showMenu ? 'focus' : '',
         size: size,
@@ -394,7 +438,7 @@ function (_PureComponent) {
           testId = _this$props4.testId,
           className = _this$props4.className;
       var showMenu = this.state.showMenu;
-      return _react["default"].createElement(_ClickOutsideHandler["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_ClickOutsideHandler["default"], {
         testId: testId,
         className: (0, _classnames["default"])(className, styles.wrapper),
         onClickOutside: this.handleCloseMenu,
@@ -427,7 +471,12 @@ SelectInput.propTypes = {
   onChange: _propTypes["default"].func,
   icon: _iconShape["default"],
   InputComponent: _propTypes["default"].func,
-  MenuComponent: _propTypes["default"].func
+  MenuComponent: _propTypes["default"].func,
+  menuBackground: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  menuBorderColor: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+  menuBorderRadius: _propTypes["default"].oneOf(_styleConstants.roundedCornerKeys),
+  menuLayer: _propTypes["default"].oneOf(_styleConstants.shadowLayerKeys),
+  menuOffsetTop: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.sizeKeys)))
 };
 SelectInput.defaultProps = {
   testId: undefined,
@@ -449,7 +498,12 @@ SelectInput.defaultProps = {
   onChange: function onChange() {},
   icon: null,
   InputComponent: _TextInput["default"],
-  MenuComponent: _SelectMenu["default"]
+  MenuComponent: _SelectMenu["default"],
+  menuBackground: '',
+  menuBorderColor: _inputs.inputMenuBorderColor,
+  menuBorderRadius: _inputs.inputMenuBorderRadius,
+  menuLayer: _inputs.inputMenuLayer,
+  menuOffsetTop: _inputs.inputMenuOffsetTop
 };
 var _default = SelectInput;
 exports["default"] = _default;

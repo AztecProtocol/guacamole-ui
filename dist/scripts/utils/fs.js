@@ -71,12 +71,8 @@ var copyFile = function copyFile(src, dest) {
 exports.copyFile = copyFile;
 
 var copyFolder = function copyFolder(src, dest) {
-  return new Promise(
-  /*#__PURE__*/
-  function () {
-    var _ref = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee(resolve) {
+  return new Promise( /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve) {
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {

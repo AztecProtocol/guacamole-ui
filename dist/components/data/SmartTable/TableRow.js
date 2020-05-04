@@ -64,7 +64,7 @@ var SmartTableRow = function SmartTableRow(_ref) {
     isEditing: isEditing,
     isUpdating: isUpdating
   });
-  return _react["default"].createElement(_FlexTable.TableRow, {
+  return /*#__PURE__*/_react["default"].createElement(_FlexTable.TableRow, {
     className: styles.row,
     verticalPadding: "m",
     textAlign: defaultAlign,
@@ -106,7 +106,7 @@ var SmartTableRow = function SmartTableRow(_ref) {
       }
     }
 
-    return _react["default"].createElement(_FlexTable.TableCell, {
+    return /*#__PURE__*/_react["default"].createElement(_FlexTable.TableCell, {
       className: (0, _classnames2["default"])((_classnames = {
         lh0: inputType === 'button'
       }, _defineProperty(_classnames, styles.shift, shouldShiftInputWrapper), _defineProperty(_classnames, styles["".concat(align || defaultAlign)], ['left', 'right'].indexOf(align || defaultAlign) >= 0), _classnames)),
@@ -115,7 +115,7 @@ var SmartTableRow = function SmartTableRow(_ref) {
       column: column,
       align: align,
       isLoading: isValueLoading
-    }, _react["default"].createElement(_FieldInput["default"], _extends({}, field, {
+    }, /*#__PURE__*/_react["default"].createElement(_FieldInput["default"], _extends({}, field, {
       inputTheme: "inline",
       value: value,
       data: data,
@@ -126,17 +126,17 @@ var SmartTableRow = function SmartTableRow(_ref) {
       onChange: onChange,
       onTriggerEdit: onTriggerEdit
     })));
-  }), isDeletable && _react["default"].createElement(_Clickable["default"], {
+  }), isDeletable && /*#__PURE__*/_react["default"].createElement(_Clickable["default"], {
     className: styles['delete-button'],
     onClick: function onClick() {
       return onDelete(data);
     }
-  }, _react["default"].createElement(_Icon["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
     className: styles['delete-hint'],
     name: "remove",
     size: "xs",
     color: "label"
-  }), _react["default"].createElement(_Icon["default"], {
+  }), /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
     className: styles['delete-active'],
     name: "remove_circle",
     size: "xs",

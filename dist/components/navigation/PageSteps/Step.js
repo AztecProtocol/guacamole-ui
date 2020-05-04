@@ -35,7 +35,7 @@ var PageSteps = function PageSteps(_ref) {
       isRouterLink = _ref.isRouterLink;
 
   if (href || onClick) {
-    return _react["default"].createElement(_Clickable["default"], {
+    return /*#__PURE__*/_react["default"].createElement(_Clickable["default"], {
       className: (0, _classnames3["default"])(styles.step, styles.button, _defineProperty({}, styles.active, active)),
       onClick: onClick,
       href: href,
@@ -43,7 +43,7 @@ var PageSteps = function PageSteps(_ref) {
     }, title);
   }
 
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     className: (0, _classnames3["default"])(styles.step, _defineProperty({}, styles.active, active))
   }, title);
 };

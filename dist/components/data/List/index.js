@@ -33,11 +33,11 @@ var List = function List(_ref) {
       size = _ref.size,
       items = _ref.items;
   return items.map(function (item, i) {
-    return _react["default"].createElement("div", {
+    return /*#__PURE__*/_react["default"].createElement("div", {
       key: +i,
       "data-testid": testId,
       className: (0, _classnames2["default"])(className, styles.item, styles["size-".concat(size)], _defineProperty({}, styles['with-description'], item.description))
-    }, _react["default"].createElement(_ListItem["default"], _extends({
+    }, /*#__PURE__*/_react["default"].createElement(_ListItem["default"], _extends({
       size: size
     }, item)));
   });

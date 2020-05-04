@@ -21,25 +21,23 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -48,6 +46,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var styles = {
   "pie-wrapper": "pie-e9dfe5db",
@@ -145,10 +153,10 @@ var styles = {
   "fill-brown": "pie-e368b4dd"
 };
 
-var Pie =
-/*#__PURE__*/
-function (_PureComponent) {
+var Pie = /*#__PURE__*/function (_PureComponent) {
   _inherits(Pie, _PureComponent);
+
+  var _super = _createSuper(Pie);
 
   _createClass(Pie, null, [{
     key: "getDerivedStateFromProps",
@@ -172,7 +180,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, Pie);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Pie).call(this, props));
+    _this = _super.call(this, props);
     var value = props.value,
         radius = props.radius,
         delay = props.delay;
@@ -259,7 +267,7 @@ function (_PureComponent) {
       var restrictedValue = Math.min(100, Math.max(0, value || 0));
       var valueLen = perimeter * (restrictedValue / 100);
       var startOffset = perimeter * (startDeg / 360);
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         ref: this.setWrapperRef,
         "data-testid": testId,
         className: (0, _classnames4["default"])(className, styles['pie-wrapper'], styles["stroke-".concat(strokeColor)], (_classnames = {}, _defineProperty(_classnames, styles['has-own-size'], this.hasOwnSize), _defineProperty(_classnames, styles["fill-".concat(fill)], fill), _classnames), {}),
@@ -267,11 +275,11 @@ function (_PureComponent) {
           width: "".concat(radius * 2, "px"),
           height: "".concat(radius * 2, "px")
         }
-      }, circleRadius > 0 && _react["default"].createElement("svg", {
+      }, circleRadius > 0 && /*#__PURE__*/_react["default"].createElement("svg", {
         className: styles['pie-svg'],
         width: radius * 2,
         height: radius * 2
-      }, showTrack && _react["default"].createElement("circle", {
+      }, showTrack && /*#__PURE__*/_react["default"].createElement("circle", {
         className: (0, _classnames4["default"])(styles.pie, styles.track, _defineProperty({}, styles["track-".concat(trackColor)], trackColor)),
         cx: radius,
         cy: radius,
@@ -279,7 +287,7 @@ function (_PureComponent) {
         style: {
           strokeWidth: "".concat(strokeWidth, "px")
         }
-      }), _react["default"].createElement("circle", {
+      }), /*#__PURE__*/_react["default"].createElement("circle", {
         className: styles.pie,
         cx: radius,
         cy: radius,
@@ -289,7 +297,7 @@ function (_PureComponent) {
           strokeDasharray: "".concat(valueLen, "px ").concat(perimeter - valueLen, "px"),
           strokeDashoffset: valueLen - perimeter + startOffset
         }
-      })), children && _react["default"].createElement("div", {
+      })), children && /*#__PURE__*/_react["default"].createElement("div", {
         className: styles.content
       }, children), showArcValue && circleRadius > 0 && value !== null && function () {
         var MIN_FONT_SIZE = 10;
@@ -306,13 +314,13 @@ function (_PureComponent) {
             y = _calculateArcValuePos.y,
             inset = _calculateArcValuePos.inset;
 
-        return _react["default"].createElement("div", {
+        return /*#__PURE__*/_react["default"].createElement("div", {
           className: styles['arc-value'],
           style: {
             top: "".concat(y, "px"),
             left: "".concat(x, "px")
           }
-        }, _react["default"].createElement("div", {
+        }, /*#__PURE__*/_react["default"].createElement("div", {
           className: (0, _classnames4["default"])(styles.value, _defineProperty({}, styles.inset, inset)),
           style: {
             fontSize: "".concat(fontSize, "px")

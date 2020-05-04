@@ -164,7 +164,7 @@ var FlexBox = function FlexBox(_ref) {
       stretch = _ref.stretch,
       nowrap = _ref.nowrap,
       children = _ref.children;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": testId,
     className: (0, _classnames2["default"])(className, styles['flex-box'], (0, _generateResponsiveStyleNames["default"])('direction', direction, _generateResponsiveStyleNames.notEmptyString).map(function (n) {
       return styles[n];

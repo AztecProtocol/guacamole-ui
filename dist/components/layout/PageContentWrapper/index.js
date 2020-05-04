@@ -64,12 +64,12 @@ var PageContentWrapper = function PageContentWrapper(_ref) {
       expand = _ref.expand,
       stretch = _ref.stretch,
       scrollable = _ref.scrollable;
-  return _react["default"].createElement(_Block["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_Block["default"], {
     testId: testId,
     className: (0, _classnames3["default"])(className, styles.wrapper, _defineProperty({}, styles.scrollable, scrollable)),
     background: background,
     stretch: stretch || scrollable
-  }, _react["default"].createElement("div", {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
     className: (0, _classnames3["default"])(styles.content, alignCenter && (0, _generateResponsiveStyleNames["default"])('align-center', alignCenter).map(function (n) {
       return styles[n];
     }) || '', expand && (0, _generateResponsiveStyleNames["default"])('expand', expand).map(function (n) {

@@ -45,17 +45,22 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 var styles = {
+  "menu": "menu-f90cddbe",
   "item": "menu-82a72305",
   "hovered": "menu-1b9ba041",
   "selected": "menu-e14e43ff",
@@ -87,20 +92,21 @@ var styles = {
   "expand-button": "menu-252a0987",
   "items": "menu-b8eb4ed7",
   "hide": "menu-3030d541",
+  "theme-dark": "menu-6dc41721",
   "placeHolderShimmer": "menu-703e8771"
 };
 
-var Group =
-/*#__PURE__*/
-function (_PureComponent) {
+var Group = /*#__PURE__*/function (_PureComponent) {
   _inherits(Group, _PureComponent);
+
+  var _super = _createSuper(Group);
 
   function Group(props) {
     var _this;
 
     _classCallCheck(this, Group);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Group).call(this, props));
+    _this = _super.call(this, props);
     _this.state = {
       hide: false
     };
@@ -138,7 +144,7 @@ function (_PureComponent) {
 
         var Tag = !href ? 'div' : Link || 'a';
         var itemSize = listItem.size || size;
-        return _react["default"].createElement(Tag, {
+        return /*#__PURE__*/_react["default"].createElement(Tag, {
           key: value,
           className: (0, _classnames5["default"])(styles.item, styles["size-".concat(itemSize)], (_classnames = {}, _defineProperty(_classnames, styles.selected, value === selectedValue), _defineProperty(_classnames, styles.hovered, value === hoveredValue), _defineProperty(_classnames, styles.disabled, disabled), _classnames)),
           to: href,
@@ -152,7 +158,7 @@ function (_PureComponent) {
           onMouseLeave: function onMouseLeave() {
             return onBlur(value, item);
           }
-        }, _react["default"].createElement(_ListItem["default"], _extends({}, listItem, {
+        }, /*#__PURE__*/_react["default"].createElement(_ListItem["default"], _extends({}, listItem, {
           size: itemSize
         })));
       });
@@ -168,14 +174,14 @@ function (_PureComponent) {
       var captionSize = caption.size || size;
       /* eslint-disable jsx-a11y/no-static-element-interactions */
 
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         role: toggleable ? 'menuitem' : '',
         className: (0, _classnames5["default"])(styles.caption, styles["size-".concat(captionSize)], _defineProperty({}, styles.toggleable, toggleable)),
         onKeyDown: toggleable ? this.handleToggleItems : undefined,
         onClick: toggleable ? this.handleToggleItems : undefined
-      }, _react["default"].createElement(_ListItem["default"], _extends({}, caption, {
+      }, /*#__PURE__*/_react["default"].createElement(_ListItem["default"], _extends({}, caption, {
         size: captionSize
-      })), toggleable && _react["default"].createElement(_Icon["default"], {
+      })), toggleable && /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
         className: styles['expand-button'],
         name: hide ? 'expand_more' : 'expand_less',
         size: captionSize
@@ -188,15 +194,16 @@ function (_PureComponent) {
       var _classnames4;
 
       var _this$props3 = this.props,
+          theme = _this$props3.theme,
           size = _this$props3.size,
           padding = _this$props3.padding,
           caption = _this$props3.caption,
           hasDivider = _this$props3.hasDivider;
       var hide = this.state.hide;
       var groupSize = caption && caption.size || size;
-      return _react["default"].createElement("div", {
-        className: (0, _classnames5["default"])(styles["group-".concat(groupSize)], _defineProperty({}, styles["pad-".concat(padding)], padding && padding !== '0'))
-      }, caption && this.renderCaption() || null, _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
+        className: (0, _classnames5["default"])(styles["theme-".concat(theme)], styles["group-".concat(groupSize)], _defineProperty({}, styles["pad-".concat(padding)], padding && padding !== '0'))
+      }, caption && this.renderCaption() || null, /*#__PURE__*/_react["default"].createElement("div", {
         className: (0, _classnames5["default"])(styles.items, (_classnames4 = {}, _defineProperty(_classnames4, styles.hide, hide), _defineProperty(_classnames4, styles['has-divider'], hasDivider), _classnames4))
       }, this.renderItems()));
     }
@@ -206,6 +213,7 @@ function (_PureComponent) {
 }(_react.PureComponent);
 
 Group.propTypes = {
+  theme: _propTypes["default"].oneOf(['dark', 'light']).isRequired,
   size: _propTypes["default"].oneOf(_styleConstants.shapeSizeKeys).isRequired,
   padding: _propTypes["default"].string,
   caption: _propTypes["default"].shape(_listItemShape["default"]),

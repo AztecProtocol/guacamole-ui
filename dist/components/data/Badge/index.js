@@ -50,7 +50,7 @@ var Badge = function Badge(_ref) {
       countOverflow = _ref.countOverflow,
       showZero = _ref.showZero,
       isDot = _ref.isDot;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": testId,
     className: (0, _classnames2["default"])(className, styles.badge, styles["theme-".concat(theme)], styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles.hide, !showZero && count === 0), _defineProperty(_classnames, styles["dot-".concat(size)], isDot), _classnames))
   }, count > countOverflow ? "".concat(countOverflow, "+") : count);

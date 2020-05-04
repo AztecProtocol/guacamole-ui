@@ -15,6 +15,8 @@ var _moment = _interopRequireDefault(require("moment"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
+var _inputs = require("../../../config/inputs");
+
 var _date = require("../../../utils/date");
 
 var _toMonthKey = _interopRequireDefault(require("../../../utils/calendar/toMonthKey"));
@@ -45,6 +47,18 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -53,15 +67,19 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -73,17 +91,17 @@ var styles = {
   "input-button-mask": "datepicker-c22391c4"
 };
 
-var DatePickerInput =
-/*#__PURE__*/
-function (_PureComponent) {
+var DatePickerInput = /*#__PURE__*/function (_PureComponent) {
   _inherits(DatePickerInput, _PureComponent);
+
+  var _super = _createSuper(DatePickerInput);
 
   function DatePickerInput(props) {
     var _this;
 
     _classCallCheck(this, DatePickerInput);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DatePickerInput).call(this, props));
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "setCalendarRef", function (ref) {
       _this.calendarRef = ref;
@@ -193,12 +211,12 @@ function (_PureComponent) {
       }
 
       var key = (0, _toMonthKey["default"])(month);
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         key: key,
         ref: function ref(_ref2) {
           return _this.setMonthRef(key, _ref2);
         }
-      }, _react["default"].createElement(_Block["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         padding: "0 l"
       }, children));
     });
@@ -320,15 +338,25 @@ function (_PureComponent) {
           isDayHighlighted = _this$props4.isDayHighlighted,
           onHoverDay = _this$props4.onHoverDay,
           onBlurDay = _this$props4.onBlurDay,
-          onChangeMonth = _this$props4.onChangeMonth;
+          onChangeMonth = _this$props4.onChangeMonth,
+          menuBackground = _this$props4.menuBackground,
+          menuBorderColor = _this$props4.menuBorderColor,
+          menuBorderRadius = _this$props4.menuBorderRadius,
+          menuOffsetTop = _this$props4.menuOffsetTop,
+          menuLayer = _this$props4.menuLayer;
       var currentDayIndex = this.getCurrentDayIndex();
       var selectedDays = this.getSelectedDays();
 
-      var datepickerNode = _react["default"].createElement(_PopupMenu["default"], {
+      var datepickerNode = /*#__PURE__*/_react["default"].createElement(_PopupMenu["default"], {
         hide: !showMenu,
+        background: menuBackground,
+        borderColor: menuBorderColor,
+        borderRadius: menuBorderRadius,
+        layer: menuLayer,
+        offsetTop: menuOffsetTop,
         disabledClickOutside: true,
         flexWidth: true
-      }, _react["default"].createElement(_DatePicker["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_DatePicker["default"], {
         currentDayIndex: currentDayIndex,
         selectedDays: selectedDays,
         daysStatus: daysStatus,
@@ -361,7 +389,7 @@ function (_PureComponent) {
         return datepickerNode;
       }
 
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         ref: this.setCalendarRef,
         className: "calendar-container"
       }, datepickerNode);
@@ -380,11 +408,11 @@ function (_PureComponent) {
       var showMenu = this.state.showMenu;
       var labelArr = (0, _castToArray["default"])(label);
       var labelStr = unifiedLabel || labelArr[0] || mobileMode && showMenu && placeholder || '';
-      return _react["default"].createElement(_InputButtonWrapper["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_InputButtonWrapper["default"], {
         showMenu: showMenu,
         mobileMode: mobileMode,
         onOpenMenu: this.handleOpenMenu
-      }, _react["default"].createElement(_TextInput["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_TextInput["default"], {
         theme: theme,
         size: size,
         label: labelStr && errorMessage || labelStr,
@@ -434,18 +462,18 @@ function (_PureComponent) {
 
         var labelStr = labelArr[i] || mobileMode && showMenu && placeholderArr[i] || '';
         var showPlaceholder = !mobileMode || !showMenu || labelArr[i] || errorArr[i];
-        buttonNodes.push(_react["default"].createElement(_Col["default"], {
+        buttonNodes.push( /*#__PURE__*/_react["default"].createElement(_Col["default"], {
           key: i,
           size: {
             m: 'm',
             s: 's'
           },
           column: 12 / numberOfDays
-        }, _react["default"].createElement(_InputButtonWrapper["default"], {
+        }, /*#__PURE__*/_react["default"].createElement(_InputButtonWrapper["default"], {
           showMenu: showMenu,
           mobileMode: mobileMode,
           onOpenMenu: openMenuAtIndex
-        }, _react["default"].createElement(_TextInput["default"], {
+        }, /*#__PURE__*/_react["default"].createElement(_TextInput["default"], {
           theme: theme,
           size: size,
           label: labelStr && errorArr[i] || labelStr,
@@ -464,7 +492,7 @@ function (_PureComponent) {
         _loop(i);
       }
 
-      return _react["default"].createElement(_Row["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_Row["default"], {
         offset: {
           m: 'm',
           s: 's'
@@ -482,7 +510,7 @@ function (_PureComponent) {
           mobileMode = _this$props7.mobileMode;
       var showMenu = this.state.showMenu;
       var shouldUseUnifiedButton = singleInput && (!mobileMode || !showMenu);
-      return _react["default"].createElement(_ClickOutsideHandler["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_ClickOutsideHandler["default"], {
         testId: testId,
         className: (0, _classnames["default"])(className, styles.wrapper),
         onClickOutside: this.handleCloseMenu,
@@ -516,6 +544,12 @@ DatePickerInput.propTypes = {
   singleInput: _propTypes["default"].bool,
   autoCloseAfterSelect: _propTypes["default"].bool,
   mobileMode: _propTypes["default"].bool,
+  // props for PopupMenu
+  menuBackground: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  menuBorderColor: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+  menuBorderRadius: _propTypes["default"].oneOf(_styleConstants.roundedCornerKeys),
+  menuLayer: _propTypes["default"].oneOf(_styleConstants.shadowLayerKeys),
+  menuOffsetTop: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.sizeKeys))),
   // props for DatePicker
 
   /* eslint-disable react/require-default-props */
@@ -560,7 +594,12 @@ DatePickerInput.defaultProps = {
   onSelectDay: function onSelectDay() {},
   onChangeDayIndex: function onChangeDayIndex() {},
   onChangeDays: function onChangeDays() {},
-  onChangeMonth: function onChangeMonth() {}
+  onChangeMonth: function onChangeMonth() {},
+  menuBackground: _inputs.inputMenuDefaultBackground,
+  menuBorderColor: _inputs.inputMenuBorderColor,
+  menuBorderRadius: _inputs.inputMenuBorderRadius,
+  menuLayer: _inputs.inputMenuLayer,
+  menuOffsetTop: _inputs.inputMenuOffsetTop
 };
 var _default = DatePickerInput;
 exports["default"] = _default;

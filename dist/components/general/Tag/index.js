@@ -52,7 +52,7 @@ var Tag = function Tag(_ref) {
       outlined = _ref.outlined,
       rounded = _ref.rounded,
       onClick = _ref.onClick;
-  return _react["default"].createElement(_Block["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_Block["default"], {
     testId: testId,
     className: (0, _classnames2["default"])(className, styles.tag, styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles['align-reverse'], alignIcon === 'left'), _defineProperty(_classnames, styles.rounded, rounded), _classnames)),
     background: outlined ? 'white-light' : color,
@@ -60,11 +60,11 @@ var Tag = function Tag(_ref) {
     borderColor: color,
     onClick: onClick,
     inline: true
-  }, _react["default"].createElement(_Text["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
     className: styles.text,
     text: text,
     color: outlined ? color : ''
-  }), !!iconName && _react["default"].createElement(_Icon["default"], {
+  }), !!iconName && /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
     className: styles.icon,
     name: iconName,
     color: outlined ? color : ''

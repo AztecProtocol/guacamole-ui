@@ -124,7 +124,7 @@ var Button = function Button(_ref) {
       _onClick = _ref.onClick,
       onSubmit = _ref.onSubmit;
   var ButtonTag = href && !disabled ? Link : 'button';
-  return _react["default"].createElement(ButtonTag, {
+  return /*#__PURE__*/_react["default"].createElement(ButtonTag, {
     "data-testid": testId,
     className: (0, _classnames2["default"])(className, styles.button, (0, _generateResponsiveStyleNames["default"])('size', size).map(function (n) {
       return styles[n];
@@ -153,9 +153,9 @@ var Button = function Button(_ref) {
         }
       }
     }
-  }, alignIcon === 'left' && icon && _react["default"].createElement("div", {
+  }, alignIcon === 'left' && icon && /*#__PURE__*/_react["default"].createElement("div", {
     className: styles['icon-left']
-  }, icon), children || text, alignIcon === 'right' && icon && _react["default"].createElement("div", {
+  }, icon), children || text, alignIcon === 'right' && icon && /*#__PURE__*/_react["default"].createElement("div", {
     className: styles['icon-right']
   }, icon));
 };

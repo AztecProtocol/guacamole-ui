@@ -53,7 +53,7 @@ var ImageWrapper = function ImageWrapper(_ref) {
     divStyle.height = height;
   }
 
-  return _react["default"].createElement(_Block["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_Block["default"], {
     testId: testId,
     className: (0, _classnames2["default"])(className, styles.wrapper, _defineProperty({}, styles["ratio-".concat(ratio)], ratio)),
     borderRadius: borderRadius,

@@ -33,12 +33,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -46,6 +40,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -71,10 +75,10 @@ var styles = {
   "placeHolderShimmer": "slide-d7846b65"
 };
 
-var SlideInput =
-/*#__PURE__*/
-function (_PureComponent) {
+var SlideInput = /*#__PURE__*/function (_PureComponent) {
   _inherits(SlideInput, _PureComponent);
+
+  var _super = _createSuper(SlideInput);
 
   _createClass(SlideInput, null, [{
     key: "getDerivedStateFromProps",
@@ -100,7 +104,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, SlideInput);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SlideInput).call(this, props));
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "setTrackRef", function (ref) {
       _this.track = ref;
@@ -215,22 +219,22 @@ function (_PureComponent) {
           value = _this$state2.value,
           scale = _this$state2.scale;
       var placeholder = value && !isLoading && !isDragging ? message : hint;
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         "data-testid": testId,
         className: (0, _classnames2["default"])(className, styles.wrapper, styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles.dragging, isDragging), _defineProperty(_classnames, styles.loading, isLoading), _defineProperty(_classnames, styles.active, value), _defineProperty(_classnames, styles['should-drop'], isDragging && scale >= dropzoneLimit), _classnames))
-      }, _react["default"].createElement("div", {
+      }, /*#__PURE__*/_react["default"].createElement("div", {
         ref: this.setTrackRef,
         className: styles.track
-      }, !!placeholder && _react["default"].createElement(_Text["default"], {
+      }, !!placeholder && /*#__PURE__*/_react["default"].createElement(_Text["default"], {
         className: styles.placeholder,
         size: (0, _shiftSize["default"])(size, -2),
         text: placeholder
-      }), isDragging && _react["default"].createElement("div", {
+      }), isDragging && /*#__PURE__*/_react["default"].createElement("div", {
         className: styles['target-position']
-      }, _react["default"].createElement(_Icon["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
         className: styles['handle-icon'],
         name: placeholderIconName
-      })), _react["default"].createElement(_Draggable["default"], {
+      })), /*#__PURE__*/_react["default"].createElement(_Draggable["default"], {
         className: styles.handle,
         style: {
           left: "".concat(scale, "%")
@@ -238,9 +242,9 @@ function (_PureComponent) {
         onDrag: this.handleChangeHandlePosition,
         onDragStop: this.handleDragStop,
         disabled: disabled || isLoading
-      }, isLoading && _react["default"].createElement("div", {
+      }, isLoading && /*#__PURE__*/_react["default"].createElement("div", {
         className: styles.spinner
-      }), _react["default"].createElement(_Icon["default"], {
+      }), /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
         className: styles['handle-icon'],
         name: isLoading ? loadingIconName : value ? iconName : 'navigate_next'
       }))));

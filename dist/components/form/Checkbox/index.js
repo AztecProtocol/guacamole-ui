@@ -31,15 +31,19 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var styles = {
   "wrapper": "checkbox-b130feb2",
@@ -60,17 +64,17 @@ var styles = {
   "placeHolderShimmer": "checkbox-5f787b7b"
 };
 
-var Checkbox =
-/*#__PURE__*/
-function (_PureComponent) {
+var Checkbox = /*#__PURE__*/function (_PureComponent) {
   _inherits(Checkbox, _PureComponent);
+
+  var _super = _createSuper(Checkbox);
 
   function Checkbox(props) {
     var _this;
 
     _classCallCheck(this, Checkbox);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Checkbox).call(this, props));
+    _this = _super.call(this, props);
     var defaultValue = props.defaultValue,
         value = props.value;
     _this.isControlled = value !== undefined;
@@ -127,9 +131,9 @@ function (_PureComponent) {
           iconName = value ? indeterminate ? 'remove' : 'check' : '';
       }
 
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         className: styles['tick-box']
-      }, _react["default"].createElement(_Icon["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
         className: styles['check-icon'],
         type: "mi",
         name: iconName
@@ -153,14 +157,14 @@ function (_PureComponent) {
           disabled = _this$props3.disabled;
       var value = this.isChecked();
 
-      var labelNode = !!label && _react["default"].createElement("div", {
+      var labelNode = !!label && /*#__PURE__*/_react["default"].createElement("div", {
         className: styles.label
       }, label);
 
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         "data-testid": testId,
         className: (0, _classnames3["default"])(className, styles.wrapper, styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles["type-".concat(type)], type !== 'check'), _defineProperty(_classnames, styles["theme-".concat(theme)], theme !== 'light'), _defineProperty(_classnames, styles["align-".concat(align)], align === 'right'), _defineProperty(_classnames, styles.checked, value), _defineProperty(_classnames, styles.inline, inline), _classnames))
-      }, _react["default"].createElement("div", {
+      }, /*#__PURE__*/_react["default"].createElement("div", {
         className: (0, _classnames3["default"])(styles.checkbox, _defineProperty({}, styles.disabled, disabled)),
         role: "checkbox",
         tabIndex: "0",

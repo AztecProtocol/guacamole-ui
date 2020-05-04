@@ -30,7 +30,7 @@ var EditableValueHolder = function EditableValueHolder(_ref) {
   var inputType = _ref.inputType,
       value = _ref.value,
       onClick = _ref.onClick;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     className: (0, _classnames2["default"])(styles['value-holder'], (_classnames = {}, _defineProperty(_classnames, styles['input-mask'], ['number', 'text', 'select'].indexOf(inputType) >= 0), _defineProperty(_classnames, styles['icon-mask'], ['switch', 'checkbox'].indexOf(inputType) >= 0), _classnames)),
     role: "button",
     tabIndex: "0",
@@ -43,7 +43,7 @@ var EditableValueHolder = function EditableValueHolder(_ref) {
         onClick();
       }
     }
-  }, _react["default"].createElement(_StaticValue["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_StaticValue["default"], {
     inputType: inputType,
     value: value
   }));

@@ -89,7 +89,7 @@ var FieldInput = function FieldInput(_ref) {
   };
 
   if (Component) {
-    return _react["default"].createElement(Component, _extends({}, fieldProps, {
+    return /*#__PURE__*/_react["default"].createElement(Component, _extends({}, fieldProps, {
       label: label,
       placeholder: placeholder,
       onChange: handleChange
@@ -105,14 +105,14 @@ var FieldInput = function FieldInput(_ref) {
     var formatedValue = formatValue ? formatValue(fieldProps) : inputType !== 'select' ? value : ((0, _getItemByValue["default"])(itemGroupsArray, value) || {}).title || '';
 
     if (!isReadOnly && !isUpdating && onTriggerEdit) {
-      return _react["default"].createElement(_EditableValueHolder["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_EditableValueHolder["default"], {
         inputType: inputType,
         value: formatedValue,
         onClick: onTriggerEdit
       });
     }
 
-    return _react["default"].createElement(_StaticValue["default"], {
+    return /*#__PURE__*/_react["default"].createElement(_StaticValue["default"], {
       inputType: inputType,
       value: formatedValue
     });
@@ -123,9 +123,9 @@ var FieldInput = function FieldInput(_ref) {
   switch (inputType) {
     case 'switch':
       {
-        return _react["default"].createElement("div", {
+        return /*#__PURE__*/_react["default"].createElement("div", {
           className: "lh0"
-        }, _react["default"].createElement(_SwitchInput["default"], _extends({
+        }, /*#__PURE__*/_react["default"].createElement(_SwitchInput["default"], _extends({
           size: (0, _shiftSize["default"])(inputSize, -1),
           checked: value,
           onChange: handleChange,
@@ -135,7 +135,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'checkbox':
       {
-        return _react["default"].createElement(_Checkbox["default"], _extends({
+        return /*#__PURE__*/_react["default"].createElement(_Checkbox["default"], _extends({
           size: inputSize,
           value: value,
           onChange: handleChange,
@@ -144,7 +144,7 @@ var FieldInput = function FieldInput(_ref) {
       }
 
     case 'text':
-      return _react["default"].createElement(_TextInput["default"], _extends({
+      return /*#__PURE__*/_react["default"].createElement(_TextInput["default"], _extends({
         theme: inputTheme,
         status: inputStatus,
         value: "".concat(value),
@@ -156,7 +156,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'number':
       {
-        return _react["default"].createElement(_MaskedNumberInput["default"], _extends({
+        return /*#__PURE__*/_react["default"].createElement(_MaskedNumberInput["default"], _extends({
           theme: inputTheme,
           status: inputStatus,
           value: "".concat(value),
@@ -174,7 +174,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'select':
       {
-        return _react["default"].createElement(_SelectInput["default"], {
+        return /*#__PURE__*/_react["default"].createElement(_SelectInput["default"], {
           theme: inputTheme,
           value: value,
           itemGroups: itemGroupsArray,
@@ -186,7 +186,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'date':
       {
-        return _react["default"].createElement(_DatePickerInput["default"], _extends({
+        return /*#__PURE__*/_react["default"].createElement(_DatePickerInput["default"], _extends({
           theme: inputTheme,
           size: inputSize,
           placeholder: placeholder,
@@ -197,7 +197,7 @@ var FieldInput = function FieldInput(_ref) {
 
     case 'button':
       {
-        return _react["default"].createElement(_Button["default"], _extends({
+        return /*#__PURE__*/_react["default"].createElement(_Button["default"], _extends({
           theme: "secondary",
           text: label,
           size: (0, _shiftSize["default"])(inputSize, -2),

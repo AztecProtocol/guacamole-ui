@@ -58,7 +58,7 @@ var TableCell = function TableCell(_ref) {
       children = _ref.children,
       placeholder = _ref.placeholder,
       isLoading = _ref.isLoading;
-  return _react["default"].createElement(_Col["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_Col["default"], {
     testId: testId,
     className: className,
     margin: "s",
@@ -68,7 +68,7 @@ var TableCell = function TableCell(_ref) {
       flex: "1 1 ".concat(width),
       maxWidth: width
     }
-  }, isLoading && (placeholder || _react["default"].createElement("div", {
+  }, isLoading && (placeholder || /*#__PURE__*/_react["default"].createElement("div", {
     className: styles['placeholder-cell']
   })), !isLoading && children);
 };

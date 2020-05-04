@@ -76,13 +76,13 @@ var TableRow = function TableRow(_ref) {
       border = _ref.border,
       blockProps = _objectWithoutProperties(_ref, ["testId", "className", "verticalPadding", "margin", "textAlign", "align", "valign", "children", "highlight", "noDivider", "nowrap", "border"]);
 
-  return _react["default"].createElement(_Block["default"], _extends({}, blockProps, {
+  return /*#__PURE__*/_react["default"].createElement(_Block["default"], _extends({}, blockProps, {
     testId: testId,
     className: (0, _classnames2["default"])(className, styles['row-wrapper'], (_classnames = {}, _defineProperty(_classnames, styles['row-no-divider'], noDivider), _defineProperty(_classnames, styles["v-".concat(verticalPadding)], verticalPadding), _defineProperty(_classnames, styles.highlight, highlight), _classnames)),
     hasBorder: border,
     align: textAlign,
     background: highlight ? 'grey-lightest' : 'white'
-  }), _react["default"].createElement(_Row["default"], {
+  }), /*#__PURE__*/_react["default"].createElement(_Row["default"], {
     className: styles.row,
     margin: margin,
     valign: valign,

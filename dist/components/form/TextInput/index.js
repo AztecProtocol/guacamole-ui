@@ -35,12 +35,6 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -48,6 +42,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var styles = {
   "input": "input-b8d47f80",
@@ -74,10 +78,10 @@ var styles = {
   "placeHolderShimmer": "input-dbb953a7"
 };
 
-var TextInput =
-/*#__PURE__*/
-function (_PureComponent) {
+var TextInput = /*#__PURE__*/function (_PureComponent) {
   _inherits(TextInput, _PureComponent);
+
+  var _super = _createSuper(TextInput);
 
   _createClass(TextInput, null, [{
     key: "getDerivedStateFromProps",
@@ -116,7 +120,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, TextInput);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(TextInput).call(this, props));
+    _this = _super.call(this, props);
     var value = props.value,
         error = props.error;
     _this.isControlled = value !== undefined;
@@ -347,7 +351,7 @@ function (_PureComponent) {
         props.defaultValue = defaultValue;
       }
 
-      return _react["default"].createElement(TagName, _extends({}, props, {
+      return /*#__PURE__*/_react["default"].createElement(TagName, _extends({}, props, {
         className: styles.input,
         ref: this.setInputRef,
         type: type,
@@ -380,7 +384,7 @@ function (_PureComponent) {
       }
 
       var onClickCallback = onClickIcon || onClick;
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         className: (0, _classnames4["default"])(styles['status-icon'], _defineProperty({}, styles.clickable, onClickCallback)),
         role: "button",
         tabIndex: "0",
@@ -400,7 +404,7 @@ function (_PureComponent) {
             onClickCallback();
           }
         }
-      }, _react["default"].createElement(_Icon["default"], icon));
+      }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], icon));
     }
   }, {
     key: "render",
@@ -422,18 +426,18 @@ function (_PureComponent) {
           showErrorStatus = _this$state2.showErrorStatus,
           error = _this$state2.error;
       var holderClassName = (0, _classnames4["default"])(className, styles.holder, styles["size-".concat(size)], (_classnames2 = {}, _defineProperty(_classnames2, styles.disabled, disabled), _defineProperty(_classnames2, styles.clickable, readOnly && onClick), _defineProperty(_classnames2, styles['flash-error'], shakeInput), _defineProperty(_classnames2, styles['status-error'], showErrorStatus), _defineProperty(_classnames2, styles['with-icon'], icon), _defineProperty(_classnames2, styles["status-".concat(status)], status), _defineProperty(_classnames2, styles["theme-".concat(theme)], theme), _classnames2));
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         "data-testid": testId,
         className: holderClassName
-      }, this.renderInput(), !!error && _react["default"].createElement("div", {
+      }, this.renderInput(), !!error && /*#__PURE__*/_react["default"].createElement("div", {
         className: (0, _classnames4["default"])(styles.error, _defineProperty({}, styles.hide, !showErrorStatus))
-      }, _react["default"].createElement(_Block["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         className: styles['error-content'],
         padding: "m",
         background: "white",
         borderRadius: "default",
         layer: 2
-      }, _react["default"].createElement(_Text["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
         size: "xxs",
         color: "red",
         weight: "bold",

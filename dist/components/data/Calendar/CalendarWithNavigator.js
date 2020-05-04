@@ -36,7 +36,7 @@ function CalendarWithNavigator(props) {
       flexWidth = props.flexWidth,
       calendarProps = _objectWithoutProperties(props, ["className", "testId", "firstVisibleMonth", "initialFirstVisibleMonth", "minMonth", "maxMonth", "numberOfMonths", "onChangeMonth", "orientation", "flexWidth"]);
 
-  return _react["default"].createElement(_CalendarNavigator["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_CalendarNavigator["default"], {
     className: className,
     firstVisibleMonth: firstVisibleMonth,
     initialFirstVisibleMonth: initialFirstVisibleMonth,
@@ -48,7 +48,7 @@ function CalendarWithNavigator(props) {
     onChangeMonth: onChangeMonth
   }, function (_ref) {
     var month = _ref.firstVisibleMonth;
-    return _react["default"].createElement(_index["default"], _extends({
+    return /*#__PURE__*/_react["default"].createElement(_index["default"], _extends({
       testId: testId,
       firstVisibleMonth: month,
       numberOfMonths: numberOfMonths,

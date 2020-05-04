@@ -444,7 +444,7 @@ var Offset = function Offset(_ref) {
       return styles[n];
     });
   });
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": testId,
     className: (0, _classnames["default"])(className, sizeStyleNames)
   }, children);

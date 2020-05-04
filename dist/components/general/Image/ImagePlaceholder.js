@@ -23,13 +23,17 @@ var _ImageWrapper = _interopRequireDefault(require("./ImageWrapper"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -64,12 +68,12 @@ var ImagePlaceholder = function ImagePlaceholder(_ref) {
       noWrapper = _ref.noWrapper,
       isLoading = _ref.isLoading;
 
-  var contentNode = _react["default"].createElement("div", {
+  var contentNode = /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": noWrapper ? testId : undefined,
     className: (0, _classnames2["default"])(styles.placeholder, (_classnames = {}, _defineProperty(_classnames, className, noWrapper), _defineProperty(_classnames, styles.isLoading, isLoading), _classnames))
-  }, _react["default"].createElement("div", {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
     className: styles['placeholder-icon']
-  }, _react["default"].createElement(_SVG["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_SVG["default"], {
     width: "100%",
     height: "100%",
     glyph: _camera["default"],
@@ -80,7 +84,7 @@ var ImagePlaceholder = function ImagePlaceholder(_ref) {
     return contentNode;
   }
 
-  return _react["default"].createElement(_ImageWrapper["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_ImageWrapper["default"], {
     testId: testId,
     className: className,
     ratio: ratio,

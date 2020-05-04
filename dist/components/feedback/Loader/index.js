@@ -43,7 +43,7 @@ var Loader = function Loader(_ref) {
       size = _ref.size,
       hasBackground = _ref.hasBackground,
       hide = _ref.hide;
-  return _react["default"].createElement(_Overlay["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_Overlay["default"], {
     testId: testId,
     className: (0, _classnames2["default"])(className, styles.loader, styles["theme-".concat(theme)], styles["size-".concat(size)], _defineProperty({}, styles['icon-only'], !hasBackground)),
     theme: hasBackground ? theme : '',

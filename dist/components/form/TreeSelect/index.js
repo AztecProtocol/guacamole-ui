@@ -13,6 +13,8 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _styleConstants = require("../../../config/styleConstants");
 
+var _inputs = require("../../../config/inputs");
+
 var _iconShape = _interopRequireDefault(require("../../../shapes/iconShape"));
 
 var _ClickOutsideHandler = _interopRequireDefault(require("../../utils/ClickOutsideHandler"));
@@ -37,13 +39,17 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -53,12 +59,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -67,6 +67,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 var styles = {
   "wrapper": "select-5ebc695b",
   "menu": "select-2f097871",
@@ -74,10 +84,10 @@ var styles = {
   "tree-data": "select-76665e57"
 };
 
-var TreeSelect =
-/*#__PURE__*/
-function (_PureComponent) {
+var TreeSelect = /*#__PURE__*/function (_PureComponent) {
   _inherits(TreeSelect, _PureComponent);
+
+  var _super = _createSuper(TreeSelect);
 
   _createClass(TreeSelect, null, [{
     key: "getDerivedStateFromProps",
@@ -129,7 +139,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, TreeSelect);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(TreeSelect).call(this, props));
+    _this = _super.call(this, props);
     var selectedValues = props.selectedValues,
         data = props.data;
     _this.state = {
@@ -271,32 +281,42 @@ function (_PureComponent) {
     value: function renderTreeMenu() {
       var _this$props2 = this.props,
           disableFilter = _this$props2.disableFilter,
-          filterPlaceholder = _this$props2.filterPlaceholder;
+          filterPlaceholder = _this$props2.filterPlaceholder,
+          menuBackground = _this$props2.menuBackground,
+          menuBorderColor = _this$props2.menuBorderColor,
+          menuBorderRadius = _this$props2.menuBorderRadius,
+          menuOffsetTop = _this$props2.menuOffsetTop,
+          menuLayer = _this$props2.menuLayer;
       var _this$state2 = this.state,
           filteredData = _this$state2.filteredData,
           activeValues = _this$state2.activeValues,
           selectedValues = _this$state2.selectedValues,
           showMenu = _this$state2.showMenu,
           filterKeyword = _this$state2.filterKeyword;
-      return _react["default"].createElement(_PopupMenu["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_PopupMenu["default"], {
+        background: menuBackground,
+        borderColor: menuBorderColor,
+        borderRadius: menuBorderRadius,
+        layer: menuLayer,
+        offsetTop: menuOffsetTop,
         hide: !showMenu,
         disabledClickOutside: true
-      }, _react["default"].createElement("div", {
+      }, /*#__PURE__*/_react["default"].createElement("div", {
         className: styles.menu
-      }, !disableFilter && _react["default"].createElement(_Block["default"], {
+      }, !disableFilter && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         className: "flex-fixed",
         padding: "m s s"
-      }, _react["default"].createElement(_TextInput["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_TextInput["default"], {
         ref: this.setFilterInputRef,
         value: filterKeyword,
         placeholder: filterPlaceholder,
         onChange: this.handleChangeFilterKeyword
-      })), _react["default"].createElement(_Block["default"], {
+      })), /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         className: styles['tree-data'],
         right: "s",
         left: "xs",
         bottom: "xs"
-      }, _react["default"].createElement(_Tree["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Tree["default"], {
         data: filteredData,
         activeValues: activeValues,
         selectedValues: selectedValues,
@@ -339,7 +359,7 @@ function (_PureComponent) {
         };
       }
 
-      return _react["default"].createElement(InputComponent, {
+      return /*#__PURE__*/_react["default"].createElement(InputComponent, {
         theme: theme,
         status: showMenu ? 'focus' : '',
         size: size,
@@ -361,7 +381,7 @@ function (_PureComponent) {
           testId = _this$props4.testId,
           className = _this$props4.className;
       var showMenu = this.state.showMenu;
-      return _react["default"].createElement(_ClickOutsideHandler["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_ClickOutsideHandler["default"], {
         testId: testId,
         className: (0, _classnames["default"])(className, styles.wrapper),
         onClickOutside: this.handleCloseMenu,
@@ -402,7 +422,12 @@ TreeSelect.propTypes = {
   autoCloseOnSelect: _propTypes["default"].bool,
   onSelect: _propTypes["default"].func,
   onClearSelectedValues: _propTypes["default"].func,
-  InputComponent: _propTypes["default"].func
+  InputComponent: _propTypes["default"].func,
+  menuBackground: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.backgroundNames))),
+  menuBorderColor: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.colorNames))),
+  menuBorderRadius: _propTypes["default"].oneOf(_styleConstants.roundedCornerKeys),
+  menuLayer: _propTypes["default"].oneOf(_styleConstants.shadowLayerKeys),
+  menuOffsetTop: _propTypes["default"].oneOf([''].concat(_toConsumableArray(_styleConstants.sizeKeys)))
 };
 TreeSelect.defaultProps = {
   testId: undefined,
@@ -418,7 +443,12 @@ TreeSelect.defaultProps = {
   autoCloseOnSelect: true,
   onSelect: function onSelect() {},
   onClearSelectedValues: function onClearSelectedValues() {},
-  InputComponent: _TextInput["default"]
+  InputComponent: _TextInput["default"],
+  menuBackground: _inputs.inputMenuDefaultBackground,
+  menuBorderColor: _inputs.inputMenuBorderColor,
+  menuBorderRadius: _inputs.inputMenuBorderRadius,
+  menuLayer: _inputs.inputMenuLayer,
+  menuOffsetTop: _inputs.inputMenuOffsetTop
 };
 var _default = TreeSelect;
 exports["default"] = _default;

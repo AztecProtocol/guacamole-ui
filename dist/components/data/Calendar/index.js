@@ -43,15 +43,19 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var styles = {
   "calendar-h": "calendar-8b209562",
@@ -81,17 +85,17 @@ var styles = {
   "placeHolderShimmer": "calendar-b86a33a5"
 };
 
-var Calendar =
-/*#__PURE__*/
-function (_PureComponent) {
+var Calendar = /*#__PURE__*/function (_PureComponent) {
   _inherits(Calendar, _PureComponent);
+
+  var _super = _createSuper(Calendar);
 
   function Calendar(props) {
     var _this;
 
     _classCallCheck(this, Calendar);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Calendar).call(this, props));
+    _this = _super.call(this, props);
     _this.state = {
       months: []
     };
@@ -125,7 +129,7 @@ function (_PureComponent) {
           onBlurDay: onBlurDay
         };
 
-        var monthNode = _react["default"].createElement(_Month["default"], _extends({
+        var monthNode = /*#__PURE__*/_react["default"].createElement(_Month["default"], _extends({
           key: (0, _toMonthKey["default"])(month)
         }, monthProps));
 
@@ -145,7 +149,7 @@ function (_PureComponent) {
           orientation = _this$props2.orientation,
           flexWidth = _this$props2.flexWidth,
           onSelectDay = _this$props2.onSelectDay;
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         "data-testid": testId,
         className: (0, _classnames2["default"])(className, (_classnames = {}, _defineProperty(_classnames, styles['calendar-v'], !flexWidth && orientation === 'vertical'), _defineProperty(_classnames, styles['calendar-h'], !flexWidth && orientation === 'horizontal'), _defineProperty(_classnames, styles['calendar-flex'], flexWidth), _defineProperty(_classnames, styles.interactive, onSelectDay), _classnames))
       }, this.renderMonths());

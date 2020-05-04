@@ -59,7 +59,7 @@ function Day(_ref) {
   var empty = isOutside && !showOutsideDays;
 
   if (empty) {
-    return _react["default"].createElement("div", {
+    return /*#__PURE__*/_react["default"].createElement("div", {
       className: "".concat(styles.day, " ").concat(styles.empty)
     }, date);
   }
@@ -67,7 +67,7 @@ function Day(_ref) {
   var disabled = status.has('disabled');
   /* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     role: onSelect ? 'button' : '',
     tabIndex: onSelect ? 0 : -1,
     className: (0, _classnames2["default"])(styles.day, (_classnames = {}, _defineProperty(_classnames, styles.selected, status.has('isSelected')), _defineProperty(_classnames, styles.hovered, !disabled && status.has('isHovered')), _defineProperty(_classnames, styles.ranged, status.has('isInRange')), _defineProperty(_classnames, styles.trailing, status.has('isTrailing')), _defineProperty(_classnames, styles.highlighted, status.has('isHighlighted')), _defineProperty(_classnames, styles.outside, isOutside), _defineProperty(_classnames, styles.disabled, disabled), _classnames)),

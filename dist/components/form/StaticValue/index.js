@@ -21,23 +21,23 @@ var StaticValue = function StaticValue(_ref) {
 
   switch (inputType) {
     case 'switch':
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         className: "lh0"
-      }, _react["default"].createElement(_Icon["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
         name: value ? 'lock' : 'lock_open',
         color: value ? 'red' : 'label'
       }));
 
     case 'checkbox':
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         className: "lh0"
-      }, _react["default"].createElement(_Icon["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
         name: value ? 'done' : 'remove',
         color: value ? 'green' : 'label'
       }));
 
     default:
-      return _react["default"].createElement(_Text["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_Text["default"], {
         text: "".concat(value)
       });
   }

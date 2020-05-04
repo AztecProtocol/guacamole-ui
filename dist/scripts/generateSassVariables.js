@@ -100,9 +100,7 @@ function generateSassVariables() {
 }
 
 function _generateSassVariables() {
-  _generateSassVariables = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
+  _generateSassVariables = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
     var config,
         cssConfig,
         content,

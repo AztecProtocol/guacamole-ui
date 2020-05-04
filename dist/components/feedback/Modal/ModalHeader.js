@@ -43,27 +43,27 @@ var ModalHeader = function ModalHeader(_ref) {
       children = _ref.children,
       hasCloseIcon = _ref.hasCloseIcon,
       onClose = _ref.onClose;
-  return _react["default"].createElement(_Block["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_Block["default"], {
     className: className,
     background: "grey-lightest",
     padding: "m l",
     hasBorderBottom: true
-  }, _react["default"].createElement(_FlexBox["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_FlexBox["default"], {
     align: "space-between"
-  }, _react["default"].createElement(_Row["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_Row["default"], {
     valign: "center",
     margin: "xs"
-  }, icon && _react["default"].createElement(_Block["default"], {
+  }, icon && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
     padding: "0 xs",
     className: "lh0"
-  }, _react["default"].createElement(_Icon["default"], _extends({
+  }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], _extends({
     size: "m"
-  }, icon))), children && _react["default"].createElement(_Block["default"], {
+  }, icon))), children && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
     padding: "0 xs"
-  }, _react["default"].createElement(_Text["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
     size: "s",
     weight: "medium"
-  }, children))), hasCloseIcon && _react["default"].createElement("div", {
+  }, children))), hasCloseIcon && /*#__PURE__*/_react["default"].createElement("div", {
     className: styles['close-button'],
     role: "button",
     tabIndex: "0",
@@ -76,7 +76,7 @@ var ModalHeader = function ModalHeader(_ref) {
         onClose();
       }
     }
-  }, _react["default"].createElement(_Icon["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
     name: "close",
     size: "l"
   }))));

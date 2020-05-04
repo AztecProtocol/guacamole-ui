@@ -98,7 +98,7 @@ var ButtonGroup = function ButtonGroup(_ref) {
   var testId = _ref.testId,
       className = _ref.className,
       children = _ref.children;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": testId,
     className: (0, _classnames["default"])(className, styles.group)
   }, children);

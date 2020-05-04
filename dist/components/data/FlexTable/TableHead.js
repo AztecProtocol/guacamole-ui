@@ -68,7 +68,7 @@ var TableHead = function TableHead(_ref) {
       sortBy = _ref.sortBy,
       sortOrder = _ref.sortOrder,
       onClickColumn = _ref.onClickColumn;
-  return _react["default"].createElement(_TableRow["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_TableRow["default"], {
     testId: testId,
     className: className,
     textAlign: defaultAlign,
@@ -80,26 +80,26 @@ var TableHead = function TableHead(_ref) {
         align = _ref2.align,
         width = _ref2.width,
         defaultSortingOrder = _ref2.defaultSortingOrder;
-    return _react["default"].createElement(_TableCell["default"], {
+    return /*#__PURE__*/_react["default"].createElement(_TableCell["default"], {
       key: +i,
       className: styles['table-head-cell'],
       width: width,
       align: align
-    }, (!sortBy || defaultSortingOrder === undefined) && _react["default"].createElement(_Text["default"], {
+    }, (!sortBy || defaultSortingOrder === undefined) && /*#__PURE__*/_react["default"].createElement(_Text["default"], {
       text: label.toUpperCase(),
       color: "label",
       size: "xxs"
-    }) || _react["default"].createElement(_TextButton["default"], {
+    }) || /*#__PURE__*/_react["default"].createElement(_TextButton["default"], {
       className: styles['sort-button'],
       color: "label",
       size: "xxs",
       onClick: function onClick() {
         return onClickColumn(fieldName);
       }
-    }, _react["default"].createElement("span", null, label.toUpperCase()), fieldName === sortBy && _react["default"].createElement(_Block["default"], {
+    }, /*#__PURE__*/_react["default"].createElement("span", null, label.toUpperCase()), fieldName === sortBy && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
       className: "lh0",
       left: "xs"
-    }, _react["default"].createElement(_Icon["default"], {
+    }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
       name: sortOrder === _sort.ASC ? 'arrow_upward' : 'arrow_downward',
       size: "xs"
     }))));

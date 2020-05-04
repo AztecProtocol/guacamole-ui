@@ -91,7 +91,7 @@ var Row = function Row(_ref) {
       margin = _ref.margin,
       props = _objectWithoutProperties(_ref, ["testId", "margin"]);
 
-  return _react["default"].createElement(_FlexBox["default"], _extends({
+  return /*#__PURE__*/_react["default"].createElement(_FlexBox["default"], _extends({
     testId: testId,
     className: (0, _classnames["default"])(margin && margin !== 'none' && (0, _generateResponsiveStyleNames["default"])('margin', margin).map(function (n) {
       return styles[n];

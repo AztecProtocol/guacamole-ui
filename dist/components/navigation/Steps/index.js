@@ -68,7 +68,7 @@ var Steps = function Steps(_ref) {
     return title || description;
   });
   var numberOfSteps = stepArr.length;
-  return _react["default"].createElement(_FlexBox["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_FlexBox["default"], {
     testId: testId,
     className: (0, _classnames4["default"])(className, styles.steps, styles["size-".concat(size)], _defineProperty({}, styles['with-dot-content'], withDotContent))
   }, stepArr.map(function (_ref4, i) {
@@ -79,19 +79,19 @@ var Steps = function Steps(_ref) {
         icon = _ref4.icon;
     var isClickable = i < currentIndex && allowToGoBack;
     var DotWrapper = isClickable ? _Clickable["default"] : 'div';
-    return _react["default"].createElement("div", {
+    return /*#__PURE__*/_react["default"].createElement("div", {
       key: id,
       className: (0, _classnames4["default"])(i === numberOfSteps - 1 ? 'flex-fixed' : 'flex-free-expand', styles.step, (_classnames2 = {}, _defineProperty(_classnames2, styles.finished, i < currentIndex), _defineProperty(_classnames2, styles.current, i === currentIndex), _defineProperty(_classnames2, styles.waiting, i > currentIndex), _classnames2))
-    }, _react["default"].createElement(DotWrapper, {
+    }, /*#__PURE__*/_react["default"].createElement(DotWrapper, {
       className: (0, _classnames4["default"])(styles.dot, _defineProperty({}, styles["static"], !isClickable)),
       onClick: isClickable ? function () {
         return onChange(i + 1);
       } : undefined
-    }, !!icon && _react["default"].createElement(_Icon["default"], icon), !icon && _react["default"].createElement(_Text["default"], {
+    }, !!icon && /*#__PURE__*/_react["default"].createElement(_Icon["default"], icon), !icon && /*#__PURE__*/_react["default"].createElement(_Text["default"], {
       text: "".concat(i + 1)
-    })), i < numberOfSteps - 1 && _react["default"].createElement("div", {
+    })), i < numberOfSteps - 1 && /*#__PURE__*/_react["default"].createElement("div", {
       className: styles.line
-    }), !!title && _react["default"].createElement(_Text["default"], {
+    }), !!title && /*#__PURE__*/_react["default"].createElement(_Text["default"], {
       text: title
     }));
   }));

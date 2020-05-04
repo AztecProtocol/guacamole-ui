@@ -32,9 +32,9 @@ function InputButtonWrapper(_ref) {
       mobileMode = _ref.mobileMode,
       editable = _ref.editable,
       onOpenMenu = _ref.onOpenMenu;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     className: (0, _classnames2["default"])(className, styles['input-button'], (_classnames = {}, _defineProperty(_classnames, styles.focused, showMenu), _defineProperty(_classnames, styles.editable, editable), _classnames))
-  }, children, mobileMode && _react["default"].createElement("div", {
+  }, children, mobileMode && /*#__PURE__*/_react["default"].createElement("div", {
     className: styles['input-button-mask'],
     role: "button",
     tabIndex: "0",

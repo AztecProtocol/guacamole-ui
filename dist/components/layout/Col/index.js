@@ -332,7 +332,7 @@ var Col = function Col(_ref) {
       align = _ref.align,
       style = _ref.style,
       children = _ref.children;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": testId,
     className: (0, _classnames2["default"])(className, column && (0, _generateResponsiveStyleNames["default"])('col', column).map(function (n) {
       return styles[n];

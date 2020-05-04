@@ -29,12 +29,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -42,6 +36,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var styles = {
   "calendar-h": "calendar-8b209562",
@@ -71,10 +75,10 @@ var styles = {
   "placeHolderShimmer": "calendar-b86a33a5"
 };
 
-var CalendarNavigator =
-/*#__PURE__*/
-function (_PureComponent) {
+var CalendarNavigator = /*#__PURE__*/function (_PureComponent) {
   _inherits(CalendarNavigator, _PureComponent);
+
+  var _super = _createSuper(CalendarNavigator);
 
   _createClass(CalendarNavigator, null, [{
     key: "getDerivedStateFromProps",
@@ -97,7 +101,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, CalendarNavigator);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(CalendarNavigator).call(this, props));
+    _this = _super.call(this, props);
     var firstVisibleMonth = props.firstVisibleMonth,
         initialFirstVisibleMonth = props.initialFirstVisibleMonth,
         orientation = props.orientation;
@@ -169,11 +173,11 @@ function (_PureComponent) {
     value: function renderPrevButton() {
       var disabled = !this.canGoPrev();
       var isVertical = this.state.isVertical;
-      return _react["default"].createElement(_Clickable["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_Clickable["default"], {
         className: styles['nav-prev'],
         onClick: disabled ? function () {} : this.handleGoPrev,
         disabled: disabled
-      }, _react["default"].createElement(_Icon["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
         name: isVertical ? 'expand_less' : 'navigate_before',
         size: isVertical ? 'xl' : 'l',
         color: disabled ? 'primary-lightest' : 'primary'
@@ -184,11 +188,11 @@ function (_PureComponent) {
     value: function renderNextButton() {
       var disabled = !this.canGoNext();
       var isVertical = this.state.isVertical;
-      return _react["default"].createElement(_Clickable["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_Clickable["default"], {
         className: styles['nav-next'],
         onClick: disabled ? function () {} : this.handleGoNext,
         disabled: disabled
-      }, _react["default"].createElement(_Icon["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], {
         name: isVertical ? 'expand_more' : 'navigate_next',
         size: isVertical ? 'xl' : 'l',
         color: disabled ? 'primary-lightest' : 'primary'
@@ -198,7 +202,7 @@ function (_PureComponent) {
     key: "renderNavigators",
     value: function renderNavigators() {
       var isVertical = this.state.isVertical;
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         className: styles["nav-".concat(isVertical ? 'v' : 'h')]
       }, this.renderPrevButton(), this.renderNextButton());
     }
@@ -213,9 +217,9 @@ function (_PureComponent) {
           children = _this$props.children;
       var isVertical = this.state.isVertical;
       var firstVisibleMonth = this.getFirstVisibleMonth();
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         className: (0, _classnames2["default"])(className, styles['nav-holder'], (_classnames = {}, _defineProperty(_classnames, styles.flex, flexWidth), _defineProperty(_classnames, styles.vertical, isVertical), _classnames))
-      }, this.renderNavigators(), isVertical && _react["default"].createElement("div", {
+      }, this.renderNavigators(), isVertical && /*#__PURE__*/_react["default"].createElement("div", {
         className: styles['calendar-in-nav-v']
       }, children({
         firstVisibleMonth: firstVisibleMonth

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.focusInputColor = exports.focusInputColorName = exports.errorInputColor = exports.errorInputColorName = exports.inlineInputPlaceholderColor = exports.inlineInputPlaceholderColorName = exports.inlineInputValueColor = exports.inlineInputValueColorName = exports.inlineInputActiveOutlineColor = exports.inlineInputActiveOutlineColorName = exports.inlineInputActiveBgColor = exports.inlineInputActiveBgColorName = exports.inlineInputBgColor = exports.inlineInputBgColorName = exports.darkInputPlaceholderColor = exports.darkInputPlaceholderColorName = exports.darkInputValueColor = exports.darkInputValueColorName = exports.darkInputActiveOutlineColor = exports.darkInputActiveOutlineColorName = exports.darkInputActiveBgColor = exports.darkInputActiveBgColorName = exports.darkInputOutlineColor = exports.darkInputOutlineColorName = exports.darkInputBgColor = exports.darkInputBgColorName = exports.defaultInputPlaceholderColor = exports.defaultInputPlaceholderColorName = exports.defaultInputValueColor = exports.defaultInputValueColorName = exports.defaultInputActiveOutlineColor = exports.defaultInputActiveOutlineColorName = exports.defaultInputActiveBgColor = exports.defaultInputActiveBgColorName = exports.defaultInputOutlineColor = exports.defaultInputOutlineColorName = exports.defaultInputBgColor = exports.defaultInputBgColorName = exports.inputBorderWidth = exports.inputFontSizeKeyMap = exports.inputSizeMap = void 0;
+exports.focusInputColor = exports.focusInputColorName = exports.errorInputColor = exports.errorInputColorName = exports.inlineInputPlaceholderColor = exports.inlineInputPlaceholderColorName = exports.inlineInputValueColor = exports.inlineInputValueColorName = exports.inlineInputActiveOutlineColor = exports.inlineInputActiveOutlineColorName = exports.inlineInputActiveBgColor = exports.inlineInputActiveBgColorName = exports.inlineInputBgColor = exports.inlineInputBgColorName = exports.darkInputPlaceholderColor = exports.darkInputPlaceholderColorName = exports.darkInputValueColor = exports.darkInputValueColorName = exports.darkInputActiveOutlineColor = exports.darkInputActiveOutlineColorName = exports.darkInputActiveBgColor = exports.darkInputActiveBgColorName = exports.darkInputOutlineColor = exports.darkInputOutlineColorName = exports.darkInputBgColor = exports.darkInputBgColorName = exports.defaultInputPlaceholderColor = exports.defaultInputPlaceholderColorName = exports.defaultInputValueColor = exports.defaultInputValueColorName = exports.defaultInputActiveOutlineColor = exports.defaultInputActiveOutlineColorName = exports.defaultInputActiveBgColor = exports.defaultInputActiveBgColorName = exports.defaultInputOutlineColor = exports.defaultInputOutlineColorName = exports.defaultInputBgColor = exports.defaultInputBgColorName = exports.inputMenuOffsetTop = exports.inputMenuLayer = exports.inputMenuBorderRadius = exports.inputMenuBorderColor = exports.inputMenuDefaultBackground = exports.inputBorderWidth = exports.inputFontSizeKeyMap = exports.inputSizeMap = void 0;
 
 var _colors = require("./colors");
 
@@ -23,6 +23,16 @@ var inputFontSizeKeyMap = {
 exports.inputFontSizeKeyMap = inputFontSizeKeyMap;
 var inputBorderWidth = '1px';
 exports.inputBorderWidth = inputBorderWidth;
+var inputMenuDefaultBackground = 'white';
+exports.inputMenuDefaultBackground = inputMenuDefaultBackground;
+var inputMenuBorderColor = '';
+exports.inputMenuBorderColor = inputMenuBorderColor;
+var inputMenuBorderRadius = 'xs';
+exports.inputMenuBorderRadius = inputMenuBorderRadius;
+var inputMenuLayer = 2;
+exports.inputMenuLayer = inputMenuLayer;
+var inputMenuOffsetTop = '';
+exports.inputMenuOffsetTop = inputMenuOffsetTop;
 var defaultInputBgColorName = 'white';
 exports.defaultInputBgColorName = defaultInputBgColorName;
 var defaultInputBgColor = _colors.colorMap[defaultInputBgColorName];

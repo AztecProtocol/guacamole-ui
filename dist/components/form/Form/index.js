@@ -57,12 +57,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -70,6 +64,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -80,10 +84,10 @@ var styles = {
 };
 var DEFAULT_ERROR_POSITION = 'bottom';
 
-var Form =
-/*#__PURE__*/
-function (_PureComponent) {
+var Form = /*#__PURE__*/function (_PureComponent) {
   _inherits(Form, _PureComponent);
+
+  var _super = _createSuper(Form);
 
   _createClass(Form, null, [{
     key: "getDerivedStateFromProps",
@@ -124,7 +128,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, Form);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Form).call(this, props));
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "validate", function () {
       var formIndex = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
@@ -251,24 +255,24 @@ function (_PureComponent) {
           colGroups.push([]);
         }
 
-        colGroups[colGroups.length - 1].push(_react["default"].createElement(_Col["default"], {
+        colGroups[colGroups.length - 1].push( /*#__PURE__*/_react["default"].createElement(_Col["default"], {
           key: fieldName,
           shift: shift,
           column: hasErrorCol ? 12 : column
-        }, _react["default"].createElement(_Block["default"], {
+        }, /*#__PURE__*/_react["default"].createElement(_Block["default"], {
           padding: "m 0"
-        }, label && _react["default"].createElement(_Block["default"], {
+        }, label && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
           padding: "xs 0"
-        }, _react["default"].createElement(_Text["default"], {
+        }, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
           className: isRequired ? styles['label-required'] : '',
           text: label,
           color: "label",
           size: "xxs"
-        })), inputType && _react["default"].createElement(_Block["default"], {
+        })), inputType && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
           padding: "xs 0"
-        }, _react["default"].createElement(_Row["default"], null, _react["default"].createElement(_Col["default"], {
+        }, /*#__PURE__*/_react["default"].createElement(_Row["default"], null, /*#__PURE__*/_react["default"].createElement(_Col["default"], {
           column: hasErrorCol ? column : 12
-        }, _react["default"].createElement(_FieldInput["default"], _extends({
+        }, /*#__PURE__*/_react["default"].createElement(_FieldInput["default"], _extends({
           inputSize: size
         }, fieldConfig, {
           key: fieldName,
@@ -279,15 +283,15 @@ function (_PureComponent) {
           formData: formData,
           onChange: _this2.handleChange,
           isEditing: true
-        }))), hasErrorCol && _react["default"].createElement(_Col["default"], {
+        }))), hasErrorCol && /*#__PURE__*/_react["default"].createElement(_Col["default"], {
           column: 12 - column
-        }, _react["default"].createElement(_Text["default"], {
+        }, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
           text: error,
           color: "red",
           size: "xxs"
-        }))), errorPosition === 'bottom' && error && _react["default"].createElement(_Block["default"], {
+        }))), errorPosition === 'bottom' && error && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
           padding: "xs 0"
-        }, _react["default"].createElement(_Text["default"], {
+        }, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
           text: error,
           color: "red",
           size: "xxs"
@@ -302,7 +306,7 @@ function (_PureComponent) {
       return colGroups.filter(function (group) {
         return group.length;
       }).map(function (colNodes, i) {
-        return _react["default"].createElement(_Row["default"], {
+        return /*#__PURE__*/_react["default"].createElement(_Row["default"], {
           key: "".concat(+i)
         }, colNodes);
       });
@@ -326,7 +330,7 @@ function (_PureComponent) {
       var fieldNodes = this.renderFields(fields, formConfig);
 
       if (renderForm) {
-        return _react["default"].createElement(_Block["default"], {
+        return /*#__PURE__*/_react["default"].createElement(_Block["default"], {
           key: formIndex,
           className: styles.form,
           padding: "m 0"
@@ -337,22 +341,22 @@ function (_PureComponent) {
         }));
       }
 
-      return _react["default"].createElement(_Block["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         key: formIndex,
         className: styles.form,
         padding: "m 0"
-      }, (label || description) && _react["default"].createElement(_Block["default"], {
+      }, (label || description) && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         top: label ? '' : 'xs',
         bottom: "xl"
-      }, label && _react["default"].createElement(_Block["default"], {
+      }, label && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         top: "l"
-      }, _react["default"].createElement(_Text["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
         text: label,
         size: "s",
         weight: "semibold"
-      })), description && _react["default"].createElement(_Block["default"], {
+      })), description && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         top: "m"
-      }, _react["default"].createElement(_Text["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
         text: description
       }))), fieldNodes, formExtraContent, extraContent, renderFooter && renderFooter({
         formIndex: formIndex,
@@ -360,10 +364,10 @@ function (_PureComponent) {
           return _this3.handleSubmit(formIndex);
         },
         isLoading: isLoading
-      }), !renderFooter && buttonText && _react["default"].createElement(_Block["default"], {
+      }), !renderFooter && buttonText && /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         padding: "l 0",
         align: buttonAlign
-      }, _react["default"].createElement(_Button["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Button["default"], {
         size: (0, _shiftSize["default"])(size, 1),
         text: buttonText,
         onSubmit: function onSubmit() {
@@ -384,7 +388,7 @@ function (_PureComponent) {
           expand = _this$props4.expand,
           extraContent = _this$props4.extraContent;
       var totalForms = fieldsConfig.length;
-      return _react["default"].createElement(_Offset["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_Offset["default"], {
         testId: testId,
         className: (0, _classnames2["default"])(className, _defineProperty({}, styles.wrapper, !expand)),
         margin: "m 0"

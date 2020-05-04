@@ -24,9 +24,7 @@ function generateEsModuleEntryFile() {
 }
 
 function _generateEsModuleEntryFile() {
-  _generateEsModuleEntryFile = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
+  _generateEsModuleEntryFile = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
     var entryFilePath, destFilePath, modules, fileContent, esModuleFileContent;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {

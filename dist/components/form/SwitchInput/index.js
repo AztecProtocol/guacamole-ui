@@ -25,12 +25,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -38,6 +32,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var styles = {
   "wrapper": "switch-b65e80f0",
@@ -52,14 +56,15 @@ var styles = {
   "size-l": "switch-6a379515",
   "checked": "switch-6e9841b6",
   "disabled": "switch-db94fadd",
+  "theme-dark": "switch-9dc11ebc",
   "shake": "switch-2ef9a77e",
   "placeHolderShimmer": "switch-7d3ac5d8"
 };
 
-var SwitchInput =
-/*#__PURE__*/
-function (_PureComponent) {
+var SwitchInput = /*#__PURE__*/function (_PureComponent) {
   _inherits(SwitchInput, _PureComponent);
+
+  var _super = _createSuper(SwitchInput);
 
   _createClass(SwitchInput, null, [{
     key: "getDerivedStateFromProps",
@@ -82,7 +87,7 @@ function (_PureComponent) {
 
     _classCallCheck(this, SwitchInput);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SwitchInput).call(this, props));
+    _this = _super.call(this, props);
     var checked = props.checked;
     _this.state = {
       isControlled: checked !== undefined,
@@ -125,13 +130,14 @@ function (_PureComponent) {
       var _this$props2 = this.props,
           testId = _this$props2.testId,
           className = _this$props2.className,
+          theme = _this$props2.theme,
           size = _this$props2.size,
           disabled = _this$props2.disabled,
           isLoading = _this$props2.isLoading,
           outlined = _this$props2.outlined;
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         "data-testid": testId,
-        className: (0, _classnames2["default"])(className, styles.wrapper, styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles.checked, checked), _defineProperty(_classnames, styles.disabled, disabled), _defineProperty(_classnames, styles.outlined, outlined), _defineProperty(_classnames, styles.loading, isLoading), _classnames)),
+        className: (0, _classnames2["default"])(className, styles.wrapper, styles["theme-".concat(theme)], styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles.checked, checked), _defineProperty(_classnames, styles.disabled, disabled), _defineProperty(_classnames, styles.outlined, outlined), _defineProperty(_classnames, styles.loading, isLoading), _classnames)),
         role: "switch",
         tabIndex: "0",
         "aria-checked": checked,
@@ -145,9 +151,9 @@ function (_PureComponent) {
             _this2.handleClick();
           }
         }
-      }, _react["default"].createElement("div", {
+      }, /*#__PURE__*/_react["default"].createElement("div", {
         className: styles['switch-button']
-      }, isLoading && _react["default"].createElement("div", {
+      }, isLoading && /*#__PURE__*/_react["default"].createElement("div", {
         className: styles.spinner
       })));
     }
@@ -159,6 +165,7 @@ function (_PureComponent) {
 SwitchInput.propTypes = {
   testId: _propTypes["default"].string,
   className: _propTypes["default"].string,
+  theme: _propTypes["default"].oneOf(['light', 'dark']),
   size: _propTypes["default"].oneOf(_styleConstants.inputSizeKeys),
   checked: _propTypes["default"].bool,
   disabled: _propTypes["default"].bool,
@@ -170,6 +177,7 @@ SwitchInput.propTypes = {
 SwitchInput.defaultProps = {
   testId: undefined,
   className: '',
+  theme: 'light',
   size: 's',
   checked: undefined,
   disabled: false,

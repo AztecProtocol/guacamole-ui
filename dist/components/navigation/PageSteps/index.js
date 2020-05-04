@@ -39,16 +39,16 @@ var PageSteps = function PageSteps(_ref) {
       theme = _ref.theme,
       steps = _ref.steps,
       currentStep = _ref.currentStep;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": testId,
     className: (0, _classnames["default"])(className, styles.steps, styles["theme-".concat(theme)])
-  }, _react["default"].createElement(_FlexBox["default"], {
+  }, /*#__PURE__*/_react["default"].createElement(_FlexBox["default"], {
     align: "center"
   }, steps.map(function (_ref2, i) {
     var title = _ref2.title,
         step = _objectWithoutProperties(_ref2, ["title"]);
 
-    return _react["default"].createElement(_Step["default"], _extends({}, step, {
+    return /*#__PURE__*/_react["default"].createElement(_Step["default"], _extends({}, step, {
       key: "".concat(+i),
       title: "".concat(i + 1, ". ").concat(title),
       active: i + 1 === currentStep

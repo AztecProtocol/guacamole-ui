@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var ModalFooter = function ModalFooter(_ref) {
   var className = _ref.className,
       children = _ref.children;
-  return _react["default"].createElement(_Block["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_Block["default"], {
     className: className,
     padding: "l",
     background: "grey-lightest",

@@ -64,7 +64,7 @@ var Progress = function Progress(_ref) {
     };
   });
   var currentIndex = currentStep - 1;
-  return _react["default"].createElement(_FlexBox["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_FlexBox["default"], {
     testId: testId,
     className: (0, _classnames3["default"])(className, styles.progress, styles["size-".concat(size)], _defineProperty({}, styles["theme-".concat(theme)], theme))
   }, stepArr.map(function (_ref2, i) {
@@ -78,25 +78,25 @@ var Progress = function Progress(_ref) {
     var contentNode = node;
 
     if (!contentNode) {
-      contentNode = [icon && _react["default"].createElement(_Icon["default"], _extends({
+      contentNode = [icon && /*#__PURE__*/_react["default"].createElement(_Icon["default"], _extends({
         key: "icon",
         className: styles.icon
-      }, icon)) || null, (title || !icon) && _react["default"].createElement(_Text["default"], {
+      }, icon)) || null, (title || !icon) && /*#__PURE__*/_react["default"].createElement(_Text["default"], {
         key: "title",
         className: styles.title,
         text: title || (icon ? '' : "".concat(i + 1))
       }) || null];
     }
 
-    return _react["default"].createElement(DotWrapper, {
+    return /*#__PURE__*/_react["default"].createElement(DotWrapper, {
       key: "step-".concat(+i),
       className: (0, _classnames3["default"])(styles.step, (_classnames2 = {}, _defineProperty(_classnames2, styles.finished, i < currentIndex), _defineProperty(_classnames2, styles.clickable, isClickable), _classnames2)),
       onClick: isClickable ? function () {
         return onChange(i + 1);
       } : null
-    }, i > 0 && _react["default"].createElement("div", {
+    }, i > 0 && /*#__PURE__*/_react["default"].createElement("div", {
       className: styles['step-tail']
-    }), _react["default"].createElement("div", {
+    }), /*#__PURE__*/_react["default"].createElement("div", {
       className: styles['step-content']
     }, contentNode));
   }));

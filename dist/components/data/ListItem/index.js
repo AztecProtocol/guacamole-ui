@@ -65,26 +65,26 @@ var ListItem = function ListItem(_ref) {
       valign = _ref.valign,
       nowrap = _ref.nowrap,
       showEllipsis = _ref.showEllipsis;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": testId,
     className: (0, _classnames2["default"])(className, styles['list-item'], styles["size-".concat(size)], (_classnames = {}, _defineProperty(_classnames, styles['no-description'], !description), _defineProperty(_classnames, styles['valign-center'], valign === 'center'), _defineProperty(_classnames, styles.wrap, !nowrap && valign !== 'center'), _defineProperty(_classnames, styles.nowrap, nowrap), _defineProperty(_classnames, styles.showEllipsis, showEllipsis), _classnames))
-  }, (icon || iconName) && _react["default"].createElement("div", {
+  }, (icon || iconName) && /*#__PURE__*/_react["default"].createElement("div", {
     className: styles.icon
-  }, _react["default"].createElement(_Icon["default"], _extends({
+  }, /*#__PURE__*/_react["default"].createElement(_Icon["default"], _extends({
     name: iconName,
     color: iconColor,
     size: _listItem.listItemIconSizeMap[size],
     rotate: iconRotate
-  }, icon))), avatar && _react["default"].createElement("div", {
+  }, icon))), avatar && /*#__PURE__*/_react["default"].createElement("div", {
     className: styles.avatar
-  }, _react["default"].createElement(_Avatar["default"], _extends({}, avatar, {
+  }, /*#__PURE__*/_react["default"].createElement(_Avatar["default"], _extends({}, avatar, {
     size: size
-  }))), _react["default"].createElement("div", {
+  }))), /*#__PURE__*/_react["default"].createElement("div", {
     className: styles.content
-  }, title && _react["default"].createElement(_Text["default"], {
+  }, title && /*#__PURE__*/_react["default"].createElement(_Text["default"], {
     text: title,
     size: avatar ? _listItem.listItemAvatarTextSizeMap[size] : size
-  }), description && _react["default"].createElement("div", null, _react["default"].createElement(_Text["default"], {
+  }), description && /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(_Text["default"], {
     text: description,
     size: size === 'l' ? 'xs' : 'xxs',
     color: "primary-lighter"

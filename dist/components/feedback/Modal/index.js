@@ -43,15 +43,19 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var styles = {
   "modal": "modal-b9d0f0e0",
@@ -70,17 +74,17 @@ var valignMap = {
   bottom: 'flex-end'
 };
 
-var Modal =
-/*#__PURE__*/
-function (_PureComponent) {
+var Modal = /*#__PURE__*/function (_PureComponent) {
   _inherits(Modal, _PureComponent);
+
+  var _super = _createSuper(Modal);
 
   function Modal(props) {
     var _this;
 
     _classCallCheck(this, Modal);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Modal).call(this, props));
+    _this = _super.call(this, props);
     _this.handleClickOverlay = _this.handleClickOverlay.bind(_assertThisInitialized(_this));
     _this.handleKeypress = _this.handleKeypress.bind(_assertThisInitialized(_this));
     return _this;
@@ -170,7 +174,7 @@ function (_PureComponent) {
         return null;
       }
 
-      return _react["default"].createElement(_ModalHeader["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_ModalHeader["default"], {
         className: styles.header,
         icon: headerIcon,
         hasCloseIcon: hasCloseIcon,
@@ -186,7 +190,7 @@ function (_PureComponent) {
         return null;
       }
 
-      return _react["default"].createElement(_ModalFooter["default"], null, footer);
+      return /*#__PURE__*/_react["default"].createElement(_ModalFooter["default"], null, footer);
     }
   }, {
     key: "render",
@@ -203,21 +207,21 @@ function (_PureComponent) {
           hasBackground = _this$props5.hasBackground,
           autoWidth = _this$props5.autoWidth,
           stretch = _this$props5.stretch;
-      return _react["default"].createElement(_Overlay["default"], {
+      return /*#__PURE__*/_react["default"].createElement(_Overlay["default"], {
         testId: testId,
         className: className,
         theme: hasBackground ? theme : '',
         hide: hide,
         onClick: this.handleClickOverlay
-      }, _react["default"].createElement(_PageContentWrapper["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_PageContentWrapper["default"], {
         className: (0, _classnames2["default"])(styles.modal, (_classnames = {}, _defineProperty(_classnames, styles.hide, hide), _defineProperty(_classnames, styles['auto-width'], autoWidth), _classnames)),
         alignCenter: true,
         stretch: true
-      }, _react["default"].createElement(_FlexBox["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_FlexBox["default"], {
         className: styles.wrapper,
         align: "center",
         valign: valignMap[valign]
-      }, _react["default"].createElement(_Block["default"], {
+      }, /*#__PURE__*/_react["default"].createElement(_Block["default"], {
         className: styles.container,
         background: "white",
         layer: 2,
@@ -226,7 +230,7 @@ function (_PureComponent) {
           return e.stopPropagation();
         },
         stretch: stretch
-      }, this.renderHeader(), _react["default"].createElement("div", {
+      }, this.renderHeader(), /*#__PURE__*/_react["default"].createElement("div", {
         className: styles.content
       }, !hide && children), this.renderFooter()))));
     }
