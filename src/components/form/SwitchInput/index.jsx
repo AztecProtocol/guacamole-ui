@@ -73,6 +73,7 @@ class SwitchInput extends PureComponent {
     const {
       testId,
       className,
+      theme,
       size,
       disabled,
       isLoading,
@@ -85,6 +86,7 @@ class SwitchInput extends PureComponent {
         className={classnames(
           className,
           styles.wrapper,
+          styles[`theme-${theme}`],
           styles[`size-${size}`],
           {
             [styles.checked]: checked,
@@ -116,6 +118,7 @@ class SwitchInput extends PureComponent {
 SwitchInput.propTypes = {
   testId: PropTypes.string,
   className: PropTypes.string,
+  theme: PropTypes.oneOf(['light', 'dark']),
   size: PropTypes.oneOf(inputSizeKeys),
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -128,6 +131,7 @@ SwitchInput.propTypes = {
 SwitchInput.defaultProps = {
   testId: undefined,
   className: '',
+  theme: 'light',
   size: 's',
   checked: undefined,
   disabled: false,

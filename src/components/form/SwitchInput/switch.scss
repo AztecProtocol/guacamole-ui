@@ -96,3 +96,42 @@ $switch-loading-color: rgba($default-input-active-outline-color, 0.3);
   opacity: 0.3;
   cursor: not-allowed;
 }
+
+.theme-dark {
+  $dark-border-color: get-color('white-light');
+  @include background('transparent');
+  border-color: $dark-border-color;
+
+  .switch-button {
+    @include background('white-lightest');
+    border-color: get-color('white');
+  }
+
+  .spinner {
+    @include spinner-style(get-color('white'));
+  }
+
+  &.checked {
+    &.loading {
+      @include background('white-lightest');
+      border-color: get-color('white-lighter');
+    }
+    &.outlined {
+      background: none;
+      border-color: $dark-border-color;
+    }
+  }
+
+  &.loading {
+    @include background('transparent');
+    border-color: $dark-border-color;
+
+    .switch-button {
+      border-color: get-color('white');
+    }
+  }
+
+  &.outlined {
+    border-color: $dark-border-color;
+  }
+}
