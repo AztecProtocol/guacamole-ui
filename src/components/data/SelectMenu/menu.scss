@@ -99,3 +99,25 @@ a.item {
     max-height: 0;
   }
 }
+
+.theme-dark {
+  .hovered {
+    @include background('grey-darker');
+    color: get-text-color-on-background('grey-darker');
+  }
+
+  .selected {
+    @include background('black');
+    color: get-text-color-on-background('black');
+  }
+
+  .caption {
+    color: get-color('white-light');
+  }
+
+  .has-divider {
+    .item {
+      border-color: get-color('white-lightest');
+    }
+  }
+}

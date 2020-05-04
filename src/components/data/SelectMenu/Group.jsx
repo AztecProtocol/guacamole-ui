@@ -123,6 +123,7 @@ class Group extends PureComponent {
 
   render() {
     const {
+      theme,
       size,
       padding,
       caption,
@@ -136,6 +137,7 @@ class Group extends PureComponent {
 
     return (
       <div className={classnames(
+        styles[`theme-${theme}`],
         styles[`group-${groupSize}`],
         {
           [styles[`pad-${padding}`]]: padding && padding !== '0',
@@ -159,6 +161,7 @@ class Group extends PureComponent {
 }
 
 Group.propTypes = {
+  theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   size: PropTypes.oneOf(shapeSizeKeys).isRequired,
   padding: PropTypes.string,
   caption: PropTypes.shape(listItemShape),

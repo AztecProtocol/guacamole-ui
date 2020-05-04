@@ -132,6 +132,7 @@ class SelectMenu extends PureComponent {
     const {
       testId,
       className,
+      theme,
       size,
       itemGroups,
       background,
@@ -149,7 +150,7 @@ class SelectMenu extends PureComponent {
       <Block
         testId={testId}
         className={className}
-        background={background}
+        background={background || (theme === 'dark' ? 'grey-darker' : 'white')}
         padding={`${paddingV} 0`}
         borderRadius={borderRadius}
         layer={layer}
@@ -159,6 +160,7 @@ class SelectMenu extends PureComponent {
           <Group
             key={+i}
             {...group}
+            theme={theme}
             size={size}
             padding={paddingH || paddingV}
             selectedValue={selectedValue}
@@ -177,6 +179,7 @@ class SelectMenu extends PureComponent {
 SelectMenu.propTypes = {
   testId: PropTypes.string,
   className: PropTypes.string,
+  theme: PropTypes.oneOf(['dark', 'light']),
   size: PropTypes.oneOf(shapeSizeKeys),
   itemGroups: PropTypes.arrayOf(itemGroupShape),
   background: PropTypes.string,
@@ -195,9 +198,10 @@ SelectMenu.propTypes = {
 SelectMenu.defaultProps = {
   testId: undefined,
   className: '',
+  theme: 'light',
   size: 'xs',
   itemGroups: [],
-  background: 'white',
+  background: '',
   padding: '0 l',
   borderRadius: '',
   layer: 0,

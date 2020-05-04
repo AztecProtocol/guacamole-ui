@@ -8,6 +8,8 @@ import {
   inputThemeNames,
   inputSizeKeys,
   defaultInputSizeKey,
+  backgroundNames,
+  roundedCornerKeys,
 } from 'src/config/styleConstants';
 import itemGroupShape from 'src/shapes/itemGroupShape';
 import iconShape from 'src/shapes/iconShape';
@@ -282,10 +284,13 @@ class SelectInput extends PureComponent {
 
   renderMenu() {
     const {
+      theme,
       itemGroups,
       MenuComponent,
       hasItemDivider,
       highlightSelected,
+      menuBackground,
+      menuBorderRadius,
     } = this.props;
     const {
       showMenu,
@@ -300,6 +305,9 @@ class SelectInput extends PureComponent {
         disabledClickOutside
       >
         <MenuComponent
+          theme={theme === 'dark' ? 'dark' : 'light'}
+          background={menuBackground}
+          borderRadius={menuBorderRadius}
           selectedValue={highlightSelected ? value : ''}
           hoveredValue={hoveredIndex >= 0 ? flattenValues[hoveredIndex] : ''}
           itemGroups={itemGroups}
@@ -333,13 +341,14 @@ class SelectInput extends PureComponent {
       inputIcon = {
         name: 'cancel',
         size: 's',
-        color: 'grey-light',
+        color: theme === 'dark' ? 'white' : 'grey-light',
       };
     } else {
       inputIcon = icon
         || {
           name: showMenu ? 'expand_less' : 'expand_more',
           size: 'l',
+          color: theme === 'dark' ? 'white' : 'secondary',
         };
     }
 
@@ -408,6 +417,8 @@ SelectInput.propTypes = {
   icon: iconShape,
   InputComponent: PropTypes.func,
   MenuComponent: PropTypes.func,
+  menuBackground: PropTypes.oneOf(backgroundNames),
+  menuBorderRadius: PropTypes.oneOf(roundedCornerKeys),
 };
 
 SelectInput.defaultProps = {
@@ -431,6 +442,8 @@ SelectInput.defaultProps = {
   icon: null,
   InputComponent: TextInput,
   MenuComponent: SelectMenu,
+  menuBackground: '',
+  menuBorderRadius: '',
 };
 
 export default SelectInput;
