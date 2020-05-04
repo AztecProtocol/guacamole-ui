@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import {
+  inputThemeNames,
   inputSizeKeys,
 } from 'src/config/styleConstants';
 import TextInput from '../TextInput';
@@ -358,7 +359,7 @@ class MaskedNumberInput extends PureComponent {
 MaskedNumberInput.propTypes = {
   testId: PropTypes.string,
   className: PropTypes.string,
-  theme: PropTypes.oneOf(['default', 'inline']),
+  theme: PropTypes.oneOf(inputThemeNames),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(inputSizeKeys),
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
