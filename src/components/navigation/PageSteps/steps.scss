@@ -10,6 +10,7 @@
 .step {
   position: relative;
   padding: get-spacing('m') get-spacing('xxl');
+  text-decoration: none;
 
   &:after {
     @include background('secondary');

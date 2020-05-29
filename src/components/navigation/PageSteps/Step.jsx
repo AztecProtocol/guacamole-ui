@@ -9,7 +9,7 @@ const PageSteps = ({
   active,
   href,
   onClick,
-  isRouterLink,
+  Link,
 }) => {
   if (href || onClick) {
     return (
@@ -23,7 +23,7 @@ const PageSteps = ({
         )}
         onClick={onClick}
         href={href}
-        isRouterLink={isRouterLink}
+        Link={Link}
       >
         {title}
       </Clickable>
@@ -49,14 +49,18 @@ PageSteps.propTypes = {
   active: PropTypes.bool,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  isRouterLink: PropTypes.bool,
+  Link: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.object,
+  ]),
 };
 
 PageSteps.defaultProps = {
   active: false,
   href: '',
   onClick: null,
-  isRouterLink: false,
+  Link: 'a',
 };
 
 export default PageSteps;
