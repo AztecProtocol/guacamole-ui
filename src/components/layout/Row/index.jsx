@@ -8,16 +8,16 @@ import FlexBox from '../FlexBox';
 import styles from './row.scss';
 
 const Row = ({
-  testId,
+  className,
   margin,
   ...props
 }) => (
   <FlexBox
-    testId={testId}
+    {...props}
     className={classnames(
+      className,
       (margin && margin !== 'none' && generateResponsiveStyleNames('margin', margin).map((n) => styles[n])) || '',
     )}
-    {...props}
   />
 );
 
