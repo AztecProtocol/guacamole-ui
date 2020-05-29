@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -11,6 +12,7 @@ const PageSteps = ({
   theme,
   steps,
   currentStep,
+  withoutIndex,
 }) => (
   <div
     data-testid={testId}
@@ -30,7 +32,7 @@ const PageSteps = ({
         <Step
           {...step}
           key={`${+i}`}
-          title={`${i + 1}. ${title}`}
+          title={withoutIndex ? title : `${i + 1}. ${title}`}
           active={i + 1 === currentStep}
         />
       ))}
@@ -53,6 +55,7 @@ PageSteps.propTypes = {
     ]),
   })).isRequired,
   currentStep: PropTypes.number,
+  withoutIndex: PropTypes.bool,
 };
 
 PageSteps.defaultProps = {
@@ -60,6 +63,7 @@ PageSteps.defaultProps = {
   className: '',
   theme: 'primary',
   currentStep: 0,
+  withoutIndex: false,
 };
 
 export default PageSteps;
