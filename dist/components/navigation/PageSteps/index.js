@@ -38,7 +38,8 @@ var PageSteps = function PageSteps(_ref) {
       className = _ref.className,
       theme = _ref.theme,
       steps = _ref.steps,
-      currentStep = _ref.currentStep;
+      currentStep = _ref.currentStep,
+      withoutIndex = _ref.withoutIndex;
   return /*#__PURE__*/_react["default"].createElement("div", {
     "data-testid": testId,
     className: (0, _classnames["default"])(className, styles.steps, styles["theme-".concat(theme)])
@@ -50,7 +51,7 @@ var PageSteps = function PageSteps(_ref) {
 
     return /*#__PURE__*/_react["default"].createElement(_Step["default"], _extends({}, step, {
       key: "".concat(+i),
-      title: "".concat(i + 1, ". ").concat(title),
+      title: withoutIndex ? title : "".concat(i + 1, ". ").concat(title),
       active: i + 1 === currentStep
     }));
   })));
@@ -66,13 +67,15 @@ PageSteps.propTypes = {
     onClick: _propTypes["default"].func,
     Link: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].func, _propTypes["default"].object])
   })).isRequired,
-  currentStep: _propTypes["default"].number
+  currentStep: _propTypes["default"].number,
+  withoutIndex: _propTypes["default"].bool
 };
 PageSteps.defaultProps = {
   testId: undefined,
   className: '',
   theme: 'primary',
-  currentStep: 0
+  currentStep: 0,
+  withoutIndex: false
 };
 var _default = PageSteps;
 exports["default"] = _default;

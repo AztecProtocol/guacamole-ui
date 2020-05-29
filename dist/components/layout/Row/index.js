@@ -87,16 +87,15 @@ var styles = {
 };
 
 var Row = function Row(_ref) {
-  var testId = _ref.testId,
+  var className = _ref.className,
       margin = _ref.margin,
-      props = _objectWithoutProperties(_ref, ["testId", "margin"]);
+      props = _objectWithoutProperties(_ref, ["className", "margin"]);
 
-  return /*#__PURE__*/_react["default"].createElement(_FlexBox["default"], _extends({
-    testId: testId,
-    className: (0, _classnames["default"])(margin && margin !== 'none' && (0, _generateResponsiveStyleNames["default"])('margin', margin).map(function (n) {
+  return /*#__PURE__*/_react["default"].createElement(_FlexBox["default"], _extends({}, props, {
+    className: (0, _classnames["default"])(className, margin && margin !== 'none' && (0, _generateResponsiveStyleNames["default"])('margin', margin).map(function (n) {
       return styles[n];
     }) || '')
-  }, props));
+  }));
 };
 
 Row.propTypes = {

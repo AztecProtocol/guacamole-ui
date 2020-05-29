@@ -32,14 +32,14 @@ var PageSteps = function PageSteps(_ref) {
       active = _ref.active,
       href = _ref.href,
       onClick = _ref.onClick,
-      isRouterLink = _ref.isRouterLink;
+      Link = _ref.Link;
 
   if (href || onClick) {
     return /*#__PURE__*/_react["default"].createElement(_Clickable["default"], {
       className: (0, _classnames3["default"])(styles.step, styles.button, _defineProperty({}, styles.active, active)),
       onClick: onClick,
       href: href,
-      isRouterLink: isRouterLink
+      Link: Link
     }, title);
   }
 
@@ -53,13 +53,13 @@ PageSteps.propTypes = {
   active: _propTypes["default"].bool,
   href: _propTypes["default"].string,
   onClick: _propTypes["default"].func,
-  isRouterLink: _propTypes["default"].bool
+  Link: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].func, _propTypes["default"].object])
 };
 PageSteps.defaultProps = {
   active: false,
   href: '',
   onClick: null,
-  isRouterLink: false
+  Link: 'a'
 };
 var _default = PageSteps;
 exports["default"] = _default;

@@ -9996,7 +9996,8 @@ a.button-e7b9830c:focus {
 
 .steps-e7ead84a {
   position: relative;
-  padding: 12px 36px; }
+  padding: 12px 36px;
+  text-decoration: none; }
   .steps-e7ead84a:after {
     background: #4a90e2;
     content: '';
